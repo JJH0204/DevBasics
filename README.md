@@ -15,23 +15,30 @@
 
 ## 학습 과정
 ### 1. C
-    1) 기초 문법
-       - 변수 선언 및 할당
-       - 배열
-       - 다차원 배열
-       - if(if~else) 조건문
-       - 문자열
-       - 반복문
-       - 함수
-       - 정적 선언
-    2) 고급 문법
-       - 포인터
-       - 구조체
-       - 함수와 인수의 참조관계
-       - 동적할당
-       - 배열과 포인터의 관계
-       - 재귀함수
-       - 링크드 리스트
+#### Learn the Basics
+- Hello, World!
+- Variables and Types
+- Arrays
+- Multidimensional Arrays
+- Conditions
+- Strings
+- For loops
+- While loops
+- Functions
+- Static
+#### Advanced
+- Pointers
+- Structures
+- Function arguments by reference
+- Dynamic allocation
+- Arrays and Pointers
+- Recursion
+- Linked lists
+- Binary trees
+- Unions
+- Pointer Arithmetics
+- Function Pointers
+- Bitmasks
 ### 2. 자료구조
 ### 3. 알고리즘
 ### 4. C++
