@@ -17,9 +17,9 @@ typedef struct LinkedLists
 LinkedLists * NewList(void);
 void Push(LinkedLists * List, int val, int AddPos);
 Node * SearchNode (Node * headNode, int SearchType, int NodeNum);
-void PrintList (LinkedLists * List, int PrintType, int PrintNum);
+void PrintList (LinkedLists * List);
 void Pop(LinkedLists * List, int PopPos);
-LinkedLists * Clear(LinkedLists ** List);
+void Clear(LinkedLists ** List);
 
 void Ex_Code_1(void)
 {
@@ -33,23 +33,23 @@ void Ex_Code_1(void)
     
 
     /* TODO: Push, Add Data to Linked List*/
-    Push(List, 1, -1);   //Push to Last Node
-    Push(List, 10, 0);   //Push to First Node
-    Push(List, 5, 1);    //Push to data you want position
+    Push(List, 1, -1);  //Push to Last Node
+    Push(List, 10, 0);  //Push to First Node
+    Push(List, 5, 1);   //Push to data you want position
 
     /* TODO: 리스트 출력*/
-    PrintList(List, -1, 0); // Print all list item 
-    PrintList(List, 1, 1);  // Print any list item
+    PrintList(List);    // Print all list item 
 
     /* TODO: Pop, Removed list item*/
     Pop(List, 0);
-    PrintList(List, -1, 0);
+    PrintList(List);
     Pop(List, 1);
-    PrintList(List, -1, 0);
+    PrintList(List);
     printf("%d\n", List->N_Count);
 
     /* TODO: List All Clear*/
-    List = Clear(&List);
+    Clear(&List);
+    PrintList(List);
 
     return;
 }
@@ -69,6 +69,7 @@ LinkedLists * NewList(void)
     newList->N_Count=0;
     return newList;
 }
+
 void Push(LinkedLists * List, int val, int AddPos)
 {
     Node * AddNode = NULL;
@@ -161,46 +162,22 @@ Node * SearchNode (Node * headNode, int SearchType, int NodeNum)
     }
     return headNode;
 }
-void PrintList (LinkedLists * List, int PrintType, int PrintNum)
+void PrintList (LinkedLists * List)
 {
-    int i;
     Node * PrintNode = NULL;
 
-    if (List == NULL)
+    if (List == NULL || List->header == NULL)
     {
         printf("No List.\n");
-        return;
-    }
-    
-    if (List->header == NULL)
-    {
-        printf("No Data in List.\n");
         return;
     }
 
     PrintNode = List->header;
 
-    /*리스트 전부 출력*/
-    if (PrintType == -1)
-    {  
-        while (PrintNode != NULL)
-        {
-            printf("%d ", PrintNode->val);
-            PrintNode = PrintNode->next;
-        }
-    }
-    /*리스트 일부 출력*/
-    else
+    while (PrintNode != NULL)
     {
-        for (i = 0; i < PrintNum; i++)
-        {
-            if (PrintNode->next == NULL)
-            {
-                break;
-            }
-            PrintNode = PrintNode->next;
-        }
         printf("%d ", PrintNode->val);
+        PrintNode = PrintNode->next;
     }
     printf("\n");
 }
@@ -242,8 +219,21 @@ void Pop(LinkedLists * List, int PopPos)
     }
     List->N_Count--;
 }
-LinkedLists * Clear(LinkedLists ** List)
+void Clear(LinkedLists ** List)
 {
+    LinkedLists * current_List = *List;
+    Node * current_Node = current_List->header;
+    Node * temp_Node = current_Node->next;
 
-    return NULL;
+    free(current_List);
+
+    while (temp_Node != NULL)
+    {
+        free(current_Node);
+        current_Node = temp_Node;
+        temp_Node = temp_Node->next;
+    }
+    
+    printf("List All Clear~\n");
+    return;
 }
