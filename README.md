@@ -14,31 +14,33 @@
 - 각 개념을 실습하며, 작은 프로젝트 또는 알고리즘을 해결하며 이론과 실제를 연결합니다.
 
 ## 학습 과정
-### 1. C
-#### Learn the Basics
+### 1. [C](C_Cpp/C)
+#### [Learn the Basics](C_Cpp/C/Basics)
 - [Hello, World!](C_Cpp/C/Basics/1_Hello_C) :star:
-- Variables and Types :star:
-- Arrays :star:
-- Multidimensional Arrays :star:
-- Conditions :star:
-- Strings :star:
-- For loops :star:
-- While loops :star:
-- Functions :star:
-- Static :star:
-#### Advanced
-- Pointers :star:
-- Structures :star:
-- Function arguments by reference :star:
-- Dynamic allocation :star:
-- Arrays and Pointers :star:
-- Recursion :star:
-- Linked lists :star:
-- Binary trees
-- Unions
-- Pointer Arithmetics
-- Function Pointers
-- Bitmasks
+- [Variables and Types](C_Cpp/C/Basics/2_VariablesNTypes_C) :star:
+- [Arrays](C_Cpp/C/Basics/3_Arrays_C) :star:
+- [Multidimensional Arrays](C_Cpp/C/Basics/4_MultidimensionalArrays_C) :star:
+- [Conditions](C_Cpp/C/Basics/5_Conditions_C) :star:
+- [Strings](C_Cpp/C/Basics/6_Strings_C) :star:
+- [loops](C_Cpp/C/Basics/7_Loops_C) :star:
+- [Functions](C_Cpp/C/Basics/8_Functions_C) :star:
+- [Static](C_Cpp/C/Basics/9_Static_C) :star:
+#### [Advanced](C_Cpp/C/Advanced)
+- [Pointers](C_Cpp/C/Advanced/1_Pointers_C) :star:
+- [Structures](C_Cpp/C/Advanced/2_Structures_C) :star:
+- [Function arguments by reference](C_Cpp/C/Advanced/3_Function_arguments_by_reference_C) :star:
+- [Dynamic allocation](C_Cpp/C/Advanced/4_Dynamic_allocation_C) :star:
+- [Arrays and Pointers](C_Cpp/C/Advanced/5_ArrayNPointers_C) :star:
+- [Recursion](C_Cpp/C/Advanced/6_Recursion_C) :star:
+- [Linked lists](C_Cpp/C/Advanced/7_LinkedLists_C) :star:
+- [Binary trees](C_Cpp/C/Advanced/8_Binary_trees_C)
+- [Unions](C_Cpp/C/Advanced/9_Unions_C)
+- [Pointer Arithmetics](C_Cpp/C/Advanced/10_Pointer_Arithmetics_C)
+- [Function Pointers](C_Cpp/C/Advanced/11_Function_Pointers_C)
+- [Bitmasks](C_Cpp/C/Advanced/12_Bitmasks)
 ### 2. 자료구조
 ### 3. 알고리즘
 ### 4. C++
+
+## 참조
+* [Learn-c.org](https://www.learn-c.org/)
