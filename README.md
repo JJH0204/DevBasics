@@ -16,24 +16,24 @@
 ## 학습 과정
 ### 1. C
 #### Learn the Basics
-- Hello, World!
-- Variables and Types
-- Arrays
-- Multidimensional Arrays
-- Conditions
-- Strings
-- For loops
-- While loops
-- Functions
-- Static
+- Hello, World! :star:
+- Variables and Types :star:
+- Arrays :star:
+- Multidimensional Arrays :star:
+- Conditions :star:
+- Strings :star:
+- For loops :star:
+- While loops :star:
+- Functions :star:
+- Static :star:
 #### Advanced
-- Pointers
-- Structures
-- Function arguments by reference
-- Dynamic allocation
-- Arrays and Pointers
-- Recursion
-- Linked lists
+- Pointers :star:
+- Structures :star:
+- Function arguments by reference :star:
+- Dynamic allocation :star:
+- Arrays and Pointers :star:
+- Recursion :star:
+- Linked lists :star:
 - Binary trees
 - Unions
 - Pointer Arithmetics
