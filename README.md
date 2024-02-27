@@ -16,7 +16,7 @@
 ## 학습 과정
 ### 1. C
 #### Learn the Basics
-- Hello, World! :star:
+- [Hello, World!](C_Cpp/C/Basics/1_Hello_C) :star:
 - Variables and Types :star:
 - Arrays :star:
 - Multidimensional Arrays :star:
