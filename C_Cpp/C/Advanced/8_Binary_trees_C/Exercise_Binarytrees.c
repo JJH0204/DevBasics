@@ -1,7 +1,13 @@
 //Exercise_Binarytrees.c
-/*Below is an implementation of a binary tree that has insertion and printing capabilities. This tree is ordered but not balanced. This example maintains its ordering at insertion time.
+/*
+Below is an implementation of a binary tree that has insertion and printing capabilities.
+(아래는 삽입 및 인쇄 기능을 갖는 이진 트리를 구현한 것이다.)
+This tree is ordered but not balanced. This example maintains its ordering at insertion time.
+(이 트리는 주문은 되어 있지만 균형이 맞지 않습니다. 이 예제는 삽입 시 순서를 유지합니다.)
 
-Change the print routine to depth-first search pre-order.*/
+Change the print routine to depth-first search pre-order.
+(인쇄 루틴을 깊이 우선 검색 선주문으로 변경합니다.)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 
