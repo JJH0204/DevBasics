@@ -15,3 +15,16 @@ All nodes have two child nodes except the last level. Fully binary trees are use
 
 ## Binary Search Tree (BST)
 A binary search tree is a binary tree that meets certain conditions. Based on a node N, the node's left subtree has nodes with all key values smaller than the key value of N, and the right subtree has nodes with all key values larger than the key value of N. Binary search trees allow you to visit nodes in ascending order of key values by performing a mid-order traversal.
+
+## Breadth-First Search (BFS)
+Indicates how to use Queue for the discovery of binary trees. By visiting nodes at each level, we start with the root node of the tree and navigate sequentially by level from left to right and from top to bottom. The reason for using queues in this process is to manage the navigation order.
+
+
+The basic algorithm for width-first navigation is as follows.
+1. Inserts the root node into the queue to start the discovery.
+2. Repeat the following steps unless the queue is empty.
+* Pull a node out of the queue.
+* Processes the node. (Performance of Function)
+* If there are child nodes on the left and child nodes on that node, insert them into the queue.
+
+This approach visits all nodes, and since each node is processed once, it is very useful for exploring by area (level) not only in full binary trees but also in typical binary trees.
