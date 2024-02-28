@@ -8,3 +8,10 @@ A Binary Tree is a type of data structure in which each node has at most two chi
      / \                    / \                /  \
     c   d                  t   y              11  15
 The operations performed on trees requires searching in one of two main ways: Depth First Search and Breadth-first search. Depth-first search (DFS) is an algorithm for traversing or searching tree or graph data structures. One starts at the root and explores as far as possible along each branch before backtracking. There are three types of depth first search traversal: pre-order visit, left, right, in-order left, visit, right, post-order left, right, visit. Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph structures. In level-order, where we visit every node on a level before going to a lower level.
+
+## Complete Binary Tree
+A type of binary tree, where all levels are filled with nodes, and all levels except the last are fully filled, the last level is a tree that is filled from left to right.
+All nodes have two child nodes except the last level. Fully binary trees are used in algorithms such as hip alignment.
+
+## Binary Search Tree (BST)
+A binary search tree is a binary tree that meets certain conditions. Based on a node N, the node's left subtree has nodes with all key values smaller than the key value of N, and the right subtree has nodes with all key values larger than the key value of N. Binary search trees allow you to visit nodes in ascending order of key values by performing a mid-order traversal.
