@@ -2,7 +2,7 @@
 포인터가 무엇인지, 포인터를 활용하는 방법을 이전에 배웠습니다. 이 튜토리얼에서는 포인터에 대한 산술 연산을 배우게 됩니다. C 포인터에 적용할 수 있는 산술 연산은 여러 가지가 있습니다: ++, --, -, +
 
 ## (++)를 사용하여 포인터 증가
-다른 변수들과 마찬가지로 ++연산은 그 변수의 값을 증가시킨다. In our case here the variable is a pointer hence when we increase its value we are increasing the address in the memory that pointer points to. Let's combine this operation with an array in our example:
+다른 변수들과 마찬가지로 ++연산은 그 변수의 값을 증가시킨다. 이런 경우 여기서 변수는 포인터이므로 값을 늘리면 포인터가 가리키는 메모리의 주소가 증가합니다. 예제에서는 이 작업을 배열과 결합해 보겠습니다.
 
     #include <stdio.h>
 
@@ -22,9 +22,8 @@
 
         return 0;
     }
-## Decreasing a Pointer with (--)
-Just like in our previous example we increased the pointer's pointed-to address by one using the ++ operator, we can decrease the address pointed-to by one using the decrement operator (--).
-
+## (--)를 사용하여 포인터 감소
+이전 예제와 마찬가지로 연산자를 사용하여 포인터가 가리키는 주소를 1만큼 늘렸고, 감소 연산자(--)를 사용하여 가리키는 주소를 1만큼 줄일 수 있습니다.
     #include <stdio.h>
 
     int main()
@@ -43,8 +42,8 @@ Just like in our previous example we increased the pointer's pointed-to address 
 
         return 0;
     }
-## Adding Pointers with (+)
-We previously increased a pointer's pointed-to address by one. We can also increase it by an integer value such:
+## (+)로 포인터 추가하기
+이전에는 포인터가 가리키는 주소를 1만큼 늘렸습니다. 다음과 같이 정수 값으로 늘릴 수도 있습니다.
 
     #include <stdio.h>
 
@@ -64,10 +63,10 @@ We previously increased a pointer's pointed-to address by one. We can also incre
 
         return 0;
     }
-Note how in the output the address shifted by 8 steps in the memory. You might be wondering why? The answer is simple: Because our pointer is an int-pointer and the size of an int variable is 4 bytes the memory is shift-able by 4 blocks. In our code we shifted by 2 (added +2) to the initial address so that makes them 2 x 4 byte = 8.
+출력에서 주소가 메모리에서 8단계만큼 이동한 방법에 유의하세요. 포인터가 int 포인터이고 int 변수의 크기가 4바이트이기 때문에 메모리는 4블록만큼 이동할 수 있습니다. 우리 코드에서는 초기 주소에 2(2를 더함)만큼 이동하여 2 x 4 바이트 = 8이 되었습니다.
 
-## Subtracting Pointers with (-)
-Similarly we can subtract:
+## (-) 포인터 빼기 
+마찬가지로 다음을 뺄 수 있습니다.
 
     #include <stdio.h>
 
@@ -87,7 +86,7 @@ Similarly we can subtract:
 
         return 0;
     }
-again the address is shifted by blocks of 4bytes (in case of int).
+다시 한번 주소가 4바이트 블록만큼 이동됩니다(int의 경우).
 
-## Other Operations
-There are more operations such as comparison >, <, ==. The idea is very similar of comparing variables, but in this case we are comparing memory address.
+## 기타 연산자
+비교 >, <, == 등의 연산이 더 있습니다. 아이디어는 변수를 비교하는 것과 매우 유사하지만 이 경우에는 메모리 주소를 비교합니다.
