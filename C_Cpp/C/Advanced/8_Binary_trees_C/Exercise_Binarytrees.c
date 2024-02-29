@@ -6,7 +6,7 @@ This tree is ordered but not balanced. This example maintains its ordering at in
 (이 트리는 주문은 되어 있지만 균형이 맞지 않습니다. 이 예제는 삽입 시 순서를 유지합니다.)
 
 Change the print routine to depth-first search pre-order.
-(인쇄 루틴을 깊이 우선 검색 선주문으로 변경합니다.)
+(인쇄 루틴을 깊이 우선 검색 **전위 순회**로 변경합니다.)
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -80,12 +80,26 @@ void insert(node_t * tree, int val)
   }
 }
 
-/* depth-first search */
-void printDFS(node_t * current)
+/* depth-first search of **In-order Traversal** */
+// void printDFS(node_t * current)
+// {
+//   /* change the code here */
+//   if (current == NULL)         return;   /* security measure */
+//   if (current->left != NULL)   printDFS(current->left);
+//   if (current != NULL)         printf("%d ", current->val);
+//   if (current->right != NULL)  printDFS(current->right);
+// }
+
+void printDFS(node_t *current)
 {
   /* change the code here */
-  if (current == NULL)         return;   /* security measure */
-  if (current->left != NULL)   printDFS(current->left);
-  if (current != NULL)         printf("%d ", current->val);
-  if (current->right != NULL)  printDFS(current->right);
+  if (current == NULL)
+    return; /* security measure */
+    
+  if (current->left != NULL)
+    printDFS(current->left);
+  if (current != NULL)
+    printf("%d ", current->val);
+  if (current->right != NULL)
+    printDFS(current->right);
 }
