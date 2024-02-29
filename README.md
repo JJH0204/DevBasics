@@ -16,23 +16,23 @@
 ## 학습 과정
 ### 1. [C](C_Cpp/C)
 #### [Learn the Basics](C_Cpp/C/Basics)
-- [Hello, World!](C_Cpp/C/Basics/1_Hello_C) :star:
-- [Variables and Types](C_Cpp/C/Basics/2_VariablesNTypes_C) :star:
-- [Arrays](C_Cpp/C/Basics/3_Arrays_C) :star:
-- [Multidimensional Arrays](C_Cpp/C/Basics/4_MultidimensionalArrays_C) :star:
-- [Conditions](C_Cpp/C/Basics/5_Conditions_C) :star:
-- [Strings](C_Cpp/C/Basics/6_Strings_C) :star:
-- [loops](C_Cpp/C/Basics/7_Loops_C) :star:
-- [Functions](C_Cpp/C/Basics/8_Functions_C) :star:
-- [Static](C_Cpp/C/Basics/9_Static_C) :star:
+- [Hello, World!](C_Cpp/C/Basics/1_Hello_C) 📌 
+- [Variables and Types](C_Cpp/C/Basics/2_VariablesNTypes_C) 📌 
+- [Arrays](C_Cpp/C/Basics/3_Arrays_C) 📌 
+- [Multidimensional Arrays](C_Cpp/C/Basics/4_MultidimensionalArrays_C) 📌 
+- [Conditions](C_Cpp/C/Basics/5_Conditions_C) 📌 
+- [Strings](C_Cpp/C/Basics/6_Strings_C) 📌 
+- [loops](C_Cpp/C/Basics/7_Loops_C) 📌 
+- [Functions](C_Cpp/C/Basics/8_Functions_C) 📌 
+- [Static](C_Cpp/C/Basics/9_Static_C) 📌 
 #### [Advanced](C_Cpp/C/Advanced)
-- [Pointers](C_Cpp/C/Advanced/1_Pointers_C) :star:
-- [Structures](C_Cpp/C/Advanced/2_Structures_C) :star:
-- [Function arguments by reference](C_Cpp/C/Advanced/3_Function_arguments_by_reference_C) :star:
-- [Dynamic allocation](C_Cpp/C/Advanced/4_Dynamic_allocation_C) :star:
-- [Arrays and Pointers](C_Cpp/C/Advanced/5_ArrayNPointers_C) :star:
-- [Recursion](C_Cpp/C/Advanced/6_Recursion_C) :star:
-- [Linked lists](C_Cpp/C/Advanced/7_LinkedLists_C) :star:
+- [Pointers](C_Cpp/C/Advanced/1_Pointers_C) 📌 
+- [Structures](C_Cpp/C/Advanced/2_Structures_C) 📌 
+- [Function arguments by reference](C_Cpp/C/Advanced/3_Function_arguments_by_reference_C) 📌 
+- [Dynamic allocation](C_Cpp/C/Advanced/4_Dynamic_allocation_C) 📌 
+- [Arrays and Pointers](C_Cpp/C/Advanced/5_ArrayNPointers_C) 📌 
+- [Recursion](C_Cpp/C/Advanced/6_Recursion_C) 📌 
+- [Linked lists](C_Cpp/C/Advanced/7_LinkedLists_C) 📌 
 - [Binary trees](C_Cpp/C/Advanced/8_Binary_trees_C)
 - [Unions](C_Cpp/C/Advanced/9_Unions_C)
 - [Pointer Arithmetics](C_Cpp/C/Advanced/10_Pointer_Arithmetics_C)
