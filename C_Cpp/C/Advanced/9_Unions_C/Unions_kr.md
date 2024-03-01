@@ -75,7 +75,7 @@ use:
             int dime;
             int nickel;
             int penny;
-        }; // anonymous struct acts the same way as an anonymous union, members are on the outer container
+        }; // 익명 구조체는 익명 공용체와 동일한 방식으로 작동하며 멤버는 외부 컨테이너에 있습니다.
         int coins[4];
     };
 그 예에서 당신은 미국에 4개의 (공통) 동전을 포함하는 구조가 있다는 것을 알 수 있다.
@@ -85,7 +85,7 @@ use:
     union Coins change;
     for(int i = 0; i < sizeof(change) / sizeof(int); ++i)
     {
-        scanf("%i", change.coins + i); // BAD code! input is always suspect!
+        scanf("%i", change.coins + i); // 잘못된 코드입니다! 입력은 항상 주의해야 합니다.
     }
     printf("There are %i quarters, %i dimes, %i nickels, and %i pennies\n",
         change.quarter, change.dime, change.nickel, change.penny);
