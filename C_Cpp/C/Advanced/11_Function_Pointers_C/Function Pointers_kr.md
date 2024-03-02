@@ -2,18 +2,21 @@
 우리는 포인터를 사용하여 문자 배열을 가리키고 그 문자로 문자열을 만들었습니다. 그런 다음 이러한 포인터를 제어하는 ​​방법을 배웠을 때 상황이 더욱 흥미로워졌습니다. 이제 포인터를 사용하여 함수를 가리키고 호출하는 등 훨씬 더 흥미로운 작업을 수행할 차례입니다.
 
 ## 왜 함수를 가리키나요?
-The first question that may come to your mind is why would we use pointers to call a function when we can simply call a function by its name: function(); - that's a great question! Now imagine the sort function where you need to sort an array. Sometimes you want to order array elements in an ascending order or descending order. How would you choose? Function pointers!
+당신이 생각할 수 있는 첫 번째 질문은 단순히 이름만으로 함수를 호출할 수 있는데 왜 함수를 호출하기 위해 포인터를 사용하겠는가 하는 것입니다: function(); - 좋은 질문이네요! 이제 배열을 정렬해야 하는 정렬 기능을 상상해 보세요. 때로는 배열 요소를 오름차순이나 내림차순으로 정렬하고 싶을 때가 있습니다. 어떻게 선택하시겠어요? 함수 포인터!
 
 ## 함수 포인터 구문
     void (*pf)(int);
-I agree with you. This definitely is very complicated, or so you may think. Let's re-read that code and try to understand it point by point. Read it inside-out. *pf is the pointer to a function. void is the return type of that function, and finally int is the argument type of that function. Got it? Good.
+나는 당신에게 동의합니다. 이것은 확실히 매우 복잡하거나 그렇게 생각할 수도 있습니다. 해당 코드를 다시 읽고 하나씩 이해해 봅시다. 뒤집어서 읽어보세요. *pf는 함수에 대한 포인터입니다. void는 해당 함수의 반환 유형이고 마지막으로 int는 해당 함수의 인수 유형입니다.
 
-Let's insert pointers into the function pointer and try to read it again:
+함수 포인터에 포인터를 삽입하고 다시 읽어 보겠습니다.
 
     char* (*pf)(int*)
-Again: 1. *pf is the function pointer. 2. char* is the return type of that function. 3. int* is the type of the argument.
+다시 말하지만, 
+1. *pf는 함수 포인터입니다. 
+2. char*는 해당 함수의 반환 유형입니다. 
+3. int*는 인수의 유형입니다.
 
-Ok enough with theory. Let's get our hands dirty with some real code. See this example:
+이론으로는 충분합니다. 실제 코드로 손을 더럽혀 봅시다. 다음 예를 참조하세요.
 
     #include <stdio.h>
     void someFunction(int arg)
@@ -30,7 +33,7 @@ Ok enough with theory. Let's get our hands dirty with some real code. See this e
         (pf)(5);
         printf("Wow that was cool. Back to main now!\n\n");
     }
-Remember sort() we talked about earlier? We can do the same with it. Instead of ordering a set in an ascending way we can do the opposite using our own comparison function as follows:
+앞서 이야기한 sort()를 기억하시나요? 우리도 똑같이 할 수 있습니다. 집합을 오름차순으로 정렬하는 대신 다음과 같이 자체 비교 함수를 사용하여 반대의 작업을 수행할 수 있습니다.
 
     #include <stdio.h>
     #include <stdlib.h> //for qsort()
@@ -55,4 +58,10 @@ Remember sort() we talked about earlier? We can do the same with it. Instead of 
             c++;
         }
     }
-Let's remember again. Why do we use function pointers? 1. To allow programmers to use libraries for different usages -> "Flexibility"
+
+## 함수 포인터를 사용하는 이유는 무엇입니까? 
+1. 프로그램 실행 흐름을 유연하게 제어할 수 있다.
+   (콜백 함수를 구현하는 등 다양한 프로그래밍 기법을 가능하게 함)
+2. 함수 포인터를 매개변수로 받는 함수 정의 가능하다.
+   전달되는 인자에 따라 달리 동작하는 함수를 구현할 수 있다.
+3. 다양한 상황에서 코드의 재사용성과 유지 보수성을 높인다.
