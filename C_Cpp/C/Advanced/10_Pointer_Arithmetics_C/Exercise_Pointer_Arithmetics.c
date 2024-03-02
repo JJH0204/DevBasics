@@ -12,12 +12,15 @@ int main()
     // Array of 3 pointers
     int *parray[3];
 
+    // printf("%d ", *pointer);
+    
     // Copy last three addresses of intarray into parray
     // Use parray and pointer
     int i;
     for (i = 0; i < 3; i++)
     {
         // Insert code here
+        parray[i] = pointer + i;
     }
 
     // Test code
