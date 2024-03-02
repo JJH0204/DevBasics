@@ -30,4 +30,7 @@ int main() {
     clang: error: no such file or directory: 'copy'
     clang: error: no input files
     *///왜 에러가 날까?
+    /*
+    파일 명칭에 공백이 있어서 발생한 오륜
+    */
 }
