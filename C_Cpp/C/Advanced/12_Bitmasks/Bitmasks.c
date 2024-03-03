@@ -28,10 +28,139 @@
 */
 
 #include <stdio.h>
+#include <stdlib.h> // for malloc()
 
+// AND(&) 예제
+int Ex_AND (int val_A, int val_B);
+// OR(|) 예제
+int Ex_OR(int val_A, int val_B);
+// XOR(^) 예제
+int Ex_XOR(int val_A, int val_B);
+// NOT(~) 예제
+int Ex_NOT(int val_A);
+// Left shift(<<) 예제
+int Ex_LeftShift(int val_A, int val_C);
+// Right shift(>>) 예제
+int Ex_RightShift(int val_A, int val_C);
+// 2진 출력 함수
+void print_Binary(int val_A, int data_Size);
 
 int main(void)
 {
-    // storage \= 1 << n;??
+    // AND(&) 예제
+    Ex_AND(1, 2);
+    // 1 & 2 = 000000001 & 000000010 = 0 (000000000)
+
+    // OR(|) 예제
+    Ex_OR(10, 4);
+    // 1 | 2 = 000000001 | 000000010 = 3 (000000011)
+
+    // XOR(^) 예제
+    Ex_XOR(10, 2);
+    // 10 ^ 2 = 000001010 ^ 000000010 = 8 (000001000)
+
+    // NOT(~) 예제
+    Ex_NOT(10);
+    // ~10 (000001010) = -11 (111110101)
+
+    // Left shift(<<) 예제
+    Ex_LeftShift(4, 2);
+    // 4 << 2 = 000000100 << 2 = 16 (000010000)
+
+    // Right shift(>>) 예제
+    Ex_RightShift(16, 1);
+    // 16 >> 1 = 000010000 >> 1 = 8 (000001000)
+
+    return 0;
+}
+
+void print_Binary(int val_A, int data_Size)
+{
+    // C에는 2진수 출력을 위한 별도의 라이브러리나 함수를 지원하지 않는다.
+    // 따라서 직접 구현하는 방법 밖에 없다.
+    // 이번 2진수 출력 함수는 비트 마스크(비트 연산)를 활용한다.
+    
+    for (int i = data_Size * 2; i >= 0; i--)
+    {
+        int result  = val_A >> i & 1;
+        printf("%d", result);
+    }
+}
+
+int Ex_AND(int val_A, int val_B)
+{
+    int result = val_A & val_B;
+
+    printf("%d & %d = ", val_A, val_B);
+    print_Binary(val_A, sizeof(int));
+    printf(" & ");
+    print_Binary(val_B, sizeof(int));
+    printf(" = %d (", result);
+    print_Binary(result, sizeof(int));
+    printf(")\n");
+    return 0;
+}
+
+int Ex_OR(int val_A, int val_B)
+{
+    int result = val_A | val_B;
+
+    printf("%d | %d = ", val_A, val_B);
+    print_Binary(val_A, sizeof(int));
+    printf(" | ");
+    print_Binary(val_B, sizeof(int));
+    printf(" = %d (", result);
+    print_Binary(result, sizeof(int));
+    printf(")\n");
+    return 0;
+}
+
+int Ex_XOR(int val_A, int val_B)
+{
+    int result = val_A ^ val_B;
+
+    printf("%d ^ %d = ", val_A, val_B);
+    print_Binary(val_A, sizeof(int));
+    printf(" ^ ");
+    print_Binary(val_B, sizeof(int));
+    printf(" = %d (", result);
+    print_Binary(result, sizeof(int));
+    printf(")\n");
+    return 0;
+}
+
+int Ex_NOT(int val_A)
+{
+    int result = ~val_A;
+
+    printf("~%d (", val_A);
+    print_Binary(val_A, sizeof(int));
+    printf(") = %d (", result);
+    print_Binary(result, sizeof(int));
+    printf(")\n");
+    return 0;
+}
+
+int Ex_LeftShift(int val_A, int val_C)
+{
+    int result = val_A << val_C;
+
+    printf("%d << %d = ", val_A, val_C);
+    print_Binary(val_A, sizeof(int));
+    printf(" << %d = %d (", val_C, result);
+    print_Binary(result, sizeof(int));
+    printf(")\n");
+    return 0;
+}
+
+int Ex_RightShift(int val_A, int val_C)
+{
+    int result = val_A >> val_C;
+
+    printf("%d >> %d = ", val_A, val_C);
+    print_Binary(val_A, sizeof(int));
+    printf(" >> %d = %d (", val_C, result);
+    print_Binary(result, sizeof(int));
+    printf(")\n");
     return 0;
 }

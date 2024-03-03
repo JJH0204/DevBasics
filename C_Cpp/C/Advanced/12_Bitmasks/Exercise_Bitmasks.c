@@ -14,7 +14,7 @@ const short FLAG_EDIBLE = 1 << 5;       // 32 (0x20)
 
 int main()
 {
-    short attributes = 0;
+    short attributes = (FLAG_ON | FLAG_TRANSPARENT | FLAG_BROKEN);
 
     /* Set the attributes ON, TRANSPARENT, and BROKEN */
     /* ON, TRANSPARENT, BROKEN 속성을 설정합니다 */
@@ -25,20 +25,26 @@ int main()
     /* Modify (set/clear/toggle) so the only attributes are ON and ALIVE */
     /* ON 및 ALIVE 속성만 있도록 수정(설정/삭제/전환) */
 
+    attributes = attributes >> 1;
+    attributes = attributes & FLAG_ALIVE;
+    attributes = attributes | FLAG_ON;
+
     assert(attributes == (FLAG_ON | FLAG_ALIVE));
 
     /* Check if the ALIVE flag is set */
     /* ALIVE 플래그가 설정되어 있는지 확인 */
     
-    assert(attributes == FLAG_ALIVE);
+    assert(attributes & FLAG_ALIVE);
 
     /* Check if the BROKEN flag is not set */
     /* BROKEN 플래그가 설정되어 있지 않은지 확인 */
 
-    assert(attributes == FLAG_BROKEN);
+    assert(~attributes & FLAG_BROKEN);
 
     /* Modify so only the EDIBLE attribute is set */
     /* EDIBLE 속성만 설정되도록 수정 */
+    attributes = attributes << 2;
+    attributes = attributes & FLAG_EDIBLE;
 
     assert(attributes == FLAG_EDIBLE);
 
