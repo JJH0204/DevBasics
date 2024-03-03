@@ -34,12 +34,23 @@
 - [Recursion](C_Cpp/C/Advanced/6_Recursion_C) 📌 
 - [Linked lists](C_Cpp/C/Advanced/7_LinkedLists_C) 📌 
 - [Binary trees](C_Cpp/C/Advanced/8_Binary_trees_C)
-- [Unions](C_Cpp/C/Advanced/9_Unions_C)
-- [Pointer Arithmetics](C_Cpp/C/Advanced/10_Pointer_Arithmetics_C)
-- [Function Pointers](C_Cpp/C/Advanced/11_Function_Pointers_C)
-- [Bitmasks](C_Cpp/C/Advanced/12_Bitmasks)
-### 2. 자료구조
-### 3. 알고리즘
+- [Unions](C_Cpp/C/Advanced/9_Unions_C) 📌
+- [Pointer Arithmetics](C_Cpp/C/Advanced/10_Pointer_Arithmetics_C) 📌
+- [Function Pointers](C_Cpp/C/Advanced/11_Function_Pointers_C) 📌
+- [Bitmasks](C_Cpp/C/Advanced/12_Bitmasks) 📌
+### 2. [Data Structure and Algorithms](Data_Structure_and_Algorithms)
+- [자료구조와 알고리즘](Data_Structure_and_Algorithms\Data_structure_Algorithms.md)
+- [배열 리스트](Data_Structure_and_Algorithms\ArrayList)
+- 연결 리스트
+- 연결 리스트의 확장
+- 스택
+- 스택 활용
+- 큐
+- 재귀 호출
+- 트리
+- 히프
+- 그래프
+- 검색
 ### 4. C++
 
 ## 참조
