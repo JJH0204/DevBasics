@@ -17,13 +17,22 @@ typedef struct ArrayList
 } ArrayList;
 
 // 리스트 생성: createList()
-ArrayList *createList(int count)
+ArrayList* createList(int count)
 {
     ArrayList *pResult = (ArrayList*)malloc(sizeof(ArrayList));     // 리스트 헤더 할당
-    pResult->maxCount = count;                                      // 리스트 최대 개수
-    pResult->currentCount = 0;                                      // 리스트 현재 개수
-    pResult->pNode = (Node*)malloc(sizeof(Node) * count);           // 배열 할당
-    memset(pResult->pNode, 0, sizeof(Node) * count);                // 메모리 초기화 함수
+    if (pResult != NULL)
+    {
+        pResult->maxCount = count;                             // 리스트 최대 개수
+        pResult->currentCount = 0;                             // 리스트 현재 개수
+        pResult->pNode = (Node *)malloc(sizeof(Node) * count); // 배열 할당
+        if (pResult->pNode != NULL)
+        {
+            memset(pResult->pNode, 0, sizeof(Node) * count); // 메모리 초기화 함수
+            return pResult;
+        }
+        return NULL;
+    }
+    return NULL;
     /* void *memset(void *s, int c, size_t n);
     - s는 초기화할 메모리 영역의 시작 주소를 가리키는 포인터입니다.
     - c는 메모리에 채우고자 하는 값입니다.
@@ -36,8 +45,6 @@ ArrayList *createList(int count)
     메모리를 특정 값으로 빠르게 초기화할 필요가 있을 때 유용하게 사용됩니다. 
     예를 들어 배열을 초기화하거나, 메모리 할당 후 초기화하는 등의 작업에 활용할 수 있습니다.
     */
-   //TODO: 반환이 없는데?
-   //TODO: 할당 과정이 무결하다는 보장은?
 }
 
 // 데이터 추가: addListData()
@@ -103,6 +110,12 @@ void deleteList(ArrayList* _pList_)
     free(_pList_);
 }
 
+// 리스트 데이터 저장 개수 반환: getListLength()
+int getListLength(ArrayList* _ArrayList_)
+{
+    return _ArrayList_->currentCount;
+}
+
 int main(int argc, char *argv[])
 {
     int val;
@@ -116,6 +129,9 @@ int main(int argc, char *argv[])
     // 배열 리스트에서 두 번째 위치에 저장된 자료를 가져온다.
     val = getListData(_ArrayList_, 1);
     printf("pos: %d, val: %d\n", 1, val);
+    // 리스트에 저장된 데이터 수량 출력
+    val = getListLength(_ArrayList_);
+    printf("자료의 개수 %d\n", val);
     // 배열 리스트에서 첫 번째 위치의 자료를 제거한다.
     removeListData(_ArrayList_, 0);
     // 배열 리스트 자체를 삭제한다.
