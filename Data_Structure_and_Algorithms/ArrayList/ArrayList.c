@@ -19,17 +19,22 @@ typedef struct ArrayList
 // 리스트 생성: createList()
 ArrayList* createList(int count)
 {
-    if (count < 1)  return NULL;
-    
+    ArrayList *pResult = NULL;
+
+    if (count < 1)
+        return NULL;
+
     ArrayList *pResult = (ArrayList *)malloc(sizeof(ArrayList));    // 리스트 헤더 할당
 
-    if (pResult == NULL)    return NULL;
+    if (pResult == NULL)
+        return NULL;
 
     pResult->maxCount = count;                                      // 리스트 최대 개수
     pResult->currentCount = 0;                                      // 리스트 현재 개수
     pResult->pNode = (Node *)malloc(sizeof(Node) * count);          // 배열 할당
 
-    if (pResult->pNode == NULL) return NULL;
+    if (pResult->pNode == NULL)
+        return NULL;
     
     memset(pResult->pNode, 0, sizeof(Node) * count);                // 메모리 초기화 함수
     return pResult;
@@ -40,13 +45,14 @@ int addListData(ArrayList* _pList_, int _position_, int _date_)
 {
     int i = 0;
 
-    if (_pList_ == NULL)    return 1;
-    
-    // TODO: _position 값에 말도 안되는 값이 들어오면 오류 코드 2 반환
-    if (_position_ )    return 2;
+    if (_pList_ == NULL)
+        return 1;
+    if ((_position_ > _pList_->currentCount) || (_position_ > _pList_->maxCount - 1))
+        return 2;
     
     for (i = _pList_->currentCount-1; i >= _position_; i--)
         _pList_->pNode[i+1] = _pList_->pNode[i];
+    
     _pList_->pNode[_position_].data = _date_;
     _pList_->currentCount++;
 
@@ -56,6 +62,11 @@ int addListData(ArrayList* _pList_, int _position_, int _date_)
 // 데이터 삭제: removeListData()
 int removeListData(ArrayList* _pList_, int _position_)
 {
+    if (_pList_ == NULL)
+        return 1;
+    if (_position_ >= _pList_->currentCount)
+        return 2;
+    
     int i = _position_;
     for (; i < _pList_->currentCount - 1; i++)
     {
@@ -63,29 +74,36 @@ int removeListData(ArrayList* _pList_, int _position_)
     }
     _pList_->currentCount--;
 
-    // TODO: 뭘 믿고 무조건 0을 return 하는 거지?
     return 0;
 }
 
 // 데이터 반환: getListData()
 int getListData(ArrayList* _pList_, int _position_)
 {
-    // TODO: 데이터가 없는 곳을 참조하려고 할 경우
+    if (_pList_ == NULL)
+        return 1;
+    if (_position_ >= _pList_->currentCount)
+        return 2;
     return _pList_->pNode[_position_].data;
 }
 
 // 리스트 삭제: deleteList()
 void deleteList(ArrayList* _pList_)
 {
-    // TODO: 데이터가 없는 곳을 참조하려고 할 경우
-    free(_pList_->pNode);
+    if (_pList_ == NULL)
+        return 1;
+    if (_pList_->pNode != NULL)
+        free(_pList_->pNode);
     free(_pList_);
 }
 
 // 리스트 데이터 저장 개수 반환: getListLength()
-int getListLength(ArrayList* _ArrayList_)
+int getListLength(ArrayList *_pList_)
 {
-    return _ArrayList_->currentCount;
+    if (_pList_ == NULL)
+        return 1;
+
+    return _pList_->currentCount;
 }
 
 int main(int argc, char *argv[])
