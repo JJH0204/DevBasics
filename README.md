@@ -40,8 +40,8 @@
 - [Bitmasks](C_Cpp/C/Advanced/12_Bitmasks) 📌
 ### 2. [Data Structure and Algorithms](Data_Structure_and_Algorithms)
 - [자료구조와 알고리즘](Data_Structure_and_Algorithms\Data_structure_Algorithms.md)
-- [배열 리스트](Data_Structure_and_Algorithms\ArrayList)
-- 연결 리스트
+- [배열 리스트](Data_Structure_and_Algorithms\1_ArrayList) 📌
+- [연결 리스트](Data_Structure_and_Algorithms\2_LinkedList)
 - 연결 리스트의 확장
 - 스택
 - 스택 활용
