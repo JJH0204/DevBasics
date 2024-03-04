@@ -91,20 +91,35 @@ int removeListData(ArrayList* _pList_, int _position_)
 // 데이터 반환: getListData()
 int getListData(ArrayList* _pList_, int _position_)
 {
-    //[]TODO: 데이터가 없는 곳을 참조하려고 할 경우
+    // TODO: 데이터가 없는 곳을 참조하려고 할 경우
     return _pList_->pNode[_position_].data;
 }
 
 // 리스트 삭제: deleteList()
 void deleteList(ArrayList* _pList_)
 {
-    //[]TODO: 데이터가 없는 곳을 참조하려고 할 경우
+    // TODO: 데이터가 없는 곳을 참조하려고 할 경우
     free(_pList_->pNode);
     free(_pList_);
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
+    int val;
+    // 크기가 5인 배열 리스트를 생성한다.
+    ArrayList* _ArrayList_ = createList(5);
+    // 자료 10과 20을 배열 리스트 첫 번째와 두 번째 위치에 차례대로 저장한다.
+    addListData(_ArrayList_, 0, 10);
+    addListData(_ArrayList_, 1, 20);
+    // 자료 30을 배열 리스트의 첫 번째 위치에 저장한다.
+    addListData(_ArrayList_, 0, 30);
+    // 배열 리스트에서 두 번째 위치에 저장된 자료를 가져온다.
+    val = getListData(_ArrayList_, 1);
+    printf("pos: %d, val: %d\n", 1, val);
+    // 배열 리스트에서 첫 번째 위치의 자료를 제거한다.
+    removeListData(_ArrayList_, 0);
+    // 배열 리스트 자체를 삭제한다.
+    deleteList(_ArrayList_);
 
     return 0;
 }
