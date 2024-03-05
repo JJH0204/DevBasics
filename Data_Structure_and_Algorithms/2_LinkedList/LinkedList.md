@@ -127,6 +127,10 @@
             return 1;
         
         pCurrent = (_pList_->nodeHeader).pNext;
+        /* error correction
+        LinkedList(89647,0x1dea25000) malloc: *** error for object 0x12a605f28: pointer being freed was not allocated
+        LinkedList(89647,0x1dea25000) malloc: *** set a breakpoint in malloc_error_break to debug
+        */
         while (pCurrent != NULL)
         {
             pDelete = pCurrent;
@@ -156,6 +160,51 @@
         for (; i < _pList_->nCurrentCount; i++)
             printf("[%d] %d\n", i, getListData(_pList_, i));
         
+    }
+    /*
+    displayList() 함수에서 실행되는 for문은 리스트에 저장된 데이터의 수에 따라 비례하게 증가한다.O(n)
+    for문 이후 호출되는 getListData() 또한 리스트의 처음부터 인덱스 위치까지 순차적으로 참조하기에 O(n)의 속도를 가진다.
+    for문이 n번 실행되면 getListData() 동일하게 n 번 실행되기에 n*n = n^2 = O(n^2)의 시간 효율을 가지게 된다.
+    따라서, 리스트를 전체를 한번 출력하는 로직 치고는 매우 비효율적인 시간복잡도를 가지는 것을 알 수 있다.
+    */
+
+### int iterateLinkedList(linkedList* _pList_)
+    {
+        int nCount = 0;
+        node* pCurrent = NULL;
+        if (_pList_ == NULL)
+            return 1;
+
+        pCurrent = _pList_->nodeHeader.pNext;
+        while (pCurrent != NULL)
+        {
+            printf("[%d] %d\n", nCount, pCurrent->nData);
+            nCount++;
+            pCurrent = pCurrent->pNext;
+        }
+        printf("Node's: %d\n", nCount);
+
+        return 0;
+    }
+    /*
+    displayList() 함수와 달리 리스트를 순회하며 바로바로 데이터를 출력하도록 로직에서 기능을 처리하여 불필요한 반복 계산을 필요 없도록 만들었다.
+    displayList() 와 같은 추상 자료형을 사용하지만, 내부 구현에 있어 차이가 발생하게 된다. (알고리즘의 차이)
+    */
+
+### int concatList(linkedList* _pListA_, linkedList* _pListB_)
+    {
+        node* pCurrent = NULL;
+        if ((_pListA_ == NULL) && (_pListB_ == NULL))
+            return 1;
+        
+        pCurrent = _pListA_->nodeHeader.pNext;
+        while (pCurrent != NULL && pCurrent->pNext != NULL)
+            pCurrent = pCurrent->pNext;
+        
+        pCurrent->pNext = _pListB_->nodeHeader.pNext;
+        // _pListB_->nodeHeader.pNext = NULL;
+        memset(_pListB_, 0, sizeof(linkedList));
+        return 0;
     }
 
 ## 배열 리스트와 연결 리스트 비교  
