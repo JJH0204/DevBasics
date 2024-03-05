@@ -26,7 +26,7 @@ linkedList* createList()
     return pResult;
 }
 
-int getListData(linkedList* _pList_, int _nIndex_)
+int getListData(linkedList* _pList_, const int _nIndex_)
 {
     int i = 0;
     node* pCurrent = NULL;
@@ -45,16 +45,16 @@ int getListData(linkedList* _pList_, int _nIndex_)
     return pCurrent->nData;
 }
 
-int addListData(linkedList* _pList_, int _nVal_, int _nIndex_)
+int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
 {
     int i = 0;
-    node* pCurrent = NULL;
+    // node* pCurrent = NULL;
     node* pPrevious = NULL;
     node* pNewNode = NULL;
 
     if (_pList_ == NULL)
         return 1;
-    if (_nIndex_ > _pList_->nCurrentCount)
+    if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
         return 2;
     
     pNewNode = (node*)malloc(sizeof(node));
@@ -62,15 +62,44 @@ int addListData(linkedList* _pList_, int _nVal_, int _nIndex_)
     pNewNode->pNext = NULL;
 
     pPrevious = &(_pList_->pHeader);
-    pCurrent = pPrevious->pNext;
+    // pCurrent = pPrevious->pNext;
     while (i < _nIndex_)
     {
-        pPrevious = pCurrent;
-        pCurrent = pCurrent->pNext;
+        pPrevious = pPrevious->pNext;
+        // pCurrent = pCurrent->pNext;
         i++;
     }
-    pNewNode->pNext = pCurrent;
+    pNewNode->pNext = pPrevious->pNext;
     pPrevious->pNext = pNewNode;
+
+    (_pList_->nCurrentCount)++;
+    return 0;
+}
+
+int removeListData(linkedList* _pList_, const int _nIndex_)
+{
+    int i = 0;
+    node* pCurrent = NULL;
+    node* pPrevious = NULL;
+    
+    if (_pList_ == NULL)
+        return 1;
+    if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
+        return 2;
+    
+    pPrevious = &(_pList_->pHeader);
+    // pCurrent = pPrevious->pNext;
+
+    while (i < _nIndex_)
+    {
+        pPrevious = pPrevious->pNext;
+        // pCurrent = pCurrent->pNext;
+        i++;
+    }
+    pCurrent = pPrevious->pNext;
+    pPrevious->pNext = pCurrent->pNext;
+    free(pCurrent);
+    (_pList_->nCurrentCount)--;
     
     return 0;
 }

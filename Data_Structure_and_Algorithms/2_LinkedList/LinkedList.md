@@ -93,3 +93,32 @@
         
         return 0;
     }
+
+### removeListData()
+    int removeListData(linkedList* _pList_, const int _nIndex_)
+    {
+        int i = 0;
+        node* pCurrent = NULL;
+        node* pPrevious = NULL;
+        
+        if (_pList_ == NULL)
+            return 1;
+        if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
+            return 2;
+        
+        pPrevious = &(_pList_->pHeader);
+        // pCurrent = pPrevious->pNext;
+
+        while (i < _nIndex_)
+        {
+            pPrevious = pPrevious->pNext;
+            // pCurrent = pCurrent->pNext;
+            i++;
+        }
+        pCurrent = pPrevious->pNext;
+        pPrevious->pNext = pCurrent->pNext;
+        free(pCurrent);
+        (_pList_->nCurrentCount)--;
+        
+        return 0;
+    }
