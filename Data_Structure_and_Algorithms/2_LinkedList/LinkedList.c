@@ -125,8 +125,25 @@ int deleteList(linkedList* _pList_)
     return 0;
 }
 
+int getListLength(linkedList* _pList_)
+{
+    if (_pList_ == NULL || _pList_->pHeader == NULL)
+        return 0;
+    
+    return _pList_->nCurrentCount;
+}
+
 int main(int argc, char* argv[])
 {
+    int val = 0;
+    linkedList* LinkedList = createList();
+    addListData(LinkedList, 10, 0);
+    addListData(LinkedList, 20, 1);
+    addListData(LinkedList, 30, 1);
 
+    val = getListData(LinkedList, 1);
+    printf("index: 1, val: %d\n", val);
+    removeListData(LinkedList, 1);
+    deleteList(LinkedList);
     return 0;
 }

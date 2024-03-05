@@ -122,3 +122,33 @@
         
         return 0;
     }
+### deleteList()
+    int deleteList(linkedList* _pList_)
+    {
+        node* pCurrent = NULL;
+        node* pDelete = NULL;
+        if (_pList_ == NULL)
+            return 1;
+        
+        pCurrent = _pList_->pHeader;
+
+        while (pCurrent != NULL)
+        {
+            pDelete = pCurrent;
+            pCurrent = pCurrent->pNext;
+
+            free(pDelete);
+        }
+
+        free(_pList_);
+        return 0;
+    }
+
+### getListLength()
+    int getListLength(linkedList* _pList_)
+    {
+        if (_pList_ == NULL || _pList_->pHeader == NULL)
+            return 0;
+        
+        return _pList_->nCurrentCount;
+    }
