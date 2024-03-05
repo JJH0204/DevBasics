@@ -49,7 +49,7 @@ int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
 {
     int i = 0;
     // node* pCurrent = NULL;
-    node* pPrevious = NULL;
+    node** pPrevious = NULL;
     node* pNewNode = NULL;
 
     if (_pList_ == NULL)
@@ -65,12 +65,12 @@ int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
     // pCurrent = pPrevious->pNext;
     while (i < _nIndex_)
     {
-        pPrevious = pPrevious->pNext;
+        pPrevious = &((*pPrevious)->pNext);
         // pCurrent = pCurrent->pNext;
         i++;
     }
-    pNewNode->pNext = pPrevious->pNext;
-    pPrevious->pNext = pNewNode;
+    pNewNode->pNext = (*pPrevious)->pNext;
+    (*pPrevious)->pNext = pNewNode;
 
     (_pList_->nCurrentCount)++;
     return 0;
@@ -80,7 +80,7 @@ int removeListData(linkedList* _pList_, const int _nIndex_)
 {
     int i = 0;
     node* pCurrent = NULL;
-    node* pPrevious = NULL;
+    node** pPrevious = NULL;
     
     if (_pList_ == NULL)
         return 1;
@@ -92,15 +92,16 @@ int removeListData(linkedList* _pList_, const int _nIndex_)
 
     while (i < _nIndex_)
     {
-        pPrevious = pPrevious->pNext;
+        pPrevious = &((*pPrevious)->pNext);
         // pCurrent = pCurrent->pNext;
         i++;
     }
-    pCurrent = pPrevious->pNext;
-    pPrevious->pNext = pCurrent->pNext;
+    pCurrent = (*pPrevious)->pNext;
+    (*pPrevious)->pNext = pCurrent->pNext;
+
     free(pCurrent);
+
     (_pList_->nCurrentCount)--;
-    
     return 0;
 }
 
