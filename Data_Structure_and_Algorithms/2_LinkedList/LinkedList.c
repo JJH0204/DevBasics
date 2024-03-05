@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define HEADERNODE
+
 // node definition
 typedef struct LinkedListNodeType
 {
@@ -10,6 +12,8 @@ typedef struct LinkedListNodeType
     struct LinkedListNodeType* pNext;
 } node;
 
+#ifdef HEADERNODE
+// 헤더 노드를 활용한 연결리스트 구현
 typedef struct LinkedList
 {
     int nCurrentCount;
@@ -131,6 +135,62 @@ int getListLength(linkedList* _pList_)
     
     return _pList_->nCurrentCount;
 }
+
+int displayList(linkedList* _pList_)
+{
+    int i = 0;
+    if (_pList_ == NULL)
+        return 0;
+    for (; i < _pList_->nCurrentCount; i++)
+        printf("[%d] %d\n", i, getListData(_pList_, i));
+    
+}
+
+#endif
+
+#ifdef HEADERPOINT
+// TODO: 헤더 포인터를 활용한 연결리스트 구현
+typedef struct LinkedList
+{
+    int nCurrentCount;
+    node* nodeHeader;
+} linkedList;
+
+linkedList* createList()
+{
+    linkedList* pResult = (linkedList*)malloc(sizeof(linkedList));
+    if (pResult == NULL)
+        return NULL;
+    
+    memset(pResult, 0, sizeof(linkedList));
+    return pResult;
+}
+
+int getListData(linkedList* _pList_, const int _nIndex_)
+{
+    
+}
+
+int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
+{
+    
+}
+
+int removeListData(linkedList* _pList_, const int _nIndex_)
+{
+    
+}
+
+int deleteList(linkedList* _pList_)
+{
+    
+}
+
+int getListLength(linkedList* _pList_)
+{
+    
+}
+#endif
 
 int main(int argc, char* argv[])
 {
