@@ -61,6 +61,9 @@ int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
         return 2;
     
     pNewNode = (node*)malloc(sizeof(node));
+    if (pNewNode == NULL)
+        return 3;
+    
     pNewNode->nData = _nVal_;
     pNewNode->pNext = NULL;
 
@@ -123,6 +126,7 @@ int deleteList(linkedList* _pList_)
     return 0;
 }
 
+// TODO: 멤버 변수 없이 직접 리스트의 개수를 구해서 반환하는 함수로 변경
 int getListLength(linkedList* _pList_)
 {
     if (_pList_ == NULL)
@@ -161,22 +165,39 @@ int iterateList(linkedList* _pList_)
     return 0;
 }
 
+// TODO: 유효성 n 논리 문제 보완
 int concatList(linkedList* _pListA_, linkedList* _pListB_)
 {
     node* pCurrent = NULL;
     if ((_pListA_ == NULL) && (_pListB_ == NULL))
         return 1;
-    
-    pCurrent = _pListA_->nodeHeader.pNext;
-    while (pCurrent != NULL && pCurrent->pNext != NULL)
-        pCurrent = pCurrent->pNext;
-    
-    pCurrent->pNext = _pListB_->nodeHeader.pNext;
-    // _pListB_->nodeHeader.pNext = NULL;
+    if (_pListA_->nodeHeader.pNext != NULL)
+    {
+        pCurrent = _pListA_->nodeHeader.pNext;
+        while (pCurrent->pNext != NULL)
+            pCurrent = pCurrent->pNext;
+        pCurrent->pNext = _pListB_->nodeHeader.pNext;
+    }
+    else
+    {
+        _pListA_->nodeHeader.pNext = _pListB_->nodeHeader.pNext;
+    }
     memset(_pListB_, 0, sizeof(linkedList));
     return 0;
 }
 
+// TODO: 리스트 평균값 구하는 함수
+int averageList(linkedList* _pList_)
+{
+    return 0;
+}
+
+// TODO: 리스트 뒤집기
+int flipList(linkedList* _pList_)
+{
+
+    return 0;
+}
 #endif
 
 #ifdef HEADERPOINT
@@ -245,6 +266,8 @@ int main(int argc, char* argv[])
 
     val = getListData(pListA, 1);
     printf("print 'pListA' -> index: 1, val: %d\n", val);
+    val = getListLength(pListA);
+    printf("data count: %d\n", val);
 
     concatList(pListA, pListB);
     printf("->concat list after<------------\n");
