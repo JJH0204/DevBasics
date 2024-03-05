@@ -13,7 +13,7 @@ typedef struct LinkedListNodeType
 typedef struct LinkedList
 {
     int nCurrentCount;
-    node* pHeader;
+    node nodeHeader;       // 리스트의 첫번째 노드를 가리키기 위해 선언한 헤더 포인터가 로직을 어지럽힌다.
 } linkedList;
 
 linkedList* createList()
@@ -35,7 +35,7 @@ int getListData(linkedList* _pList_, const int _nIndex_)
     if (_nIndex_ >= _pList_->nCurrentCount)
         return 2;
     
-    pCurrent = _pList_->pHeader;
+    pCurrent = &(_pList_->nodeHeader);
 
     while (i < _nIndex_)
     {
@@ -49,7 +49,7 @@ int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
 {
     int i = 0;
     // node* pCurrent = NULL;
-    node** pPrevious = NULL;
+    node* pPrevious = NULL;
     node* pNewNode = NULL;
 
     if (_pList_ == NULL)
@@ -61,16 +61,16 @@ int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
     pNewNode->nData = _nVal_;
     pNewNode->pNext = NULL;
 
-    pPrevious = &(_pList_->pHeader);
+    pPrevious = &(_pList_->nodeHeader);
     // pCurrent = pPrevious->pNext;
     while (i < _nIndex_)
     {
-        pPrevious = &((*pPrevious)->pNext);
+        pPrevious = pPrevious->pNext;
         // pCurrent = pCurrent->pNext;
         i++;
     }
-    pNewNode->pNext = (*pPrevious)->pNext;
-    (*pPrevious)->pNext = pNewNode;
+    pNewNode->pNext = pPrevious->pNext;
+    pPrevious->pNext = pNewNode;
 
     (_pList_->nCurrentCount)++;
     return 0;
@@ -80,24 +80,24 @@ int removeListData(linkedList* _pList_, const int _nIndex_)
 {
     int i = 0;
     node* pCurrent = NULL;
-    node** pPrevious = NULL;
+    node* pPrevious = NULL;
     
     if (_pList_ == NULL)
         return 1;
     if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
         return 2;
     
-    pPrevious = &(_pList_->pHeader);
+    pPrevious = &(_pList_->nodeHeader);
     // pCurrent = pPrevious->pNext;
 
     while (i < _nIndex_)
     {
-        pPrevious = &((*pPrevious)->pNext);
+        pPrevious = pPrevious->pNext;
         // pCurrent = pCurrent->pNext;
         i++;
     }
-    pCurrent = (*pPrevious)->pNext;
-    (*pPrevious)->pNext = pCurrent->pNext;
+    pCurrent = pPrevious->pNext;
+    pPrevious->pNext = pCurrent->pNext;
 
     free(pCurrent);
 
@@ -112,7 +112,7 @@ int deleteList(linkedList* _pList_)
     if (_pList_ == NULL)
         return 1;
     
-    pCurrent = _pList_->pHeader;
+    pCurrent = &(_pList_->nodeHeader);
 
     while (pCurrent != NULL)
     {
@@ -128,7 +128,7 @@ int deleteList(linkedList* _pList_)
 
 int getListLength(linkedList* _pList_)
 {
-    if (_pList_ == NULL || _pList_->pHeader == NULL)
+    if (_pList_ == NULL)
         return 0;
     
     return _pList_->nCurrentCount;
