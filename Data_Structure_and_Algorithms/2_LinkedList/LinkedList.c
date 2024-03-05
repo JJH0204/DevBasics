@@ -104,6 +104,27 @@ int removeListData(linkedList* _pList_, const int _nIndex_)
     return 0;
 }
 
+int deleteList(linkedList* _pList_)
+{
+    node* pCurrent = NULL;
+    node* pDelete = NULL;
+    if (_pList_ == NULL)
+        return 1;
+    
+    pCurrent = _pList_->pHeader;
+
+    while (pCurrent != NULL)
+    {
+        pDelete = pCurrent;
+        pCurrent = pCurrent->pNext;
+
+        free(pDelete);
+    }
+
+    free(_pList_);
+    return 0;
+}
+
 int main(int argc, char* argv[])
 {
 
