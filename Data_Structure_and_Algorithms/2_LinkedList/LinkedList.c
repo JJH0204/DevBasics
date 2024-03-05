@@ -13,7 +13,7 @@ typedef struct LinkedListNodeType
 typedef struct LinkedList
 {
     int nCurrentCount;
-    node nodeHeader;       // 리스트의 첫번째 노드를 가리키기 위해 선언한 헤더 포인터가 로직을 어지럽힌다.
+    node nodeHeader;
 } linkedList;
 
 linkedList* createList()
@@ -37,7 +37,7 @@ int getListData(linkedList* _pList_, const int _nIndex_)
     
     pCurrent = &(_pList_->nodeHeader);
 
-    while (i < _nIndex_)
+    while (i <= _nIndex_)
     {
         pCurrent = pCurrent->pNext;
         i++;
@@ -48,7 +48,6 @@ int getListData(linkedList* _pList_, const int _nIndex_)
 int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
 {
     int i = 0;
-    // node* pCurrent = NULL;
     node* pPrevious = NULL;
     node* pNewNode = NULL;
 
@@ -62,7 +61,6 @@ int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
     pNewNode->pNext = NULL;
 
     pPrevious = &(_pList_->nodeHeader);
-    // pCurrent = pPrevious->pNext;
     while (i < _nIndex_)
     {
         pPrevious = pPrevious->pNext;
@@ -88,14 +86,10 @@ int removeListData(linkedList* _pList_, const int _nIndex_)
         return 2;
     
     pPrevious = &(_pList_->nodeHeader);
-    // pCurrent = pPrevious->pNext;
 
-    while (i < _nIndex_)
-    {
+    for (; i < _nIndex_; i++)
         pPrevious = pPrevious->pNext;
-        // pCurrent = pCurrent->pNext;
-        i++;
-    }
+    
     pCurrent = pPrevious->pNext;
     pPrevious->pNext = pCurrent->pNext;
 
@@ -112,7 +106,11 @@ int deleteList(linkedList* _pList_)
     if (_pList_ == NULL)
         return 1;
     
-    pCurrent = &(_pList_->nodeHeader);
+    pCurrent = (_pList_->nodeHeader).pNext;
+    /* error correction
+    LinkedList(89647,0x1dea25000) malloc: *** error for object 0x12a605f28: pointer being freed was not allocated
+    LinkedList(89647,0x1dea25000) malloc: *** set a breakpoint in malloc_error_break to debug
+    */
 
     while (pCurrent != NULL)
     {
