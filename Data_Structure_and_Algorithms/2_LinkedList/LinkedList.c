@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define HEADERNODE
+#define HEADERPOINT
 
 // node definition
 typedef struct LinkedListNodeType
@@ -245,11 +245,11 @@ int flipList(linkedList* _pList_)
 #endif
 
 #ifdef HEADERPOINT
-// TODO: 헤더 포인터를 활용한 연결리스트 구현
+// 헤더 포인터를 활용한 연결리스트 구현
 typedef struct LinkedList
 {
     int nCurrentCount;
-    node* nodeHeader;
+    node* pHead;
 } linkedList;
 
 linkedList* createList()
@@ -264,27 +264,181 @@ linkedList* createList()
 
 int getListData(linkedList* _pList_, const int _nIndex_)
 {
-    
+    int nCount = 0;
+    node* pCurrent = NULL;
+    if (_pList_ == NULL)
+        return -1;
+    if ((_nIndex_ >= _pList_->nCurrentCount) || (_nIndex_ < 0))
+        return -2;
+    if (_pList_->pHead == NULL)
+        return -3;
+    pCurrent = _pList_->pHead;
+    for (; nCount < _nIndex_; nCount++)
+        pCurrent = pCurrent->pNext;
+    return pCurrent->nData;
 }
 
-int addListData(linkedList* _pList_, int _nVal_, const int _nIndex_)
+int addListData(linkedList* _pList_, const int _nVal_, const int _nIndex_)
 {
+    int nCount = 0;
+    node* pPrevious = NULL;
+    node* pNewNode = NULL;
+
+    if (_pList_ == NULL)
+        return -1;
+    if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
+        return -2;
     
+    pNewNode = (node*)malloc(sizeof(node));
+    if (pNewNode == NULL)
+        return -3;
+    pNewNode->nData = _nVal_;
+    pNewNode->pNext = NULL;
+
+    if (_pList_->pHead == NULL)
+    {
+        _pList_->pHead = pNewNode;
+    }
+    else
+    {
+        pPrevious = _pList_->pHead;                 // head 가 NULL 일때 아래 코드를 실행하면, segmentation fault 발생
+        for (; nCount < (_nIndex_ - 1); nCount++)
+            pPrevious = pPrevious->pNext;
+        pNewNode->pNext = pPrevious->pNext;
+        pPrevious->pNext = pNewNode;
+    }
+    _pList_->nCurrentCount++;
+    return 0;
 }
 
 int removeListData(linkedList* _pList_, const int _nIndex_)
 {
+    int nCount = 0;
+    node* pCurrent = NULL;
+    node* pPrevious = NULL;
+
+    if ((_pList_ == NULL) || (_pList_->pHead == NULL))
+        return -1;
+    if ((_nIndex_ >= _pList_->nCurrentCount) || (_nIndex_ < 0))
+        return -2;
+    pPrevious = _pList_->pHead;
+
+    for (nCount = 0; nCount < _nIndex_ - 1; nCount++)
+        pPrevious = pPrevious->pNext;
     
+    pCurrent = pPrevious->pNext;
+    pPrevious->pNext = pCurrent->pNext;
+
+    free(pCurrent);
+    _pList_->nCurrentCount--;
+    return 0;
 }
 
 int deleteList(linkedList* _pList_)
 {
+    node* pPost = NULL;
+    if (_pList_ == NULL)
+        return -1;
+    while (_pList_->pHead != NULL)
+    {
+        pPost = _pList_->pHead->pNext;
+        free(_pList_->pHead);
+        _pList_->pHead = pPost;
+    }
+    free(_pList_);
     
+    return 0;
 }
 
 int getListLength(linkedList* _pList_)
 {
+    if (_pList_ == NULL)
+        return -1;
     
+    return _pList_->nCurrentCount;
+}
+
+int iterateList(linkedList* _pList_)
+{
+    int nCount = 0;
+    node* pCurrent = NULL;
+
+    if (_pList_ == NULL)
+        return -1;
+    
+    pCurrent = _pList_->pHead;
+    while (pCurrent != NULL)
+    {
+        printf("[%d] %d\n", nCount, pCurrent->nData);
+        nCount++;
+        pCurrent = pCurrent->pNext;
+    }
+    printf("Node's: %d\n", nCount);
+    return 0;
+}
+
+int concatList(linkedList* _pListA_, linkedList* _pListB_)
+{
+    node* pCurrent = NULL;
+    if ((_pListA_ == NULL) && (_pListB_ == NULL))
+        return -1;
+    if (_pListB_->pHead == NULL)
+        return -2;
+
+    if (_pListA_->pHead != NULL)
+    {
+        pCurrent = _pListA_->pHead;
+        while (pCurrent->pNext != NULL)
+            pCurrent = pCurrent->pNext;
+        pCurrent->pNext = _pListB_->pHead;
+    }
+    else
+    {
+        _pListA_->pHead = _pListB_->pHead;
+    }
+    _pListA_->nCurrentCount = _pListA_->nCurrentCount + _pListB_->nCurrentCount;
+    // memset(_pListB_, 0, sizeof(linkedList));
+    _pListB_->pHead = NULL;
+    _pListB_->nCurrentCount = 0;
+    return 0;
+}
+
+int averageList(linkedList* _pList_)
+{
+    int nSum = 0;
+    int nCount = 0;
+    node* pCurrent = NULL;
+    if ((_pList_ == NULL) || (_pList_->pHead == NULL))
+        return -1;
+    pCurrent = _pList_->pHead;
+    for (; pCurrent != NULL; pCurrent = pCurrent->pNext)
+    {
+        nSum = nSum + pCurrent->nData;
+        nCount++;
+    }
+    return nSum/nCount;
+}
+
+int flipList(linkedList* _pList_)
+{
+    node* pCurrent = NULL;
+    node* pPost = NULL;
+
+    if ((_pList_ == NULL) || (_pList_->pHead == NULL))
+        return -1;
+    pCurrent = _pList_->pHead;
+    pPost = pCurrent->pNext;
+    pCurrent->pNext = NULL;
+    
+    while (pPost != NULL)
+    {
+        pCurrent = pPost;
+        pPost = pCurrent->pNext;
+        pCurrent->pNext = _pList_->pHead;
+        _pList_->pHead = pCurrent;
+    }
+    
+    return 0;
 }
 #endif
 
@@ -323,9 +477,11 @@ int main(int argc, char* argv[])
     deleteList(pListB);
 
     removeListData(pListA, 2);
+    printf("ListA index %d data remove: \n", 2);
     iterateList(pListA);
     
     flipList(pListA);
+    printf("ListA flip: \n");
     iterateList(pListA);
 
     val = averageList(pListA);
