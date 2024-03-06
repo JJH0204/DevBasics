@@ -126,7 +126,24 @@ int deleteList(linkedList* _pList_)
     return 0;
 }
 
-// TODO: 멤버 변수 없이 직접 리스트의 개수를 구해서 반환하는 함수로 변경
+// 멤버 변수 없이 직접 리스트의 개수를 구해서 반환하는 함수로 변경
+int getListCount(linkedList* _pList_)
+{
+    int nResult = 0;
+    node* pCurrent = NULL;
+    if (_pList_ == NULL)
+        return -1;
+    pCurrent = &(_pList_->nodeHeader);
+
+    while (pCurrent->pNext != NULL)
+    {
+        nResult++;
+        pCurrent = pCurrent->pNext;
+    }
+    
+    return nResult;
+}
+
 int getListLength(linkedList* _pList_)
 {
     if (_pList_ == NULL)
@@ -165,36 +182,63 @@ int iterateList(linkedList* _pList_)
     return 0;
 }
 
-// TODO: 유효성 n 논리 문제 보완
+// 유효성 n 논리 문제 보완
 int concatList(linkedList* _pListA_, linkedList* _pListB_)
 {
     node* pCurrent = NULL;
     if ((_pListA_ == NULL) && (_pListB_ == NULL))
-        return 1;
-    if (_pListA_->nodeHeader.pNext != NULL)
-    {
-        pCurrent = _pListA_->nodeHeader.pNext;
-        while (pCurrent->pNext != NULL)
-            pCurrent = pCurrent->pNext;
-        pCurrent->pNext = _pListB_->nodeHeader.pNext;
-    }
-    else
-    {
-        _pListA_->nodeHeader.pNext = _pListB_->nodeHeader.pNext;
-    }
+        return -1;
+    if (_pListB_->nodeHeader.pNext == NULL)
+        return 0;
+    
+    pCurrent = &(_pListA_->nodeHeader);
+    while (pCurrent->pNext != NULL)
+        pCurrent = pCurrent->pNext;
+    pCurrent->pNext = _pListB_->nodeHeader.pNext;
+    _pListA_->nCurrentCount = _pListA_->nCurrentCount + _pListB_->nCurrentCount;
+    // _pListB_ 포인터는 본 함수에서는 초기화만 진행, 할당해제 여부는 외부에서 결정
     memset(_pListB_, 0, sizeof(linkedList));
     return 0;
 }
 
-// TODO: 리스트 평균값 구하는 함수
+// 리스트 평균값 구하는 함수
 int averageList(linkedList* _pList_)
 {
-    return 0;
+    int nSum = 0;
+    int nIndex = 0;
+    node* pCurrent = NULL;
+    if (_pList_ == NULL)
+        return -1;
+    
+    pCurrent = &(_pList_->nodeHeader);
+    while (pCurrent->pNext != NULL)
+    {
+        pCurrent = pCurrent->pNext;
+        nSum = nSum + pCurrent->nData;
+        nIndex++;
+    }
+    return nSum/nIndex;
 }
 
-// TODO: 리스트 뒤집기
+// 리스트 뒤집기
 int flipList(linkedList* _pList_)
 {
+    node* pCurrent = NULL;
+    node* pPost = NULL;
+
+    if ((_pList_ == NULL) || (_pList_->nodeHeader.pNext == NULL))
+        return -1;
+    pCurrent = _pList_->nodeHeader.pNext;
+    pPost = pCurrent->pNext;
+    pCurrent->pNext = NULL;
+
+    while (pPost != NULL)
+    {
+        pCurrent = pPost;
+        pPost = pCurrent->pNext;
+        pCurrent->pNext = _pList_->nodeHeader.pNext;
+        _pList_->nodeHeader.pNext = pCurrent;
+    }
 
     return 0;
 }
@@ -280,6 +324,13 @@ int main(int argc, char* argv[])
 
     removeListData(pListA, 2);
     iterateList(pListA);
+    
+    flipList(pListA);
+    iterateList(pListA);
+
+    val = averageList(pListA);
+    printf("List average: %d\n", val);
+
     deleteList(pListA);
 
     return 0;
