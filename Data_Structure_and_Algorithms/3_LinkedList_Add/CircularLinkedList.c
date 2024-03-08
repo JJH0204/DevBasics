@@ -7,12 +7,12 @@ typedef struct CircularLinked
 {
     int nData;
     struct CircularLinked *pNext;
-} Node;
+} node;
 
 typedef struct CircularLinkedList
 {
     int nCurrentCount;
-    Node sHeader;
+    node sHeader;
 } CircularList;
 
 CircularList *createCircularList()
@@ -27,7 +27,7 @@ CircularList *createCircularList()
 int getCircularListData(CircularList* _pList_, int _nIndex_)
 {
     int i = 0;
-    Node* pCurrent = NULL;
+    node *pCurrent = NULL;
 
     if (_pList_ == NULL)
         return -1;
@@ -42,7 +42,42 @@ int getCircularListData(CircularList* _pList_, int _nIndex_)
     return pCurrent->nData;
 }
 
-int main (int argc, char* argv[])
+int addCircularList(CircularList *_pList_, int _nIndex_, int _nData_)
+{
+    int i = 0;
+    node *pPrevious = NULL;
+    node *pNewNode = NULL;
+
+    if (_pList_ == NULL)
+        return -1;
+    if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
+        return -2;
+
+    pNewNode = (node *)malloc(sizeof(node));
+    if (pNewNode == NULL)
+        return -3;
+
+    pNewNode->nData = _nData_;
+    pNewNode->pNext = NULL;
+
+    pPrevious = &(_pList_->sHeader);
+    while (i < _nIndex_)
+    {
+        pPrevious = pPrevious->pNext;
+        i++;
+    }
+    pNewNode->pNext = pPrevious->pNext;
+    pPrevious->pNext = pNewNode;
+
+    _pList_->nCurrentCount++;
+
+    if (pNewNode->pNext == NULL)
+        pNewNode->pNext = pNewNode;
+    
+    return 0;
+}
+
+int main(int argc, char *argv[])
 {
 
     return 0;
