@@ -77,14 +77,54 @@ int addCircularList(CircularList *_pList_, int _nIndex_, int _nData_)
     return 0;
 }
 
-// TODO: 데이터 삭제
-// TODO: 리스트 삭제
-// TODO: 리스트 출력
-// TODO: 리스트 플립
-// TODO: 리스트 데이터 수량 출력
+// TODO: main 함수가 정상 작동할 수 있도록 함수 구현 및 코드 수정
 
 int main(int argc, char *argv[])
 {
+    int val = 0;
 
+    linkedList *pListA = createList();
+    linkedList *pListB = createList();
+
+    addListData(pListA, 10, 0);
+    addListData(pListA, 20, 1);
+    addListData(pListA, 30, 1);
+
+    addListData(pListB, 40, 0);
+    addListData(pListB, 50, 1);
+
+    printf("->concat list before<------------\n");
+    printf("List A: \n");
+    iterateList(pListA);
+    printf("List B: \n");
+    iterateList(pListB);
+
+    val = getListData(pListA, 1);
+    printf("print 'pListA' -> index: 1, val: %d\n", val);
+    val = getListLength(pListA);
+    printf("data count: %d\n", val);
+
+    concatList(pListA, pListB);
+    printf("->concat list after<------------\n");
+    printf("List A: \n");
+    iterateList(pListA);
+    printf("List B: \n");
+    iterateList(pListB);
+
+    deleteList(pListB);
+
+    removeListData(pListA, 2);
+    printf("ListA index %d data remove: \n", 2);
+    iterateList(pListA);
+    
+    flipList(pListA);
+    printf("ListA flip: \n");
+    iterateList(pListA);
+
+    val = averageList(pListA);
+    printf("List average: %d\n", val);
+
+    deleteList(pListA);
+    
     return 0;
 }
