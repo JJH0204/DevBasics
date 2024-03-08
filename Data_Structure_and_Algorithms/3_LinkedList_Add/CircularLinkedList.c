@@ -77,6 +77,12 @@ int addCircularList(CircularList *_pList_, int _nIndex_, int _nData_)
     return 0;
 }
 
+// TODO: 데이터 삭제
+// TODO: 리스트 삭제
+// TODO: 리스트 출력
+// TODO: 리스트 플립
+// TODO: 리스트 데이터 수량 출력
+
 int main(int argc, char *argv[])
 {
 
