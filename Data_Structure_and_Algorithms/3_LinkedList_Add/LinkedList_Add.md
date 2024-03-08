@@ -50,3 +50,6 @@
         
         return pCurrent->nData;
     }
+
+## 이중 연결 리스트(Double linked list)
+> **구성 요소의 양방향 순환이 가능한 연결 리스트**
