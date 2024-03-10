@@ -1,4 +1,4 @@
-# GIT_DevBasics.md
+# DevBasics.md
 
 ## 학습 목표
 - 기본 프로그래밍 및 컴퓨터 과학 개념 학습을 목표로 합니다.
