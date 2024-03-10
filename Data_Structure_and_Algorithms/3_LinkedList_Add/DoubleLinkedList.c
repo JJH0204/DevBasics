@@ -35,7 +35,8 @@ int addData(dList *_pList_, int _nData_, unsigned int _nIndex_)
 
     pNewNode = (node*)malloc(sizeof(node));
     pNewNode->nData = _nData_;
-    
+    // TODO: Create list node addition logic
+    /* code's */
 
     return 0;
 }
