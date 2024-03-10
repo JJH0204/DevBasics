@@ -78,31 +78,94 @@ int addCircularList(CircularList *_pList_, int _nIndex_, int _nData_)
 }
 
 // TODO: main 함수가 정상 작동할 수 있도록 함수 구현 및 코드 수정
-int iterateList()
+int circularIterateList(const CircularList *_pList_)
 {
-
+    int nCount = 0;
+    node *pCurrent = NULL;
+    if (_pList_ == NULL)
+        return -1;
+    pCurrent = _pList_->sHeader.pNext;
+    // 1) TODO: 무한 루프 발생 (pCurrent 가 가리키는 포인터가 헤더 노드가 가리키는 노드면 종료)
+    for (; pCurrent != NULL; nCount++)
+    {
+        printf("%d [%d]\n", pCurrent->nData, nCount);
+        pCurrent = pCurrent->pNext;
+    }
+    printf("Node's: %d\n", nCount);
+    return 0;
 }
 
-int getCircularListLength()
+int getCircularListLength(const CircularList *_pList_)
 {
-
+    if (_pList_ == NULL)
+        return -1;
+    return _pList_->nCurrentCount;
 }
 
-int concatList()
+int concatCircularList(CircularList *_pListA_, CircularList *_pListB_)
 {
-
+    node* pCurrent = NULL;
+    if((_pListA_ == NULL) && (_pListB_ == NULL))
+        return -1;
+    if (_pListB_->sHeader.pNext == NULL)
+        return -2;
+    
+    pCurrent = &(_pListA_->sHeader);
+    // 2) TODO: 무한 루프 발생
+    while (pCurrent->pNext != NULL)
+        pCurrent = pCurrent->pNext;
+    pCurrent->pNext = _pListB_->sHeader.pNext;
+    // 3) TODO: _pListB_의 마지막을 _pListA_의 첫 노드와 연결을 해야됨
+    _pListA_->nCurrentCount = _pListA_->nCurrentCount + _pListB_->nCurrentCount;
+    
+    memset(_pListB_, 0, sizeof(CircularList));
+    return 0;
 }
 
-int deleteList()
+int deleteCircularList(CircularList * _pList_)
 {
+    node* pCurrent = NULL;
+    node* pDelete = NULL;
+    if (_pList_ == NULL)
+        return 1;
+    
+    pCurrent = (_pList_->sHeader).pNext;
 
+    while (pCurrent != NULL)
+    {
+        pDelete = pCurrent;
+        pCurrent = pCurrent->pNext;
+
+        free(pDelete);
+    }
+
+    free(_pList_);
+    return 0;
 }
-int removeListData()
+
+int removeCircularListData(CircularList *_pList_, const int _nIndex_)
 {
+    int i = 0;
+    node *pCurrent = NULL;
+    node *pPrevious = NULL;
 
+    if (_pList_ == NULL)
+        return -1;
+    if ((_nIndex_ > _pList_->nCurrentCount) || (_nIndex_ < 0))
+        return -2;
+    
+    pPrevious = &(_pList_->sHeader);
+    for (; i < _nIndex_; i++)
+        pPrevious = pPrevious->pNext;
+    
+    pCurrent = pPrevious->pNext;
+    pPrevious->pNext = pCurrent->pNext;
+    free(pCurrent);
+    _pList_->nCurrentCount--;
+    return 0;
 }
 
-int flipIterateList()
+int flipCircularIterateList()
 {
 
 }
@@ -123,9 +186,9 @@ int main(int argc, char *argv[])
 
     printf("->concat list before<------------\n");
     printf("List A: \n");
-    iterateList(pListA);
+    circularIterateList(pListA);
     printf("List B: \n");
-    iterateList(pListB);
+    circularIterateList(pListB);
 
     val = getCircularListData(pListA, 1);
     printf("print 'pListA' -> index: 1, val: %d\n", val);
@@ -135,18 +198,18 @@ int main(int argc, char *argv[])
     concatList(pListA, pListB);
     printf("->concat list after<------------\n");
     printf("List A: \n");
-    iterateList(pListA);
+    circularIterateList(pListA);
     printf("List B: \n");
-    iterateList(pListB);
+    circularIterateList(pListB);
 
     deleteList(pListB);
 
     removeListData(pListA, 2);
     printf("ListA index %d data remove: \n", 2);
-    iterateList(pListA);
+    circularIterateList(pListA);
     
     printf("ListA flip: \n");
-    flipIterateList(pListA);
+    flipCircularIterateList(pListA);
 
     deleteList(pListA);
     
