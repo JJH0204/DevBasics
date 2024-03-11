@@ -40,11 +40,11 @@
 - [Bitmasks](C_language/2_Advanced/12_Bitmasks) 📌
 
 ### 2. [Data Structure and Algorithms](DSNA)
-- [Overview of data structures and algorithms](DSNA\Data_structure_Algorithms.md)
-- [Array list](DSNA\1_ArrayList) 📌
-- [Linked list](DSNA\2_LinkedList) 📌
-- [Extension of linked list](DSNA\3_LinkedList_Expansion)
-- [Uses of Linked Lists: Polynomials](DSNA\4_LinkedList_Polynomial)
+- [Overview of data structures and algorithms](DSNA/Data_structure_Algorithms.md)
+- [Array list](DSNA/1_ArrayList) 📌
+- [Linked list](DSNA/2_LinkedList) 📌
+- [Extension of linked list](DSNA/3_LinkedList_Expansion)
+- [Uses of Linked Lists: Polynomials](DSNA/4_LinkedList_Polynomial)
 - 스택
 - 스택 활용
 - 큐
