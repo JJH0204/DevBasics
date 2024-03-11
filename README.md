@@ -15,7 +15,7 @@
 
 ## 학습 과정
 ### 1. [C](C_Cpp/C)
-#### [Learn the Basics](C_Cpp/C/Basics)
+#### [Basics](C_Cpp/C/Basics)
 - [Hello, World!](C_Cpp/C/Basics/1_Hello_C) 📌 
 - [Variables and Types](C_Cpp/C/Basics/2_VariablesNTypes_C) 📌 
 - [Arrays](C_Cpp/C/Basics/3_Arrays_C) 📌 
@@ -38,11 +38,13 @@
 - [Pointer Arithmetics](C_Cpp/C/Advanced/10_Pointer_Arithmetics_C) 📌
 - [Function Pointers](C_Cpp/C/Advanced/11_Function_Pointers_C) 📌
 - [Bitmasks](C_Cpp/C/Advanced/12_Bitmasks) 📌
+
 ### 2. [Data Structure and Algorithms](Data_Structure_and_Algorithms)
-- [자료구조와 알고리즘](Data_Structure_and_Algorithms\Data_structure_Algorithms.md)
-- [배열 리스트](Data_Structure_and_Algorithms\1_ArrayList) 📌
-- [연결 리스트](Data_Structure_and_Algorithms\2_LinkedList)
-- 연결 리스트의 확장
+- [Overview of data structures and algorithms](Data_Structure_and_Algorithms\Data_structure_Algorithms.md)
+- [Array list](Data_Structure_and_Algorithms\1_ArrayList) 📌
+- [Linked list](Data_Structure_and_Algorithms\2_LinkedList) 📌
+- [Extension of linked list](Data_Structure_and_Algorithms\3_LinkedList_Expansion)
+- [Uses of Linked Lists: Polynomials](Data_Structure_and_Algorithms\4_LinkedList_Polynomial)
 - 스택
 - 스택 활용
 - 큐
@@ -51,6 +53,7 @@
 - 히프
 - 그래프
 - 검색
+
 ### 4. C++
 
 ## 참조
