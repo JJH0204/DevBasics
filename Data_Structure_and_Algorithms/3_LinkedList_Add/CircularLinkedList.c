@@ -165,7 +165,7 @@ int removeCircularListData(CircularList *_pList_, const int _nIndex_)
     
     pCurrent = pPrevious->pNext;
     pPrevious->pNext = pCurrent->pNext;
-    // TODO: 리스트의 요소가 1개 뿐일 경우 에러 발생
+    
     if (1 == _pList_->nCurrentCount)
         _pList_->sHeader.pNext = NULL;
     

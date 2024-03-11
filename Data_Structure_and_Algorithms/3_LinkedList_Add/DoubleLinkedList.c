@@ -185,6 +185,13 @@ int printList_L(dList *_pList_)
     return 0;
 }
 
+// TODO: concat()
+int concatList(dList *_pListA_, dList *_pListB_)
+{
+
+    return 0;
+}
+
 int main(int argc, char *argv[])
 {
     dList *pList = createList();
