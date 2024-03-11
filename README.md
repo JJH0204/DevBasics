@@ -14,30 +14,30 @@
 - 각 개념을 실습하며, 작은 프로젝트 또는 알고리즘을 해결하며 이론과 실제를 연결합니다.
 
 ## 학습 과정
-### 1. [C](C language)
-#### [Basics](C language/Basics)
-- [Hello, World!](C language/Basics/1_Hello_C) 📌 
-- [Variables and Types](C language/Basics/2_VariablesNTypes_C) 📌 
-- [Arrays](C language/Basics/3_Arrays_C) 📌 
-- [Multidimensional Arrays](C language/Basics/4_MultidimensionalArrays_C) 📌 
-- [Conditions](C language/Basics/5_Conditions_C) 📌 
-- [Strings](C language/Basics/6_Strings_C) 📌 
-- [loops](C language/Basics/7_Loops_C) 📌 
-- [Functions](C language/Basics/8_Functions_C) 📌 
-- [Static](C language/Basics/9_Static_C) 📌 
-#### [Advanced](C language/Advanced)
-- [Pointers](C language/Advanced/1_Pointers_C) 📌 
-- [Structures](C language/Advanced/2_Structures_C) 📌 
-- [Function arguments by reference](C language/Advanced/3_Function_arguments_by_reference_C) 📌 
-- [Dynamic allocation](C language/Advanced/4_Dynamic_allocation_C) 📌 
-- [Arrays and Pointers](C language/Advanced/5_ArrayNPointers_C) 📌 
-- [Recursion](C language/Advanced/6_Recursion_C) 📌 
-- [Linked lists](C language/Advanced/7_LinkedLists_C) 📌 
-- [Binary trees](C language/Advanced/8_Binary_trees_C)
-- [Unions](C language/Advanced/9_Unions_C) 📌
-- [Pointer Arithmetics](C language/Advanced/10_Pointer_Arithmetics_C) 📌
-- [Function Pointers](C language/Advanced/11_Function_Pointers_C) 📌
-- [Bitmasks](C language/Advanced/12_Bitmasks) 📌
+### 1. [C](C_language)
+#### [Basics](C_language/1_Basics)
+- [Hello, World!](C_language/1_Basics/1_Hello_C) 📌 
+- [Variables and Types](C_language/1_Basics/2_VariablesNTypes_C) 📌 
+- [Arrays](C_language/1_Basics/3_Arrays_C) 📌 
+- [Multidimensional Arrays](C_language/1_Basics/4_MultidimensionalArrays_C) 📌 
+- [Conditions](C_language/1_Basics/5_Conditions_C) 📌 
+- [Strings](C_language/1_Basics/6_Strings_C) 📌 
+- [loops](C_language/1_Basics/7_Loops_C) 📌 
+- [Functions](C_language/1_Basics/8_Functions_C) 📌 
+- [Static](C_language/1_Basics/9_Static_C) 📌 
+#### [Advanced](C_language/2_Advanced)
+- [Pointers](C_language/2_Advanced/1_Pointers_C) 📌 
+- [Structures](C_language/2_Advanced/2_Structures_C) 📌 
+- [Function arguments by reference](C_language/2_Advanced/3_Function_arguments_by_reference_C) 📌 
+- [Dynamic allocation](C_language/2_Advanced/4_Dynamic_allocation_C) 📌 
+- [Arrays and Pointers](C_language/2_Advanced/5_ArrayNPointers_C) 📌 
+- [Recursion](C_language/2_Advanced/6_Recursion_C) 📌 
+- [Linked lists](C_language/2_Advanced/7_LinkedLists_C) 📌 
+- [Binary trees](C_language/2_Advanced/8_Binary_trees_C)
+- [Unions](C_language/2_Advanced/9_Unions_C) 📌
+- [Pointer Arithmetics](C_language/2_Advanced/10_Pointer_Arithmetics_C) 📌
+- [Function Pointers](C_language/2_Advanced/11_Function_Pointers_C) 📌
+- [Bitmasks](C_language/2_Advanced/12_Bitmasks) 📌
 
 ### 2. [Data Structure and Algorithms](DSNA)
 - [Overview of data structures and algorithms](DSNA\Data_structure_Algorithms.md)
