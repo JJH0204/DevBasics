@@ -22,20 +22,26 @@ typedef struct LinkedList   // 다항식 구조체
     node headerNode;
 } list, polyList;
 
+// Basic function of linked list
 polyList *createList();
-int addData(polyList *_pList_, term _tData, int _nPos_);
+int addData(polyList *_pList_, term _tData_, int _nPos_);
 int removeData(polyList *_pList_, int _nPos_);
 int getData(polyList *_pList_, int _nPos_);
 int deleteList(polyList *_pList_);
 int getListLength(polyList *_pList_);
+int initList(polyList *_pList_);
+int initNode(node *_pNode_);
 
+// Function for polynomial calculation
 
-int main (int argc, char* argv[])
+// main function
+int main(int argc, char *argv[])
 {
 
     return 0;
 }
 
+// function definition
 polyList *createList()
 {
     polyList *pNewList = (polyList*)malloc(sizeof(polyList));
@@ -43,15 +49,17 @@ polyList *createList()
     if (pNewList == NULL)
         return NULL;
     
-    memset(pNewList, 0, sizeof(polyList));
+    // memset(pNewList, 0, sizeof(polyList));
+    initList(pNewList);
     return pNewList;
 }
 
-// TODO: Function implementation
-int addData(polyList *_pList_, term _tData, int _nPos_)
+/* TODO: Function implementation */
+int addData(polyList *_pList_, term _tData_, int _nPos_)
 {
     // variable declaration
     int nCount = 0;
+    node *newNode = NULL;
 
     // check validity
     if (_pList_ == NULL)
@@ -66,6 +74,9 @@ int addData(polyList *_pList_, term _tData, int _nPos_)
     }
     
     // data addition process
+    newNode = (node*)malloc(sizeof(node));
+    initNode(newNode);
+    newNode->tData = _tData_;
     /* code */
 
     // end function
@@ -75,3 +86,28 @@ int removeData(polyList *_pList_, int _nPos_);
 int getData(polyList *_pList_, int _nPos_);
 int deleteList(polyList *_pList_);
 int getListLength(polyList *_pList_);
+
+int initList(polyList *_pList_)
+{
+    if (_pList_ == NULL)
+    {
+        printf("Error attempting to initialize unallocated memory: initList()\n");
+        return -1;
+    }
+    _pList_->nCurrentCount = 0;
+    initNode(&(_pList_->headerNode));
+    return 0;
+}
+
+int initNode(node *_pNode_)
+{
+    if (_pNode_ == NULL)
+    {
+        printf("Error attempting to initialize unallocated memory: initNode()\n");
+        return -1;
+    }
+    _pNode_->pNext = NULL;
+    _pNode_->tData.coefficient = 0;
+    _pNode_->tData.degree = 0;
+    return 0;
+}
