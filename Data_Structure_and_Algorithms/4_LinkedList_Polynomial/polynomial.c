@@ -26,7 +26,7 @@ typedef struct LinkedList   // 다항식 구조체
 polyList *createList();
 int addData(polyList *_pList_, term _tData_, int _nPos_);
 int removeData(polyList *_pList_, int _nPos_);
-int getData(polyList *_pList_, int _nPos_);
+term getData(polyList *_pList_, int _nPos_);
 int deleteList(polyList *_pList_);
 int getListLength(polyList *_pList_);
 int initList(polyList *_pList_);
@@ -48,23 +48,21 @@ polyList *createList()
 
     if (pNewList == NULL)
         return NULL;
-    
-    // memset(pNewList, 0, sizeof(polyList));
     initList(pNewList);
     return pNewList;
 }
 
-/* TODO: Function implementation */
 int addData(polyList *_pList_, term _tData_, int _nPos_)
 {
     // variable declaration
     int nCount = 0;
-    node *newNode = NULL;
+    node *pNewNode = NULL;
+    node *pCurrentNode = NULL;
 
     // check validity
     if (_pList_ == NULL)
     {
-        printf("Unallocated memory access error: addData(), _pList_\n");
+        printf("Unallocated memory access error: addData()\n");
         return -1;
     }
     if ((_nPos_ < 0) || (_nPos_>_pList_->nCurrentCount))
@@ -74,18 +72,113 @@ int addData(polyList *_pList_, term _tData_, int _nPos_)
     }
     
     // data addition process
-    newNode = (node*)malloc(sizeof(node));
-    initNode(newNode);
-    newNode->tData = _tData_;
-    /* code */
+    pNewNode = (node *)malloc(sizeof(node));
+    if (pNewNode == NULL)
+    {
+        printf("Memory allocation error: addData()\n");
+        return -3;
+    }
+    initNode(pNewNode);
+    pNewNode->tData = _tData_;
+
+    pCurrentNode = &(_pList_->headerNode);
+    for ( ; nCount < _nPos_; nCount++)
+        pCurrentNode = pCurrentNode->pNext;
+    pNewNode->pNext = pCurrentNode->pNext;
+    pCurrentNode->pNext = pNewNode;
+
+    _pList_->nCurrentCount++;
 
     // end function
     return 0;
 }
-int removeData(polyList *_pList_, int _nPos_);
-int getData(polyList *_pList_, int _nPos_);
-int deleteList(polyList *_pList_);
-int getListLength(polyList *_pList_);
+
+int removeData(polyList *_pList_, int _nPos_)
+{
+    // variable declaration
+    int nCount = 0;
+    node *pDeleteNode = NULL;
+    node *pCurrentNode = NULL;
+
+    // check validity
+    if (_pList_ == NULL)
+    {
+        printf("Unallocated memory access error: removeData()\n");
+        return -1;
+    }
+    if ((_nPos_ < 0) || (_nPos_ > _pList_->nCurrentCount))
+    {
+        printf("Index access error: removeData()\n");
+        return -2;
+    }
+
+    // data addition process
+    pCurrentNode = &(_pList_->headerNode);
+    for ( ; nCount < _nPos_; nCount++)
+        pCurrentNode = pCurrentNode->pNext;
+    pDeleteNode = pCurrentNode->pNext;
+    pCurrentNode->pNext = pDeleteNode->pNext;
+    free(pDeleteNode);
+    _pList_->nCurrentCount--;
+
+    // end function
+    return 0;
+}
+
+term getData(polyList *_pList_, int _nPos_)
+{
+    // variable declaration
+    term tResult = {0};
+    int nCount = 0;
+    node *pCurrentNode = NULL;
+
+    // check validity
+    if (_pList_ == NULL)
+    {
+        printf("Unallocated memory access error: getData()\n");
+        return tResult;
+    }
+    if ((_nPos_ < 0) || (_nPos_ > _pList_->nCurrentCount))
+    {
+        printf("Index access error: getData()\n");
+        return tResult;
+    }
+
+    // data addition process
+    pCurrentNode = &(_pList_->headerNode);
+    for ( ; nCount <= _nPos_; nCount++)
+        pCurrentNode = pCurrentNode->pNext;
+    tResult = pCurrentNode->tData;
+    
+    //return result
+    return tResult;
+}
+
+int deleteList(polyList *_pList_)
+{
+    if (_pList_ == NULL)
+    {
+        printf("Unallocated memory access error: deleteList()\n");
+        return -1;
+    }
+
+    while (_pList_->headerNode.pNext != NULL)
+        removeData(_pList_, 0);
+    free(_pList_);
+
+    return 0;
+}
+
+int getListLength(polyList *_pList_)
+{
+    if (_pList_ == NULL)
+    {
+        printf("Unallocated memory access error: getListLength()\n");
+        return -1;
+    }
+
+    return _pList_->nCurrentCount;
+}
 
 int initList(polyList *_pList_)
 {
