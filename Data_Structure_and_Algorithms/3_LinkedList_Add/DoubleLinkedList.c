@@ -121,7 +121,7 @@ int removeData(dList *_pList_, int _nIndex_)
     pRemoveNode->pLeftLink->pRightLink = pRemoveNode->pRightLink;
 
     pRemoveNode->pRightLink = NULL;
-    pRemoveNode->pLeftLink == NULL;
+    pRemoveNode->pLeftLink = NULL;
 
     free(pRemoveNode);
     _pList_->nCurrentCount--;
@@ -137,6 +137,8 @@ int deleteList(dList *_pList_)
         removeData(_pList_, 0);
     
     free(_pList_);
+    
+    return 0;
 }
 
 int printList_R(dList *_pList_)
@@ -185,6 +187,25 @@ int printList_L(dList *_pList_)
 
 int main(int argc, char *argv[])
 {
+    dList *pList = createList();
+
+    if (pList == NULL)
+        return 1;
+    
+    addData(pList, 10, 0);
+    addData(pList, 20, 1);
+    addData(pList, 30, 2);
+    addData(pList, 40, 3);
+    addData(pList, 50, 4);
+    printList_R(pList);
+
+    removeData(pList, 0);
+    printList_R(pList);
+
+    printf("print Left --------\n");
+    printList_L(pList);
+
+    deleteList(pList);
 
     return 0;
 }
