@@ -36,10 +36,13 @@ int initNode(node *_pNode_);
 int addPolyNode_L(polyList *_pList_, const double coef, const int degree);
 polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_);
 int displayPoly(const polyList *_pList_);
+polyList *polySub(const polyList *_pListA_, const polyList *_pListB_);
+int *polySort(polyList *_pList_);
 
 // main function
 int main(int argc, char *argv[])
 {
+    // TODO: code=3221225477 Error resolution
     polyList *pListA = createList();
     polyList *pListB = createList();
     polyList *pListC = createList();
@@ -356,4 +359,17 @@ polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_)
     }
 
     return pResult;
+}
+
+// TODO: Implementation of new function
+polyList *polySub(const polyList *_pListA_, const polyList *_pListB_)
+{
+    // Implementation of subtraction of two polynomials
+    return NULL;
+}
+
+int *polySort(polyList *_pList_)
+{
+    // Supports sorting in descending order based on degree
+    return 0;
 }
