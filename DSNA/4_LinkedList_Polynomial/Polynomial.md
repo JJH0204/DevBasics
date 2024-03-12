@@ -47,7 +47,6 @@
             return pNewList;
         }
 
-        // TODO: Function implementation
         int addData(polyList *_pList_, term _tData, int _nPos_)
         {
             // variable declaration
@@ -72,7 +71,178 @@
             return 0;
         }
         
-        int removeData(polyList *_pList_, int _nPos_);
-        int getData(polyList *_pList_, int _nPos_);
-        int deleteList(polyList *_pList_);
-        int getListLength(polyList *_pList_);
+        int removeData(polyList *_pList_, int _nPos_)
+        {
+            // variable declaration
+            int nCount = 0;
+            node *pDeleteNode = NULL;
+            node *pCurrentNode = NULL;
+
+            // check validity
+            if (_pList_ == NULL)
+            {
+                printf("Unallocated memory access error: removeData()\n");
+                return -1;
+            }
+            if ((_nPos_ < 0) || (_nPos_ > _pList_->nCurrentCount))
+            {
+                printf("Index access error: removeData()\n");
+                return -2;
+            }
+
+            // data addition process
+            pCurrentNode = &(_pList_->headerNode);
+            for ( ; nCount < _nPos_; nCount++)
+                pCurrentNode = pCurrentNode->pNext;
+            pDeleteNode = pCurrentNode->pNext;
+            pCurrentNode->pNext = pDeleteNode->pNext;
+            free(pDeleteNode);
+            _pList_->nCurrentCount--;
+
+            // end function
+            return 0;
+        }
+
+        term getData(polyList *_pList_, int _nPos_)
+        {
+            // variable declaration
+            term tResult = {0};
+            int nCount = 0;
+            node *pCurrentNode = NULL;
+
+            // check validity
+            if (_pList_ == NULL)
+            {
+                printf("Unallocated memory access error: getData()\n");
+                return tResult;
+            }
+            if ((_nPos_ < 0) || (_nPos_ > _pList_->nCurrentCount))
+            {
+                printf("Index access error: getData()\n");
+                return tResult;
+            }
+
+            // data addition process
+            pCurrentNode = &(_pList_->headerNode);
+            for ( ; nCount <= _nPos_; nCount++)
+                pCurrentNode = pCurrentNode->pNext;
+            tResult = pCurrentNode->tData;
+            
+            //return result
+            return tResult;
+        }
+
+        int deleteList(polyList *_pList_)
+        {
+            if (_pList_ == NULL)
+            {
+                printf("Unallocated memory access error: deleteList()\n");
+                return -1;
+            }
+
+            while (_pList_->headerNode.pNext != NULL)
+                removeData(_pList_, 0);
+            free(_pList_);
+
+            return 0;
+        }
+
+        int getListLength(polyList *_pList_)
+        {
+            if (_pList_ == NULL)
+            {
+                printf("Unallocated memory access error: getListLength()\n");
+                return -1;
+            }
+
+            return _pList_->nCurrentCount;
+        }
+
+        int initList(polyList *_pList_)
+        {
+            if (_pList_ == NULL)
+            {
+                printf("Error attempting to initialize unallocated memory: initList()\n");
+                return -1;
+            }
+            _pList_->nCurrentCount = 0;
+            initNode(&(_pList_->headerNode));
+            return 0;
+        }
+
+        int initNode(node *_pNode_)
+        {
+            if (_pNode_ == NULL)
+            {
+                printf("Error attempting to initialize unallocated memory: initNode()\n");
+                return -1;
+            }
+            _pNode_->pNext = NULL;
+            _pNode_->tData.coefficient = 0;
+            _pNode_->tData.degree = 0;
+            return 0;
+        }
+
+### 다항식의 항 추가 연산과 출력 연산
+#### addPolyNode_L()
+> 다항식에 새로운 노드를 추가하는 함수  
+> 단, 새로운 노드를 연결 리스트 마지막 위치에 추가  
+> 입력 파리미터 coef와 degree를 전달하여 내부적으로 적절한 위치(연결 리스트의 마지막)에 알아서 새로운 노드를 추가  
+> addListData()만 사용한다면, 사용자는 별도의 구조체 변수(term)를 선언하고 노드 위치를 계산해 직접 저장해야 함  
+
+    int addPolyNode_L(polyList *_pList_, const double coef, const int degree)
+    {
+        int ret = 0, position = 0;
+        term tData = {0,};
+        
+        if (_pList_ == NULL)
+        {
+            printf("Error attempting to initialize unallocated memory: addPolyNode_L()\n");
+            return -1;
+        }
+
+        tData.coefficient = coef;
+        tData.degree = degree;
+
+        position = _pList_->nCurrentCount;
+        ret = addData(_pList_, tData, position);
+
+        return ret;
+    }
+
+#### displayPoly()
+> 연결 리스트를 순회하며 데이터를 출력하는 함수와 동일한 구조  
+> '7.0x^6 + 3.0x^5 + 5.0x^2' 형태로 출력  
+
+    int displayPoly(polyList *_pList_)
+    {
+        int nCount = 0;
+        node *pNode = NULL;
+        if (_pList_ == NULL)
+        {
+            printf("Error attempting to initialize unallocated memory: displayPoly()\n");
+            return -1;
+        }
+        if (_pList_->nCurrentCount <= 0)
+        {
+            printf("There is no data.\n");
+            return -2;
+        }
+        for ( ; nCount < _pList_->nCurrentCount; nCount++)
+        {
+            if (nCount > 0)
+                printf(" + ");
+            
+            printf("%.1fx^%d", pNode->tData.coefficient, pNode->tData.degree);
+            pNode = pNode->pNext;
+        }
+        printf("\n");
+        
+        return 0;
+    }
+
+#### 다항식 더하기 연산: polyAdd()  
+> 두 다항식(pListA, pListB)를 전달 받아 높은 차수부터 낮은 차수 순으로 순서대로 덧셈을 진행  
+> 이를 위해 다항식은 차수를 기준으로 무조건 내림차수로 작성되어야 한다.  
+> 두 다항식의 덧셈 결과를 pResult라는 새로운 노드를 만들어 리스트에 저장한다.  
+> 두 다항식의 어느 한 쪽에 차수가 없는 경우를 고려해 로직을 작성

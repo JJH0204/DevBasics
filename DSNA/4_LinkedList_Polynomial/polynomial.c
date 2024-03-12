@@ -33,6 +33,9 @@ int initList(polyList *_pList_);
 int initNode(node *_pNode_);
 
 // Function for polynomial calculation
+int addPolyNode_L(polyList *_pList_, const double coef, const int degree);
+polyList *polyAdd(polyList *_pListA_, polyList *_pListB_);
+int displayPoly(polyList *_pList_);
 
 // main function
 int main(int argc, char *argv[])
@@ -203,4 +206,66 @@ int initNode(node *_pNode_)
     _pNode_->tData.coefficient = 0;
     _pNode_->tData.degree = 0;
     return 0;
+}
+
+// polynomial function
+int addPolyNode_L(polyList *_pList_, const double coef, const int degree)
+{
+    int ret = 0, position = 0;
+    term tData = {0,};
+    
+    if (_pList_ == NULL)
+    {
+        printf("Error attempting to initialize unallocated memory: addPolyNode_L()\n");
+        return -1;
+    }
+
+    tData.coefficient = coef;
+    tData.degree = degree;
+
+    position = _pList_->nCurrentCount;
+    ret = addData(_pList_, tData, position);
+
+    return ret;
+}
+
+int displayPoly(polyList *_pList_)
+{
+    int nCount = 0;
+    node *pNode = NULL;
+    if (_pList_ == NULL)
+    {
+        printf("Error attempting to initialize unallocated memory: displayPoly()\n");
+        return -1;
+    }
+    if (_pList_->nCurrentCount <= 0)
+    {
+        printf("There is no data.\n");
+        return -2;
+    }
+    for ( ; nCount < _pList_->nCurrentCount; nCount++)
+    {
+        if (nCount > 0)
+            printf(" + ");
+        
+        printf("%.1fx^%d", pNode->tData.coefficient, pNode->tData.degree);
+        pNode = pNode->pNext;
+    }
+    printf("\n");
+    
+    return 0;
+}
+
+polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
+{
+    polyList *pResult = NULL;
+
+    if ((_pListA_ == NULL) || (_pListB_ == NULL))
+    {
+        printf("Error attempting to initialize unallocated memory: polyAdd()\n");
+        return -1;
+    }
+    pResult = createList();
+    // TODO: Add Code
+    return pResult;
 }
