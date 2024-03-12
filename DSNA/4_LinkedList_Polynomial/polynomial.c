@@ -266,12 +266,12 @@ polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
     if ((_pListA_ == NULL) || (_pListB_ == NULL))
     {
         printf("Error attempting to initialize unallocated memory: polyAdd()\n");
-        return -1;
+        return NULL;
     }
     if ((_pListA_->headerNode.pNext == NULL) || (_pListB_->headerNode.pNext == NULL))
     {
         printf("The other formula for polynomial addition is empty.: polyAdd()\n");
-        return -2;
+        return NULL;
     }
     
     pResult = createList();
@@ -281,22 +281,39 @@ polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
         // _pListA_ 만 리스트에 데이터가 있는 경우
         if ((_pListA_->headerNode.pNext != NULL) && (_pListB_->headerNode.pNext == NULL))
         {
-            /* code */
+            addPolyNode_L(pResult, _pListA_->headerNode.pNext->tData.coefficient, _pListA_->headerNode.pNext->tData.degree);
+            removeData(_pListA_, 0);
         }
         // _pListB_ 만 리스트에 데이터가 있는 경우
         else if ((_pListA_->headerNode.pNext == NULL) && (_pListB_->headerNode.pNext != NULL))
         {
-            /* code */
+            addPolyNode_L(pResult, _pListB_->headerNode.pNext->tData.coefficient, _pListB_->headerNode.pNext->tData.degree);
+            removeData(_pListB_, 0);
         }
         // 둘다 데이터가 있는 경우
         else
         {
-            /* code */
-            // 두 리스트 첫 노드의 차수 비교
-            // 차수가 같다면 -> 덧셈
-            // 차수가 다르다면 -> 더 큰 차수 값을 노드로 저장
+            // 두 리스트가 가리키는 첫 노드의 차수가 같다면
+            if (_pListA_->headerNode.pNext->tData.degree == _pListB_->headerNode.pNext->tData.degree)
+            {
+                addPolyNode_L(pResult, _pListA_->headerNode.pNext->tData.coefficient + _pListB_->headerNode.pNext->tData.coefficient, _pListA_->headerNode.pNext->tData.degree);
+                removeData(_pListA_, 0);
+                removeData(_pListB_, 0);
+            }
+            // _pListA_의 헤더 노드가 가리키는 첫번째 노드의 차수가 더 높은 경우
+            else if (_pListA_->headerNode.pNext->tData.degree > _pListB_->headerNode.pNext->tData.degree)
+            {
+                addPolyNode_L(pResult, _pListA_->headerNode.pNext->tData.coefficient, _pListA_->headerNode.pNext->tData.degree);
+                removeData(_pListA_, 0);
+            }
+            // _pListB_의 헤더 노드가 가리키는 첫번째 노드의 차수가 더 높은 경우
+            else
+            {
+                addPolyNode_L(pResult, _pListB_->headerNode.pNext->tData.coefficient, _pListB_->headerNode.pNext->tData.degree);
+                removeData(_pListB_, 0);
+            }
         }
     }
-    
+
     return pResult;
 }
