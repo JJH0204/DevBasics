@@ -275,26 +275,28 @@ polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
     }
     
     pResult = createList();
-    // pNodeA = _pListA_->headerNode.pNext;
-    // pNodeB = _pListB_->headerNode.pNext;
-    // if (pNodeA->tData.degree == pNodeB->tData.degree)
-    // {
-    //     tData.coefficient = pNodeA->tData.coefficient + pNodeB->tData.coefficient;
-    //     tData.degree = pNodeA->tData.degree;
-    // }
-    // else if (pNodeA->tData.degree > pNodeB->tData.degree)
-    // {
-    //     tData.coefficient = pNodeA->tData.coefficient;
-    //     tData.degree = pNodeA->tData.degree;
-    // }
-    // else
-    // {
-    //     tData.coefficient = pNodeB->tData.coefficient;
-    //     tData.degree = pNodeB->tData.degree;
-    // }
-    // addData(pResult, tData, 0);
-    /* logic */
-    // 1. 동일 차수의 항을 두 식이 모두 가졌는지 확인
-    // 1.1. 
+    // 두 리스트의 첫 노드를 검사헤 두 리스트 중 한 리스트라도 데이터가 남아 있는 경우 반복 실행
+    while ((_pListA_->headerNode.pNext != NULL) || (_pListB_->headerNode.pNext != NULL))
+    {
+        // _pListA_ 만 리스트에 데이터가 있는 경우
+        if ((_pListA_->headerNode.pNext != NULL) && (_pListB_->headerNode.pNext == NULL))
+        {
+            /* code */
+        }
+        // _pListB_ 만 리스트에 데이터가 있는 경우
+        else if ((_pListA_->headerNode.pNext == NULL) && (_pListB_->headerNode.pNext != NULL))
+        {
+            /* code */
+        }
+        // 둘다 데이터가 있는 경우
+        else
+        {
+            /* code */
+            // 두 리스트 첫 노드의 차수 비교
+            // 차수가 같다면 -> 덧셈
+            // 차수가 다르다면 -> 더 큰 차수 값을 노드로 저장
+        }
+    }
+    
     return pResult;
 }
