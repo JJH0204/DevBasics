@@ -26,20 +26,55 @@ typedef struct LinkedList   // 다항식 구조체
 polyList *createList();
 int addData(polyList *_pList_, term _tData_, int _nPos_);
 int removeData(polyList *_pList_, int _nPos_);
-term getData(polyList *_pList_, int _nPos_);
+term getData(polyList *_pList_, const int _nPos_);
 int deleteList(polyList *_pList_);
-int getListLength(polyList *_pList_);
+int getListLength(const polyList *_pList_);
 int initList(polyList *_pList_);
 int initNode(node *_pNode_);
 
 // Function for polynomial calculation
 int addPolyNode_L(polyList *_pList_, const double coef, const int degree);
-polyList *polyAdd(polyList *_pListA_, polyList *_pListB_);
-int displayPoly(polyList *_pList_);
+polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_);
+int displayPoly(const polyList *_pList_);
 
 // main function
 int main(int argc, char *argv[])
 {
+    polyList *pListA = createList();
+    polyList *pListB = createList();
+    polyList *pListC = createList();
+
+    if ((pListA == NULL) && (pListB == NULL) && (pListC == NULL))
+    {
+        printf("Memory allocation error.: main()");
+        return 0;
+    }
+    
+    addPolyNode_L(pListA, 7, 6);
+    addPolyNode_L(pListA, 3, 5);
+    addPolyNode_L(pListA, 5, 2);
+
+    addPolyNode_L(pListB, 1, 5);
+    addPolyNode_L(pListB, 2, 4);
+    addPolyNode_L(pListB, 3, 2);
+    addPolyNode_L(pListB, 4, 0);
+
+    displayPoly(pListA);
+    displayPoly(pListB);
+
+    pListC = polyAdd(pListA, pListB);
+
+    if (pListC == NULL)
+    {
+        printf("Function result return error: main()->call 'polyAdd()'");
+        return 0;
+    }
+    
+    displayPoly(pListC);
+
+    deleteList(pListA);
+    deleteList(pListB);
+    deleteList(pListC);
 
     return 0;
 }
@@ -128,7 +163,7 @@ int removeData(polyList *_pList_, int _nPos_)
     return 0;
 }
 
-term getData(polyList *_pList_, int _nPos_)
+term getData(polyList *_pList_, const int _nPos_)
 {
     // variable declaration
     term tResult = {0};
@@ -172,7 +207,7 @@ int deleteList(polyList *_pList_)
     return 0;
 }
 
-int getListLength(polyList *_pList_)
+int getListLength(const polyList *_pList_)
 {
     if (_pList_ == NULL)
     {
@@ -229,7 +264,7 @@ int addPolyNode_L(polyList *_pList_, const double coef, const int degree)
     return ret;
 }
 
-int displayPoly(polyList *_pList_)
+int displayPoly(const polyList *_pList_)
 {
     int nCount = 0;
     node *pNode = NULL;
@@ -256,12 +291,11 @@ int displayPoly(polyList *_pList_)
     return 0;
 }
 
-polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
+polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_)
 {
     polyList *pResult = NULL;
-    // node *pNodeA = NULL;
-    // node *pNodeB = NULL;
-    // term tData = {0,};
+    node *pNodeA = NULL, *pNodeB = NULL;
+    // int nSumCoef = 0;
 
     if ((_pListA_ == NULL) || (_pListB_ == NULL))
     {
@@ -275,44 +309,50 @@ polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
     }
     
     pResult = createList();
-    // 두 리스트의 첫 노드를 검사헤 두 리스트 중 한 리스트라도 데이터가 남아 있는 경우 반복 실행
-    while ((_pListA_->headerNode.pNext != NULL) || (_pListB_->headerNode.pNext != NULL))
+    if (pResult == NULL)
     {
-        // _pListA_ 만 리스트에 데이터가 있는 경우
-        if ((_pListA_->headerNode.pNext != NULL) && (_pListB_->headerNode.pNext == NULL))
+        printf("memory allocation error: polyAdd()\n");
+        return NULL;
+    }
+    initList(pResult);
+
+    pNodeA = _pListA_->headerNode.pNext;
+    pNodeB = _pListB_->headerNode.pNext;
+
+    while ((pNodeA != NULL) && (pNodeB != NULL))
+    // Tip: If either of them points to NULL, must terminate the while(). So we use AND(&&).
+    {
+        // case_1: The degree of term A is higher than the degree of term B
+        if (pNodeA->tData.degree > pNodeB->tData.degree)
         {
-            addPolyNode_L(pResult, _pListA_->headerNode.pNext->tData.coefficient, _pListA_->headerNode.pNext->tData.degree);
-            removeData(_pListA_, 0);
+            addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+            pNodeA = pNodeA->pNext;
         }
-        // _pListB_ 만 리스트에 데이터가 있는 경우
-        else if ((_pListA_->headerNode.pNext == NULL) && (_pListB_->headerNode.pNext != NULL))
+        // case_2: The degree of term B is higher than the degree of term A
+        else if (pNodeA->tData.degree < pNodeB->tData.degree)
         {
-            addPolyNode_L(pResult, _pListB_->headerNode.pNext->tData.coefficient, _pListB_->headerNode.pNext->tData.degree);
-            removeData(_pListB_, 0);
+            addPolyNode_L(pResult, pNodeB->tData.coefficient, pNodeB->tData.degree);
+            pNodeB = pNodeB->pNext;
         }
-        // 둘다 데이터가 있는 경우
+        // case_3: Two terms have the same degree
         else
         {
-            // 두 리스트가 가리키는 첫 노드의 차수가 같다면
-            if (_pListA_->headerNode.pNext->tData.degree == _pListB_->headerNode.pNext->tData.degree)
-            {
-                addPolyNode_L(pResult, _pListA_->headerNode.pNext->tData.coefficient + _pListB_->headerNode.pNext->tData.coefficient, _pListA_->headerNode.pNext->tData.degree);
-                removeData(_pListA_, 0);
-                removeData(_pListB_, 0);
-            }
-            // _pListA_의 헤더 노드가 가리키는 첫번째 노드의 차수가 더 높은 경우
-            else if (_pListA_->headerNode.pNext->tData.degree > _pListB_->headerNode.pNext->tData.degree)
-            {
-                addPolyNode_L(pResult, _pListA_->headerNode.pNext->tData.coefficient, _pListA_->headerNode.pNext->tData.degree);
-                removeData(_pListA_, 0);
-            }
-            // _pListB_의 헤더 노드가 가리키는 첫번째 노드의 차수가 더 높은 경우
-            else
-            {
-                addPolyNode_L(pResult, _pListB_->headerNode.pNext->tData.coefficient, _pListB_->headerNode.pNext->tData.degree);
-                removeData(_pListB_, 0);
-            }
+            addPolyNode_L(pResult, pNodeA->tData.coefficient + pNodeB->tData.coefficient, pNodeB->tData.degree);
+            pNodeA = pNodeA->pNext;
+            pNodeB = pNodeB->pNext;
         }
+    }
+    // case_4: There are terms remaining after addition, so post-processing is required.
+    while (pNodeA != NULL)
+    {
+        addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+        pNodeA = pNodeA->pNext;
+    }
+    
+    while (pNodeB != NULL)
+    {
+        addPolyNode_L(pResult, pNodeB->tData.coefficient, pNodeB->tData.degree);
+        pNodeB = pNodeB->pNext;
     }
 
     return pResult;
