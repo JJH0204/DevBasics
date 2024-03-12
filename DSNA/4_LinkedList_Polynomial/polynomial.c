@@ -259,13 +259,42 @@ int displayPoly(polyList *_pList_)
 polyList *polyAdd(polyList *_pListA_, polyList *_pListB_)
 {
     polyList *pResult = NULL;
+    // node *pNodeA = NULL;
+    // node *pNodeB = NULL;
+    // term tData = {0,};
 
     if ((_pListA_ == NULL) || (_pListB_ == NULL))
     {
         printf("Error attempting to initialize unallocated memory: polyAdd()\n");
         return -1;
     }
+    if ((_pListA_->headerNode.pNext == NULL) || (_pListB_->headerNode.pNext == NULL))
+    {
+        printf("The other formula for polynomial addition is empty.: polyAdd()\n");
+        return -2;
+    }
+    
     pResult = createList();
-    // TODO: Add Code
+    // pNodeA = _pListA_->headerNode.pNext;
+    // pNodeB = _pListB_->headerNode.pNext;
+    // if (pNodeA->tData.degree == pNodeB->tData.degree)
+    // {
+    //     tData.coefficient = pNodeA->tData.coefficient + pNodeB->tData.coefficient;
+    //     tData.degree = pNodeA->tData.degree;
+    // }
+    // else if (pNodeA->tData.degree > pNodeB->tData.degree)
+    // {
+    //     tData.coefficient = pNodeA->tData.coefficient;
+    //     tData.degree = pNodeA->tData.degree;
+    // }
+    // else
+    // {
+    //     tData.coefficient = pNodeB->tData.coefficient;
+    //     tData.degree = pNodeB->tData.degree;
+    // }
+    // addData(pResult, tData, 0);
+    /* logic */
+    // 1. 동일 차수의 항을 두 식이 모두 가졌는지 확인
+    // 1.1. 
     return pResult;
 }
