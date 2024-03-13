@@ -384,7 +384,6 @@ polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_)
     return pResult;
 }
 
-// TODO: Implementation of new function
 polyList *polySub(const polyList *_pListA_, const polyList *_pListB_)
 {
     // Implementation of subtraction of two polynomials

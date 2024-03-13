@@ -210,11 +210,11 @@
         return ret;
     }
 
-#### displayPoly()
+#### 다항식 출력: displayPoly()
 > 연결 리스트를 순회하며 데이터를 출력하는 함수와 동일한 구조  
 > '7.0x^6 + 3.0x^5 + 5.0x^2' 형태로 출력  
 
-    int displayPoly(polyList *_pList_)
+    int displayPoly(const polyList *_pList_)
     {
         int nCount = 0;
         node *pNode = NULL;
@@ -228,13 +228,20 @@
             printf("There is no data.\n");
             return -2;
         }
+        pNode = _pList_->headerNode.pNext;
         for ( ; nCount < _pList_->nCurrentCount; nCount++)
         {
-            if (nCount > 0)
-                printf(" + ");
+            if ((nCount > 0) && (pNode->tData.coefficient >= 0))
+                printf(" +");
+            else
+                printf(" ");
             
-            printf("%.1fx^%d", pNode->tData.coefficient, pNode->tData.degree);
-            pNode = pNode->pNext;
+            printf("%.1f", pNode->tData.coefficient);
+
+            if (pNode->tData.degree > 0)
+                printf("x^%d", pNode->tData.degree);
+            
+                pNode = pNode->pNext;
         }
         printf("\n");
         
@@ -311,4 +318,111 @@
         }
 
         return pResult;
+    }
+
+#### 다항식 뺄셈 연산: polySub()  
+
+    polyList *polySub(const polyList *_pListA_, const polyList *_pListB_)
+    {
+        // Implementation of subtraction of two polynomials
+        polyList *pResult = NULL;
+        node *pNodeA = NULL, *pNodeB = NULL;
+
+        if ((_pListA_ == NULL) || (_pListB_ == NULL))
+        {
+            printf("Error attempting to initialize unallocated memory: polySub()\n");
+            return NULL;
+        }
+        if ((_pListA_->headerNode.pNext == NULL) || (_pListB_->headerNode.pNext == NULL))
+        {
+            printf("The other formula for polynomial addition is empty.: polySub()\n");
+            return NULL;
+        }
+
+        pResult = createList();
+        if (pResult == NULL)
+        {
+            printf("memory allocation error: polySub()\n");
+            return NULL;
+        }
+        initList(pResult);
+
+        pNodeA = _pListA_->headerNode.pNext;
+        pNodeB = _pListB_->headerNode.pNext;
+
+        while ((pNodeA != NULL) && (pNodeB != NULL))
+        // Tip: If either of them points to NULL, must terminate the while(). So we use AND(&&).
+        {
+            // case_1: The degree of term A is higher than the degree of term B
+            if (pNodeA->tData.degree > pNodeB->tData.degree)
+            {
+                addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+                pNodeA = pNodeA->pNext;
+            }
+            // case_2: The degree of term B is higher than the degree of term A
+            else if (pNodeA->tData.degree < pNodeB->tData.degree)
+            {
+                addPolyNode_L(pResult, -1 * pNodeB->tData.coefficient, pNodeB->tData.degree);
+                pNodeB = pNodeB->pNext;
+            }
+            // case_3: Two terms have the same degree
+            else
+            {
+                addPolyNode_L(pResult, pNodeA->tData.coefficient - pNodeB->tData.coefficient, pNodeB->tData.degree);
+                pNodeA = pNodeA->pNext;
+                pNodeB = pNodeB->pNext;
+            }
+        }
+        // case_4: There are terms remaining after addition, so post-processing is required.
+        while (pNodeA != NULL)
+        {
+            addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+            pNodeA = pNodeA->pNext;
+        }
+
+        while (pNodeB != NULL)
+        {
+            addPolyNode_L(pResult, -1 * pNodeB->tData.coefficient, pNodeB->tData.degree);
+            pNodeB = pNodeB->pNext;
+        }
+
+        return pResult;
+    }
+
+#### 다항식 정렬: polySort()
+    int polySort(polyList *_pList_)
+    {
+        // Supports sorting in descending order based on degree
+        node *pPast = NULL;
+        node *pCurrent = NULL;
+        node *pFuture = NULL;
+
+        if (_pList_ == NULL)
+        {
+            printf("Unallocated memory reference error: polySort()");
+            return -1;
+        }
+        
+        pPast = &(_pList_->headerNode);
+
+        while (pPast->pNext->pNext != NULL)
+        {
+            pCurrent = pPast->pNext;
+            pFuture = pCurrent->pNext;
+            
+            if (pCurrent->tData.degree < pFuture->tData.degree)
+            {
+                pPast->pNext = pFuture;
+                pCurrent->pNext = pFuture->pNext;
+                pFuture->pNext = pCurrent;
+                
+                pPast = &(_pList_->headerNode);
+            }
+            else
+            {
+                pPast = pPast->pNext;
+            }
+        }
+
+        return 0;
     }
