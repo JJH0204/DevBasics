@@ -246,3 +246,69 @@
 > 이를 위해 다항식은 차수를 기준으로 무조건 내림차수로 작성되어야 한다.  
 > 두 다항식의 덧셈 결과를 pResult라는 새로운 노드를 만들어 리스트에 저장한다.  
 > 두 다항식의 어느 한 쪽에 차수가 없는 경우를 고려해 로직을 작성
+
+    polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_)
+    {
+        polyList *pResult = NULL;
+        node *pNodeA = NULL, *pNodeB = NULL;
+
+        if ((_pListA_ == NULL) || (_pListB_ == NULL))
+        {
+            printf("Error attempting to initialize unallocated memory: polyAdd()\n");
+            return NULL;
+        }
+        if ((_pListA_->headerNode.pNext == NULL) || (_pListB_->headerNode.pNext == NULL))
+        {
+            printf("The other formula for polynomial addition is empty.: polyAdd()\n");
+            return NULL;
+        }
+        
+        pResult = createList();
+        if (pResult == NULL)
+        {
+            printf("memory allocation error: polyAdd()\n");
+            return NULL;
+        }
+        initList(pResult);
+
+        pNodeA = _pListA_->headerNode.pNext;
+        pNodeB = _pListB_->headerNode.pNext;
+
+        while ((pNodeA != NULL) && (pNodeB != NULL))
+        // Tip: If either of them points to NULL, must terminate the while(). So we use AND(&&).
+        {
+            // case_1: The degree of term A is higher than the degree of term B
+            if (pNodeA->tData.degree > pNodeB->tData.degree)
+            {
+                addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+                pNodeA = pNodeA->pNext;
+            }
+            // case_2: The degree of term B is higher than the degree of term A
+            else if (pNodeA->tData.degree < pNodeB->tData.degree)
+            {
+                addPolyNode_L(pResult, pNodeB->tData.coefficient, pNodeB->tData.degree);
+                pNodeB = pNodeB->pNext;
+            }
+            // case_3: Two terms have the same degree
+            else
+            {
+                addPolyNode_L(pResult, pNodeA->tData.coefficient + pNodeB->tData.coefficient, pNodeB->tData.degree);
+                pNodeA = pNodeA->pNext;
+                pNodeB = pNodeB->pNext;
+            }
+        }
+        // case_4: There are terms remaining after addition, so post-processing is required.
+        while (pNodeA != NULL)
+        {
+            addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+            pNodeA = pNodeA->pNext;
+        }
+        
+        while (pNodeB != NULL)
+        {
+            addPolyNode_L(pResult, pNodeB->tData.coefficient, pNodeB->tData.degree);
+            pNodeB = pNodeB->pNext;
+        }
+
+        return pResult;
+    }
