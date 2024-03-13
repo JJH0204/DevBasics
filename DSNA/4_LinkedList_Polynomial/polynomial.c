@@ -4,19 +4,19 @@
 #include <string.h>
 
 // definition data structure
-typedef struct Term         // '항' 구조체
+typedef struct Term         // 'term' structure
 {
-    double coefficient;     // 계수
-    int degree;             // 차수
+    double coefficient;     // Coefficient
+    int degree;             // degree
 } term;
 
-typedef struct Node         // 노드 구조체
+typedef struct Node         // node structure
 {
-    term tData;             // 항 구조체 데이터
+    term tData;             // term structure data
     struct Node *pNext;
 } node;
 
-typedef struct LinkedList   // 다항식 구조체
+typedef struct LinkedList   // polynomial structure
 {
     int nCurrentCount;
     node headerNode;
@@ -24,8 +24,8 @@ typedef struct LinkedList   // 다항식 구조체
 
 // Basic function of linked list
 polyList *createList();
-int addData(polyList *_pList_, term _tData_, int _nPos_);
-int removeData(polyList *_pList_, int _nPos_);
+int addData(polyList *_pList_, const term _tData_, const int _nPos_);
+int removeData(polyList *_pList_, const int _nPos_);
 term getData(polyList *_pList_, const int _nPos_);
 int deleteList(polyList *_pList_);
 int getListLength(const polyList *_pList_);
@@ -42,15 +42,14 @@ int *polySort(polyList *_pList_);
 // main function
 int main(int argc, char *argv[])
 {
-    // TODO: code=3221225477 Error resolution
     polyList *pListA = createList();
     polyList *pListB = createList();
     polyList *pListC = createList();
 
-    if ((pListA == NULL) && (pListB == NULL) && (pListC == NULL))
+    if ((pListA == NULL) && (pListB == NULL) /*&& (pListC == NULL)*/)
     {
         printf("Memory allocation error.: main()");
-        return 0;
+        return -1;
     }
     
     addPolyNode_L(pListA, 7, 6);
@@ -70,7 +69,7 @@ int main(int argc, char *argv[])
     if (pListC == NULL)
     {
         printf("Function result return error: main()->call 'polyAdd()'");
-        return 0;
+        return -2;
     }
     
     displayPoly(pListC);
@@ -93,7 +92,7 @@ polyList *createList()
     return pNewList;
 }
 
-int addData(polyList *_pList_, term _tData_, int _nPos_)
+int addData(polyList *_pList_, const term _tData_, const int _nPos_)
 {
     // variable declaration
     int nCount = 0;
@@ -134,7 +133,7 @@ int addData(polyList *_pList_, term _tData_, int _nPos_)
     return 0;
 }
 
-int removeData(polyList *_pList_, int _nPos_)
+int removeData(polyList *_pList_, const int _nPos_)
 {
     // variable declaration
     int nCount = 0;
@@ -169,7 +168,7 @@ int removeData(polyList *_pList_, int _nPos_)
 term getData(polyList *_pList_, const int _nPos_)
 {
     // variable declaration
-    term tResult = {0};
+    term tResult = {0,};
     int nCount = 0;
     node *pCurrentNode = NULL;
 
@@ -281,6 +280,7 @@ int displayPoly(const polyList *_pList_)
         printf("There is no data.\n");
         return -2;
     }
+    pNode = _pList_->headerNode.pNext;      // code=3221225477 Error cause: Trying to reference memory with a null pointer
     for ( ; nCount < _pList_->nCurrentCount; nCount++)
     {
         if (nCount > 0)
