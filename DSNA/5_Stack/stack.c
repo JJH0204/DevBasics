@@ -3,8 +3,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-int main (int argc, char *argv[])
-{
+// TODO: Implementing a connection stack with pointers
 
+int main(int argc, char *argv[])
+{
+    
     return 0;
 }
