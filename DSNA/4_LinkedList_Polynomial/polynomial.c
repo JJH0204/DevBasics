@@ -382,22 +382,24 @@ int *polySort(polyList *_pList_)
     
     pPast = &(_pList_->headerNode);
 
-    while ((pCurrent != NULL) && (pFuture != NULL))
+    while (pPast->pNext->pNext != NULL)
     {
+        pCurrent = pPast->pNext;
+        pFuture = pCurrent->pNext;
+        
         if (pCurrent->tData.degree < pFuture->tData.degree)
         {
+            pPast->pNext = pFuture;
             pCurrent->pNext = pFuture->pNext;
             pFuture->pNext = pCurrent;
-            pPast->pNext = pFuture;
+            
+            pPast = &(_pList_->headerNode);
         }
         else
         {
             pPast = pPast->pNext;
         }
-        pCurrent = pPast->pNext;
-        pFuture = pCurrent->pNext;
     }
-    
 
     return 0;
 }
