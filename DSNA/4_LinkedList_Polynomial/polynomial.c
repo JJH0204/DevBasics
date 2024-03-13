@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
 
     if (pListC == NULL)
     {
-        printf("Function result return error: main()->call 'polyAdd()'");
+        printf("Function result return error: main()->call 'polySub()'");
         return -2;
     }
 
@@ -298,14 +298,20 @@ int displayPoly(const polyList *_pList_)
         printf("There is no data.\n");
         return -2;
     }
-    pNode = _pList_->headerNode.pNext;      // code=3221225477 Error cause: Trying to reference memory with a null pointer
+    pNode = _pList_->headerNode.pNext;
     for ( ; nCount < _pList_->nCurrentCount; nCount++)
     {
-        if (nCount > 0)
-            printf(" + ");
+        if ((nCount > 0) && (pNode->tData.coefficient >= 0))
+            printf(" +");
+        else
+            printf(" ");
         
-        printf("%.1fx^%d", pNode->tData.coefficient, pNode->tData.degree);
-        pNode = pNode->pNext;
+        printf("%.1f", pNode->tData.coefficient);
+
+        if (pNode->tData.degree > 0)
+            printf("x^%d", pNode->tData.degree);
+        
+            pNode = pNode->pNext;
     }
     printf("\n");
     
@@ -382,7 +388,68 @@ polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_)
 polyList *polySub(const polyList *_pListA_, const polyList *_pListB_)
 {
     // Implementation of subtraction of two polynomials
-    return NULL;
+    polyList *pResult = NULL;
+    node *pNodeA = NULL, *pNodeB = NULL;
+
+    if ((_pListA_ == NULL) || (_pListB_ == NULL))
+    {
+        printf("Error attempting to initialize unallocated memory: polySub()\n");
+        return NULL;
+    }
+    if ((_pListA_->headerNode.pNext == NULL) || (_pListB_->headerNode.pNext == NULL))
+    {
+        printf("The other formula for polynomial addition is empty.: polySub()\n");
+        return NULL;
+    }
+
+    pResult = createList();
+    if (pResult == NULL)
+    {
+        printf("memory allocation error: polySub()\n");
+        return NULL;
+    }
+    initList(pResult);
+
+    pNodeA = _pListA_->headerNode.pNext;
+    pNodeB = _pListB_->headerNode.pNext;
+
+    while ((pNodeA != NULL) && (pNodeB != NULL))
+    // Tip: If either of them points to NULL, must terminate the while(). So we use AND(&&).
+    {
+        // case_1: The degree of term A is higher than the degree of term B
+        if (pNodeA->tData.degree > pNodeB->tData.degree)
+        {
+            addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+            pNodeA = pNodeA->pNext;
+        }
+        // case_2: The degree of term B is higher than the degree of term A
+        else if (pNodeA->tData.degree < pNodeB->tData.degree)
+        {
+            addPolyNode_L(pResult, -1 * pNodeB->tData.coefficient, pNodeB->tData.degree);
+            pNodeB = pNodeB->pNext;
+        }
+        // case_3: Two terms have the same degree
+        else
+        {
+            addPolyNode_L(pResult, pNodeA->tData.coefficient - pNodeB->tData.coefficient, pNodeB->tData.degree);
+            pNodeA = pNodeA->pNext;
+            pNodeB = pNodeB->pNext;
+        }
+    }
+    // case_4: There are terms remaining after addition, so post-processing is required.
+    while (pNodeA != NULL)
+    {
+        addPolyNode_L(pResult, pNodeA->tData.coefficient, pNodeA->tData.degree);
+        pNodeA = pNodeA->pNext;
+    }
+
+    while (pNodeB != NULL)
+    {
+        addPolyNode_L(pResult, -1 * pNodeB->tData.coefficient, pNodeB->tData.degree);
+        pNodeB = pNodeB->pNext;
+    }
+
+    return pResult;
 }
 
 int polySort(polyList *_pList_)
