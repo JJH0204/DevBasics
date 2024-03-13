@@ -37,7 +37,7 @@ int addPolyNode_L(polyList *_pList_, const double coef, const int degree);
 polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_);
 int displayPoly(const polyList *_pList_);
 polyList *polySub(const polyList *_pListA_, const polyList *_pListB_);
-int *polySort(polyList *_pList_);
+int polySort(polyList *_pList_);
 
 // main function
 int main(int argc, char *argv[])
@@ -46,22 +46,28 @@ int main(int argc, char *argv[])
     polyList *pListB = createList();
     polyList *pListC = createList();
 
-    if ((pListA == NULL) && (pListB == NULL) /*&& (pListC == NULL)*/)
+    if ((pListA == NULL) && (pListB == NULL) && (pListC == NULL))
     {
         printf("Memory allocation error.: main()");
         return -1;
     }
-    
+
+    addPolyNode_L(pListA, 5, 2);
     addPolyNode_L(pListA, 7, 6);
     addPolyNode_L(pListA, 3, 5);
-    addPolyNode_L(pListA, 5, 2);
+    
 
     addPolyNode_L(pListB, 1, 5);
     addPolyNode_L(pListB, 2, 4);
     addPolyNode_L(pListB, 3, 2);
     addPolyNode_L(pListB, 4, 0);
 
+    printf("Polynomial-A: \n");
     displayPoly(pListA);
+    polySort(pListA);
+    printf("After sorting of Polynomial-A: \n");
+    displayPoly(pListA);
+    printf("Polynomial-B: \n");
     displayPoly(pListB);
 
     pListC = polyAdd(pListA, pListB);
@@ -71,7 +77,19 @@ int main(int argc, char *argv[])
         printf("Function result return error: main()->call 'polyAdd()'");
         return -2;
     }
-    
+
+    printf("Polynomial addition result: \n");
+    displayPoly(pListC);
+
+    pListC = polySub(pListA, pListB);
+
+    if (pListC == NULL)
+    {
+        printf("Function result return error: main()->call 'polyAdd()'");
+        return -2;
+    }
+
+    printf("Polynomial subtraction result: \n");
     displayPoly(pListC);
 
     deleteList(pListA);
@@ -367,7 +385,7 @@ polyList *polySub(const polyList *_pListA_, const polyList *_pListB_)
     return NULL;
 }
 
-int *polySort(polyList *_pList_)
+int polySort(polyList *_pList_)
 {
     // Supports sorting in descending order based on degree
     node *pPast = NULL;
