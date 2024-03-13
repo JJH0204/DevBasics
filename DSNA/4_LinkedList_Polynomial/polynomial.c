@@ -298,7 +298,6 @@ polyList *polyAdd(const polyList *_pListA_, const polyList *_pListB_)
 {
     polyList *pResult = NULL;
     node *pNodeA = NULL, *pNodeB = NULL;
-    // int nSumCoef = 0;
 
     if ((_pListA_ == NULL) || (_pListB_ == NULL))
     {
@@ -371,5 +370,34 @@ polyList *polySub(const polyList *_pListA_, const polyList *_pListB_)
 int *polySort(polyList *_pList_)
 {
     // Supports sorting in descending order based on degree
+    node *pPast = NULL;
+    node *pCurrent = NULL;
+    node *pFuture = NULL;
+
+    if (_pList_ == NULL)
+    {
+        printf("Unallocated memory reference error: polySort()");
+        return -1;
+    }
+    
+    pPast = &(_pList_->headerNode);
+
+    while ((pCurrent != NULL) && (pFuture != NULL))
+    {
+        if (pCurrent->tData.degree < pFuture->tData.degree)
+        {
+            pCurrent->pNext = pFuture->pNext;
+            pFuture->pNext = pCurrent;
+            pPast->pNext = pFuture;
+        }
+        else
+        {
+            pPast = pPast->pNext;
+        }
+        pCurrent = pPast->pNext;
+        pFuture = pCurrent->pNext;
+    }
+    
+
     return 0;
 }
