@@ -23,6 +23,11 @@ stack *createStack(const int nSize)
         printf("memory allocation error: createStack()");
         return NULL;
     }
+    if (nSize <= 0)
+    {
+        printf("memory allocation error: createStack()");
+        return NULL;
+    }
     
     pResult->nCurrentCount = 0;
     pResult->nMaxCount = nSize;
