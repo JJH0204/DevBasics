@@ -2,19 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "stack.h"
 
-// TODO: Implementing a connection stack with pointers
-typedef struct StackNode
-{
-    char cData;
-    struct StackNode *pNext;
-} node;
-
-typedef struct LinkedStack
-{
-    node *pTop;
-    int nCurrentCount;
-} stack;
+#ifdef _STACK_
 
 int initStack(stack *_pStack_)
 {
@@ -168,6 +158,8 @@ int deleteStack(stack *_pStack_)
     free(_pStack_);
     return 0;
 }
+
+#endif
 
 int main(int argc, char *argv[])
 {
