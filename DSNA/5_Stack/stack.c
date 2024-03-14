@@ -4,8 +4,6 @@
 #include <string.h>
 #include "stack.h"
 
-#ifdef _STACK_
-
 int initStack(stack *_pStack_)
 {
     if (_pStack_ == NULL)
@@ -159,8 +157,7 @@ int deleteStack(stack *_pStack_)
     return 0;
 }
 
-#endif
-
+#ifndef _STACK_
 int main(int argc, char *argv[])
 {
     stack *pStack = NULL;
@@ -205,3 +202,4 @@ int main(int argc, char *argv[])
     deleteStack(pStack);
     return 0;
 }
+#endif
