@@ -1,8 +1,79 @@
 // stack.c
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include "stack.h"
+
+typedef struct StackNode
+{
+    char cData;
+    struct StackNode *pNext;
+} node;
+
+typedef struct LinkedStack
+{
+    node *pTop;
+    int nCurrentCount;
+} stack;
+
+int initStack(stack *_pStack_);
+
+stack *createStack();
+
+int initNode(node *_pNode_, const char _cData_);
+
+int push(stack *_pStack_, const char _cData_);
+
+node *pop(stack *_pStack_);
+
+node *peek(const stack *_pStack_);
+
+int displayStack(const stack *_pStack_);
+
+int deleteStack(stack *_pStack_);
+
+int main(int argc, char *argv[])
+{
+    stack *pStack = NULL;
+    node *pNode = NULL;
+
+    pStack = createStack();
+    if (pStack == NULL)
+    {
+        printf("Memory initialization failed: main()\n");
+        return -1;
+    }
+    push(pStack, 'L');
+    push(pStack, 'O');
+    push(pStack, 'V');
+    push(pStack, 'E');
+    push(pStack, 'Y');
+    push(pStack, 'O');
+    push(pStack, 'U');
+    displayStack(pStack);
+
+    pNode = pop(pStack);
+    if (pNode == NULL)
+    {
+        printf("Memory initialization failed: main()\n");
+        return -2;
+    }
+    printf("Pop - [%c]\n", pNode->cData);
+    free(pNode);
+
+    displayStack(pStack);
+    pNode = peek(pStack);
+    if (pNode == NULL)
+    {
+        printf("Memory initialization failed: main()\n");
+        return -3;
+    }
+    printf("Peek - [%c]\n", pNode->cData);
+    free(pNode);
+
+    displayStack(pStack);
+    
+    deleteStack(pStack);
+    return 0;
+}
 
 int initStack(stack *_pStack_)
 {
@@ -156,50 +227,3 @@ int deleteStack(stack *_pStack_)
     free(_pStack_);
     return 0;
 }
-
-#ifndef _STACK_
-int main(int argc, char *argv[])
-{
-    stack *pStack = NULL;
-    node *pNode = NULL;
-
-    pStack = createStack();
-    if (pStack == NULL)
-    {
-        printf("Memory initialization failed: main()\n");
-        return -1;
-    }
-    push(pStack, 'L');
-    push(pStack, 'O');
-    push(pStack, 'V');
-    push(pStack, 'E');
-    push(pStack, 'Y');
-    push(pStack, 'O');
-    push(pStack, 'U');
-    displayStack(pStack);
-
-    pNode = pop(pStack);
-    if (pNode == NULL)
-    {
-        printf("Memory initialization failed: main()\n");
-        return -2;
-    }
-    printf("Pop - [%c]\n", pNode->cData);
-    free(pNode);
-
-    displayStack(pStack);
-    pNode = peek(pStack);
-    if (pNode == NULL)
-    {
-        printf("Memory initialization failed: main()\n");
-        return -3;
-    }
-    printf("Peek - [%c]\n", pNode->cData);
-    free(pNode);
-
-    displayStack(pStack);
-    
-    deleteStack(pStack);
-    return 0;
-}
-#endif
