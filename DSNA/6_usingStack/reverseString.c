@@ -1,6 +1,4 @@
 // reverseString.c
-#include <stdio.h>
-#include <stdlib.h>
 #include "Stack.h"
 
 char *reverseString(char *pSource)
