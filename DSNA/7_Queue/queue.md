@@ -81,3 +81,6 @@ int initQueue(queue *_pQueue_, const int _nSize_)
     return 0;
 }
 ```
+## 인큐: enqueue()
+```c
+```
