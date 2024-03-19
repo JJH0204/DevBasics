@@ -1,9 +1,19 @@
 // queue.c
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
+#define ISNULL(ptr) isnull((ptr), __func__)
 // 매크로 함수 테스트
-#define ISNULL(X, Y) ((X)==NULL ? printf("Null Memory Access"); return (Y): )
+void isNull(const void *ptr, const char *funcName)
+{
+    if (ptr == NULL)
+    {
+        printf("%s: Null Memory Access\n", funcName);
+        return true;
+    }
+    return false;
+}
 
 typedef struct QueueNode
 {
