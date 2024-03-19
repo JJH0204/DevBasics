@@ -304,6 +304,5 @@ TSWLatexianTemp*
 /.makemd
 /.obsidian
 /.trash
-DSNA/5_Stack/stack
-DSNA/6_usingStack/hStack
 /.vscode
+*.exec
