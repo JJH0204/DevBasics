@@ -425,3 +425,5 @@ Queue size: 4, Current Node Count: 4
 [3]-[D]
 [0]-[E]                                 //<--- 리어의 인덱스 값이 프론트 인덱스 값 보다 낮다.
 ```
+
+# Queue: Using Pointer Queue
