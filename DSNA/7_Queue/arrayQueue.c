@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define __ArrayQueue__
+
 typedef struct ArrayQNode
 {
     char cData;
@@ -21,6 +23,9 @@ queue *createQueue(const int _nSize_);
 int initQueue(queue *_pQueue_, const int _nSize_);
 int enqueue(queue *_pQueue_, const char _cData_);
 node *dequeue(queue *_pQueue_);
+node *peek(queue *_pQueue_);
+int displayQueue(queue *_pQueue_);
+int deleteQueue(queue *_pQueue_);
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +35,7 @@ int main(int argc, char *argv[])
     pQueue = createQueue(4);
     if (pQueue == NULL)
     {
-        printf("Unallocated memory access error: main()");
+        printf("Unallocated memory access error: main()\n");
         return -1;
     }
     
@@ -43,7 +48,7 @@ int main(int argc, char *argv[])
     pNode = dequeue(pQueue);
     if (pNode == NULL)
     {
-        printf("dequeue error: main()");
+        printf("dequeue error: main()\n");
         return -2;
     }
     printf("Dequeue: [%c]\n", pNode->cData);
@@ -53,7 +58,7 @@ int main(int argc, char *argv[])
     pNode = peek(pQueue);
     if (pNode == NULL)
     {
-        printf("Peek error: main()");
+        printf("Peek error: main()\n");
         return -2;
     }
     printf("Peek: [%c]\n", pNode->cData);
@@ -61,6 +66,8 @@ int main(int argc, char *argv[])
 
     enqueue(pQueue, 'E');
     displayQueue(pQueue);
+
+    deleteQueue(pQueue);
 
     return 0;
 }
@@ -70,19 +77,19 @@ queue *createQueue(const int _nSize_)
     queue *pResult = NULL;
     if (_nSize_ <= 0)
     {
-        printf("Array creation minimum size error: createQueue()");
+        printf("Array creation minimum size error: createQueue()\n");
         return NULL;
     }
     
     pResult = (queue*)malloc(sizeof(queue));
     if (pResult == NULL)
     {
-        printf("Memory allocation error: createQueue()");
+        printf("Memory allocation error: createQueue()\n");
         return NULL;
     }
     if (initQueue(pResult, _nSize_) != 0)
     {
-        printf("Memory initialization error: createQueue()");
+        printf("Memory initialization error: createQueue()\n");
         return NULL;
     }
     pResult->pQueue = (node *)malloc(sizeof(node) * pResult->nMaxCount);
@@ -94,7 +101,7 @@ int initQueue(queue *_pQueue_, const int _nSize_)
 {
     if (_pQueue_ == NULL)
     {
-        printf("Unallocated memory access error: initQueue()");
+        printf("Unallocated memory access error: initQueue()\n");
         return -1;
     }
     _pQueue_->nMaxCount = _nSize_;
@@ -105,16 +112,78 @@ int initQueue(queue *_pQueue_, const int _nSize_)
     return 0;
 }
 
+int isEmpty(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isEmpty()\n");
+        return -1;
+    }
+    if ((_pQueue_->nFrontIndex == _pQueue_->nRearIndex) || (_pQueue_->nCurrentCount <= 0))
+    {
+        printf("Queue is empty: isEmpty()\n");
+        return -2;
+    }
+    return 0;
+}
+
+int deleteQueue(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: deleteQueue()\n");
+        return -1;
+    }
+    if (_pQueue_->pQueue != NULL)
+        free(_pQueue_->pQueue);
+    free(_pQueue_);
+    return 0;
+}
+
+node *peek(queue *_pQueue_)
+{
+    node *pResult = NULL;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: peek()\n");
+        return NULL;
+    }
+    if (isEmpty(_pQueue_) != 0)
+    {
+        printf("The queue is empty: peek()\n");
+        return NULL;
+    }
+    return &(_pQueue_->pQueue[_pQueue_->nFrontIndex + 1]);
+}
+
+#ifndef __ArrayQueue__
+
+int isFull(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isFull()\n");
+        return -1;
+    }
+    
+    if ((_pQueue_->nCurrentCount == _pQueue_->nMaxCount) || (_pQueue_->nRearIndex == _pQueue_->nMaxCount - 1))
+    {
+        printf("Queue is full: isFull()\n");
+        return -2;
+    }
+    return 0;
+}
+
 int enqueue(queue * _pQueue_, const char _cData_)
 {
     if (_pQueue_ == NULL)
     {
-        printf("Unallocated memory access error: enqueue()");
+        printf("Unallocated memory access error: enqueue()\n");
         return -1;
     }
     if (isFull(_pQueue_) != 0)
     {
-        printf("The queue is full.: enqueue()");
+        printf("The queue is full.: enqueue()\n");
         return -2;
     }
     _pQueue_->nRearIndex++;
@@ -123,33 +192,17 @@ int enqueue(queue * _pQueue_, const char _cData_)
     return 0;
 }
 
-int isFull(queue *_pQueue_)
-{
-    if (_pQueue_ == NULL)
-    {
-        printf("Unallocated memory access error: isFull()");
-        return -1;
-    }
-    
-    if ((_pQueue_->nCurrentCount == _pQueue_->nMaxCount) || (_pQueue_->nRearIndex == _pQueue_->nMaxCount - 1))
-    {
-        printf("Queue is full: isFull()");
-        return -2;
-    }
-    return 0;
-}
-
 node *dequeue(queue *_pQueue_)
 {
     node *pResult = NULL;
     if (_pQueue_ == NULL)
     {
-        printf("Unallocated memory access error: dequeue()");
+        printf("Unallocated memory access error: dequeue()\n");
         return NULL;
     }
     if (isEmpty(_pQueue_) != 0)
     {
-        printf("The queue is empty: dequeue()");
+        printf("The queue is empty: dequeue()\n");
         return NULL;
     }
     pResult = (node*)malloc(sizeof(node));
@@ -161,45 +214,102 @@ node *dequeue(queue *_pQueue_)
     return pResult;
 }
 
-int isEmpty(queue *_pQueue_)
-{
-    if (_pQueue_ == NULL)
-    {
-        printf("Unallocated memory access error: isEmpty()");
-        return -1;
-    }
-    if ((_pQueue_->nFrontIndex == _pQueue_->nRearIndex) || (_pQueue_->nCurrentCount <= 0))
-    {
-        printf("Queue is empty: isEmpty()");
-        return -2;
-    }
-    // 큐가 비어 있음을 어떻게 알 수 있을까?
-    // 프론트와 리어가 같다면 -> 큐가 비었다고 할 수 있다.
-    // 현재 저장 중인 데이터 수가 0과 같거나 이하라면 -> 큐가 비었다고 할 수 있다.
-    return 0;
-}
-
 int displayQueue(queue *_pQueue_)
 {
-    /* code */
+    int nCount = 0;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: displayQueue()\n");
+        return -1;
+    }
+    printf("Queue size: %d, node count's: %d\n", _pQueue_->nMaxCount, _pQueue_->nCurrentCount);
+    for (nCount = _pQueue_->nFrontIndex + 1; nCount <= _pQueue_->nRearIndex; nCount++)
+        printf("[%d]-[%c]\n", nCount, _pQueue_->pQueue[nCount].cData);
+    return 0;
+}
+#endif
+
+#ifdef __ArrayQueue__
+int isFull(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isFull()\n");
+        return -1;
+    }
+    
+    if (_pQueue_->nCurrentCount == _pQueue_->nMaxCount)
+    {
+        printf("Queue is full: isFull()\n");
+        return -2;
+    }
     return 0;
 }
 
-int peek(queue *_pQueue_)
+int enqueue(queue *_pQueue_, const char _cData_)
 {
-    node *pResult = NULL;
     if (_pQueue_ == NULL)
     {
-        printf("Unallocated memory access error: dequeue()");
+        printf("Unallocated memory access error: enqueue()\n");
+        return -1;
+    }
+    if (isFull(_pQueue_) != 0)
+    {
+        printf("Queue is full: enqueue()");
+        return -2;
+    }
+    _pQueue_->nRearIndex = (_pQueue_->nRearIndex + 1) % _pQueue_->nMaxCount;
+    _pQueue_->pQueue[_pQueue_->nRearIndex].cData = _cData_;
+    _pQueue_->nCurrentCount++;
+
+    return 0;
+}
+
+node *dequeue(queue *_pQueue_)
+{
+    node * pNode = NULL;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: dequeue()\n");
         return NULL;
     }
     if (isEmpty(_pQueue_) != 0)
     {
-        printf("The queue is empty: dequeue()");
+        printf("Queue is empty: dequeue()");
         return NULL;
     }
-    /* code */
-    // ?? dequeue 에서 아무 조건 없이 FrontIndex 값을 늘린다.
-    // 조건을 걸어야 피크 연산에 안정성이 올라 갈 수 있다.
+    
+    pNode = (node *)malloc(sizeof(node));
+    if (pNode == NULL)
+    {
+        printf("Memory allocation error: dequeue()\n");
+        return NULL;
+    }
+    _pQueue_->nFrontIndex = (_pQueue_->nFrontIndex +1) % _pQueue_->nMaxCount;
+    pNode->cData = _pQueue_->pQueue[_pQueue_->nFrontIndex].cData;
+    _pQueue_->pQueue[_pQueue_->nFrontIndex].cData = ' ';
+    _pQueue_->nCurrentCount--;
+    return pNode;
+}
+
+int displayQueue(queue *_pQueue_)
+{
+    int nCount = 0;
+    int nPosition = 0;
+
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: displayQueue()\n");
+        return -1;
+    }
+    printf("Queue size: %d, Current Node Count: %d\n", _pQueue_->nMaxCount, _pQueue_->nCurrentCount);
+
+    for (nCount = _pQueue_->nFrontIndex + 1; nCount <= _pQueue_->nFrontIndex + _pQueue_->nCurrentCount; nCount++)
+    {
+        nPosition = nCount % _pQueue_->nMaxCount;
+        printf("[%d]-[%c]\n", nPosition, _pQueue_->pQueue[nPosition].cData);
+    }
     return 0;
 }
+
+#endif

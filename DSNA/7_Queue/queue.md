@@ -169,23 +169,20 @@ int isEmpty(queue *_pQueue_)
 
 ## 피크: peek()
 ```c
-int peek(queue *_pQueue_)
+node *peek(queue *_pQueue_)
 {
     node *pResult = NULL;
     if (_pQueue_ == NULL)
     {
-        printf("Unallocated memory access error: dequeue()");
+        printf("Unallocated memory access error: peek()");
         return NULL;
     }
     if (isEmpty(_pQueue_) != 0)
     {
-        printf("The queue is empty: dequeue()");
+        printf("The queue is empty: peek()");
         return NULL;
     }
-    /* code */
-    // ?? dequeue 에서 아무 조건 없이 FrontIndex 값을 늘린다.
-    // 조건을 걸어야 피크 연산에 안정성이 올라 갈 수 있다.
-    return 0;
+    return &(_pQueue_->pQueue[_pQueue_->nFrontIndex + 1]);
 }
 ```
 
@@ -193,7 +190,238 @@ int peek(queue *_pQueue_)
 ```c
 int displayQueue(queue *_pQueue_)
 {
-    /* code */
+    int nCount = 0;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: displayQueue()\n");
+        return -1;
+    }
+    printf("Queue size: %d, node count's: %d\n", _pQueue_->nMaxCount, _pQueue_->nCurrentCount);
+    for (nCount = _pQueue_->nFrontIndex + 1; nCount <= _pQueue_->nRearIndex; nCount++)
+        printf("[%d]-[%c]\n", nCount, _pQueue_->pQueue[nCount].cData);
     return 0;
 }
+```
+
+## 큐 삭제: deleteQueue()
+```c
+int deleteQueue(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: deleteQueue()");
+        return -1;
+    }
+    if (_pQueue_->pQueue != NULL)
+        free(_pQueue_->pQueue);
+    free(_pQueue_);
+    return 0;
+}
+```
+
+## main()
+```c
+int main(int argc, char *argv[])
+{
+    queue *pQueue = NULL;
+    node *pNode = NULL;
+
+    pQueue = createQueue(4);
+    if (pQueue == NULL)
+    {
+        printf("Unallocated memory access error: main()\n");
+        return -1;
+    }
+    
+    enqueue(pQueue, 'A');
+    enqueue(pQueue, 'B');
+    enqueue(pQueue, 'C');
+    enqueue(pQueue, 'D');
+    displayQueue(pQueue);
+
+    pNode = dequeue(pQueue);
+    if (pNode == NULL)
+    {
+        printf("dequeue error: main()\n");
+        return -2;
+    }
+    printf("Dequeue: [%c]\n", pNode->cData);
+    free(pNode);
+    displayQueue(pQueue);
+
+    pNode = peek(pQueue);
+    if (pNode == NULL)
+    {
+        printf("Peek error: main()\n");
+        return -2;
+    }
+    printf("Peek: [%c]\n", pNode->cData);
+    displayQueue(pQueue);
+
+    enqueue(pQueue, 'E');
+    displayQueue(pQueue);
+
+    deleteQueue(pQueue);
+
+    return 0;
+}
+```
+### 실행 결과
+```
+Queue size: 4, node count's: 4
+[-1]-[]
+[0]-[A]
+[1]-[B]
+[2]-[C]
+[3]-[D]
+Dequeue: [A]
+Queue size: 4, node count's: 3
+[0]-[ ]
+[1]-[B]
+[2]-[C]
+[3]-[D]
+Peek: [B]
+Queue size: 4, node count's: 3
+[0]-[ ]
+[1]-[B]
+[2]-[C]
+[3]-[D]
+Queue is full: isFull()
+The queue is full.: enqueue()
+Queue size: 4, node count's: 3
+[0]-[ ]
+[1]-[B]
+[2]-[C]
+[3]-[D]
+```
+
+### 왜? 첫 출력 값에 -1 인덱스의 값이 출력된 걸까?
+- 출력 함수는 프론트 인덱스 값을 기준으로 리어 인덱스까지 값을 출력한다.
+- 첫 출력 시 초기값으로 프론트 인덱스를 -1로 설정한 덕분에 출력을 위한 for()문을 -1 인덱스부터 순서대로 참조하기 시작한다.
+- 이는 안전하지 않는 메모리 접근으로 간주되어 보안의 안정성을 떨어뜨린다.
+- 그렇기 때문에 프론트 인덱스 값에 +1 을 하여 참조를 진행한다.
+
+### 왜? 대기열에 자리가 있음에도 데이터를 추가할 수 없을까?
+- 배열 선형 큐의 근본 문제로, 앞 인덱스에 자리가 있음에도 활용할 수 없는 문제가 있다.
+- 이 문제를 해결하기 위해 배열 원형 큐(배열 큐) 또는 포인터를 활용해 큐를 구현해야 한다.
+
+# Array Circular Queue(배열 원형 큐)
+> 일반적으로 배열로 구현한 큐를 사용할 경우 배열 선형 큐가 아니라 배열 원형 큐를 주로 사용  
+> 배열 선형 큐에 빈 노드가 있음에도 사용할 수 없던 문제를 배열 원형 큐에서 개선
+
+## 배열 선형 큐에서 문제를 개선하지 못하는 이유
+- 프런트의 노드를 무조건 인덱스 번호 0 의 위치에 둘 수 있지만, 그렇게 할 경우 배열의 노드들을 앞으로 한칸 씩 당겨 저장해야 한다.
+- 배렬에서 데이터를 옮기는 방법을 사용할 경우 배열 크기에 따라 시간 비용이 많이 들게 된다. O(n)
+
+## 배열 원형 큐의 구조적 특징
+- 배열의 마지막 노드와 첫 노드를 논리적으로 연결해 배열이 연속되도록 했다.
+- [rear = (rear + 1) % maxCount] 공식을 이용해 리어가 배열의 마지막에서 다음 노드로 이동을 시도할 때 이동할 리어 위치 인덱스 값을 첫 노드로 변경하도록 했다. (% = 나머지 연산자)
+- 위 공식은 front 에도 동일하게 적용되나.
+
+## 코드 변경 사항
+```c
+int isFull(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isFull()\n");
+        return -1;
+    }
+    
+    if (_pQueue_->nCurrentCount == _pQueue_->nMaxCount)
+    {
+        printf("Queue is full: isFull()\n");
+        return -2;
+    }
+    return 0;
+}
+
+int enqueue(queue *_pQueue_, const char _cData_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: enqueue()\n");
+        return -1;
+    }
+    if (isFull(_pQueue_) != 0)
+    {
+        printf("Queue is full: enqueue()");
+        return -2;
+    }
+    _pQueue_->nRearIndex = (_pQueue_->nRearIndex + 1) % _pQueue_->nMaxCount;
+    _pQueue_->pQueue[_pQueue_->nRearIndex].cData = _cData_;
+    _pQueue_->nCurrentCount++;
+
+    return 0;
+}
+
+node *dequeue(queue *_pQueue_)
+{
+    node * pNode = NULL;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: dequeue()\n");
+        return NULL;
+    }
+    if (isEmpty(_pQueue_) != 0)
+    {
+        printf("Queue is empty: dequeue()");
+        return NULL;
+    }
+    
+    pNode = (node *)malloc(sizeof(node));
+    if (pNode == NULL)
+    {
+        printf("Memory allocation error: dequeue()\n");
+        return NULL;
+    }
+    _pQueue_->nFrontIndex = (_pQueue_->nFrontIndex +1) % _pQueue_->nMaxCount;
+    pNode->cData = _pQueue_->pQueue[_pQueue_->nFrontIndex].cData;
+    _pQueue_->pQueue[_pQueue_->nFrontIndex].cData = ' ';
+    _pQueue_->nCurrentCount--;
+    return pNode;
+}
+
+int displayQueue(queue *_pQueue_)
+{
+    int nCount = 0;
+    int nPosition = 0;
+
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: displayQueue()\n");
+        return -1;
+    }
+    printf("Queue size: %d, Current Node Count: %d\n", _pQueue_->nMaxCount, _pQueue_->nCurrentCount);
+
+    for (nCount = _pQueue_->nFrontIndex + 1; nCount <= _pQueue_->nFrontIndex + _pQueue_->nCurrentCount; nCount++)
+    {
+        nPosition = nCount % _pQueue_->nMaxCount;
+        printf("[%d]-[%c]\n", nPosition, _pQueue_->pQueue[nPosition].cData);
+    }
+    return 0;
+}
+```
+### 출력 결과
+```
+Queue size: 4, Current Node Count: 4
+[0]-[A]
+[1]-[B]
+[2]-[C]
+[3]-[D]
+Dequeue: [A]
+Queue size: 4, Current Node Count: 3
+[1]-[B]                                 //<--- 프론트 인덱스 값이 1 이 되었다.
+[2]-[C]
+[3]-[D]
+Peek: [B]
+Queue size: 4, Current Node Count: 3
+[1]-[B]
+[2]-[C]
+[3]-[D]
+Queue size: 4, Current Node Count: 4
+[1]-[B]
+[2]-[C]
+[3]-[D]
+[0]-[E]                                 //<--- 리어의 인덱스 값이 프론트 인덱스 값 보다 낮다.
 ```
