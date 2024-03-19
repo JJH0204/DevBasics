@@ -130,12 +130,7 @@ int isFull(queue *_pQueue_)
         printf("Unallocated memory access error: isFull()");
         return -1;
     }
-    // 큐가 가득 찼는지 확인하는 방법?
-    /*
-    큐는 리어에 데이터를 추가한다.
-    큐의 맴버 중 리어 위치를 가리키는 인덱스 값을 가지고 있다.
-    리어 인덱스 번호가 배열의 Max 값이랑 같거나 크다면 큐에 더 이상 값을 추가할 수 없을 것이다.
-    */
+    
     if ((_pQueue_->nCurrentCount == _pQueue_->nMaxCount) || (_pQueue_->nRearIndex == _pQueue_->nMaxCount - 1))
     {
         printf("Queue is full: isFull()");

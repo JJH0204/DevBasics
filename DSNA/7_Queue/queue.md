@@ -83,4 +83,42 @@ int initQueue(queue *_pQueue_, const int _nSize_)
 ```
 ## 인큐: enqueue()
 ```c
+int enqueue(queue * _pQueue_, const char _cData_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: enqueue()");
+        return -1;
+    }
+    if (isFull(_pQueue_) != 0)
+    {
+        printf("The queue is full.: enqueue()");
+        return -2;
+    }
+    _pQueue_->nRearIndex++;
+    _pQueue_->pQueue[_pQueue_->nRearIndex].cData = _cData_;
+    _pQueue_->nCurrentCount++;
+    return 0;
+}
+
+int isFull(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isFull()");
+        return -1;
+    }
+    
+    if ((_pQueue_->nCurrentCount == _pQueue_->nMaxCount) || (_pQueue_->nRearIndex == _pQueue_->nMaxCount - 1))
+    {
+        printf("Queue is full: isFull()");
+        return -2;
+    }
+    return 0;
+}
 ```
+### 큐가 가득 찬 것을 어떻게 알 수 있을까?
+> 리어 인덱스 값의 역할이 크다.  
+> 리어 인덱스 값이 배열의 사이즈 값과 같거나 큰 경우 배열에 더 이상 값을 저장할 수 없는 가득 찬 상태라는 것을 알 수 있다.  
+> 하지만 이 방식은 배열 선형 큐의 구조적 특징 때문에 가능한 것이지 배열 선형 큐 외 다른 구조의 큐는 가능한 방법이 아니다.  
+> 배열 큐(배열 원형 큐)는 위 방법이 아닌 현재 배열의 저장 중인 데이터 수와 최대 사이즈를 검증하는 것이 옳다.
