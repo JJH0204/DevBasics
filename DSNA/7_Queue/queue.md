@@ -122,3 +122,78 @@ int isFull(queue *_pQueue_)
 > 리어 인덱스 값이 배열의 사이즈 값과 같거나 큰 경우 배열에 더 이상 값을 저장할 수 없는 가득 찬 상태라는 것을 알 수 있다.  
 > 하지만 이 방식은 배열 선형 큐의 구조적 특징 때문에 가능한 것이지 배열 선형 큐 외 다른 구조의 큐는 가능한 방법이 아니다.  
 > 배열 큐(배열 원형 큐)는 위 방법이 아닌 현재 배열의 저장 중인 데이터 수와 최대 사이즈를 검증하는 것이 옳다.
+
+## 디큐: dequeue()
+```c
+node *dequeue(queue *_pQueue_)
+{
+    node *pResult = NULL;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: dequeue()");
+        return NULL;
+    }
+    if (isEmpty(_pQueue_) != 0)
+    {
+        printf("The queue is empty: dequeue()");
+        return NULL;
+    }
+    pResult = (node*)malloc(sizeof(node));
+    _pQueue_->nFrontIndex++;
+    pResult->cData = _pQueue_->pQueue[_pQueue_->nFrontIndex].cData;
+    _pQueue_->pQueue[_pQueue_->nFrontIndex].cData = ' ';
+    _pQueue_->nCurrentCount--;
+
+    return pResult;
+}
+
+int isEmpty(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isEmpty()");
+        return -1;
+    }
+    if ((_pQueue_->nFrontIndex == _pQueue_->nRearIndex) || (_pQueue_->nCurrentCount <= 0))
+    {
+        printf("Queue is empty: isEmpty()");
+        return -2;
+    }
+    return 0;
+}
+```
+### 큐가 빈 것을 어떻게 알까?
+> 큐가 비어 있음을 어떻게 알 수 있을까?  
+> - 프론트와 리어가 같다면 -> 큐가 비었다고 할 수 있다.  
+> - 현재 저장 중인 데이터 수가 0과 같거나 이하라면 -> 큐가 비었다고 할 수 있다.
+
+## 피크: peek()
+```c
+int peek(queue *_pQueue_)
+{
+    node *pResult = NULL;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: dequeue()");
+        return NULL;
+    }
+    if (isEmpty(_pQueue_) != 0)
+    {
+        printf("The queue is empty: dequeue()");
+        return NULL;
+    }
+    /* code */
+    // ?? dequeue 에서 아무 조건 없이 FrontIndex 값을 늘린다.
+    // 조건을 걸어야 피크 연산에 안정성이 올라 갈 수 있다.
+    return 0;
+}
+```
+
+## 출력: displayQueue()
+```c
+int displayQueue(queue *_pQueue_)
+{
+    /* code */
+    return 0;
+}
+```

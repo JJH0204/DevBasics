@@ -142,13 +142,40 @@ int isFull(queue *_pQueue_)
 node *dequeue(queue *_pQueue_)
 {
     node *pResult = NULL;
-    /* code */
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: dequeue()");
+        return NULL;
+    }
+    if (isEmpty(_pQueue_) != 0)
+    {
+        printf("The queue is empty: dequeue()");
+        return NULL;
+    }
+    pResult = (node*)malloc(sizeof(node));
+    _pQueue_->nFrontIndex++;
+    pResult->cData = _pQueue_->pQueue[_pQueue_->nFrontIndex].cData;
+    _pQueue_->pQueue[_pQueue_->nFrontIndex].cData = ' ';
+    _pQueue_->nCurrentCount--;
+
     return pResult;
 }
 
 int isEmpty(queue *_pQueue_)
 {
-    /* code */
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isEmpty()");
+        return -1;
+    }
+    if ((_pQueue_->nFrontIndex == _pQueue_->nRearIndex) || (_pQueue_->nCurrentCount <= 0))
+    {
+        printf("Queue is empty: isEmpty()");
+        return -2;
+    }
+    // 큐가 비어 있음을 어떻게 알 수 있을까?
+    // 프론트와 리어가 같다면 -> 큐가 비었다고 할 수 있다.
+    // 현재 저장 중인 데이터 수가 0과 같거나 이하라면 -> 큐가 비었다고 할 수 있다.
     return 0;
 }
 
@@ -160,6 +187,19 @@ int displayQueue(queue *_pQueue_)
 
 int peek(queue *_pQueue_)
 {
+    node *pResult = NULL;
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: dequeue()");
+        return NULL;
+    }
+    if (isEmpty(_pQueue_) != 0)
+    {
+        printf("The queue is empty: dequeue()");
+        return NULL;
+    }
     /* code */
+    // ?? dequeue 에서 아무 조건 없이 FrontIndex 값을 늘린다.
+    // 조건을 걸어야 피크 연산에 안정성이 올라 갈 수 있다.
     return 0;
 }
