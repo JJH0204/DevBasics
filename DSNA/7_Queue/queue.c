@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// 매크로 함수 테스트
+#define ISNULL(X, Y) ((X)==NULL ? printf("Null Memory Access"); return (Y): )
+
 typedef struct QueueNode
 {
 
