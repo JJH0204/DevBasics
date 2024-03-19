@@ -20,9 +20,48 @@ int isEmpty(queue *_pQueue_);
 queue *createQueue(const int _nSize_);
 int initQueue(queue *_pQueue_, const int _nSize_);
 int enqueue(queue *_pQueue_, const char _cData_);
+node *dequeue(queue *_pQueue_);
 
 int main(int argc, char *argv[])
 {
+    queue *pQueue = NULL;
+    node *pNode = NULL;
+
+    pQueue = createQueue(4);
+    if (pQueue == NULL)
+    {
+        printf("Unallocated memory access error: main()");
+        return -1;
+    }
+    
+    enqueue(pQueue, 'A');
+    enqueue(pQueue, 'B');
+    enqueue(pQueue, 'C');
+    enqueue(pQueue, 'D');
+    displayQueue(pQueue);
+
+    pNode = dequeue(pQueue);
+    if (pNode == NULL)
+    {
+        printf("dequeue error: main()");
+        return -2;
+    }
+    printf("Dequeue: [%c]\n", pNode->cData);
+    free(pNode);
+    displayQueue(pQueue);
+
+    pNode = peek(pQueue);
+    if (pNode == NULL)
+    {
+        printf("Peek error: main()");
+        return -2;
+    }
+    printf("Peek: [%c]\n", pNode->cData);
+    displayQueue(pQueue);
+
+    enqueue(pQueue, 'E');
+    displayQueue(pQueue);
+
     return 0;
 }
 
@@ -66,7 +105,6 @@ int initQueue(queue *_pQueue_, const int _nSize_)
     return 0;
 }
 
-// TODO: enqueue() code implementation
 int enqueue(queue * _pQueue_, const char _cData_)
 {
     if (_pQueue_ == NULL)
@@ -76,9 +114,57 @@ int enqueue(queue * _pQueue_, const char _cData_)
     }
     if (isFull(_pQueue_) != 0)
     {
-        printf(": enqueue()");
+        printf("The queue is full.: enqueue()");
+        return -2;
+    }
+    _pQueue_->nRearIndex++;
+    _pQueue_->pQueue[_pQueue_->nRearIndex].cData = _cData_;
+    _pQueue_->nCurrentCount++;
+    return 0;
+}
+
+int isFull(queue *_pQueue_)
+{
+    if (_pQueue_ == NULL)
+    {
+        printf("Unallocated memory access error: isFull()");
         return -1;
     }
-    
+    // 큐가 가득 찼는지 확인하는 방법?
+    /*
+    큐는 리어에 데이터를 추가한다.
+    큐의 맴버 중 리어 위치를 가리키는 인덱스 값을 가지고 있다.
+    리어 인덱스 번호가 배열의 Max 값이랑 같거나 크다면 큐에 더 이상 값을 추가할 수 없을 것이다.
+    */
+    if ((_pQueue_->nCurrentCount == _pQueue_->nMaxCount) || (_pQueue_->nRearIndex == _pQueue_->nMaxCount - 1))
+    {
+        printf("Queue is full: isFull()");
+        return -2;
+    }
+    return 0;
+}
+
+node *dequeue(queue *_pQueue_)
+{
+    node *pResult = NULL;
+    /* code */
+    return pResult;
+}
+
+int isEmpty(queue *_pQueue_)
+{
+    /* code */
+    return 0;
+}
+
+int displayQueue(queue *_pQueue_)
+{
+    /* code */
+    return 0;
+}
+
+int peek(queue *_pQueue_)
+{
+    /* code */
     return 0;
 }
