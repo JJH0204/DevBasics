@@ -45,13 +45,14 @@ bool enqueue(deque *ptr, const char _cData_, const dir _dir_);
 node *dequeue(deque *ptr, const dir _dir_);
 node *peek(deque *ptr, const dir _dir_);
 bool displayDeque(const deque *ptr);
+void deleteNode(node *_pNode_);
 
 int main(int argc, char *argv[])
 {
     deque *pDeque = NULL;
     node *pNode = NULL;
 
-    pDeque = createQueue();
+    pDeque = createDeque();
     if (ISNULL(pDeque))
         return -1;
 
@@ -59,7 +60,7 @@ int main(int argc, char *argv[])
     enqueue(pDeque, 'B', REAR);
     enqueue(pDeque, 'C', REAR);
     enqueue(pDeque, 'D', REAR);
-    displayQueue(pDeque);
+    displayDeque(pDeque);
 
     pNode = dequeue(pDeque, FRONT);
     if (!ISNULL(pNode))
@@ -67,17 +68,17 @@ int main(int argc, char *argv[])
         printf("> Dequeue value from front - [%c]\n", pNode->cData);
         free(pNode);
     }
-    displayQueue(pDeque);
+    displayDeque(pDeque);
 
     pNode = peek(pDeque, FRONT);
     if (!ISNULL(pNode))
         printf("> Peek value from front - [%c]\n", pNode->cData);
-    displayQueue(pDeque);
+    displayDeque(pDeque);
 
     enqueue(pDeque, 'E', FRONT);
     enqueue(pDeque, 'F', FRONT);
     enqueue(pDeque, 'G', FRONT);
-    displayQueue(pDeque);
+    displayDeque(pDeque);
 
     pNode = dequeue(pDeque, REAR);
     if (!ISNULL(pNode))
@@ -85,17 +86,54 @@ int main(int argc, char *argv[])
         printf("> Dequeue value from rear - [%c]\n", pNode->cData);
         free(pNode);
     }
-    displayQueue(pDeque);
+    displayDeque(pDeque);
 
     pNode = peek(pDeque, REAR);
     if (!ISNULL(pNode))
         printf("> Peek value from rear - [%c]\n", pNode->cData);
-    displayQueue(pDeque);
+    displayDeque(pDeque);
 
-    deleteQueue(pDeque);
+    deleteDeque(pDeque);
     return 0;
 }
-
+/* output result
+Current node count: 4
+    [0]-[A]
+    [1]-[B]
+    [2]-[C]
+    [3]-[D]
+> Dequeue value from front - [A]
+Current node count: 3
+    [0]-[B]
+    [1]-[C]
+    [2]-[D]
+> Peek value from front - [B]
+Current node count: 3
+    [0]-[B]
+    [1]-[C]
+    [2]-[D]
+Current node count: 6
+    [0]-[G]
+    [1]-[F]
+    [2]-[E]
+    [3]-[B]
+    [4]-[C]
+    [5]-[D]
+> Dequeue value from rear - [D]
+Current node count: 5
+    [0]-[G]
+    [1]-[F]
+    [2]-[E]
+    [3]-[B]
+    [4]-[C]
+> Peek value from rear - [C]
+Current node count: 5
+    [0]-[G]
+    [1]-[F]
+    [2]-[E]
+    [3]-[B]
+    [4]-[C]
+*/
 // Func definition
 bool isNull(const void *ptr, const char *funcName)
 {
@@ -125,7 +163,7 @@ deque *createDeque(void)
     return pResult;
 }
 
-bool deleteQueue(deque *ptr)
+bool deleteDeque(deque *ptr)
 {
     if (ISNULL(ptr))
         return true;
@@ -135,7 +173,6 @@ bool deleteQueue(deque *ptr)
     return false;
 }
 
-// TODO: Implementation of a deque that extends the queue 
 bool enqueue(deque *ptr, const char _cData_, const dir _dir_)
 {
     node *pNode = NULL;
@@ -220,4 +257,13 @@ bool displayDeque(const deque *ptr)
         pPrint = pPrint->pNext;
     }
     return false;
+}
+
+void deleteNode(node *_pNode_)
+{
+    if (_pNode_ == NULL)
+        return;
+    deleteNode(_pNode_->pNext);
+    free(_pNode_);
+    return;
 }
