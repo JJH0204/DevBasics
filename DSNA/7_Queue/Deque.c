@@ -169,6 +169,7 @@ bool enqueue(deque *ptr, const char _cData_, const dir _dir_)
 node *dequeue(deque *ptr, const dir _dir_)
 {
     node *pNode = NULL;
+    node *pPreNode = NULL;
     if (ISNULL(ptr) || ISEMPTY(ptr))
         return NULL;
     if (_dir_ == FRONT)
@@ -179,8 +180,12 @@ node *dequeue(deque *ptr, const dir _dir_)
     }
     else
     {
-        // 리어의 이전 노드를 알아야 리어를 옮기는데 모른다.
-        /* code */
+        pPreNode = ptr->pFront;
+        while (pPreNode->pNext != ptr->pRear)
+            pPreNode = pPreNode->pNext;
+        pNode = ptr->pRear;
+        ptr->pRear = pPreNode;
+        ptr->pRear->pNext = NULL;
     }
     ptr->nCurrntCount--;
     return pNode;
