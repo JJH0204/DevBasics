@@ -41,14 +41,16 @@
 
 ### 2. [Data Structure and Algorithms](DSNA)
 - [Overview of data structures and algorithms](DSNA/Data_structure_Algorithms.md)
-- [Array list](DSNA/1_ArrayList) 📌
-- [Linked list](DSNA/2_LinkedList) 📌
-- [Extension of linked list](DSNA/3_LinkedList_Expansion)
-- [Uses of Linked Lists: Polynomials](DSNA/4_LinkedList_Polynomial) 📌
-- [Stack](DSNA/5_Stack) 📌
-- [Using Stack](DSNA/6_Using_Stack/)
-- 큐
-- 재귀 호출
+#### [Linear](DSNA/Linear)
+- [Array list](DSNA/Linear/1_ArrayList) 📌
+- [Linked list](DSNA/Linear/2_LinkedList) 📌
+- [Extension of linked list](DSNA/Linear/3_LinkedList_Expansion)
+- [Uses of Linked Lists: Polynomials](DSNA/Linear/4_LinkedList_Polynomial) 📌
+- [Stack](DSNA/Linear/5_Stack) 📌
+- [Using Stack](DSNA/Linear/6_Using_Stack/)
+- [Queue](DSNA/Linear/7_Queue) 📌
+- [Recursion](DSNA/Linear/8_Recursion)
+#### [non-Linear](DSNA/non-Linear)
 - 트리
 - 히프
 - 그래프
