@@ -146,11 +146,22 @@ bool enqueue(deque *ptr, const char _cData_, const dir _dir_)
         return true;
     pNode->cData = _cData_;
     pNode->pNext = NULL;
+    
     if (ISEMPTY(ptr))
+    {
         ptr->pFront = pNode;
+        ptr->pRear = pNode;
+    }
+    else if (_dir_ == REAR)
+    {
+    	ptr->pRear->pNext = pNode;
+    	ptr->pRear = pNode;
+    }
     else
-        ptr->pRear->pNext = pNode;
-    ptr->pRear = pNode;
+    {
+    	pNode->pNext = ptr->pFront;
+        ptr->pFront = pNode;
+    }
     ptr->nCurrntCount++;
     return false;
 }
@@ -160,9 +171,17 @@ node *dequeue(deque *ptr, const dir _dir_)
     node *pNode = NULL;
     if (ISNULL(ptr) || ISEMPTY(ptr))
         return NULL;
-    pNode = ptr->pFront;
-    ptr->pFront = ptr->pFront->pNext;
-    pNode->pNext = NULL;
+    if (_dir_ == FRONT)
+    {
+        pNode = ptr->pFront;
+    	ptr->pFront = ptr->pFront->pNext;
+        pNode->pNext = NULL;
+    }
+    else
+    {
+        // 리어의 이전 노드를 알아야 리어를 옮기는데 모른다.
+        /* code */
+    }
     ptr->nCurrntCount--;
     return pNode;
 }
@@ -174,7 +193,10 @@ node *peek(deque *ptr, const dir _dir_)
         return NULL;
 
     pPeek = (node *)malloc(sizeof(node));
-    pPeek->cData = ptr->pFront->cData;
+    if (_dir_ == FRONT)
+	    pPeek->cData = ptr->pFront->cData;
+    else
+    	pPeek->cData = ptr->pRear->cData;
     pPeek->pNext = NULL;
     return pPeek;
 }
