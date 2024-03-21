@@ -185,7 +185,6 @@ int printList_L(dList *_pList_)
     return 0;
 }
 
-// TODO: concat()
 int concatList(dList *_pListA_, dList *_pListB_)
 {
     node *pCurrent = NULL;
@@ -221,7 +220,7 @@ int main(int argc, char *argv[])
     addData(pListB, 80, 2);
     addData(pListB, 90, 3);
     printList_R(pListB);
-    
+
     concatList(pList, pListB);
     printList_R(pList);
 
