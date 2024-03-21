@@ -113,14 +113,19 @@ int concatCircularList(CircularList *_pListA_, CircularList *_pListB_)
     if (_pListB_->sHeader.pNext == NULL)
         return -2;
     
-    pCurrent = &(_pListA_->sHeader);
-    // 2) TODO: 무한 루프 발생
-    while (pCurrent->pNext != NULL)
+    pCurrent = _pListA_->sHeader.pNext;
+    
+    while (pCurrent->pNext != _pListA_->sHeader.pNext)
         pCurrent = pCurrent->pNext;
     pCurrent->pNext = _pListB_->sHeader.pNext;
-    // 3) TODO: _pListB_의 마지막을 _pListA_의 첫 노드와 연결을 해야됨
+    pCurrent = _pListB_->sHeader.pNext;
+
+    while (pCurrent->pNext != _pListB_->sHeader.pNext)
+        pCurrent = pCurrent->pNext;
+    pCurrent->pNext = _pListA_->sHeader.pNext;
     _pListA_->nCurrentCount = _pListA_->nCurrentCount + _pListB_->nCurrentCount;
-    
+    _pListB_->sHeader.pNext == NULL;
+
     memset(_pListB_, 0, sizeof(CircularList));
     return 0;
 }
@@ -199,12 +204,12 @@ int main(int argc, char *argv[])
     val = getCircularListLength(pListA);
     printf("data count: %d\n", val);
 
-    // concatCircularList(pListA, pListB);
-    // printf("->concat list after<------------\n");
-    // printf("List A: \n");
-    // circularIterateList(pListA);
-    // printf("List B: \n");
-    // circularIterateList(pListB);
+    concatCircularList(pListA, pListB);
+    printf("->concat list after<------------\n");
+    printf("List A: \n");
+    circularIterateList(pListA);
+    printf("List B: \n");
+    circularIterateList(pListB);
 
     deleteCircularList(pListB);
 
