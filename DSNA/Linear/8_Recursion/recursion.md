@@ -65,13 +65,100 @@ int factorial(int n)
 
 ## 팩토리얼 함수
 ```c
-/* code */
+// isRecursion
+int factorial(int n)
+{
+    int ret = 0;
+    if (n <= 1)
+    {
+        ret = 1;
+    }
+    else
+    {
+        ret = n * factorial(n - 1);
+    }
+    return ret;
+}
+// isLoop
+int factorial(int n)
+{
+    int ret = 1;
+    int i = 1;
+    for (i = n; i > 1; i--)
+    {
+        ret = ret * i;
+    }
+    return ret;
+}
 ```
 ## 피보나치 수열
+- 첫 번째 항과 두 번째 항에 대해서는 각각 값이 0, 1이지만, 세 번째 항 이상에 대해서는 이전 두 항을 더한 값으로 정의되는 수열
+- 0, 1, 1, 2, 3, 5, 8, 13 ...
+- $n = 4, fib(4) = fib(3) + fib(2) = 2 + 1 = 3$
+
+### 코드
 ```c
-/* code */
+// isRecursion
+int fib(int n)
+{
+    int ret = 0;
+
+    if (n == 0)
+    {
+        ret = 0;
+    }
+    else if (n == 1)
+    {
+        ret = 1;
+    }
+    else
+    {
+        ret = fib(n - 1) + fib(n - 2);
+    }
+    return ret;
+}
+// isLoop
+int fib(int n)
+{
+    int nLast = 0;
+    int nCurrent = 1;
+    int nTemp = 0;
+    int nCount = 0;
+
+    if (n <= 1)
+        return n;
+    for (nCount = 2; nCount <= n; nCount++)
+    {
+        nTemp = nCurrent;
+        nCurrent += nLast;
+        nLast = nTemp;
+    }
+    return nCurrent;
+}
 ```
+- isRecursion 의 fib 의 경우 시간복잡도는 $O(n^2)$으로 $n = 30$ 일 때 fib()이 대략 300만 번 호출되기에 매우 비효율적이다.
+- isLoop 의 fib 의 경우 시간복잡도는 $O(n)$으로 재귀 호출 방식으로 구현한 것 보다 매우 효율적임을 알 수 있다.
+- 다만, 직접 디버깅하지 않는 한 피보나치 수열을 구하는 함수임을 이해하기 코드만 보고는 어렵다는 단점이 있다.
 ## 하노이의 탑
 ```c
-/* code */
+// isRecursion
+int hanoi(int n, char from, char temp, char to)
+{
+    if (n == 1)
+    {
+        printf("원판 1을 %c에서 %c로 옮겼습니다.\n", from, to);
+    }
+    else
+    {
+        hanoi(n - 1, from, to, temp);
+        printf("원판 %i을 %c에서 %c로 옮겼습니다.\n", n, from, to);
+        hanoi(n - 1, temp, from, to);
+    }
+}
+// isLoop
+int hanoi(int n, char from, char temp, char to)
+{
+    // TODO: Solving the Tower of Hanoi problem using loops
+}
 ```
+- 하노이 탑 문제는 알고리즘 문제들 중에서 재귀 함수 문제로 풀이했을 때 가장 쉽게 해결되는 예제로 종종 쓰인다.
