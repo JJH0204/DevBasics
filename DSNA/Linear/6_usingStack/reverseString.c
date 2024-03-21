@@ -1,7 +1,7 @@
 // reverseString.c
 #include "Stack.h"
 
-char *reverseString(char *pSource)
+char *reverseString(char *pSource, int nSize)
 {
     char *pResult = NULL;
     // TODO: Implementing string flipping
@@ -21,7 +21,7 @@ char *reverseString(char *pSource)
         return NULL;
     }
 
-    for ( ; &(pSource[nCount]) != NULL; nCount++)
+    for (nCount = 0; nCount< nSize; nCount++)
         push(pStack, pSource[nCount]);
     
     pResult = (char*)malloc(sizeof(char) * (nCount + 1));
@@ -32,15 +32,13 @@ char *reverseString(char *pSource)
         pResult[nCount] = pNode->cData;
         free(pNode);
     }
-    pResult[nCount] = '\n';
-
     return pResult;
 }
 
 int main(int argc, char *argv[])
 {
     char szSource[] = "ABCD";
-    char *pszReverse = reverseString(szSource);
+    char *pszReverse = reverseString(szSource, 4);
     if (pszReverse == NULL)
     {
         printf("memory allocation error\n");

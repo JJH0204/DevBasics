@@ -306,3 +306,4 @@ TSWLatexianTemp*
 /.trash
 /.vscode
 *.exec
+/build
