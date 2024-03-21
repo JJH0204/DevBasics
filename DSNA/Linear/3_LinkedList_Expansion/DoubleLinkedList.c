@@ -188,13 +188,23 @@ int printList_L(dList *_pList_)
 // TODO: concat()
 int concatList(dList *_pListA_, dList *_pListB_)
 {
-
+    node *pCurrent = NULL;
+    if ((_pListA_ == NULL)||(_pListB_ == NULL))
+        return -1;
+    pCurrent = _pListA_->sHeader.pLeftLink;
+    pCurrent->pRightLink = _pListB_->sHeader.pRightLink;
+    _pListB_->sHeader.pRightLink->pLeftLink = pCurrent;
+    _pListA_->sHeader.pLeftLink = _pListB_->sHeader.pLeftLink;
+    _pListB_->sHeader.pLeftLink->pRightLink = &(_pListA_->sHeader);
+    _pListA_->nCurrentCount += _pListB_->nCurrentCount;
+    _pListB_->sHeader.pLeftLink = _pListB_->sHeader.pLeftLink = NULL;
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
     dList *pList = createList();
+    dList *pListB = createList();
 
     if (pList == NULL)
         return 1;
@@ -204,6 +214,15 @@ int main(int argc, char *argv[])
     addData(pList, 30, 2);
     addData(pList, 40, 3);
     addData(pList, 50, 4);
+    printList_R(pList);
+
+    addData(pListB, 60, 0);
+    addData(pListB, 70, 1);
+    addData(pListB, 80, 2);
+    addData(pListB, 90, 3);
+    printList_R(pListB);
+    
+    concatList(pList, pListB);
     printList_R(pList);
 
     removeData(pList, 0);
