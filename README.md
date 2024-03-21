@@ -44,7 +44,7 @@
 #### [Linear](DSNA/Linear)
 - [Array list](DSNA/Linear/1_ArrayList) 📌
 - [Linked list](DSNA/Linear/2_LinkedList) 📌
-- [Extension of linked list](DSNA/Linear/3_LinkedList_Expansion)
+- [Extension of linked list](DSNA/Linear/3_LinkedList_Expansion) 📌
 - [Uses of Linked Lists: Polynomials](DSNA/Linear/4_LinkedList_Polynomial) 📌
 - [Stack](DSNA/Linear/5_Stack) 📌
 - [Using Stack](DSNA/Linear/6_Using_Stack/)
