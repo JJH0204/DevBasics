@@ -45,3 +45,9 @@ bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
     deleteStack(pStack);
     return false;
 }
+
+// TODO: 중위표기 법을 후위 표기법으로 변환하는 코드 작성
+bool infix2postfix (const TOKEN *_pTOKEN_, const int _nSize_)
+{
+    return false;
+}
