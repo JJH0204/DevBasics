@@ -8,7 +8,8 @@ bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
 {
     int nCount = 0;
     STACK *pStack = NULL;
-    NODE *token_A = *token_B = NULL;
+    NODE *token_A = NULL;
+    NODE *token_B = NULL;
     TYPE type;
     if (ISNULL(_pTOKEN_) || _nSize_ <= 2) return true;
 
