@@ -54,7 +54,7 @@
 | --------------------------------: | :---: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 |    data structures and algorithms |       |                                                       [Kor](markdown/Data%20Structure%20N%20Algorithms.md)                                                       |
 |                        Array list |   📌   |                                                            [Kor](markdown/DataStructure/ArrayList.md)                                                            |                                                      [main.c](source/DSNA/Linear/mainArrayList.c)                                                       |
-|                       Linked list |   📌   |          [Kor](markdown/DataStructure/LinkedList.md) [Eng](markdown/DataStructure/LinkedLists.md) [정리 필요](markdown/DataStructure/LinkedLists_kr.md)          |                                                      [main.c](source/DSNA/Linear/mainLinkedList.c)                                                      |
+|                       Linked list |   📌   |          [Kor](markdown/DataStructure/LinkedList.md) , [Eng](markdown/DataStructure/LinkedLists.md) , [정리 필요](markdown/DataStructure/LinkedLists_kr.md)          |                                                      [main.c](source/DSNA/Linear/mainLinkedList.c)                                                      |
 |          Extension of linked list |   📌   |                                                         [Kor](markdown/DataStructure/LinkedList_Add.md)                                                          |      [mainDoubleLinkedList.c](source/DSNA/Linear/mainDoubleLinkedList.c) , [mainCircularLinkedList.c](source/DSNA/Linear/mainCircularLinkedList.c)      |
 | Uses of Linked Lists: Polynomials |   📌   |                                                           [Kor](markdown/DataStructure/Polynomial.md)                                                            |                                                      [main.c](source/DSNA/Linear/mainPolynomial.c)                                                      |
 |                             Stack |   📌   |                                                              [Kor](markdown/DataStructure/stack.md)                                                              |                         [mainArrayStack.c](source/DSNA/Linear/mainArrayStack.c) , [mainStack.c](source/DSNA/Linear/mainStack.c)                         |
@@ -62,7 +62,7 @@
 |                           fostfix |       |                                                                                                                                                                  |                                                    [mainPostfix.c](source/DSNA/Linear/mainPostfix.c)                                                    | [includeNotationStack.c](source/DSNA/Linear/includeNotationStack.c) , [includePostfix.c](source/DSNA/Linear/includePostfix.c) , [includeNotationStack.h](include/includeNotationStack.h) , [includePostfix.h](include/includePostfix.h) |
 |                             Queue |   📌   |                                                              [Kor](markdown/DataStructure/queue.md)                                                              | [mainArrayQueue.c](source/DSNA/Linear/mainArrayQueue.c) , [mainQueue.c](source/DSNA/Linear/mainQueue.c) , [mainDeque.c](source/DSNA/Linear/mainDeque.c) |
 |                         Recursion |       |                                                            [Kor](markdown/DataStructure/recursion.md)                                                            |                          [mainFibonacci.c](source/DSNA/Linear/mainFibonacci.c) , [mainHanoi.c](source/DSNA/Linear/mainHanoi.c)                          |
-|                              트리 |       | [Eng](markdown/DataStructure/Binarytrees.md) , [Kor](markdown/DataStructure/Binarytrees_kr.md) , [DepthFirstSearch](markdown/DataStructure/DepthFirst_search.md) |
+|                              Tree |       | [Eng](markdown/DataStructure/Binarytrees.md) , [Kor](markdown/DataStructure/Binarytrees_kr.md) , [DepthFirstSearch](markdown/DataStructure/DepthFirst_search.md) |
 |                              히프 |       |
 |                            그래프 |       |
 |                              검색 |       |
@@ -74,21 +74,9 @@
 <summary>객체지향 (with. C++)</summary>
 <div markdown="1">   
 
-|                              주제 | 성취도 |                                                                   .md                                                                    | 소스코드 |
-| --------------------------------: | :----: | :--------------------------------------------------------------------------------------------------------------------------------------: | :------- |
-|    data structures and algorithms |        |                                           [Kor](markdown/Data%20Structure%20N%20Algorithms.md)                                           |
-|                        Array list |   📌    |                                                [Kor](markdown/DataStructure/ArrayList.md)                                                |
-|                       Linked list |   📌    | [Kor](markdown/DataStructure/LinkedList.md) [Eng](markdown/DataStructure/LinkedLists.md) [Kor](markdown/DataStructure/LinkedLists_kr.md) |
-|          Extension of linked list |   📌    |
-| Uses of Linked Lists: Polynomials |   📌    |
-|                             Stack |   📌    |
-|                       Using Stack |        |
-|                             Queue |   📌    |
-|                         Recursion |        |
-|                              트리 |        |
-|                              히프 |        |
-|                            그래프 |        |
-|                              검색 |        |
+| 주제 | check |  .md  | .main | .include |
+| ---: | :---: | :---: | :---: | :------- |
+|      |
 
 </div>
 </details>
