@@ -12,7 +12,7 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 set(SOURCE_DIR source/DSNA/Linear)
 
 # 소스 파일 지정
-add_executable(postfixNotation ${SOURCE_DIR}/postfixNotation.c ${SOURCE_DIR}/notationStack.c ${SOURCE_DIR}/postfixCalc.c)
+add_executable(postfixNotation ${SOURCE_DIR}/mainPostfix.c ${SOURCE_DIR}/includeNotationStack.c ${SOURCE_DIR}/includePostfix.c)
 
 # 추가 라이브러리 링크 혹은 옵션 지정
 include_directories(include)

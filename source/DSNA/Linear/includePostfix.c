@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "notationStack.h"
-#include "postfixCalc.h"
+#include "includeNotationStack.h"
+#include "includePostfix.h"
 
 bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
 {
