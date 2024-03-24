@@ -7,11 +7,12 @@ project(
     VERSION 0.1
     LANGUAGES C
 )
+include_directories("include/")
 
 add_executable(
     postfixNotation 
-    source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c 
-    source/DSNA/Linear/6_usingStack/postfix/notationStack.c 
-    source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c
+    source/DSNA/Linear/postfixNotation.c 
+    source/DSNA/Linear/notationStack.c 
+    source/DSNA/Linear/postfixCalc.c
 )
 # add_executable(checkBracketMatch checkBracketMatch.c Stack.c)

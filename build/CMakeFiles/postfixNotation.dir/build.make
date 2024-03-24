@@ -69,60 +69,60 @@ include CMakeFiles/postfixNotation.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/postfixNotation.dir/flags.make
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o: CMakeFiles/postfixNotation.dir/flags.make
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o: /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o: CMakeFiles/postfixNotation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o -MF CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o.d -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o -c /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o: CMakeFiles/postfixNotation.dir/flags.make
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o: /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixNotation.c
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o: CMakeFiles/postfixNotation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o -MF CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o.d -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o -c /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixNotation.c
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c > CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixNotation.c > CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.i
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixNotation.c -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.s
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o: CMakeFiles/postfixNotation.dir/flags.make
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o: /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/notationStack.c
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o: CMakeFiles/postfixNotation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o -MF CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o.d -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o -c /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/notationStack.c
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o: CMakeFiles/postfixNotation.dir/flags.make
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o: /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/notationStack.c
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o: CMakeFiles/postfixNotation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o -MF CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o.d -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o -c /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/notationStack.c
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/notationStack.c > CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/notationStack.c > CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.i
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/notationStack.c -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/notationStack.c -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.s
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o: CMakeFiles/postfixNotation.dir/flags.make
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o: /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o: CMakeFiles/postfixNotation.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o -MF CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o.d -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o -c /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o: CMakeFiles/postfixNotation.dir/flags.make
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o: /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixCalc.c
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o: CMakeFiles/postfixNotation.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o -MF CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o.d -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o -c /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixCalc.c
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c > CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixCalc.c > CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.i
 
-CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s
+CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixCalc.c -o CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.s
 
 # Object files for target postfixNotation
 postfixNotation_OBJECTS = \
-"CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o" \
-"CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o" \
-"CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o"
+"CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o" \
+"CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o" \
+"CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o"
 
 # External object files for target postfixNotation
 postfixNotation_EXTERNAL_OBJECTS =
 
-postfixNotation: CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o
-postfixNotation: CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o
-postfixNotation: CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o
+postfixNotation: CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o
+postfixNotation: CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o
+postfixNotation: CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o
 postfixNotation: CMakeFiles/postfixNotation.dir/build.make
 postfixNotation: CMakeFiles/postfixNotation.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable postfixNotation"

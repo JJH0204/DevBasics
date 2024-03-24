@@ -129,77 +129,77 @@ postfixNotation/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/build
 .PHONY : postfixNotation/fast
 
-source/DSNA/Linear/6_usingStack/postfix/notationStack.o: source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/notationStack.o
+source/DSNA/Linear/notationStack.o: source/DSNA/Linear/notationStack.c.o
+.PHONY : source/DSNA/Linear/notationStack.o
 
 # target to build an object file
-source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/notationStack.c.o
+source/DSNA/Linear/notationStack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o
+.PHONY : source/DSNA/Linear/notationStack.c.o
 
-source/DSNA/Linear/6_usingStack/postfix/notationStack.i: source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/notationStack.i
+source/DSNA/Linear/notationStack.i: source/DSNA/Linear/notationStack.c.i
+.PHONY : source/DSNA/Linear/notationStack.i
 
 # target to preprocess a source file
-source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/notationStack.c.i
+source/DSNA/Linear/notationStack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.i
+.PHONY : source/DSNA/Linear/notationStack.c.i
 
-source/DSNA/Linear/6_usingStack/postfix/notationStack.s: source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/notationStack.s
+source/DSNA/Linear/notationStack.s: source/DSNA/Linear/notationStack.c.s
+.PHONY : source/DSNA/Linear/notationStack.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/notationStack.c.s
+source/DSNA/Linear/notationStack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.s
+.PHONY : source/DSNA/Linear/notationStack.c.s
 
-source/DSNA/Linear/6_usingStack/postfix/postfixCalc.o: source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixCalc.o
+source/DSNA/Linear/postfixCalc.o: source/DSNA/Linear/postfixCalc.c.o
+.PHONY : source/DSNA/Linear/postfixCalc.o
 
 # target to build an object file
-source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.o
+source/DSNA/Linear/postfixCalc.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o
+.PHONY : source/DSNA/Linear/postfixCalc.c.o
 
-source/DSNA/Linear/6_usingStack/postfix/postfixCalc.i: source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixCalc.i
+source/DSNA/Linear/postfixCalc.i: source/DSNA/Linear/postfixCalc.c.i
+.PHONY : source/DSNA/Linear/postfixCalc.i
 
 # target to preprocess a source file
-source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.i
+source/DSNA/Linear/postfixCalc.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.i
+.PHONY : source/DSNA/Linear/postfixCalc.c.i
 
-source/DSNA/Linear/6_usingStack/postfix/postfixCalc.s: source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixCalc.s
+source/DSNA/Linear/postfixCalc.s: source/DSNA/Linear/postfixCalc.c.s
+.PHONY : source/DSNA/Linear/postfixCalc.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixCalc.c.s
+source/DSNA/Linear/postfixCalc.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.s
+.PHONY : source/DSNA/Linear/postfixCalc.c.s
 
-source/DSNA/Linear/6_usingStack/postfix/postfixNotation.o: source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixNotation.o
+source/DSNA/Linear/postfixNotation.o: source/DSNA/Linear/postfixNotation.c.o
+.PHONY : source/DSNA/Linear/postfixNotation.o
 
 # target to build an object file
-source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.o
+source/DSNA/Linear/postfixNotation.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o
+.PHONY : source/DSNA/Linear/postfixNotation.c.o
 
-source/DSNA/Linear/6_usingStack/postfix/postfixNotation.i: source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixNotation.i
+source/DSNA/Linear/postfixNotation.i: source/DSNA/Linear/postfixNotation.c.i
+.PHONY : source/DSNA/Linear/postfixNotation.i
 
 # target to preprocess a source file
-source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.i
+source/DSNA/Linear/postfixNotation.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.i
+.PHONY : source/DSNA/Linear/postfixNotation.c.i
 
-source/DSNA/Linear/6_usingStack/postfix/postfixNotation.s: source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixNotation.s
+source/DSNA/Linear/postfixNotation.s: source/DSNA/Linear/postfixNotation.c.s
+.PHONY : source/DSNA/Linear/postfixNotation.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s
-.PHONY : source/DSNA/Linear/6_usingStack/postfix/postfixNotation.c.s
+source/DSNA/Linear/postfixNotation.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.s
+.PHONY : source/DSNA/Linear/postfixNotation.c.s
 
 # Help Target
 help:
@@ -210,15 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... postfixNotation"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/notationStack.o"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/notationStack.i"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/notationStack.s"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/postfixCalc.o"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/postfixCalc.i"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/postfixCalc.s"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/postfixNotation.o"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/postfixNotation.i"
-	@echo "... source/DSNA/Linear/6_usingStack/postfix/postfixNotation.s"
+	@echo "... source/DSNA/Linear/notationStack.o"
+	@echo "... source/DSNA/Linear/notationStack.i"
+	@echo "... source/DSNA/Linear/notationStack.s"
+	@echo "... source/DSNA/Linear/postfixCalc.o"
+	@echo "... source/DSNA/Linear/postfixCalc.i"
+	@echo "... source/DSNA/Linear/postfixCalc.s"
+	@echo "... source/DSNA/Linear/postfixNotation.o"
+	@echo "... source/DSNA/Linear/postfixNotation.i"
+	@echo "... source/DSNA/Linear/postfixNotation.s"
 .PHONY : help
 
 
