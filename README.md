@@ -14,47 +14,60 @@
 - 각 개념을 실습하며, 작은 프로젝트 또는 알고리즘을 해결하며 이론과 실제를 연결합니다.
 
 ## 학습 과정
-### 1. [C](C_language)
-#### [Basics](C_language/1_Basics)
-- [Hello, World!](C_language/1_Basics/1_Hello_C) 📌 
-- [Variables and Types](C_language/1_Basics/2_VariablesNTypes_C) 📌 
-- [Arrays](C_language/1_Basics/3_Arrays_C) 📌 
-- [Multidimensional Arrays](C_language/1_Basics/4_MultidimensionalArrays_C) 📌 
-- [Conditions](C_language/1_Basics/5_Conditions_C) 📌 
-- [Strings](C_language/1_Basics/6_Strings_C) 📌 
-- [loops](C_language/1_Basics/7_Loops_C) 📌 
-- [Functions](C_language/1_Basics/8_Functions_C) 📌 
-- [Static](C_language/1_Basics/9_Static_C) 📌 
-#### [Advanced](C_language/2_Advanced)
-- [Pointers](C_language/2_Advanced/1_Pointers_C) 📌 
-- [Structures](C_language/2_Advanced/2_Structures_C) 📌 
-- [Function arguments by reference](C_language/2_Advanced/3_Function_arguments_by_reference_C) 📌 
-- [Dynamic allocation](C_language/2_Advanced/4_Dynamic_allocation_C) 📌 
-- [Arrays and Pointers](C_language/2_Advanced/5_ArrayNPointers_C) 📌 
-- [Recursion](C_language/2_Advanced/6_Recursion_C) 📌 
-- [Linked lists](C_language/2_Advanced/7_LinkedLists_C) 📌 
-- [Binary trees](C_language/2_Advanced/8_Binary_trees_C)
-- [Unions](C_language/2_Advanced/9_Unions_C) 📌
-- [Pointer Arithmetics](C_language/2_Advanced/10_Pointer_Arithmetics_C) 📌
-- [Function Pointers](C_language/2_Advanced/11_Function_Pointers_C) 📌
-- [Bitmasks](C_language/2_Advanced/12_Bitmasks) 📌
 
-### 2. [Data Structure and Algorithms](DSNA)
-- [Overview of data structures and algorithms](DSNA/Data_structure_Algorithms.md)
-#### [Linear](DSNA/Linear)
-- [Array list](DSNA/Linear/1_ArrayList) 📌
-- [Linked list](DSNA/Linear/2_LinkedList) 📌
-- [Extension of linked list](DSNA/Linear/3_LinkedList_Expansion) 📌
-- [Uses of Linked Lists: Polynomials](DSNA/Linear/4_LinkedList_Polynomial) 📌
-- [Stack](DSNA/Linear/5_Stack) 📌
-- [Using Stack](DSNA/Linear/6_Using_Stack/)
-- [Queue](DSNA/Linear/7_Queue) 📌
-- [Recursion](DSNA/Linear/8_Recursion)
-#### [non-Linear](DSNA/non-Linear)
-- 트리
-- 히프
-- 그래프
-- 검색
+<details>
+<summary>C_Language</summary>
+<div markdown="1">   
+
+|                            주제 | 성취도 |                                             .md                                             | 소스코드                                    |
+| ------------------------------: | :----: | :-----------------------------------------------------------------------------------------: | :------------------------------------------ |
+|                     Hello world |   📌    |                                                                                             | ([code.c](source/C_language/Hello.c))       |
+|             Variables and Types |   📌    |                                                                                             | ([code.c](source/C_language/VnT.c))         |
+|                          Arrays |   📌    |                                                                                             | ([code.c](source/C_language/Arrays.c))      |
+|         Multidimensional Arrays |   📌    |                                                                                             | ([code.c](source/C_language/MultiArrays.c)) |
+|                      Conditions |   📌    |                                                                                             | ([code.c](source/C_language))               |
+|                         Strings |   📌    |                                                                                             | (링크)                                      |
+|                           loops |   📌    |                                                                                             | (링크)                                      |
+|                       Functions |   📌    |                                                                                             | (링크)                                      |
+|                          Static |   📌    |                                                                                             | (링크)                                      |
+|                        Pointers |   📌    |                                                                                             | (링크)                                      |
+|                      Structures |   📌    |                                                                                             | (링크)                                      |
+| Function arguments by reference |   📌    |                                                                                             | (링크)                                      |
+|              Dynamic allocation |   📌    |                                                                                             | (링크)                                      |
+|             Arrays and Pointers |   📌    |                                                                                             | (링크)                                      |
+|                       Recursion |   📌    |                                                                                             | (링크)                                      |
+|                    Linked lists |   📌    |                                                                                             | (링크)                                      |
+|                    Binary trees |        |                                                                                             | (링크)                                      |
+|                          Unions |   📌    |                ([Eng](markdown/C/Unions.md), [Kor](markdown/C/Unions_kr.md))                | (링크)                                      |
+|             Pointer Arithmetics |   📌    | ([Eng](markdown/C/Pointer%20Arithmetics.md), [Kor](markdown/C/Pointer%20Arithmetics_kr.md)) | (링크)                                      |
+|               Function Pointers |   📌    |   ([Eng](markdown/C/Function%20Pointers.md), [Kor](markdown/C/Function%20Pointers_kr.md))   | (링크)                                      |
+|                        Bitmasks |   📌    |              ([Eng](markdown/C/Bitmasks.md), [Kor](markdown/C/Bitmasks_kr.md))              | (링크)                                      |
+
+</div>
+</details>
+
+<details>
+<summary>Data Structure and Algorithms</summary>
+<div markdown="1">   
+
+|                              주제 | 성취도 |  .md  | 소스코드 |
+| --------------------------------: | :----: | :---: | :------- |
+|    data structures and algorithms |        |
+|                        Array list |   📌    |
+|                       Linked list |   📌    |
+|          Extension of linked list |   📌    |
+| Uses of Linked Lists: Polynomials |   📌    |
+|                             Stack |   📌    |
+|                       Using Stack |        |
+|                             Queue |   📌    |
+|                         Recursion |        |
+|                              트리 |        |
+|                              히프 |        |
+|                            그래프 |        |
+|                              검색 |        |
+
+</div>
+</details>
 
 ### 4. C++
 
