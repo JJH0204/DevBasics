@@ -1,0 +1,3 @@
+/Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles/postfixNotation.dir
+/Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles/edit_cache.dir
+/Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles/rebuild_cache.dir
