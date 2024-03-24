@@ -3,6 +3,6 @@
 
 bool Calc(const TOKEN * _pTOKEN_, const int _nSize_);
 
-bool infix2postfix (const TOKEN *_pTOKEN_, const int _nSize_);
+TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_);
 
 #endif

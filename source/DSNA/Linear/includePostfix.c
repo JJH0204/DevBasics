@@ -47,7 +47,44 @@ bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
 }
 
 // TODO: 중위표기 법을 후위 표기법으로 변환하는 코드 작성
-bool infix2postfix (const TOKEN *_pTOKEN_, const int _nSize_)
+TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_)
 {
+    int nCount = 0;
+    int nInputCount = 0;
+    TYPE type;
+    TOKEN *newTOKEN = NULL;
+    STACK *pStack = NULL;
+
+    if (ISNULL(_pTOKEN_)) return true;
+    
+    newTOKEN = (TOKEN*)malloc(sizeof(TOKEN)*_nSize_);
+    if (ISNULL(newTOKEN)) return true;
+
+    pStack = createStack();
+    if (ISNULL(pStack)) return true;
+    
+
+    for (; nCount < _nSize_; nCount++)
+    {
+        type = _pTOKEN_[nCount].operType;
+        if (type == OPERAND)
+        {
+            newTOKEN[nInputCount] = _pTOKEN_[nCount];
+            nInputCount++;
+        }
+        else
+        {
+            if (ISEMPTY(pStack))
+            {
+                push(pStack, _pTOKEN_[nCount]);
+            }
+            else
+            {
+                // 연산자 우선순위 검사
+                // 검사 결과에 따른 처리
+            }
+        }
+    }
+    
     return false;
 }
