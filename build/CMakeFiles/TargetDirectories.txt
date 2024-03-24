@@ -1,3 +1,0 @@
-/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles/postfixNotation.dir
-/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles/edit_cache.dir
-/Users/admin/Documents/GitHub/DevBasics/build/CMakeFiles/rebuild_cache.dir
