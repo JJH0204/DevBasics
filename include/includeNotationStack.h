@@ -3,6 +3,7 @@
 
 typedef enum OperatorType
 {
+    NOTYPE,     // 초기값
     LPAREN,     // 여는 괄호
     RPAREN,     // 닫는 괄호
     MULTIPLY,   // 곱하기

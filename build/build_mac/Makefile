@@ -129,77 +129,77 @@ postfixNotation/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/build
 .PHONY : postfixNotation/fast
 
-source/DSNA/Linear/notationStack.o: source/DSNA/Linear/notationStack.c.o
-.PHONY : source/DSNA/Linear/notationStack.o
+source/DSNA/Linear/includeNotationStack.o: source/DSNA/Linear/includeNotationStack.c.o
+.PHONY : source/DSNA/Linear/includeNotationStack.o
 
 # target to build an object file
-source/DSNA/Linear/notationStack.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o
-.PHONY : source/DSNA/Linear/notationStack.c.o
+source/DSNA/Linear/includeNotationStack.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.o
+.PHONY : source/DSNA/Linear/includeNotationStack.c.o
 
-source/DSNA/Linear/notationStack.i: source/DSNA/Linear/notationStack.c.i
-.PHONY : source/DSNA/Linear/notationStack.i
+source/DSNA/Linear/includeNotationStack.i: source/DSNA/Linear/includeNotationStack.c.i
+.PHONY : source/DSNA/Linear/includeNotationStack.i
 
 # target to preprocess a source file
-source/DSNA/Linear/notationStack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.i
-.PHONY : source/DSNA/Linear/notationStack.c.i
+source/DSNA/Linear/includeNotationStack.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.i
+.PHONY : source/DSNA/Linear/includeNotationStack.c.i
 
-source/DSNA/Linear/notationStack.s: source/DSNA/Linear/notationStack.c.s
-.PHONY : source/DSNA/Linear/notationStack.s
+source/DSNA/Linear/includeNotationStack.s: source/DSNA/Linear/includeNotationStack.c.s
+.PHONY : source/DSNA/Linear/includeNotationStack.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/notationStack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.s
-.PHONY : source/DSNA/Linear/notationStack.c.s
+source/DSNA/Linear/includeNotationStack.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.s
+.PHONY : source/DSNA/Linear/includeNotationStack.c.s
 
-source/DSNA/Linear/postfixCalc.o: source/DSNA/Linear/postfixCalc.c.o
-.PHONY : source/DSNA/Linear/postfixCalc.o
+source/DSNA/Linear/includePostfix.o: source/DSNA/Linear/includePostfix.c.o
+.PHONY : source/DSNA/Linear/includePostfix.o
 
 # target to build an object file
-source/DSNA/Linear/postfixCalc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o
-.PHONY : source/DSNA/Linear/postfixCalc.c.o
+source/DSNA/Linear/includePostfix.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.o
+.PHONY : source/DSNA/Linear/includePostfix.c.o
 
-source/DSNA/Linear/postfixCalc.i: source/DSNA/Linear/postfixCalc.c.i
-.PHONY : source/DSNA/Linear/postfixCalc.i
+source/DSNA/Linear/includePostfix.i: source/DSNA/Linear/includePostfix.c.i
+.PHONY : source/DSNA/Linear/includePostfix.i
 
 # target to preprocess a source file
-source/DSNA/Linear/postfixCalc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.i
-.PHONY : source/DSNA/Linear/postfixCalc.c.i
+source/DSNA/Linear/includePostfix.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.i
+.PHONY : source/DSNA/Linear/includePostfix.c.i
 
-source/DSNA/Linear/postfixCalc.s: source/DSNA/Linear/postfixCalc.c.s
-.PHONY : source/DSNA/Linear/postfixCalc.s
+source/DSNA/Linear/includePostfix.s: source/DSNA/Linear/includePostfix.c.s
+.PHONY : source/DSNA/Linear/includePostfix.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/postfixCalc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.s
-.PHONY : source/DSNA/Linear/postfixCalc.c.s
+source/DSNA/Linear/includePostfix.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.s
+.PHONY : source/DSNA/Linear/includePostfix.c.s
 
-source/DSNA/Linear/postfixNotation.o: source/DSNA/Linear/postfixNotation.c.o
-.PHONY : source/DSNA/Linear/postfixNotation.o
+source/DSNA/Linear/mainPostfix.o: source/DSNA/Linear/mainPostfix.c.o
+.PHONY : source/DSNA/Linear/mainPostfix.o
 
 # target to build an object file
-source/DSNA/Linear/postfixNotation.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o
-.PHONY : source/DSNA/Linear/postfixNotation.c.o
+source/DSNA/Linear/mainPostfix.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.o
+.PHONY : source/DSNA/Linear/mainPostfix.c.o
 
-source/DSNA/Linear/postfixNotation.i: source/DSNA/Linear/postfixNotation.c.i
-.PHONY : source/DSNA/Linear/postfixNotation.i
+source/DSNA/Linear/mainPostfix.i: source/DSNA/Linear/mainPostfix.c.i
+.PHONY : source/DSNA/Linear/mainPostfix.i
 
 # target to preprocess a source file
-source/DSNA/Linear/postfixNotation.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.i
-.PHONY : source/DSNA/Linear/postfixNotation.c.i
+source/DSNA/Linear/mainPostfix.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.i
+.PHONY : source/DSNA/Linear/mainPostfix.c.i
 
-source/DSNA/Linear/postfixNotation.s: source/DSNA/Linear/postfixNotation.c.s
-.PHONY : source/DSNA/Linear/postfixNotation.s
+source/DSNA/Linear/mainPostfix.s: source/DSNA/Linear/mainPostfix.c.s
+.PHONY : source/DSNA/Linear/mainPostfix.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/postfixNotation.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.s
-.PHONY : source/DSNA/Linear/postfixNotation.c.s
+source/DSNA/Linear/mainPostfix.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.s
+.PHONY : source/DSNA/Linear/mainPostfix.c.s
 
 # Help Target
 help:
@@ -210,15 +210,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... postfixNotation"
-	@echo "... source/DSNA/Linear/notationStack.o"
-	@echo "... source/DSNA/Linear/notationStack.i"
-	@echo "... source/DSNA/Linear/notationStack.s"
-	@echo "... source/DSNA/Linear/postfixCalc.o"
-	@echo "... source/DSNA/Linear/postfixCalc.i"
-	@echo "... source/DSNA/Linear/postfixCalc.s"
-	@echo "... source/DSNA/Linear/postfixNotation.o"
-	@echo "... source/DSNA/Linear/postfixNotation.i"
-	@echo "... source/DSNA/Linear/postfixNotation.s"
+	@echo "... source/DSNA/Linear/includeNotationStack.o"
+	@echo "... source/DSNA/Linear/includeNotationStack.i"
+	@echo "... source/DSNA/Linear/includeNotationStack.s"
+	@echo "... source/DSNA/Linear/includePostfix.o"
+	@echo "... source/DSNA/Linear/includePostfix.i"
+	@echo "... source/DSNA/Linear/includePostfix.s"
+	@echo "... source/DSNA/Linear/mainPostfix.o"
+	@echo "... source/DSNA/Linear/mainPostfix.i"
+	@echo "... source/DSNA/Linear/mainPostfix.s"
 .PHONY : help
 
 

@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o"
-  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o.d"
-  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o"
-  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o.d"
-  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o"
-  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o.d"
+  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.o"
+  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.o.d"
+  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.o"
+  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.o.d"
+  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.o"
+  "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.o.d"
   "postfixNotation"
   "postfixNotation.pdb"
 )

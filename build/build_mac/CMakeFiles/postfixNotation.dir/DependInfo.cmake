@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/notationStack.c" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o" "gcc" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/notationStack.c.o.d"
-  "/Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixCalc.c" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o" "gcc" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixCalc.c.o.d"
-  "/Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/postfixNotation.c" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o" "gcc" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/postfixNotation.c.o.d"
+  "/Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/includeNotationStack.c" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.o" "gcc" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.o.d"
+  "/Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/includePostfix.c" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.o" "gcc" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.o.d"
+  "/Users/admin/Documents/GitHub/DevBasics/source/DSNA/Linear/mainPostfix.c" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.o" "gcc" "CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

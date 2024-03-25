@@ -8,9 +8,9 @@
 
 int main (int argc, char *argv[])
 {
-    int i = 0, size = 9;
+    int nSize = 9;
 
-    TOKEN *pToken = (TOKEN *)malloc(sizeof(TOKEN) * size);
+    TOKEN *pToken = (TOKEN *)malloc(sizeof(TOKEN) * nSize);
 
     pToken[0] = setToken(OPERAND, 2);
     pToken[1] = setToken(MINUS, 0);
@@ -22,9 +22,12 @@ int main (int argc, char *argv[])
     pToken[7] = setToken(MULTIPLY, 0);
     pToken[8] = setToken(OPERAND, 5);
 
-    printf("Infix Expression: 2.0-(3.0+4.0)*5.0\n");
-    pToken = infix2postfix(pToken, size);
-    Calc(pToken, size);
+    printf("Infix Expression: ");
+    displayNotation(pToken, nSize);
+    pToken = infix2postfix(pToken, nSize);
+    displayNotation(pToken, nSize);
+    if (ISNULL(pToken)) return -1;
+    Calc(pToken, nSize);
 
     free(pToken);
     return 0;
