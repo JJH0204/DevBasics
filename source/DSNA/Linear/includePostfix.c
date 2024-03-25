@@ -5,23 +5,24 @@
 #include "includePostfix.h"
 
 /*
-% ./postfixNotation
-Infix Expression: 2.0 - ( 3.0 + 4.0 ) * 5.0 
-postfixNotation(27726,0x1edc5bac0) malloc: Double free of object 0x150e05f20
-postfixNotation(27726,0x1edc5bac0) malloc: *** set a breakpoint in malloc_error_break to debug
+.\postfixNotation.exe
+Infix Expression:
+    > 2.0 - ( 3.0 + 4.0 ) * 5.0
 */
 
-bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
+double Calc(const TOKEN *_pTOKEN_, const int _nSize_)
 {
     int nCount = 0;
+    double fResult = 0.0f;
     STACK *pStack = NULL;
     NODE *token_A = NULL;
     NODE *token_B = NULL;
-    TYPE type;
-    if (ISNULL(_pTOKEN_) || _nSize_ <= 2) return true;
+    NODE *pNode = NULL;
+    TYPE type = NOTYPE;
+    if (ISNULL(_pTOKEN_) || _nSize_ <= 2) return -1.0;
 
     pStack = createStack();
-    if (ISNULL(pStack)) return true;
+    if (ISNULL(pStack)) return -1.0;
     
     for (nCount = 0; nCount < _nSize_; nCount++)
     {
@@ -47,142 +48,111 @@ bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
             free(token_B);
         }
     }
-    if (ISEMPTY(pStack) || pStack->nCurrentCount > 1)    return true;
-    printf("> Result: %lf\n", pStack->pTOP->tData.dValue);
+    if (ISEMPTY(pStack) || pStack->nCurrentCount > 1)    return -1.0;
+    
+    pNode = pop(pStack);
+    fResult = pNode->tData.dValue;
     deleteStack(pStack);
-    return false;
+    free(pNode);
+    return fResult;
 }
 
-// TODO: 중위표기 법을 후위 표기법으로 변환하는 코드 작성
 TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_)
 {
     int nCount = 0;
     int nInputCount = 0;
-    TYPE type;
     TOKEN *newTOKEN = NULL;
     STACK *pStack = NULL;
     NODE *pNode = NULL;
 
-    if (ISNULL(_pTOKEN_)) return NULL;
+    if (ISNULL(_pTOKEN_))
+        return NULL;
     
     newTOKEN = (TOKEN*)malloc(sizeof(TOKEN)*_nSize_);
-    if (ISNULL(newTOKEN)) return NULL;
-
     pStack = createStack();
-    if (ISNULL(pStack)) return NULL;
+    if (ISNULL(newTOKEN) || ISNULL(pStack))
+        return NULL;
     
-
-    for (; nCount < _nSize_; nCount++)
+    while (nCount < _nSize_)
     {
-        type = _pTOKEN_[nCount].operType;
-        if (type == OPERAND)
+        if (_pTOKEN_[nCount].operType == OPERAND)
         {
-            newTOKEN[nInputCount] = _pTOKEN_[nCount];
+            newTOKEN[nInputCount] = setToken(_pTOKEN_[nCount].operType, _pTOKEN_[nCount].dValue);
             nInputCount++;
         }
-        else
+        else if (_pTOKEN_[nCount].operType != NOTYPE)
         {
             if (ISEMPTY(pStack))
             {
-                push(pStack, _pTOKEN_[nCount]);
+                push(pStack, setToken(_pTOKEN_[nCount].operType, _pTOKEN_[nCount].dValue));
             }
             else
             {
-                checkOperatorPriority(pStack, newTOKEN, _pTOKEN_[nCount], &nInputCount);
+                operatorPriority(_pTOKEN_[nCount], pStack, newTOKEN, &nInputCount);
+                handlingBracket(pStack, newTOKEN, &nInputCount);
             }
         }
+        nCount++;
     }
-
-    while (!ISEMPTY(pStack))
+    if (!ISEMPTY(pStack))
     {
         pNode = pop(pStack);
-        newTOKEN[nInputCount] = pNode->tData;
-        free(pNode);
+        newTOKEN[nInputCount] = setToken(pNode->tData.operType, pNode->tData.dValue);
         nInputCount++;
+        free(pNode);
     }
-
-    if (ISEMPTY(pStack))
-        deleteStack(pStack);
-    
+    deleteStack(pStack);
     return newTOKEN;
 }
 
-bool checkOperatorPriority(STACK *_pStack_, TOKEN *_pNewToken_, TOKEN _tData_, int *_pInputCount_)
+bool operatorPriority(const TOKEN _Token_, STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount)
 {
-    int nRank_StackTop = 0;
-    int nRank_Token = 0;
-    NODE *pNode = NULL;
+    NODE *pNode = peek(_pStack_);
+    // if (priorityOutStack(_Token_.operType) >= priorityInStack(pNode->tData.operType))
+    // {
+    //     push(_pStack_, setToken(_Token_.operType, _Token_.dValue));
+    //     free(pNode);
+    //     return false;
+    // }
 
-    if (ISNULL(_pStack_)) return true;
-    
-    nRank_StackTop = returnPriorityInStack(_pStack_->pTOP->tData.operType);
-    nRank_Token = returnPriorityOutStack(_tData_.operType);
-    
-    if (nRank_StackTop <= nRank_Token)
+    while (priorityOutStack(_Token_.operType) < priorityInStack(pNode->tData.operType))
     {
-        push(_pStack_, _tData_);
+        free(pNode);            // 피크 값 삭제
+        pNode = pop(_pStack_);  // 스텍의 탑 팝
+        _pTokenArray_[*pInputCount] = setToken(pNode->tData.operType, pNode->tData.dValue);     // 팝한 데이터 배열에 추가
+        free(pNode);            // 팝한 데이터 삭제
+        *pInputCount += 1;      // 배열 인덱스 번호 갱신
+        pNode = peek(_pStack_);
     }
-    else
-    {
-        while (nRank_StackTop > nRank_Token)
-        {
-            pNode = pop(_pStack_);
-            _pNewToken_[*_pInputCount_] = pNode->tData;
-            *_pInputCount_++;
-            free(pNode);
-
-            nRank_StackTop = returnPriorityInStack(_pStack_->pTOP->tData.operType);
-        }
-        push(_pStack_, _tData_);
-    }
-    pNode = peek(_pStack_);
-    if (pNode->tData.operType == RPAREN)
-        handlingBracket(_pNewToken_, _pStack_, _pInputCount_);
-    
+    push(_pStack_, setToken(_Token_.operType, _Token_.dValue));
     free(pNode);
     return false;
 }
 
-int returnPriorityOutStack(const TYPE _type_)
+int priorityOutStack(const TYPE _type_)
 {
-    int nResult = 0;
-    if (_type_ == OPERAND)
-    {
-        printf("Invalid function used.\n");
-        return -1;
-    }
-    
     if ((_type_ == RPAREN) || (_type_ == LPAREN))
-        nResult = 4;
+        return 4;
     else if ((_type_ == MULTIPLY) || (_type_ == DIVIDE))
-        nResult = 3;
+        return 3;
     else if ((_type_ == PLUS) || (_type_ == MINUS))
-        nResult = 2;
+        return 2;
     else
-        nResult = 1;
-    
-    return nResult;
+        return 1;
 }
 
-int returnPriorityInStack(const TYPE _type_)
+int priorityInStack(const TYPE _type_)
 {
-    int nResult = 0;
-    if (_type_ == OPERAND)
-    {
-        printf("Invalid function used.\n");
-        return -1;
-    }
-    
     if (_type_ == RPAREN)
-        nResult = 4;
+        return 4;
     else if ((_type_ == MULTIPLY) || (_type_ == DIVIDE))
-        nResult = 3;
+        return 3;
     else if ((_type_ == PLUS) || (_type_ == MINUS))
-        nResult = 2;
-    else
-        nResult = 1;
-    
-    return nResult;
+        return 2;
+    else if (_type_ == LPAREN)
+        return 1;
+    else 
+        return 0;
 }
 
 bool displayNotation(const TOKEN *_pToken_, const int _nSize_)
@@ -215,12 +185,30 @@ bool displayNotation(const TOKEN *_pToken_, const int _nSize_)
     return false;
 }
 
-bool handlingBracket(TOKEN *_pToken_, STACK *_pStack_, int *_pInputCount_)
+bool handlingBracket(STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount)
 {
     NODE *pNode = NULL;
 
-    if (ISNULL(_pStack_) || ISNULL(_pToken_)) return true;
+    if (ISNULL(_pStack_) || ISNULL(_pTokenArray_))
+        return true;
 
+    pNode = peek(_pStack_);
+    if (pNode->tData.operType == RPAREN)
+    {
+        free(pNode);
+        pNode = pop(_pStack_);
+        while (pNode->tData.operType != LPAREN)
+        {
+            if (pNode->tData.operType != RPAREN)
+            {
+                _pTokenArray_[*pInputCount] = setToken(pNode->tData.operType, pNode->tData.dValue);
+                *pInputCount += 1;
+            }
+            free(pNode);
+            pNode = pop(_pStack_);
+        }
+        free(pNode);
+    }
     
     // pNode = pop(_pStack_);
     // free(pNode);
@@ -231,16 +219,16 @@ bool handlingBracket(TOKEN *_pToken_, STACK *_pStack_, int *_pInputCount_)
     //     *_pInputCount_++;
     //     free(pNode);
     // }
-    pNode = pop(_pStack_);
-    free(pNode);
-    while (_pStack_->pTOP->tData.operType != LPAREN)
-    {
-        pNode = pop(_pStack_);
-        _pToken_[*_pInputCount_] = pNode->tData;
-        (*_pInputCount_)++;
-        free(pNode);
-    }
-    pNode = pop(_pStack_);
-    free(pNode);
+    // pNode = pop(_pStack_);
+    // free(pNode);
+    // while (_pStack_->pTOP->tData.operType != LPAREN)
+    // {
+    //     pNode = pop(_pStack_);
+    //     _pToken_[*_pInputCount_] = pNode->tData;
+    //     (*_pInputCount_)++;
+    //     free(pNode);
+    // }
+    // pNode = pop(_pStack_);
+    // free(pNode);
     return false;
 }

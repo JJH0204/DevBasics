@@ -1,17 +1,17 @@
 #ifndef __POSTFIX__
 #define __POSTFIX__
 
-bool Calc(const TOKEN * _pTOKEN_, const int _nSize_);
+double Calc(const TOKEN *_pTOKEN_, const int _nSize_);
 
 TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_);
 
-bool checkOperatorPriority(STACK *_pStack_, TOKEN *_pNewToken_, TOKEN _tData_, int *_pInputCount_);
+bool operatorPriority(const TOKEN _Token_, STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount);
 
-int returnPriorityOutStack(const TYPE _type_);
+int priorityOutStack(const TYPE _type_);
 
-int returnPriorityInStack(const TYPE _type_);
+int priorityInStack(const TYPE _type_);
 
 bool displayNotation(const TOKEN *_pToken_, const int _nSize_);
 
-bool handlingBracket(TOKEN *_pToken_, STACK *_pStack_, int *_pInputCount_);
+bool handlingBracket(STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount);
 #endif

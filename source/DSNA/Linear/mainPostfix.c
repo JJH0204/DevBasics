@@ -9,32 +9,35 @@
 int main (int argc, char *argv[])
 {
     int nSize = 9;
-    double dResult = 0.0;
+    double fResult = 0.0;
 
-    TOKEN *pInfixToken = (TOKEN *)malloc(sizeof(TOKEN) * nSize);
-    TOKEN *pPostfixToken = NULL;
-	
-    if (ISNULL(pInfixToken)) return -1;
-    
-    pInfixToken[0] = setToken(OPERAND, 2);
-    pInfixToken[1] = setToken(MINUS, 0);
-    pInfixToken[2] = setToken(LPAREN, 0);
-    pInfixToken[3] = setToken(OPERAND, 3);
-    pInfixToken[4] = setToken(PLUS, 0);
-    pInfixToken[5] = setToken(OPERAND, 4);
-    pInfixToken[6] = setToken(RPAREN, 0);
-    pInfixToken[7] = setToken(MULTIPLY, 0);
-    pInfixToken[8] = setToken(OPERAND, 5);
+    TOKEN *pInfix = (TOKEN *)malloc(sizeof(TOKEN) * nSize);
+    TOKEN *pPostfix = NULL;
+
+    if (ISNULL(pInfix))
+        return -1;
+
+    pInfix[0] = setToken(OPERAND, 2);
+    pInfix[1] = setToken(MINUS, 0);
+    pInfix[2] = setToken(LPAREN, 0);
+    pInfix[3] = setToken(OPERAND, 3);
+    pInfix[4] = setToken(PLUS, 0);
+    pInfix[5] = setToken(OPERAND, 4);
+    pInfix[6] = setToken(RPAREN, 0);
+    pInfix[7] = setToken(MULTIPLY, 0);
+    pInfix[8] = setToken(OPERAND, 5);
     printf("Infix Expression: \n\t> ");
-    displayNotation(pInfixToken, nSize);
-    
-    pPostfixToken = infix2postfix(pToken, nSize);
-    if (ISNULL(pPostfixToken)) return -1;
+    displayNotation(pInfix, nSize);
+
+    pPostfix = infix2postfix(pInfix, nSize);
+    if (ISNULL(pPostfix))
+        return -1;
     printf("Postfix Expression: \n\t> ");
-    displayNotation(pPostfixToken, nSize);
-    
-    dResult = Calc(pPostfixToken, nSize);
-	printf("Calc result: \n\t> %0.1f\n", dResult);
-    free(pToken);
+    displayNotation(pPostfix, nSize);
+
+    fResult = Calc(pPostfix, nSize);
+    printf("Calc result: \n\t> %0.1f\n", fResult);
+    free(pInfix);
+    free(pPostfix);
     return 0;
 }
