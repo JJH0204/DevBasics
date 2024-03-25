@@ -4,6 +4,13 @@
 #include "includeNotationStack.h"
 #include "includePostfix.h"
 
+/*
+% ./postfixNotation
+Infix Expression: 2.0 - ( 3.0 + 4.0 ) * 5.0 
+postfixNotation(27726,0x1edc5bac0) malloc: Double free of object 0x150e05f20
+postfixNotation(27726,0x1edc5bac0) malloc: *** set a breakpoint in malloc_error_break to debug
+*/
+
 bool Calc(const TOKEN *_pTOKEN_, const int _nSize_)
 {
     int nCount = 0;
@@ -235,4 +242,5 @@ bool handlingBracket(TOKEN *_pToken_, STACK *_pStack_, int *_pInputCount_)
     }
     pNode = pop(_pStack_);
     free(pNode);
+    return false;
 }
