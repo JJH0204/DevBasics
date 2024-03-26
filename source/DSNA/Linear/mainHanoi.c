@@ -1,17 +1,18 @@
 // hanoi.c
 #include <stdio.h>
+
 #define RECURSION
 #ifdef RECURSION
 int hanoi(int n, char from, char temp, char to)
 {
     if (n == 1)
     {
-        printf("ì›íŒ 1ì„ %cì—ì„œ %cë¡œ ì˜®ê²¼ìŠµë‹ˆë‹¤.\n", from, to);
+        printf("¿øÆÇ 1À» %c¿¡¼­ %c·Î ¿Å°å½À´Ï´Ù.\n", from, to);
     }
     else
     {
         hanoi(n - 1, from, to, temp);
-        printf("ì›íŒ %iì„ %cì—ì„œ %cë¡œ ì˜®ê²¼ìŠµë‹ˆë‹¤.\n", n, from, to);
+        printf("¿øÆÇ %iÀ» %c¿¡¼­ %c·Î ¿Å°å½À´Ï´Ù.\n", n, from, to);
         hanoi(n - 1, temp, from, to);
     }
 }
@@ -20,6 +21,7 @@ int hanoi(int n, char from, char temp, char to)
 int hanoi(int n, char from, char temp, char to)
 {
     // TODO: Solving the Tower of Hanoi problem using loops
+
 }
 #endif
 int main(int argc, char *argv[])

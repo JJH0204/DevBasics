@@ -116,89 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named postfixNotation
+# Target rules for targets named Hanoi
 
 # Build rule for target.
-postfixNotation: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 postfixNotation
-.PHONY : postfixNotation
+Hanoi: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Hanoi
+.PHONY : Hanoi
 
 # fast build rule for target.
-postfixNotation/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/build
-.PHONY : postfixNotation/fast
+Hanoi/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/build
+.PHONY : Hanoi/fast
 
-source/DSNA/Linear/includeNotationStack.obj: source/DSNA/Linear/includeNotationStack.c.obj
-.PHONY : source/DSNA/Linear/includeNotationStack.obj
-
-# target to build an object file
-source/DSNA/Linear/includeNotationStack.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.obj
-.PHONY : source/DSNA/Linear/includeNotationStack.c.obj
-
-source/DSNA/Linear/includeNotationStack.i: source/DSNA/Linear/includeNotationStack.c.i
-.PHONY : source/DSNA/Linear/includeNotationStack.i
-
-# target to preprocess a source file
-source/DSNA/Linear/includeNotationStack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.i
-.PHONY : source/DSNA/Linear/includeNotationStack.c.i
-
-source/DSNA/Linear/includeNotationStack.s: source/DSNA/Linear/includeNotationStack.c.s
-.PHONY : source/DSNA/Linear/includeNotationStack.s
-
-# target to generate assembly for a file
-source/DSNA/Linear/includeNotationStack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.s
-.PHONY : source/DSNA/Linear/includeNotationStack.c.s
-
-source/DSNA/Linear/includePostfix.obj: source/DSNA/Linear/includePostfix.c.obj
-.PHONY : source/DSNA/Linear/includePostfix.obj
+source/DSNA/Linear/mainHanoi.obj: source/DSNA/Linear/mainHanoi.c.obj
+.PHONY : source/DSNA/Linear/mainHanoi.obj
 
 # target to build an object file
-source/DSNA/Linear/includePostfix.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.obj
-.PHONY : source/DSNA/Linear/includePostfix.c.obj
+source/DSNA/Linear/mainHanoi.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/source/DSNA/Linear/mainHanoi.c.obj
+.PHONY : source/DSNA/Linear/mainHanoi.c.obj
 
-source/DSNA/Linear/includePostfix.i: source/DSNA/Linear/includePostfix.c.i
-.PHONY : source/DSNA/Linear/includePostfix.i
-
-# target to preprocess a source file
-source/DSNA/Linear/includePostfix.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.i
-.PHONY : source/DSNA/Linear/includePostfix.c.i
-
-source/DSNA/Linear/includePostfix.s: source/DSNA/Linear/includePostfix.c.s
-.PHONY : source/DSNA/Linear/includePostfix.s
-
-# target to generate assembly for a file
-source/DSNA/Linear/includePostfix.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.s
-.PHONY : source/DSNA/Linear/includePostfix.c.s
-
-source/DSNA/Linear/mainPostfix.obj: source/DSNA/Linear/mainPostfix.c.obj
-.PHONY : source/DSNA/Linear/mainPostfix.obj
-
-# target to build an object file
-source/DSNA/Linear/mainPostfix.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.obj
-.PHONY : source/DSNA/Linear/mainPostfix.c.obj
-
-source/DSNA/Linear/mainPostfix.i: source/DSNA/Linear/mainPostfix.c.i
-.PHONY : source/DSNA/Linear/mainPostfix.i
+source/DSNA/Linear/mainHanoi.i: source/DSNA/Linear/mainHanoi.c.i
+.PHONY : source/DSNA/Linear/mainHanoi.i
 
 # target to preprocess a source file
-source/DSNA/Linear/mainPostfix.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.i
-.PHONY : source/DSNA/Linear/mainPostfix.c.i
+source/DSNA/Linear/mainHanoi.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/source/DSNA/Linear/mainHanoi.c.i
+.PHONY : source/DSNA/Linear/mainHanoi.c.i
 
-source/DSNA/Linear/mainPostfix.s: source/DSNA/Linear/mainPostfix.c.s
-.PHONY : source/DSNA/Linear/mainPostfix.s
+source/DSNA/Linear/mainHanoi.s: source/DSNA/Linear/mainHanoi.c.s
+.PHONY : source/DSNA/Linear/mainHanoi.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/mainPostfix.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.s
-.PHONY : source/DSNA/Linear/mainPostfix.c.s
+source/DSNA/Linear/mainHanoi.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/source/DSNA/Linear/mainHanoi.c.s
+.PHONY : source/DSNA/Linear/mainHanoi.c.s
 
 # Help Target
 help:
@@ -208,16 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... postfixNotation
-	@echo ... source/DSNA/Linear/includeNotationStack.obj
-	@echo ... source/DSNA/Linear/includeNotationStack.i
-	@echo ... source/DSNA/Linear/includeNotationStack.s
-	@echo ... source/DSNA/Linear/includePostfix.obj
-	@echo ... source/DSNA/Linear/includePostfix.i
-	@echo ... source/DSNA/Linear/includePostfix.s
-	@echo ... source/DSNA/Linear/mainPostfix.obj
-	@echo ... source/DSNA/Linear/mainPostfix.i
-	@echo ... source/DSNA/Linear/mainPostfix.s
+	@echo ... Hanoi
+	@echo ... source/DSNA/Linear/mainHanoi.obj
+	@echo ... source/DSNA/Linear/mainHanoi.i
+	@echo ... source/DSNA/Linear/mainHanoi.s
 .PHONY : help
 
 

@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/postfixNotation.dir/all
+all: CMakeFiles/Hanoi.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/postfixNotation.dir/clean
+clean: CMakeFiles/Hanoi.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/postfixNotation.dir
+# Target rules for target CMakeFiles/Hanoi.dir
 
 # All Build rule for target.
-CMakeFiles/postfixNotation.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3,4 "Built target postfixNotation"
-.PHONY : CMakeFiles/postfixNotation.dir/all
+CMakeFiles/Hanoi.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target Hanoi"
+.PHONY : CMakeFiles/Hanoi.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/postfixNotation.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/postfixNotation.dir/all
+CMakeFiles/Hanoi.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Hanoi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/postfixNotation.dir/rule
+.PHONY : CMakeFiles/Hanoi.dir/rule
 
 # Convenience name for target.
-postfixNotation: CMakeFiles/postfixNotation.dir/rule
-.PHONY : postfixNotation
+Hanoi: CMakeFiles/Hanoi.dir/rule
+.PHONY : Hanoi
 
 # clean rule for target.
-CMakeFiles/postfixNotation.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\postfixNotation.dir\build.make CMakeFiles/postfixNotation.dir/clean
-.PHONY : CMakeFiles/postfixNotation.dir/clean
+CMakeFiles/Hanoi.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/clean
+.PHONY : CMakeFiles/Hanoi.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
