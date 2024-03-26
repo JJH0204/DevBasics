@@ -8,10 +8,11 @@
 
 int main (int argc, char *argv[])
 {
-    int nSize = 9;
+    const int nInfixSize = 9;
+    int nPostfixSize = 0;
     double fResult = 0.0;
 
-    TOKEN *pInfix = (TOKEN *)malloc(sizeof(TOKEN) * nSize);
+    TOKEN *pInfix = (TOKEN *)malloc(sizeof(TOKEN) * nInfixSize);
     TOKEN *pPostfix = NULL;
 
     if (ISNULL(pInfix))
@@ -27,17 +28,26 @@ int main (int argc, char *argv[])
     pInfix[7] = setToken(MULTIPLY, 0);
     pInfix[8] = setToken(OPERAND, 5);
     printf("Infix Expression: \n\t> ");
-    displayNotation(pInfix, nSize);
+    displayNotation(pInfix, nInfixSize);
 
-    pPostfix = infix2postfix(pInfix, nSize);
+    pPostfix = infix2postfix(pInfix, nInfixSize, &nPostfixSize);
     if (ISNULL(pPostfix))
         return -1;
     printf("Postfix Expression: \n\t> ");
-    displayNotation(pPostfix, nSize);
+    displayNotation(pPostfix, nPostfixSize);
 
-    fResult = Calc(pPostfix, nSize);
+    fResult = Calc(pPostfix, nPostfixSize);
     printf("Calc result: \n\t> %0.1f\n", fResult);
     free(pInfix);
     free(pPostfix);
     return 0;
 }
+/*
+.\postfixNotation
+Infix Expression:
+        > 2.0 - ( 3.0 + 4.0 ) * 5.0
+Postfix Expression:
+        > 2.0 3.0 4.0 + 5.0 * -
+Calc result:
+        > -33.0
+*/

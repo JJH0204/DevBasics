@@ -8,6 +8,7 @@
 .\postfixNotation.exe
 Infix Expression:
     > 2.0 - ( 3.0 + 4.0 ) * 5.0
+// peek() 함수를 잘못 사용하고 있었다.
 */
 
 double Calc(const TOKEN *_pTOKEN_, const int _nSize_)
@@ -19,11 +20,13 @@ double Calc(const TOKEN *_pTOKEN_, const int _nSize_)
     NODE *token_B = NULL;
     NODE *pNode = NULL;
     TYPE type = NOTYPE;
-    if (ISNULL(_pTOKEN_) || _nSize_ <= 2) return -1.0;
+    if (ISNULL(_pTOKEN_) || _nSize_ <= 2)
+        return -1.0;
 
     pStack = createStack();
-    if (ISNULL(pStack)) return -1.0;
-    
+    if (ISNULL(pStack))
+        return -1.0;
+
     for (nCount = 0; nCount < _nSize_; nCount++)
     {
         type = _pTOKEN_[nCount].operType;
@@ -31,25 +34,27 @@ double Calc(const TOKEN *_pTOKEN_, const int _nSize_)
         {
             push(pStack, _pTOKEN_[nCount]);
         }
-        else {
+        else
+        {
             token_B = pop(pStack);
             token_A = pop(pStack);
-            if (type == MULTIPLY)           // 곱하기
+            if (type == MULTIPLY) // 곱하기
                 push(pStack, setToken(OPERAND, token_A->tData.dValue * token_B->tData.dValue));
-            else if (type == DIVIDE)        // 나누기
+            else if (type == DIVIDE) // 나누기
                 push(pStack, setToken(OPERAND, token_A->tData.dValue / token_B->tData.dValue));
-            else if (type == PLUS)          // 더하기
+            else if (type == PLUS) // 더하기
                 push(pStack, setToken(OPERAND, token_A->tData.dValue + token_B->tData.dValue));
-            else if (type == MINUS)         // 빼기
+            else if (type == MINUS) // 빼기
                 push(pStack, setToken(OPERAND, token_A->tData.dValue - token_B->tData.dValue));
-            else                            // 에러
+            else // 에러
                 break;
             free(token_A);
             free(token_B);
         }
     }
-    if (ISEMPTY(pStack) || pStack->nCurrentCount > 1)    return -1.0;
-    
+    if (ISEMPTY(pStack) || pStack->nCurrentCount > 1)
+        return -1.0;
+
     pNode = pop(pStack);
     fResult = pNode->tData.dValue;
     deleteStack(pStack);
@@ -57,7 +62,7 @@ double Calc(const TOKEN *_pTOKEN_, const int _nSize_)
     return fResult;
 }
 
-TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_)
+TOKEN *infix2postfix(const TOKEN *_pInfix_, const int _nInfixSize_, int *_nPostfixSize_)
 {
     int nCount = 0;
     int nInputCount = 0;
@@ -65,42 +70,44 @@ TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_)
     STACK *pStack = NULL;
     NODE *pNode = NULL;
 
-    if (ISNULL(_pTOKEN_))
+    if (ISNULL(_pInfix_))
         return NULL;
-    
-    newTOKEN = (TOKEN*)malloc(sizeof(TOKEN)*_nSize_);
+
+    newTOKEN = (TOKEN *)malloc(sizeof(TOKEN) * _nInfixSize_);
     pStack = createStack();
     if (ISNULL(newTOKEN) || ISNULL(pStack))
         return NULL;
-    
-    while (nCount < _nSize_)
+
+    while (nCount < _nInfixSize_)
     {
-        if (_pTOKEN_[nCount].operType == OPERAND)
+        if (_pInfix_[nCount].operType == OPERAND)
         {
-            newTOKEN[nInputCount] = setToken(_pTOKEN_[nCount].operType, _pTOKEN_[nCount].dValue);
+            newTOKEN[nInputCount] = setToken(_pInfix_[nCount].operType, _pInfix_[nCount].dValue);
             nInputCount++;
         }
-        else if (_pTOKEN_[nCount].operType != NOTYPE)
+        else if (_pInfix_[nCount].operType != NOTYPE)
         {
             if (ISEMPTY(pStack))
             {
-                push(pStack, setToken(_pTOKEN_[nCount].operType, _pTOKEN_[nCount].dValue));
+                push(pStack, setToken(_pInfix_[nCount].operType, _pInfix_[nCount].dValue));
             }
             else
             {
-                operatorPriority(_pTOKEN_[nCount], pStack, newTOKEN, &nInputCount);
+                operatorPriority(_pInfix_[nCount], pStack, newTOKEN, &nInputCount);
                 handlingBracket(pStack, newTOKEN, &nInputCount);
             }
         }
         nCount++;
     }
-    if (!ISEMPTY(pStack))
+    while (!ISEMPTY(pStack))
     {
+        // printf(">%d<", pStack->pTOP->tData.operType);
         pNode = pop(pStack);
         newTOKEN[nInputCount] = setToken(pNode->tData.operType, pNode->tData.dValue);
         nInputCount++;
         free(pNode);
     }
+    *_nPostfixSize_ = nInputCount;
     deleteStack(pStack);
     return newTOKEN;
 }
@@ -108,24 +115,17 @@ TOKEN *infix2postfix(const TOKEN *_pTOKEN_, const int _nSize_)
 bool operatorPriority(const TOKEN _Token_, STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount)
 {
     NODE *pNode = peek(_pStack_);
-    // if (priorityOutStack(_Token_.operType) >= priorityInStack(pNode->tData.operType))
-    // {
-    //     push(_pStack_, setToken(_Token_.operType, _Token_.dValue));
-    //     free(pNode);
-    //     return false;
-    // }
 
     while (priorityOutStack(_Token_.operType) < priorityInStack(pNode->tData.operType))
     {
-        free(pNode);            // 피크 값 삭제
-        pNode = pop(_pStack_);  // 스텍의 탑 팝
-        _pTokenArray_[*pInputCount] = setToken(pNode->tData.operType, pNode->tData.dValue);     // 팝한 데이터 배열에 추가
-        free(pNode);            // 팝한 데이터 삭제
-        *pInputCount += 1;      // 배열 인덱스 번호 갱신
+        pNode = pop(_pStack_);                                                              // 스텍의 탑 팝
+        _pTokenArray_[*pInputCount] = setToken(pNode->tData.operType, pNode->tData.dValue); // 팝한 데이터 배열에 추가
+        *pInputCount += 1;                                                                  // 배열 인덱스 번호 갱신
+        free(pNode);                                                                        // 팝한 데이터 삭제
         pNode = peek(_pStack_);
     }
     push(_pStack_, setToken(_Token_.operType, _Token_.dValue));
-    free(pNode);
+
     return false;
 }
 
@@ -151,7 +151,7 @@ int priorityInStack(const TYPE _type_)
         return 2;
     else if (_type_ == LPAREN)
         return 1;
-    else 
+    else
         return 0;
 }
 
@@ -159,7 +159,8 @@ bool displayNotation(const TOKEN *_pToken_, const int _nSize_)
 {
     int nCount = 0;
     TYPE type = 0;
-    if (ISNULL(_pToken_)) return true;
+    if (ISNULL(_pToken_))
+        return true;
     while (nCount < _nSize_)
     {
         type = _pToken_[nCount].operType;
@@ -195,7 +196,6 @@ bool handlingBracket(STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount)
     pNode = peek(_pStack_);
     if (pNode->tData.operType == RPAREN)
     {
-        free(pNode);
         pNode = pop(_pStack_);
         while (pNode->tData.operType != LPAREN)
         {
@@ -209,26 +209,5 @@ bool handlingBracket(STACK *_pStack_, TOKEN *_pTokenArray_, int *pInputCount)
         }
         free(pNode);
     }
-    
-    // pNode = pop(_pStack_);
-    // free(pNode);
-    // pNode = peek(_pStack_);
-    // while (pNode->tData.operType != LPAREN)
-    // {
-    //     _pNewToken_[*_pInputCount_] = setToken(pNode->tData.operType, pNode->tData.dValue); 
-    //     *_pInputCount_++;
-    //     free(pNode);
-    // }
-    // pNode = pop(_pStack_);
-    // free(pNode);
-    // while (_pStack_->pTOP->tData.operType != LPAREN)
-    // {
-    //     pNode = pop(_pStack_);
-    //     _pToken_[*_pInputCount_] = pNode->tData;
-    //     (*_pInputCount_)++;
-    //     free(pNode);
-    // }
-    // pNode = pop(_pStack_);
-    // free(pNode);
     return false;
 }
