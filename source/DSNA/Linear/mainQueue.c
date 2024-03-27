@@ -14,7 +14,7 @@ typedef struct QueueNode
 
 typedef struct Queue
 {
-    int nCurrntCount;
+    int nCurrentCount;
     node *pFront;
     node *pRear;
 } queue;
@@ -98,7 +98,7 @@ bool isNull(const void *ptr, const char *funcName)
 
 bool isEmpty(const queue *ptr, const char *funcName)
 {
-    if(ptr->nCurrntCount <= 0 && ptr->pFront == NULL && ptr->pRear == NULL)
+    if(ptr->nCurrentCount <= 0 && ptr->pFront == NULL && ptr->pRear == NULL)
     {
         // printf("%s: Queue is Empty\n", funcName);
         return true;
@@ -111,7 +111,7 @@ queue *createQueue(void)
     queue *pResult = (queue*)malloc(sizeof(queue));
     if (ISNULL(pResult))
         return NULL;
-    pResult->nCurrntCount = 0;
+    pResult->nCurrentCount = 0;
     pResult->pFront = NULL;
     pResult->pRear = NULL;
     return pResult;
@@ -132,7 +132,7 @@ bool enqueue(queue *_pQueue_, const char _cData_)
     else
         _pQueue_->pRear->pNext = pNode;
     _pQueue_->pRear = pNode;
-    _pQueue_->nCurrntCount++;
+    _pQueue_->nCurrentCount++;
     return false;
 }
 
@@ -144,7 +144,7 @@ node *dequeue(queue *_pQueue_)
     pNode = _pQueue_->pFront;
     _pQueue_->pFront = _pQueue_->pFront->pNext;
     pNode->pNext = NULL;
-    _pQueue_->nCurrntCount--;
+    _pQueue_->nCurrentCount--;
     return pNode;
 }
 
@@ -176,7 +176,7 @@ bool displayQueue(const queue *_pQueue_)
     if (ISNULL(_pQueue_) || ISEMPTY(_pQueue_))
         return true;
 
-    printf("Current node count: %d\n", _pQueue_->nCurrntCount);
+    printf("Current node count: %d\n", _pQueue_->nCurrentCount);
     for (pPrint = _pQueue_->pFront ; pPrint != NULL; nCount++)
     {
         printf("\t[%d]-[%c]\n", nCount, pPrint->cData);
