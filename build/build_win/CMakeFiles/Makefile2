@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Hanoi.dir/all
+all: CMakeFiles/binaryTree.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Hanoi.dir/clean
+clean: CMakeFiles/binaryTree.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Hanoi.dir
+# Target rules for target CMakeFiles/binaryTree.dir
 
 # All Build rule for target.
-CMakeFiles/Hanoi.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target Hanoi"
-.PHONY : CMakeFiles/Hanoi.dir/all
+CMakeFiles/binaryTree.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target binaryTree"
+.PHONY : CMakeFiles/binaryTree.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Hanoi.dir/rule: cmake_check_build_system
+CMakeFiles/binaryTree.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Hanoi.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/binaryTree.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/Hanoi.dir/rule
+.PHONY : CMakeFiles/binaryTree.dir/rule
 
 # Convenience name for target.
-Hanoi: CMakeFiles/Hanoi.dir/rule
-.PHONY : Hanoi
+binaryTree: CMakeFiles/binaryTree.dir/rule
+.PHONY : binaryTree
 
 # clean rule for target.
-CMakeFiles/Hanoi.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/clean
-.PHONY : CMakeFiles/Hanoi.dir/clean
+CMakeFiles/binaryTree.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/clean
+.PHONY : CMakeFiles/binaryTree.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

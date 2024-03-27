@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Hanoi
+# Target rules for targets named binaryTree
 
 # Build rule for target.
-Hanoi: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Hanoi
-.PHONY : Hanoi
+binaryTree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 binaryTree
+.PHONY : binaryTree
 
 # fast build rule for target.
-Hanoi/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/build
-.PHONY : Hanoi/fast
+binaryTree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/build
+.PHONY : binaryTree/fast
 
-source/DSNA/Linear/mainHanoi.obj: source/DSNA/Linear/mainHanoi.c.obj
-.PHONY : source/DSNA/Linear/mainHanoi.obj
+source/DSNA/non-Linear/mainBinaryTree.obj: source/DSNA/non-Linear/mainBinaryTree.c.obj
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.obj
 
 # target to build an object file
-source/DSNA/Linear/mainHanoi.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/source/DSNA/Linear/mainHanoi.c.obj
-.PHONY : source/DSNA/Linear/mainHanoi.c.obj
+source/DSNA/non-Linear/mainBinaryTree.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.obj
 
-source/DSNA/Linear/mainHanoi.i: source/DSNA/Linear/mainHanoi.c.i
-.PHONY : source/DSNA/Linear/mainHanoi.i
+source/DSNA/non-Linear/mainBinaryTree.i: source/DSNA/non-Linear/mainBinaryTree.c.i
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.i
 
 # target to preprocess a source file
-source/DSNA/Linear/mainHanoi.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/source/DSNA/Linear/mainHanoi.c.i
-.PHONY : source/DSNA/Linear/mainHanoi.c.i
+source/DSNA/non-Linear/mainBinaryTree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.i
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.i
 
-source/DSNA/Linear/mainHanoi.s: source/DSNA/Linear/mainHanoi.c.s
-.PHONY : source/DSNA/Linear/mainHanoi.s
+source/DSNA/non-Linear/mainBinaryTree.s: source/DSNA/non-Linear/mainBinaryTree.c.s
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/mainHanoi.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Hanoi.dir\build.make CMakeFiles/Hanoi.dir/source/DSNA/Linear/mainHanoi.c.s
-.PHONY : source/DSNA/Linear/mainHanoi.c.s
+source/DSNA/non-Linear/mainBinaryTree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.s
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Hanoi
-	@echo ... source/DSNA/Linear/mainHanoi.obj
-	@echo ... source/DSNA/Linear/mainHanoi.i
-	@echo ... source/DSNA/Linear/mainHanoi.s
+	@echo ... binaryTree
+	@echo ... source/DSNA/non-Linear/mainBinaryTree.obj
+	@echo ... source/DSNA/non-Linear/mainBinaryTree.i
+	@echo ... source/DSNA/non-Linear/mainBinaryTree.s
 .PHONY : help
 
 

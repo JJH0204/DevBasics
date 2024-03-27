@@ -9,8 +9,8 @@ typedef struct BinaryTreeNode
 {
     char cData;
 
-    struct TreeNode *pLeftChild;
-    struct TreeNode *pRightChild;
+    struct BinaryTreeNode *pLeftChild;
+    struct BinaryTreeNode *pRightChild;
 } node;
 
 typedef struct BinaryTree
@@ -156,25 +156,3 @@ bool deleteBinTreeNode(node * _pParent_)
     free(_pParent_);
     return false;
 }
-
-/*
-/Users/admin/Documents/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:110:31: warning: incompatible pointer types assigning to 'struct TreeNode *' from 'node *' (aka 'struct BinaryTreeNode *') [-Wincompatible-pointer-types]
-        _pParent_->pLeftChild = pResult;
-                              ^ ~~~~~~~
-/Users/admin/Documents/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:125:32: warning: incompatible pointer types assigning to 'struct TreeNode *' from 'node *' (aka 'struct BinaryTreeNode *') [-Wincompatible-pointer-types]
-        _pParent_->pRightChild = pResult;
-                               ^ ~~~~~~~
-/Users/admin/Documents/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:154:23: warning: incompatible pointer types passing 'struct TreeNode *' to parameter of type 'node *' (aka 'struct BinaryTreeNode *') [-Wincompatible-pointer-types]
-    deleteBinTreeNode(_pParent_->pLeftChild);
-                      ^~~~~~~~~~~~~~~~~~~~~
-/Users/admin/Documents/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:150:31: note: passing argument to parameter '_pParent_' here
-bool deleteBinTreeNode(node * _pParent_)
-                              ^
-/Users/admin/Documents/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:155:23: warning: incompatible pointer types passing 'struct TreeNode *' to parameter of type 'node *' (aka 'struct BinaryTreeNode *') [-Wincompatible-pointer-types]
-    deleteBinTreeNode(_pParent_->pRightChild);
-                      ^~~~~~~~~~~~~~~~~~~~~~
-/Users/admin/Documents/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:150:31: note: passing argument to parameter '_pParent_' here
-bool deleteBinTreeNode(node * _pParent_)
-                              ^
-4 warnings generated.
-*/
