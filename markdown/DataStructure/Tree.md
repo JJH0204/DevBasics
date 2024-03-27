@@ -56,6 +56,55 @@
 - 일반적인 트리에 비해 구조가 간단
 - 검색, 계산 알고리즘에서 많이 활용
 
+> [tip.] 트리의 노드와 간선 개수의 관계 => 트리에서 노드 개수가 n개일 때, 간선의 개수 = n - 1   
+
+### 이진 트리의 종류
+- 어떤 모양을 가지는지에 따라 알고리즘 성능이 달라진다.
+- 트리의 형태는 레벨과 노드 수에 따라 결정된다.
+- 이진 트리의 형태는 3가지 종류로 분류한다.
+- [포화 이진 트리](markdown/DataStructure/FullBinaryTree.md), [완전 이진 트리](/markdown/DataStructure/CompleteBinaryTree.md), [편향 이진 트리](markdown/DataStructure/SkewedBinaryTree.md) 
+- 트리의 형태에 따라 이진 트리의 노드 개수를 계산할 수 있다.
+> 1) 높이가 h인 이진 트리가 가질 수 있는 최소 노드의 개수는 [편향 이진 트리](markdown/DataStructure/SkewedBinaryTree.md)로 구할 수있다.
+> 2) 최대 노드의 개수는 [포화 이진 트리](markdown/DataStructure/FullBinaryTree.md)에서 구할 수있다.
+- 위 두 사항을 종합하여 노드 개수 $n$의 범위를 구하면 $h <= n <= (n^h-1)$
+  - $n$: 높이가 $h$인 이진 트리의 노드 개수
+- 최솟값은 편향 이진 트리의 노드 개수이며 최댓값은 포화 이진 트리의 노드 개수
+## 이진 트리의 추상자료형
+| name                | input            | output             | desc                                       |
+| :------------------ | :--------------- | :----------------- | :----------------------------------------- |
+| makeBinTree()       | data             | binTree            | data를 갖는 rootNode로 구성된 binTree 생성 |
+| getRootNode()       | binTree          | rootNode           | binTree의 rootNode 반환                    |
+| addLeftChildNode()  | parentNode, data | add_leftChildNode  | parentNode의 leftChildNode 추가            |
+| addRightChildNode() | parentNode, data | add_rightChildNode | parentNode의 rightChildNode 추가           |
+| getLeftChildNode()  | parentNode       | leftChildNode      | parentNode의 leftChildNode 반환            |
+| getRightChildNode() | parentNode       | rightChildNode     | parentNode의 rightChildNode 반환           |
+| getData()           | binTree          | data               | binTree의 rootNode의 data 반환             |
+| deleteBinTree()     | binTree          | N/A                | free(binTree)                              |
+
+
+
+## [배열 이진 트리](markdown/DataStructure/ArrayBinaryTree.md)
+
+## 포인터 이진 트리
+- 노드 사이의 간선(edge, 연결정보)를 포인터로 구현한 이진 트리
+- 연결 이진 트리(Linked binary tree)라고도 한다.
+- [배열 이진 트리](markdown/DataStructure/ArrayBinaryTree.md)와 달리 노드 개수 만큼 메모리를 할당하기 때문에 메모리 효율성이 상대적으로 우수하다.
+- 단, 노드의 탐색과 메모리 관리 측면에서 구현이 어려워진다.
+
+### 구조
+
+### 생성
+
+### 자식 노드 추가
+
+### 그 외 연산들
+
+## 이진 트리의 순회(Traversal)
+
+
+
+
+
 <details>
 <summary>History about Binary tree</summary>
 <div markdown="1">
