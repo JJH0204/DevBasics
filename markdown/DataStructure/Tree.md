@@ -85,7 +85,7 @@
 
 
 
-## [배열 이진 트리](markdown/DataStructure/ArrayBinaryTree.md)
+## [배열 이진 트리](/markdown/DataStructure/ArrayBinaryTree.md)
 
 ## 포인터 이진 트리
 - 노드 사이의 간선(edge, 연결정보)를 포인터로 구현한 이진 트리
