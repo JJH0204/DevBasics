@@ -1,6 +1,6 @@
 # 트리란?
 - 나무 구조 혹은 나무 자료구조라고 한다.(보통은 그냥 트리라고 함)
-- 데이터를 **계층 구조(Hierarchical structure)**로 저장한다.
+- 데이터를 **계층 구조**(Hierarchical structure)로 저장한다.
 - **다음 노드는 여러 개 연결될 수 있지만, 이전 노드는 단 한 개**
 - 계층 구조를 **부모-자식(parent-child)구조**라고도 한다.
 - 조직도 같은 현실에서 계층 구조를 갖는 시스템을 표현하는데 유용하다.
@@ -48,9 +48,9 @@
 ### 기타 용어
 - 서브트리(subtree): 노드들의 부분 집합을 일컷는 말
 - 포리스트(forest): 
-	- 숲 구조 또는 숲 자료구조라고 함, 트리의 집합을 의미한다.
+  - 숲 구조 또는 숲 자료구조라고 함, 트리의 집합을 의미한다.
   - 루트 노드의 개수를 기준으로 트리와 포리스트를 분류
-	- 트리는 단 1개의 루트 노드를 갖지만, 포리스트는 n개의 루트 노드를 갖는다.
+  - 트리는 단 1개의 루트 노드를 갖지만, 포리스트는 n개의 루트 노드를 갖는다.
 
 ## 이진 트리
 - 모든 트리 노드 차수가 2이하로 제한된 트리(일반적인 트리는 제한이 없다.)
@@ -64,10 +64,10 @@
 - 어떤 모양을 가지는지에 따라 알고리즘 성능이 달라진다.
 - 트리의 형태는 레벨과 노드 수에 따라 결정된다.
 - 이진 트리의 형태는 3가지 종류로 분류한다.
-- [포화 이진 트리](/markdown/DataStructure/FullBinaryTree.md), [완전 이진 트리](/markdown/DataStructure/CompleteBinaryTree.md), [편향 이진 트리](/markdown/DataStructure/SkewedBinaryTree.md) 
+- [포화 이진 트리](FullBinaryTree.md), [완전 이진 트리](CompleteBinaryTree.md), [편향 이진 트리](SkewedBinaryTree.md) 
 - 트리의 형태에 따라 이진 트리의 노드 개수를 계산할 수 있다.
-> 1) 높이가 h인 이진 트리가 가질 수 있는 최소 노드의 개수는 [편향 이진 트리](markdown/DataStructure/SkewedBinaryTree.md)로 구할 수있다.
-> 2) 최대 노드의 개수는 [포화 이진 트리](markdown/DataStructure/FullBinaryTree.md)에서 구할 수있다.
+> 1) 높이가 h인 이진 트리가 가질 수 있는 최소 노드의 개수는 [편향 이진 트리](SkewedBinaryTree.md)로 구할 수있다.
+> 2) 최대 노드의 개수는 [포화 이진 트리](FullBinaryTree.md)에서 구할 수있다.
 - 위 두 사항을 종합하여 노드 개수 $n$의 범위를 구하면 $h <= n <= (n^h-1)$
   - $n$: 높이가 $h$인 이진 트리의 노드 개수
 - 최솟값은 편향 이진 트리의 노드 개수이며 최댓값은 포화 이진 트리의 노드 개수
@@ -85,12 +85,12 @@
 
 
 
-## [배열 이진 트리](/markdown/DataStructure/ArrayBinaryTree.md)
+## [배열 이진 트리](ArrayBinaryTree.md)
 
 ## 포인터 이진 트리
 - 노드 사이의 간선(edge, 연결정보)를 포인터로 구현한 이진 트리
 - 연결 이진 트리(Linked binary tree)라고도 한다.
-- [배열 이진 트리](markdown/DataStructure/ArrayBinaryTree.md)와 달리 노드 개수 만큼 메모리를 할당하기 때문에 메모리 효율성이 상대적으로 우수하다.
+- [배열 이진 트리](ArrayBinaryTree.md)와 달리 노드 개수 만큼 메모리를 할당하기 때문에 메모리 효율성이 상대적으로 우수하다.
 - 단, 노드의 탐색과 메모리 관리 측면에서 구현이 어려워진다.
 
 ### 구조
