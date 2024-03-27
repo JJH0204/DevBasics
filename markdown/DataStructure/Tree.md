@@ -47,8 +47,10 @@
 
 ### 기타 용어
 - 서브트리(subtree): 노드들의 부분 집합을 일컷는 말
-- 포리스트(forest): 숲 구조 또는 숲 자료구조라고 함, 트리의 집합을 의미한다.
-  - 루트 노드의 개수를 기준으로 트리와 포리스트를 분류(트리는 단 1개의 루트 노드를 갖지만, 포리스트는 n개의 루트 노드를 갖는다)
+- 포리스트(forest): 
+	- 숲 구조 또는 숲 자료구조라고 함, 트리의 집합을 의미한다.
+  - 루트 노드의 개수를 기준으로 트리와 포리스트를 분류
+	- 트리는 단 1개의 루트 노드를 갖지만, 포리스트는 n개의 루트 노드를 갖는다.
 
 ## 이진 트리
 - 모든 트리 노드 차수가 2이하로 제한된 트리(일반적인 트리는 제한이 없다.)
@@ -62,7 +64,7 @@
 - 어떤 모양을 가지는지에 따라 알고리즘 성능이 달라진다.
 - 트리의 형태는 레벨과 노드 수에 따라 결정된다.
 - 이진 트리의 형태는 3가지 종류로 분류한다.
-- [포화 이진 트리](markdown/DataStructure/FullBinaryTree.md), [완전 이진 트리](/markdown/DataStructure/CompleteBinaryTree.md), [편향 이진 트리](markdown/DataStructure/SkewedBinaryTree.md) 
+- [포화 이진 트리](/markdown/DataStructure/FullBinaryTree.md), [완전 이진 트리](/markdown/DataStructure/CompleteBinaryTree.md), [편향 이진 트리](/markdown/DataStructure/SkewedBinaryTree.md) 
 - 트리의 형태에 따라 이진 트리의 노드 개수를 계산할 수 있다.
 > 1) 높이가 h인 이진 트리가 가질 수 있는 최소 노드의 개수는 [편향 이진 트리](markdown/DataStructure/SkewedBinaryTree.md)로 구할 수있다.
 > 2) 최대 노드의 개수는 [포화 이진 트리](markdown/DataStructure/FullBinaryTree.md)에서 구할 수있다.
