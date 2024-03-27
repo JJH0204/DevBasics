@@ -92,16 +92,168 @@
 - 단, 노드의 탐색과 메모리 관리 측면에서 구현이 어려워진다.
 
 ### 구조
+```c
+typedef struct BinaryTreeNode
+{
+    char cData;
+    
+    struct TreeNode *pLeftChild;
+    struct TreeNode *pRightChild;
+} node;
+
+typedef struct BinaryTree
+{
+    node *pRootNode;
+} tree;
+```
 
 ### 생성
+```c
+tree * createBinTree(const char _cRootNodeData_)
+{
+    tree *pResult = NULL;
+    pResult = (tree *)malloc(sizeof(tree));
+    if (ISNULL(pResult))
+        return NULL;
+    
+    pResult->pRootNode = createNodeBinTree(_cRootNodeData_);
+    if (ISNULL(pResult))
+    {
+        free(pResult);
+        return NULL;
+    }
+    return pResult;
+}
+
+node * createNodeBinTree(const char _cRootNodeData_)
+{
+    node * pResult = NULL;
+    pResult = (node *)malloc(sizeof(node));
+    if (ISNULL(pResult))
+        return NULL;
+    pResult->cData = _cRootNodeData_;
+    pResult->pLeftChild = NULL;
+    pResult->pRightChild = NULL;
+    return pResult;
+}
+```
 
 ### 자식 노드 추가
+```c
+node * addLeftChildNode(node * _pParent_, const char _cData_)
+{
+    node *pResult = NULL;
+    if (ISNULL(_pParent_))
+        return pResult;
+    if (ISNULL(_pParent_->pLeftChild))
+    {
+        pResult = createNodeBinTree(_cData_);
+        _pParent_->pLeftChild = pResult;
+    }
+    else
+        printf("error, The node already exists. addLeftChildNode()\n");
+    return pResult;
+}
+
+node * addRightChildNode(node * _pParent_, const char _cData_)
+{
+    node *pResult = NULL;
+    if (ISNULL(_pParent_))
+        return pResult;
+    if (ISNULL(_pParent_->pRightChild))
+    {
+        pResult = createNodeBinTree(_cData_);
+        _pParent_->pRightChild = pResult;
+    }
+    else
+        printf("error, The node already exists. addLeftChildNode()\n");
+    return pResult;
+}
+```
+> 추가된 자식 노드를 pResult로 반환, 반환된 노드를 이용해 반환된 노드의 자식 노드를 추가할 수 있게 된다.  
+> 새로운 노드를 찾기 위한 추가 작업을 최소화 하기 위한 조치   
 
 ### 그 외 연산들
 
+```c
+node * getRootNode(const tree * _pBinTree_)
+{
+    node *pResult = NULL;
+    if (ISNULL(_pBinTree_))
+        return NULL;
+    pResult = _pBinTree_->pRootNode;
+    return pResult;
+}
+
+bool deleteBinTree(tree * _pBinTree_)
+{
+    if (ISNULL(_pBinTree_))
+        return true;
+    deleteBinTreeNode(_pBinTree_->pRootNode);
+    free(_pBinTree_);
+    return false;
+}
+
+bool deleteBinTreeNode(node * _pParent_)
+{
+    if (ISNULL(_pParent_))
+        return true;
+    deleteBinTreeNode(_pParent_->pLeftChild);
+    deleteBinTreeNode(_pParent_->pRightChild);
+    free(_pParent_);
+    return false;
+}
+```
+> getRootNode(): 인자로 전달 받은 트리의 루트 노드를 반환하는 함수   
+
+> deleteBinTree(): 
+> - 인자로 전달 받은 트리를 메모리에서 삭제(할당 해제)하는 함수   
+> - 트리 노드를 할당 해제하기 전 루트 노드를 기준으로 손자노드들을 모두 할당 해제한 후 트리를 할당 해제 하기 위해 deleteBinTreeNode()를 호출함   
+
+> deleteBinTreeNode():
+> - 재귀함수로 인자로 전달 받은 부모 노드에 자식이 있을 경우 자식을 인자로 deleteBinTreeNode()를 호출   
+> - 인자로 받은 pParent가 NULL 인지 체크하는 것으로 재귀 탈출 조건을 설정   
+
+
 ## 이진 트리의 순회(Traversal)
+```c
+int main (int argc, char * argv[])
+{
+    tree *pTree = NULL;
+    node *pNodeA = NULL;
+    node *pNodeB = NULL;
+    node *pNodeC = NULL;
+    node *pNodeD = NULL;
+    node *pNodeE = NULL;
+    node *pNodeF = NULL;
 
+    pTree = createBinTree('A');
+    if (!ISNULL(pTree))
+    {
+        pNodeA = getRootNode(pTree);
+        pNodeB = addLeftChildNode(pNodeA, 'B');
+        pNodeC = addRightChildNode(pNodeA, 'B');
+    }
 
+    if (!ISNULL(pNodeB))
+    {
+        pNodeD = addLeftChildNode(pNodeB, 'D');
+    }
+
+    if (!ISNULL(pNodeC))
+    {
+        pNodeE = addLeftChildNode(pNodeC, 'E');
+        pNodeF = addRightChildNode(pNodeC, 'F');
+    }
+    
+    deleteBinTree(pTree);
+    
+    return 0;
+}
+```
+> 위 main()는 지금까지 구현한 트리 함수를 활용해 문자를 트리에 저장하는 과정을 보여준다.   
+> 저장에 문제는 없었지만 아쉽게도 트리의 형태를 직접 볼 수는 없다. (display함수가 없다.)   
+> 트리의 내용을 출력하기 위해 이진 트리의 내용을 어떤 순서에 따라서 순회 할지 결정해야 한다.
 
 
 

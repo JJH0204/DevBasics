@@ -9,11 +9,13 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 # 소스 파일의 경로를 변수에 설정
-set(SOURCE_DIR source/DSNA/Linear)
+# set(SOURCE_DIR source/DSNA/Linear)
+set(SOURCE_DIR source/DSNA/non-Linear)
 
 # 소스 파일 지정
 # add_executable(postfixNotation ${SOURCE_DIR}/mainPostfix.c ${SOURCE_DIR}/includeNotationStack.c ${SOURCE_DIR}/includePostfix.c)
-add_executable(Hanoi ${SOURCE_DIR}/mainHanoi.c)
+# add_executable(Hanoi ${SOURCE_DIR}/mainHanoi.c)
+add_executable(binaryTree ${SOURCE_DIR}/mainBinaryTree.c)
 
 # 추가 라이브러리 링크 혹은 옵션 지정
 include_directories(include)

@@ -117,89 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named postfixNotation
+# Target rules for targets named Tree
 
 # Build rule for target.
-postfixNotation: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 postfixNotation
-.PHONY : postfixNotation
+Tree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tree
+.PHONY : Tree
 
 # fast build rule for target.
-postfixNotation/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/build
-.PHONY : postfixNotation/fast
+Tree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/build
+.PHONY : Tree/fast
 
-source/DSNA/Linear/includeNotationStack.o: source/DSNA/Linear/includeNotationStack.c.o
-.PHONY : source/DSNA/Linear/includeNotationStack.o
-
-# target to build an object file
-source/DSNA/Linear/includeNotationStack.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.o
-.PHONY : source/DSNA/Linear/includeNotationStack.c.o
-
-source/DSNA/Linear/includeNotationStack.i: source/DSNA/Linear/includeNotationStack.c.i
-.PHONY : source/DSNA/Linear/includeNotationStack.i
-
-# target to preprocess a source file
-source/DSNA/Linear/includeNotationStack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.i
-.PHONY : source/DSNA/Linear/includeNotationStack.c.i
-
-source/DSNA/Linear/includeNotationStack.s: source/DSNA/Linear/includeNotationStack.c.s
-.PHONY : source/DSNA/Linear/includeNotationStack.s
-
-# target to generate assembly for a file
-source/DSNA/Linear/includeNotationStack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includeNotationStack.c.s
-.PHONY : source/DSNA/Linear/includeNotationStack.c.s
-
-source/DSNA/Linear/includePostfix.o: source/DSNA/Linear/includePostfix.c.o
-.PHONY : source/DSNA/Linear/includePostfix.o
+source/DSNA/non-Linear/mainBinaryTree.o: source/DSNA/non-Linear/mainBinaryTree.c.o
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.o
 
 # target to build an object file
-source/DSNA/Linear/includePostfix.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.o
-.PHONY : source/DSNA/Linear/includePostfix.c.o
+source/DSNA/non-Linear/mainBinaryTree.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/source/DSNA/non-Linear/mainBinaryTree.c.o
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.o
 
-source/DSNA/Linear/includePostfix.i: source/DSNA/Linear/includePostfix.c.i
-.PHONY : source/DSNA/Linear/includePostfix.i
-
-# target to preprocess a source file
-source/DSNA/Linear/includePostfix.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.i
-.PHONY : source/DSNA/Linear/includePostfix.c.i
-
-source/DSNA/Linear/includePostfix.s: source/DSNA/Linear/includePostfix.c.s
-.PHONY : source/DSNA/Linear/includePostfix.s
-
-# target to generate assembly for a file
-source/DSNA/Linear/includePostfix.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/includePostfix.c.s
-.PHONY : source/DSNA/Linear/includePostfix.c.s
-
-source/DSNA/Linear/mainPostfix.o: source/DSNA/Linear/mainPostfix.c.o
-.PHONY : source/DSNA/Linear/mainPostfix.o
-
-# target to build an object file
-source/DSNA/Linear/mainPostfix.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.o
-.PHONY : source/DSNA/Linear/mainPostfix.c.o
-
-source/DSNA/Linear/mainPostfix.i: source/DSNA/Linear/mainPostfix.c.i
-.PHONY : source/DSNA/Linear/mainPostfix.i
+source/DSNA/non-Linear/mainBinaryTree.i: source/DSNA/non-Linear/mainBinaryTree.c.i
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.i
 
 # target to preprocess a source file
-source/DSNA/Linear/mainPostfix.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.i
-.PHONY : source/DSNA/Linear/mainPostfix.c.i
+source/DSNA/non-Linear/mainBinaryTree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/source/DSNA/non-Linear/mainBinaryTree.c.i
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.i
 
-source/DSNA/Linear/mainPostfix.s: source/DSNA/Linear/mainPostfix.c.s
-.PHONY : source/DSNA/Linear/mainPostfix.s
+source/DSNA/non-Linear/mainBinaryTree.s: source/DSNA/non-Linear/mainBinaryTree.c.s
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.s
 
 # target to generate assembly for a file
-source/DSNA/Linear/mainPostfix.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/postfixNotation.dir/build.make CMakeFiles/postfixNotation.dir/source/DSNA/Linear/mainPostfix.c.s
-.PHONY : source/DSNA/Linear/mainPostfix.c.s
+source/DSNA/non-Linear/mainBinaryTree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/source/DSNA/non-Linear/mainBinaryTree.c.s
+.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.s
 
 # Help Target
 help:
@@ -209,16 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... postfixNotation"
-	@echo "... source/DSNA/Linear/includeNotationStack.o"
-	@echo "... source/DSNA/Linear/includeNotationStack.i"
-	@echo "... source/DSNA/Linear/includeNotationStack.s"
-	@echo "... source/DSNA/Linear/includePostfix.o"
-	@echo "... source/DSNA/Linear/includePostfix.i"
-	@echo "... source/DSNA/Linear/includePostfix.s"
-	@echo "... source/DSNA/Linear/mainPostfix.o"
-	@echo "... source/DSNA/Linear/mainPostfix.i"
-	@echo "... source/DSNA/Linear/mainPostfix.s"
+	@echo "... Tree"
+	@echo "... source/DSNA/non-Linear/mainBinaryTree.o"
+	@echo "... source/DSNA/non-Linear/mainBinaryTree.i"
+	@echo "... source/DSNA/non-Linear/mainBinaryTree.s"
 .PHONY : help
 
 
