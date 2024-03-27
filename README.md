@@ -37,7 +37,7 @@
 |             Arrays and Pointers |   📌    |                                                                                -                                                                                 | [main.c](source/C_language/ArrayNPointer.c)                                                                                   |
 |                       Recursion |   📌    |                                                            [Kor](markdown/DataStructure/recursion.md)                                                            | [main.c](source/C_language/recursion.c)                                                                                       |
 |                    Linked lists |   📌    |                                   [Eng](markdown/DataStructure/LinkedLists.md) [Kor](markdown/DataStructure/LinkedLists_kr.md)                                   | [main.c](source/C_language/LinkedLists.c) [ExCode.c](source/C_language/ExLinkedLists.c)                                       |
-|                    Binary trees |   -    | [Eng](markdown/DataStructure/Binarytrees.md) , [Kor](markdown/DataStructure/Binarytrees_kr.md) , [DepthFirstSearch](markdown/DataStructure/DepthFirst_search.md) | [main.c](source/C_language/CompleteBinaryTree.c) [Excode.c](source/C_language/ExBinarytrees.c)                                |
+|                    Binary trees |   -    | [Kor](markdown/DataStructure/Tree.md) , [DepthFirstSearch](markdown/DataStructure/DepthFirst_search.md) | [main.c](source/C_language/CompleteBinaryTree.c) [Excode.c](source/C_language/ExBinarytrees.c)                                |
 |                          Unions |   📌    |                                                    [Eng](markdown/C/Unions.md) [Kor](markdown/C/Unions_kr.md)                                                    | [main.c](source/C_language/Unions.c) [Excode.c](source/C_language/ExUnions.c) [testcode.c](source/C_language/ExUnions_test.c) |
 |             Pointer Arithmetics |   📌    |                                     [Eng](markdown/C/Pointer%20Arithmetics.md) [Kor](markdown/C/Pointer%20Arithmetics_kr.md)                                     | [main.c](source/C_language/PointerArithmetics.c) [Excode.c](source/C_language/ExPointerArithmetics.c)                         |
 |               Function Pointers |   📌    |                                       [Eng](markdown/C/Function%20Pointers.md) [Kor](markdown/C/Function%20Pointers_kr.md)                                       | [main.c](source/C_language/FunctionPointers.c) [Excode.c](source/C_language/ExFunctionPointers.c)                             |
@@ -46,7 +46,7 @@
 </div>
 </details>
 
-<details>
+<details open>
 <summary>Data Structure and Algorithms</summary>
 <div markdown="1">   
 
@@ -62,7 +62,7 @@
 |                           fostfix |   📌   |                                                                                                                                                                  |                                                    [mainPostfix.c](source/DSNA/Linear/mainPostfix.c)                                                    | [includeNotationStack.c](source/DSNA/Linear/includeNotationStack.c) , [includePostfix.c](source/DSNA/Linear/includePostfix.c) , [includeNotationStack.h](include/includeNotationStack.h) , [includePostfix.h](include/includePostfix.h) |
 |                             Queue |   📌   |                                                              [Kor](markdown/DataStructure/queue.md)                                                              | [mainArrayQueue.c](source/DSNA/Linear/mainArrayQueue.c) , [mainQueue.c](source/DSNA/Linear/mainQueue.c) , [mainDeque.c](source/DSNA/Linear/mainDeque.c) |
 |                         Recursion |       |                                                            [Kor](markdown/DataStructure/recursion.md)                                                            |                          [mainFibonacci.c](source/DSNA/Linear/mainFibonacci.c) , [mainHanoi.c](source/DSNA/Linear/mainHanoi.c)                          |
-|                              Tree |       | [Eng](markdown/DataStructure/Binarytrees.md) , [Kor](markdown/DataStructure/Binarytrees_kr.md) , [DepthFirstSearch](markdown/DataStructure/DepthFirst_search.md) |
+|                              Tree |       | [Kor](markdown/DataStructure/Tree.md) , [DepthFirstSearch](markdown/DataStructure/DepthFirst_search.md) |
 |                              히프 |       |
 |                            그래프 |       |
 |                              검색 |       |
