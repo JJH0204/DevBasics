@@ -257,6 +257,181 @@ int main (int argc, char * argv[])
 > 저장에 문제는 없었지만 아쉽게도 트리의 형태를 직접 볼 수는 없다. (display함수가 없다.)   
 > 트리의 내용을 출력하기 위해 이진 트리의 내용을 어떤 순서에 따라서 순회 할지 결정해야 한다.
 
+### 트리의 순회(Traversal)란?
+- 트리의 모든 노드를 한 번씩 방문하는 것
+- 트리를 대상으로 한 많은 알고리즘의 기반(트리 내용 출력, 노드 개수 구하기 등등)
+- 트리의 계층 구조의 특성으로 인해 여러 순회 알고리즘이 있다.
+- 서브트리 방문 순서가 핵심인 알고리즘: [전위 순회(preorder)], [중위 순회(inorder)], [후위 순회(postorder)]
+- 같은 레벨의 노드들을 방문하는 알고리즘: [레벨 순회(level)]
+
+#### 전위 순회(Pre-Order Traversal)
+- 현재 노드를 가장 먼저 방문(pre-order)하여 데이터를 처리하고 이동하는 방법
+- 노드 방문 순서: 1)현재 노드, 2)왼쪽 서브트리, 3)오른쪽 서브트리
+- 순회 목적에 따라 연산이 달라질 수 있다.(트리 내용 출력이 목적이라면 현재 노드 방문 시 내용 출력)
+- 노드에 방문 하여 데이터를 처리한 후 왼쪽 자식 노드로 이동하여 데이터 처리를 진행한다.
+- 만약 자식이 없는 단말 노드의 경우 같은 레벨의 형제 노드(오른쪽 노드) 로 이동하여 데이터를 처리한다.
+- 현재 노드에서 더 이상 후손 노드에 처리할 데이터가 남지 않았을 때도 같은 레벨의 형제 노드로 이동하여 위 과정을 반복한다.
+
+#### 중위 순회(In-Order Traversal)
+- 현재 노드를 왼쪽 서브트리를 처리한 후에 처리하는 방법
+- 노드 방문 순서: 1)왼쪽 서브트리, 2)현재 노드, 3)오른쪽 서브트리
+- **현재 노드를 기준으로 왼쪽 서브트리가 모두 처리 되어야 하는 점이 핵심**
+- 만약 현재 노드의 왼쪽 자식 노드가 있다면, 왼쪽 자식 노드가 더 이상 없을 때까지 왼쪽 서브트리로 계속 이동
+- 왼쪽 자식 노드의 데이터가 단말 노드일 경우 데이터 처리 > 부모 노드로 이동하여 데이터 처리 > 오른쪽 자식 노드로 이동 순으로 순차적으로 진행한다.
+
+#### 후위 순회(Post-Order Traversal)
+- 현재 노드의 데이터를 가장 마지막에 처리하는 방법
+- 노드 방문 순서: 1)왼쪽 서브트리, 2)오른쪽 서브트리, 3)현재 노드
+- 현재 노드의 데이터를 처리하기 전 좌우 자식 노드를 루트 노드로 삼는 두 서브트리를 모두 처리한 해야 한다.
+- 현재 노드의 왼쪽 자식 노드가 있다면 왼쪽 자식 노드가 더 이상 없을 때까지 왼쪽 서브트리로 계속 이동한다. (중위 순회와 같은 점)
+- 왼쪽 자식 노드를 방문한 다음 오른쪽 서브트리로 이동한다.(중위 순회와 다른 점)
+- 자식이 없는 단말 노드의 데이터 처리가 끝나면 해당 서브트리의 방문이 끝난 것으로 판단, 부모 노드로 이동한다.
+- 이전에 처리한 좌,우 자식 노드는 다시 처리할 필요가 없다.
+
+#### 레벨 순회(Level Traversal)
+- 레벨 크기에 따라 순회하는 방법
+- 낮은 레벨 > 높은 레벨 순으로 노드의 데이터를 처리한다.
+- 같은 레벨일 경우 왼쪽 > 오른쪽 순으로 데이터를 처리한다.
+- 형제 노드의 데이터 처리가 핵심, 비교적 순회 순서를 정하기 쉽다.
+
+### 순회 구현
+- 구현 방법은 크게 재귀함수(recursive function), 반복(iterative function)이 있다.
+- 재귀함수는 소스 코드를 보고 쉽게 이해할 수 있지만 OS의 시스템 스택을 사용하는 점에서 성능이 좋지 않다.
+```c
+// mainBinaryTree.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "includeBinTree.h"                         // 1
+#define _UseRecursion_                              // 2
+
+tree *EX_createBinTree(void);
+
+// Pre-Order Traversal Func
+bool traversalPreorder(tree *_pTree_);
+bool traversalPreorderBinTreeNode(node *_pRootNode_);
+// In-Order Traversal Func
+bool traversalInorder(tree *_pTree_);
+bool traversalInorderBinTreeNode(node *_pRootNode_);
+// Post-Order Traversal Func
+bool traversalPostorder(tree *_pTree_);
+bool traversalPostorderBinTreeNode(node *_pRootNode_);
+
+int main (int argc, char * argv[])
+{
+    tree *pTree = EX_createBinTree();               // 3
+    if (ISNULL_ERROR(pTree))
+        return -1;
+    printf("Pre-Order:\t");
+    traversalPreorder(pTree);
+    printf("In-Order:\t");
+    traversalInorder(pTree);
+    printf("Post-Order:\t");
+    traversalPostorder(pTree);
+    deleteBinTree(pTree);
+    return 0;
+}
+/*.\binaryTree.exe
+Pre-Order:      A B D C E F
+In-Order:       D B A E C F
+Post-Order:     D B E F C A
+*/
+
+tree *EX_createBinTree(void)
+{
+    tree *pTree = NULL;
+    node *pNodeA = NULL;
+    node *pNodeB = NULL;
+    node *pNodeC = NULL;
+    node *pNodeD = NULL;
+    node *pNodeE = NULL;
+    node *pNodeF = NULL;
+
+    pTree = createBinTree('A');
+    if (!ISNULL_ERROR(pTree))
+    {
+        pNodeA = getRootNode(pTree);
+        pNodeB = addLeftChildNode(pNodeA, 'B');
+        pNodeC = addRightChildNode(pNodeA, 'C');
+        if (!ISNULL_ERROR(pNodeB))
+        {
+            pNodeD = addLeftChildNode(pNodeB, 'D');
+        }
+        if (!ISNULL_ERROR(pNodeC))
+        {
+            pNodeE = addLeftChildNode(pNodeC, 'E');
+            pNodeF = addRightChildNode(pNodeC, 'F');
+        }
+    }
+    return pTree;
+}
+
+#ifdef _UseRecursion_
+// Pre-Order Traversal Func
+bool traversalPreorder(tree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalPreorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalPreorderBinTreeNode(node *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    printf("%c ", _pRootNode_->cData);
+    traversalPreorderBinTreeNode(_pRootNode_->pLeftChild);
+    traversalPreorderBinTreeNode(_pRootNode_->pRightChild);
+    return false;
+}
+
+// In-Order Traversal Func
+bool traversalInorder(tree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalInorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalInorderBinTreeNode(node *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    traversalInorderBinTreeNode(_pRootNode_->pLeftChild);
+    printf("%c ", _pRootNode_->cData);
+    traversalInorderBinTreeNode(_pRootNode_->pRightChild);
+    return false;
+}
+
+// Post-Order Traversal Func
+bool traversalPostorder(tree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalPostorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalPostorderBinTreeNode(node *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    traversalPostorderBinTreeNode(_pRootNode_->pLeftChild);
+    traversalPostorderBinTreeNode(_pRootNode_->pRightChild);
+    printf("%c ", _pRootNode_->cData);
+    return false;
+}
+#endif
+```
+1) includeBinTree.c 에 이진 트리에 관한 기반 소스코드 구현 후 #include 시도
+2) 재귀 함수를 이용해 이진 트리 순회를 구현하는 것을 명시한다.
+   - 추후에 반복문으로 코드를 수정하게 될 경우 직접 코드를 삭제하는 것이 아닌 주석을 설정하는 것으로 간단하게 설정을 오고 갈 수 있도록 한다.
+3) 순회 예제를 출력하기 위해 필요한 트리의 기본 형태를 세팅
 
 
 <details>

@@ -2,32 +2,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "includeBinTree.h"
+#define _UseRecursion_
 
-#define ISNULL(ptr) isNull((ptr), __func__)
+tree *EX_createBinTree(void);
 
-typedef struct BinaryTreeNode
-{
-    char cData;
-
-    struct BinaryTreeNode *pLeftChild;
-    struct BinaryTreeNode *pRightChild;
-} node;
-
-typedef struct BinaryTree
-{
-    node *pRootNode;
-} tree;
-
-bool isNull(const void *ptr, const char *funcName);
-tree * createBinTree(const char _cRootNodeData_);
-node * createNodeBinTree(const char _cRootNodeData_);
-node * addLeftChildNode(node * _pParent_, const char _cData_);
-node * addRightChildNode(node * _pParent_, const char _cData_);
-node * getRootNode(const tree * _pBinTree_);
-bool deleteBinTree(tree * _pBinTree_);
-bool deleteBinTreeNode(node * _pParent_);
+// Pre-Order Traversal Func
+bool traversalPreorder(tree *_pTree_);
+bool traversalPreorderBinTreeNode(node *_pRootNode_);
+// In-Order Traversal Func
+bool traversalInorder(tree *_pTree_);
+bool traversalInorderBinTreeNode(node *_pRootNode_);
+// Post-Order Traversal Func
+bool traversalPostorder(tree *_pTree_);
+bool traversalPostorderBinTreeNode(node *_pRootNode_);
 
 int main (int argc, char * argv[])
+{
+    tree *pTree = EX_createBinTree();
+    if (ISNULL_ERROR(pTree))
+        return -1;
+    printf("Pre-Order:\t");
+    traversalPreorder(pTree);
+    printf("In-Order:\t");
+    traversalInorder(pTree);
+    printf("Post-Order:\t");
+    traversalPostorder(pTree);
+    deleteBinTree(pTree);
+    return 0;
+}
+/*.\binaryTree.exe
+Pre-Order:      A B D C E F
+In-Order:       D B A E C F
+Post-Order:     D B E F C A
+*/
+
+tree *EX_createBinTree(void)
 {
     tree *pTree = NULL;
     node *pNodeA = NULL;
@@ -38,121 +48,82 @@ int main (int argc, char * argv[])
     node *pNodeF = NULL;
 
     pTree = createBinTree('A');
-    if (!ISNULL(pTree))
+    if (!ISNULL_ERROR(pTree))
     {
         pNodeA = getRootNode(pTree);
         pNodeB = addLeftChildNode(pNodeA, 'B');
-        pNodeC = addRightChildNode(pNodeA, 'B');
+        pNodeC = addRightChildNode(pNodeA, 'C');
+        if (!ISNULL_ERROR(pNodeB))
+        {
+            pNodeD = addLeftChildNode(pNodeB, 'D');
+        }
+        if (!ISNULL_ERROR(pNodeC))
+        {
+            pNodeE = addLeftChildNode(pNodeC, 'E');
+            pNodeF = addRightChildNode(pNodeC, 'F');
+        }
     }
-
-    if (!ISNULL(pNodeB))
-    {
-        pNodeD = addLeftChildNode(pNodeB, 'D');
-    }
-
-    if (!ISNULL(pNodeC))
-    {
-        pNodeE = addLeftChildNode(pNodeC, 'E');
-        pNodeF = addRightChildNode(pNodeC, 'F');
-    }
-    
-    deleteBinTree(pTree);
-    
-    return 0;
+    return pTree;
 }
 
-bool isNull(const void *ptr, const char *funcName)
+#ifdef _UseRecursion_
+// Pre-Order Traversal Func
+bool traversalPreorder(tree *_pTree_)
 {
-    if (ptr == NULL)
-    {
-        printf("%s: Null Memory Access Error\n", funcName);
+    if (ISNULL_ERROR(_pTree_))
         return true;
-    }
+    traversalPreorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
     return false;
 }
 
-tree * createBinTree(const char _cRootNodeData_)
+bool traversalPreorderBinTreeNode(node *_pRootNode_)
 {
-    tree *pResult = NULL;
-    pResult = (tree *)malloc(sizeof(tree));
-    if (ISNULL(pResult))
-        return NULL;
-    
-    pResult->pRootNode = createNodeBinTree(_cRootNodeData_);
-    if (ISNULL(pResult))
-    {
-        free(pResult);
-        return NULL;
-    }
-    return pResult;
-}
-
-node * createNodeBinTree(const char _cRootNodeData_)
-{
-    node * pResult = NULL;
-    pResult = (node *)malloc(sizeof(node));
-    if (ISNULL(pResult))
-        return NULL;
-    pResult->cData = _cRootNodeData_;
-    pResult->pLeftChild = NULL;
-    pResult->pRightChild = NULL;
-    return pResult;
-}
-
-node * addLeftChildNode(node * _pParent_, const char _cData_)
-{
-    node *pResult = NULL;
-    if (ISNULL(_pParent_))
-        return pResult;
-    if (ISNULL(_pParent_->pLeftChild))
-    {
-        pResult = createNodeBinTree(_cData_);
-        _pParent_->pLeftChild = pResult;
-    }
-    else
-        printf("error, The node already exists. addLeftChildNode()\n");
-    return pResult;
-}
-
-node * addRightChildNode(node * _pParent_, const char _cData_)
-{
-    node *pResult = NULL;
-    if (ISNULL(_pParent_))
-        return pResult;
-    if (ISNULL(_pParent_->pRightChild))
-    {
-        pResult = createNodeBinTree(_cData_);
-        _pParent_->pRightChild = pResult;
-    }
-    else
-        printf("error, The node already exists. addLeftChildNode()\n");
-    return pResult;
-}
-
-node * getRootNode(const tree * _pBinTree_)
-{
-    node *pResult = NULL;
-    if (ISNULL(_pBinTree_))
-        return NULL;
-    pResult = _pBinTree_->pRootNode;
-    return pResult;
-}
-
-bool deleteBinTree(tree * _pBinTree_)
-{
-    if (ISNULL(_pBinTree_))
+    if (_pRootNode_ == NULL)
         return true;
-    deleteBinTreeNode(_pBinTree_->pRootNode);
-    free(_pBinTree_);
+    printf("%c ", _pRootNode_->cData);
+    traversalPreorderBinTreeNode(_pRootNode_->pLeftChild);
+    traversalPreorderBinTreeNode(_pRootNode_->pRightChild);
     return false;
 }
 
-bool deleteBinTreeNode(node * _pParent_)
+// In-Order Traversal Func
+bool traversalInorder(tree *_pTree_)
 {
-    if (ISNULL(_pParent_))
+    if (ISNULL_ERROR(_pTree_))
         return true;
-    deleteBinTreeNode(_pParent_->pLeftChild);
-    deleteBinTreeNode(_pParent_->pRightChild);
-    free(_pParent_);
+    traversalInorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
     return false;
 }
+
+bool traversalInorderBinTreeNode(node *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    traversalInorderBinTreeNode(_pRootNode_->pLeftChild);
+    printf("%c ", _pRootNode_->cData);
+    traversalInorderBinTreeNode(_pRootNode_->pRightChild);
+    return false;
+}
+
+// Post-Order Traversal Func
+bool traversalPostorder(tree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalPostorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalPostorderBinTreeNode(node *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    traversalPostorderBinTreeNode(_pRootNode_->pLeftChild);
+    traversalPostorderBinTreeNode(_pRootNode_->pRightChild);
+    printf("%c ", _pRootNode_->cData);
+    return false;
+}
+#endif

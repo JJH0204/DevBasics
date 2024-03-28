@@ -128,6 +128,30 @@ binaryTree/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/build
 .PHONY : binaryTree/fast
 
+source/DSNA/non-Linear/includeBinTree.obj: source/DSNA/non-Linear/includeBinTree.c.obj
+.PHONY : source/DSNA/non-Linear/includeBinTree.obj
+
+# target to build an object file
+source/DSNA/non-Linear/includeBinTree.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj
+.PHONY : source/DSNA/non-Linear/includeBinTree.c.obj
+
+source/DSNA/non-Linear/includeBinTree.i: source/DSNA/non-Linear/includeBinTree.c.i
+.PHONY : source/DSNA/non-Linear/includeBinTree.i
+
+# target to preprocess a source file
+source/DSNA/non-Linear/includeBinTree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.i
+.PHONY : source/DSNA/non-Linear/includeBinTree.c.i
+
+source/DSNA/non-Linear/includeBinTree.s: source/DSNA/non-Linear/includeBinTree.c.s
+.PHONY : source/DSNA/non-Linear/includeBinTree.s
+
+# target to generate assembly for a file
+source/DSNA/non-Linear/includeBinTree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.s
+.PHONY : source/DSNA/non-Linear/includeBinTree.c.s
+
 source/DSNA/non-Linear/mainBinaryTree.obj: source/DSNA/non-Linear/mainBinaryTree.c.obj
 .PHONY : source/DSNA/non-Linear/mainBinaryTree.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... binaryTree
+	@echo ... source/DSNA/non-Linear/includeBinTree.obj
+	@echo ... source/DSNA/non-Linear/includeBinTree.i
+	@echo ... source/DSNA/non-Linear/includeBinTree.s
 	@echo ... source/DSNA/non-Linear/mainBinaryTree.obj
 	@echo ... source/DSNA/non-Linear/mainBinaryTree.i
 	@echo ... source/DSNA/non-Linear/mainBinaryTree.s

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeBinTree.c" "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj" "gcc" "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj.d"
   "E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c" "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj" "gcc" "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj.d"
   )
 
