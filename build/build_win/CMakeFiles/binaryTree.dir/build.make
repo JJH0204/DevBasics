@@ -98,33 +98,33 @@ CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.s"
 	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeBinTree.c -o CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeBinTree.c.s
 
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj: CMakeFiles/binaryTree.dir/flags.make
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj: CMakeFiles/binaryTree.dir/includes_C.rsp
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStack.c
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj: CMakeFiles/binaryTree.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj -MF CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStack.c.obj.d -o CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStack.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStack.c
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: CMakeFiles/binaryTree.dir/flags.make
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: CMakeFiles/binaryTree.dir/includes_C.rsp
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStructure.c
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: CMakeFiles/binaryTree.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj -MF CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStructure.c.obj.d -o CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStructure.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStructure.c
 
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.i"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStack.c > CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStack.c.i
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStructure.c > CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStructure.c.i
 
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.s"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStack.c -o CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStack.c.s
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStructure.c -o CMakeFiles\binaryTree.dir\source\DSNA\non-Linear\includeGenericStructure.c.s
 
 # Object files for target binaryTree
 binaryTree_OBJECTS = \
 "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj" \
 "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj" \
-"CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj"
+"CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj"
 
 # External object files for target binaryTree
 binaryTree_EXTERNAL_OBJECTS =
 
 binaryTree.exe: CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj
 binaryTree.exe: CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj
-binaryTree.exe: CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj
+binaryTree.exe: CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
 binaryTree.exe: CMakeFiles/binaryTree.dir/build.make
 binaryTree.exe: CMakeFiles/binaryTree.dir/linkLibs.rsp
 binaryTree.exe: CMakeFiles/binaryTree.dir/objects1.rsp

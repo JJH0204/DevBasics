@@ -152,29 +152,29 @@ source/DSNA/non-Linear/includeBinTree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.s
 .PHONY : source/DSNA/non-Linear/includeBinTree.c.s
 
-source/DSNA/non-Linear/includeGenericStack.obj: source/DSNA/non-Linear/includeGenericStack.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStack.obj
+source/DSNA/non-Linear/includeGenericStructure.obj: source/DSNA/non-Linear/includeGenericStructure.c.obj
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.obj
 
 # target to build an object file
-source/DSNA/non-Linear/includeGenericStack.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStack.c.obj
+source/DSNA/non-Linear/includeGenericStructure.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.obj
 
-source/DSNA/non-Linear/includeGenericStack.i: source/DSNA/non-Linear/includeGenericStack.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStack.i
+source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/includeGenericStack.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStack.c.i
+source/DSNA/non-Linear/includeGenericStructure.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
 
-source/DSNA/non-Linear/includeGenericStack.s: source/DSNA/non-Linear/includeGenericStack.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStack.s
+source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/includeGenericStack.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStack.c.s
+source/DSNA/non-Linear/includeGenericStructure.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
 
 source/DSNA/non-Linear/mainBinaryTree.obj: source/DSNA/non-Linear/mainBinaryTree.c.obj
 .PHONY : source/DSNA/non-Linear/mainBinaryTree.obj
@@ -212,9 +212,9 @@ help:
 	@echo ... source/DSNA/non-Linear/includeBinTree.obj
 	@echo ... source/DSNA/non-Linear/includeBinTree.i
 	@echo ... source/DSNA/non-Linear/includeBinTree.s
-	@echo ... source/DSNA/non-Linear/includeGenericStack.obj
-	@echo ... source/DSNA/non-Linear/includeGenericStack.i
-	@echo ... source/DSNA/non-Linear/includeGenericStack.s
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.obj
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.i
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.s
 	@echo ... source/DSNA/non-Linear/mainBinaryTree.obj
 	@echo ... source/DSNA/non-Linear/mainBinaryTree.i
 	@echo ... source/DSNA/non-Linear/mainBinaryTree.s

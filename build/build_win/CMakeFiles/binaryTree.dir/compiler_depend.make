@@ -23,9 +23,9 @@ CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj: E:/Docume
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   E:/Document/GitHub/DevBasics/include/includeBinTree.h \
-  E:/Document/GitHub/DevBasics/include/includeGenericStack.h
+  E:/Document/GitHub/DevBasics/include/includeGenericStructure.h
 
-CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStack.c \
+CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStructure.c \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
@@ -46,7 +46,7 @@ CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj: E:/D
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/vadefs.h \
-  E:/Document/GitHub/DevBasics/include/includeGenericStack.h
+  E:/Document/GitHub/DevBasics/include/includeGenericStructure.h
 
 CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
@@ -70,7 +70,7 @@ CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj: E:/Docume
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   E:/Document/GitHub/DevBasics/include/includeBinTree.h \
-  E:/Document/GitHub/DevBasics/include/includeGenericStack.h
+  E:/Document/GitHub/DevBasics/include/includeGenericStructure.h
 
 
 E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeBinTree.c:
@@ -113,12 +113,12 @@ C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h:
 
-E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStack.c:
-
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl:
 
-E:/Document/GitHub/DevBasics/include/includeGenericStack.h:
+E:/Document/GitHub/DevBasics/include/includeGenericStructure.h:
+
+E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStructure.c:
 
 E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainBinaryTree.c:

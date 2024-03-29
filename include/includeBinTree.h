@@ -2,8 +2,6 @@
 
 #define __BINARYTREE__
 
-#include "includeGenericStack.h"
-
 typedef struct BinaryTreeNode
 {
     char cData;
@@ -34,5 +32,7 @@ bool traversalInorderBinTreeNode(binTreeNode *_pRootNode_);
 // Post-Order Traversal Func
 bool traversalPostorder(binTree *_pTree_);
 bool traversalPostorderBinTreeNode(binTreeNode *_pRootNode_);
+// breadth-first search (level traversal)
+bool BreadthFirstSearch(binTree *_pTree_);
 
 #endif

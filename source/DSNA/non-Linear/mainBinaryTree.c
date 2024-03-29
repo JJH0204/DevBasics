@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "includeBinTree.h"
+#include "includeGenericStructure.h"
 
 binTree *EX_createBinTree(void);
 
@@ -17,6 +18,8 @@ int main (int argc, char * argv[])
     traversalInorder(pTree);
     printf("Post-Order:\t");
     traversalPostorder(pTree);
+    printf("Breadth-first:\t");
+    BreadthFirstSearch(pTree);
     deleteBinTree(pTree);
     return 0;
 }
@@ -24,6 +27,7 @@ int main (int argc, char * argv[])
 Pre-Order:      A B D C E F
 In-Order:       D B A E C F
 Post-Order:     D B E F C A
+Breadth-first:  A B C D E F
 */
 
 binTree *EX_createBinTree(void)

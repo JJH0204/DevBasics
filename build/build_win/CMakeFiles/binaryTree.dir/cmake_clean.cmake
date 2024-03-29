@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj"
   "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj.d"
-  "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj"
-  "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStack.c.obj.d"
+  "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj"
+  "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj.d"
   "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj"
   "CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj.d"
   "binaryTree.exe"
