@@ -13,8 +13,8 @@ int main (int argc, char * argv[])
         return -1;
     printf("Pre-Order:\t");
     traversalPreorder(pTree);
-    // printf("In-Order:\t");
-    // traversalInorder(pTree);
+    printf("In-Order:\t");
+    traversalInorder(pTree);
     // printf("Post-Order:\t");
     // traversalPostorder(pTree);
     deleteBinTree(pTree);
