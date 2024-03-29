@@ -317,7 +317,38 @@ bool traversalPreorderBinTreeNode(node *_pRootNode_)
     return false;
 }
 ```
+```c
+// Use Stack
+bool traversalPreorder(binTree *_pTree_)
+{
+    binTreeNode *pNode = NULL;
+    stack *pStack = NULL;
+    if (ISNULL_ERROR(_pTree_))
+        return true;
 
+    pNode = _pTree_->pRootNode;
+    if (ISNULL_ERROR(pNode))
+        return true;
+
+    pStack = stack_Create();
+    if (ISNULL_ERROR(pStack))
+        return true;
+
+    stack_Push(pStack, (binTreeNode *)pNode);
+    while (pStack->nCurrentCount > 0)
+    {
+        pNode = (binTreeNode *)stack_Pop(pStack);
+        printf("%c ", pNode->cData);
+        if (pNode->pRightChild != NULL)
+            stack_Push(pStack, (binTreeNode *)pNode->pRightChild);
+        if (pNode->pLeftChild != NULL)
+            stack_Push(pStack, (binTreeNode *)pNode->pLeftChild);
+    }
+    printf("\n");
+    stack_Delete(pStack);
+    return false;
+}
+```
 </div>
 </details>
 
@@ -348,6 +379,44 @@ bool traversalInorderBinTreeNode(node *_pRootNode_)
     traversalInorderBinTreeNode(_pRootNode_->pLeftChild);
     printf("%c ", _pRootNode_->cData);
     traversalInorderBinTreeNode(_pRootNode_->pRightChild);
+    return false;
+}
+```
+```c
+// use stack
+bool traversalInorder(binTree *_pTree_)
+{
+    binTreeNode *pNode = NULL;
+    stack *pStack = NULL;
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+
+    pNode = _pTree_->pRootNode;
+    if (ISNULL_ERROR(pNode))
+        return true;
+
+    pStack = stack_Create();
+    if (ISNULL_ERROR(pStack))
+        return true;
+
+    while (pNode != NULL || pStack->nCurrentCount > 0)
+    {
+        // 왼쪽 리프 노드를 향해 이동
+        while (pNode != NULL)
+        {
+            stack_Push(pStack, (binTreeNode *)pNode);
+            pNode = pNode->pLeftChild;
+        }
+
+        // pNode가 NULL이면 stack에서 pop
+        pNode = (binTreeNode *)stack_Pop(pStack);
+        printf("%c ", pNode->cData);
+
+        // 오른쪽 서브 트리로 이동
+        pNode = pNode->pRightChild;
+    }
+    stack_Delete(pStack);
+    printf("\n");
     return false;
 }
 ```
@@ -387,6 +456,54 @@ bool traversalPostorderBinTreeNode(node *_pRootNode_)
     return false;
 }
 ```
+```c
+// use stack
+bool traversalPostorder(binTree *_pTree_)
+{
+    binTreeNode *pNode = NULL;
+    stack *pStack = NULL;
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+
+    pNode = _pTree_->pRootNode;
+    if (ISNULL_ERROR(pNode))
+        return true;
+
+    pStack = stack_Create();
+    if (ISNULL_ERROR(pStack))
+        return true;
+
+    while (pNode != NULL || pStack->nCurrentCount > 0)
+    {
+        if (pNode != NULL)
+        {
+            if (pNode->pRightChild != NULL)
+                stack_Push(pStack, (binTreeNode *)pNode->pRightChild);
+            stack_Push(pStack, (binTreeNode *)pNode);
+            pNode = pNode->pLeftChild;
+        }
+        else
+        {
+            pNode = (binTreeNode *)stack_Pop(pStack);
+            if (pStack->nCurrentCount > 0 && pNode->pRightChild == (binTreeNode *)stack_Peek(pStack))
+            {
+                stack_Pop(pStack);
+                stack_Push(pStack, (binTreeNode *)pNode);
+                pNode = pNode->pRightChild;
+            }
+            else
+            {
+                printf("%c ", pNode->cData);
+                pNode = NULL;
+            }
+        }
+    }
+
+    printf("\n");
+    stack_Delete(pStack);
+    return false;
+}
+```
 
 </div>
 </details>
@@ -403,4 +520,40 @@ bool traversalPostorderBinTreeNode(node *_pRootNode_)
 >    * 큐에서 노드를 하나 꺼냅니다.
 >    * 해당 노드를 처리합니다. (기능 수행)
 >    * 해당 노드의 왼쪽 자식 노드와 오른쪽 자식 노드가 있으면, 이 노드들을 큐에 삽입합니다.
+```c
+// breadth-first search (level traversal)
+bool BreadthFirstSearch(binTree *_pTree_)
+{
+    binTreeNode *pCurrentNode = NULL;
+    queue *pQueue = NULL;
+    if (ISNULL_ERROR(_pTree_))
+        return true;
 
+    pCurrentNode = _pTree_->pRootNode;
+    if (ISNULL_ERROR(pCurrentNode))
+        return true;
+
+    pQueue = queue_Create();
+    if (ISNULL_ERROR(pQueue))
+        return true;
+    
+    while (pCurrentNode != NULL || pQueue->nCurrentCount > 0)
+    {
+        if (pQueue->nCurrentCount > 0)
+        {
+            pCurrentNode = (binTreeNode *)queue_dequeue(pQueue);
+            printf("%c ", pCurrentNode->cData);
+            if (pCurrentNode->pLeftChild != NULL)
+                queue_enqueue(pQueue, (binTreeNode *)pCurrentNode->pLeftChild);
+            if (pCurrentNode->pRightChild != NULL)
+                queue_enqueue(pQueue, (binTreeNode *)pCurrentNode->pRightChild);
+        }
+        else
+            queue_enqueue(pQueue, (binTreeNode *)pCurrentNode);
+        pCurrentNode = NULL;
+    }
+    printf("\n");
+    queue_Delete(pQueue);
+    return false;
+}
+```
