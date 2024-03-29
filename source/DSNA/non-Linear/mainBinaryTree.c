@@ -15,8 +15,8 @@ int main (int argc, char * argv[])
     traversalPreorder(pTree);
     printf("In-Order:\t");
     traversalInorder(pTree);
-    // printf("Post-Order:\t");
-    // traversalPostorder(pTree);
+    printf("Post-Order:\t");
+    traversalPostorder(pTree);
     deleteBinTree(pTree);
     return 0;
 }

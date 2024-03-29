@@ -246,7 +246,7 @@ bool traversalInorder(binTree *_pTree_)
     printf("\n");
     return false;
 }
-// TODO: Implementing depth-first search using stack
+
 // Post-Order Traversal Func
 bool traversalPostorder(binTree *_pTree_)
 {
@@ -263,8 +263,32 @@ bool traversalPostorder(binTree *_pTree_)
     if (ISNULL_ERROR(pStack))
         return true;
     
-    /* code */
-
+    while (pNode != NULL || pStack->nCurrentCount > 0)
+    {
+        if (pNode != NULL)
+        {
+            if (pNode->pRightChild != NULL)
+                push(pStack, (binTreeNode *)pNode->pRightChild);
+            push(pStack, (binTreeNode *)pNode);
+            pNode = pNode->pLeftChild;
+        }
+        else
+        {
+            pNode = (binTreeNode *)pop(pStack);
+            if (pStack->nCurrentCount > 0 && pNode->pRightChild == (binTreeNode *)peek(pStack))
+            {
+                pop(pStack);
+                push(pStack, (binTreeNode *)pNode);
+                pNode = pNode->pRightChild;
+            }
+            else
+            {
+                printf("%c ", pNode->cData);
+                pNode = NULL;
+            }
+        }
+    }
+    
     printf("\n");
     deleteStack(pStack);
     return false;
