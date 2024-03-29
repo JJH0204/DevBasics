@@ -1,7 +1,8 @@
 #ifndef __BINARYTREE__
 
 #define __BINARYTREE__
-#define ISNULL_ERROR(ptr) isNull((ptr), __func__)
+
+#include "includeGenericStack.h"
 
 typedef struct BinaryTreeNode
 {
@@ -9,20 +10,29 @@ typedef struct BinaryTreeNode
 
     struct BinaryTreeNode *pLeftChild;
     struct BinaryTreeNode *pRightChild;
-} node;
+} binTreeNode;
 
 typedef struct BinaryTree
 {
-    node *pRootNode;
-} tree;
+    binTreeNode *pRootNode;
+} binTree;
 
-bool isNull(const void *ptr, const char *funcName);
-tree *createBinTree(const char _cRootNodeData_);
-node *createNodeBinTree(const char _cRootNodeData_);
-node *addLeftChildNode(node *_pParent_, const char _cData_);
-node *addRightChildNode(node *_pParent_, const char _cData_);
-node *getRootNode(const tree *_pBinTree_);
-bool deleteBinTree(tree *_pBinTree_);
-bool deleteBinTreeNode(node *_pParent_);
+binTree *createBinTree(const char _cRootNodeData_);
+binTreeNode *createNodeBinTree(const char _cRootNodeData_);
+binTreeNode *addLeftChildNode(binTreeNode *_pParent_, const char _cData_);
+binTreeNode *addRightChildNode(binTreeNode *_pParent_, const char _cData_);
+binTreeNode *getRootNode(const binTree *_pBinTree_);
+bool deleteBinTree(binTree *_pBinTree_);
+bool deleteBinTreeNode(binTreeNode *_pParent_);
+
+// Pre-Order Traversal Func
+bool traversalPreorder(binTree *_pTree_);
+bool traversalPreorderBinTreeNode(binTreeNode *_pRootNode_);
+// In-Order Traversal Func
+bool traversalInorder(binTree *_pTree_);
+bool traversalInorderBinTreeNode(binTreeNode *_pRootNode_);
+// Post-Order Traversal Func
+bool traversalPostorder(binTree *_pTree_);
+bool traversalPostorderBinTreeNode(binTreeNode *_pRootNode_);
 
 #endif

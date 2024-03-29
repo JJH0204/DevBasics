@@ -2,21 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "includeBinTree.h"
+// #define _UseRecursion_
 
-bool isNull(const void *ptr, const char *funcName)
+binTree *createBinTree(const char _cRootNodeData_)
 {
-    if (ptr == NULL)
-    {
-        printf("%s: Null Memory Access Error\n", funcName);
-        return true;
-    }
-    return false;
-}
-
-tree *createBinTree(const char _cRootNodeData_)
-{
-    tree *pResult = NULL;
-    pResult = (tree *)malloc(sizeof(tree));
+    binTree *pResult = (binTree *)malloc(sizeof(binTree));
     if (ISNULL_ERROR(pResult))
         return NULL;
 
@@ -29,10 +19,10 @@ tree *createBinTree(const char _cRootNodeData_)
     return pResult;
 }
 
-node *createNodeBinTree(const char _cRootNodeData_)
+binTreeNode *createNodeBinTree(const char _cRootNodeData_)
 {
-    node *pResult = NULL;
-    pResult = (node *)malloc(sizeof(node));
+    binTreeNode *pResult = NULL;
+    pResult = (binTreeNode *)malloc(sizeof(binTreeNode));
     if (ISNULL_ERROR(pResult))
         return NULL;
     pResult->cData = _cRootNodeData_;
@@ -41,9 +31,9 @@ node *createNodeBinTree(const char _cRootNodeData_)
     return pResult;
 }
 
-node *addLeftChildNode(node *_pParent_, const char _cData_)
+binTreeNode *addLeftChildNode(binTreeNode *_pParent_, const char _cData_)
 {
-    node *pResult = NULL;
+    binTreeNode *pResult = NULL;
     if (ISNULL_ERROR(_pParent_))
         return pResult;
     if (_pParent_->pLeftChild == NULL)
@@ -56,9 +46,9 @@ node *addLeftChildNode(node *_pParent_, const char _cData_)
     return pResult;
 }
 
-node *addRightChildNode(node *_pParent_, const char _cData_)
+binTreeNode *addRightChildNode(binTreeNode *_pParent_, const char _cData_)
 {
-    node *pResult = NULL;
+    binTreeNode *pResult = NULL;
     if (ISNULL_ERROR(_pParent_))
         return pResult;
     if (_pParent_->pRightChild == NULL)
@@ -71,16 +61,16 @@ node *addRightChildNode(node *_pParent_, const char _cData_)
     return pResult;
 }
 
-node *getRootNode(const tree *_pBinTree_)
+binTreeNode *getRootNode(const binTree *_pBinTree_)
 {
-    node *pResult = NULL;
+    binTreeNode *pResult = NULL;
     if (ISNULL_ERROR(_pBinTree_))
         return NULL;
     pResult = _pBinTree_->pRootNode;
     return pResult;
 }
 
-bool deleteBinTree(tree *_pBinTree_)
+bool deleteBinTree(binTree *_pBinTree_)
 {
     if (ISNULL_ERROR(_pBinTree_))
         return true;
@@ -89,7 +79,7 @@ bool deleteBinTree(tree *_pBinTree_)
     return false;
 }
 
-bool deleteBinTreeNode(node *_pParent_)
+bool deleteBinTreeNode(binTreeNode *_pParent_)
 {
     if (!(_pParent_ == NULL))
     {
@@ -99,3 +89,118 @@ bool deleteBinTreeNode(node *_pParent_)
     }
     return false;
 }
+
+#ifdef _UseRecursion_
+// Pre-Order Traversal Func
+bool traversalPreorder(binTree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalPreorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalPreorderBinTreeNode(binTreeNode *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    printf("%c ", _pRootNode_->cData);
+    traversalPreorderBinTreeNode(_pRootNode_->pLeftChild);
+    traversalPreorderBinTreeNode(_pRootNode_->pRightChild);
+    return false;
+}
+
+// In-Order Traversal Func
+bool traversalInorder(binTree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalInorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalInorderBinTreeNode(binTreeNode *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    traversalInorderBinTreeNode(_pRootNode_->pLeftChild);
+    printf("%c ", _pRootNode_->cData);
+    traversalInorderBinTreeNode(_pRootNode_->pRightChild);
+    return false;
+}
+
+// Post-Order Traversal Func
+bool traversalPostorder(binTree *_pTree_)
+{
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    traversalPostorderBinTreeNode(_pTree_->pRootNode);
+    printf("\n");
+    return false;
+}
+
+bool traversalPostorderBinTreeNode(binTreeNode *_pRootNode_)
+{
+    if (_pRootNode_ == NULL)
+        return true;
+    traversalPostorderBinTreeNode(_pRootNode_->pLeftChild);
+    traversalPostorderBinTreeNode(_pRootNode_->pRightChild);
+    printf("%c ", _pRootNode_->cData);
+    return false;
+}
+#endif
+
+// TODO: Implementing depth-first search using stack
+bool traversalPreorder(binTree *_pTree_)
+{
+    binTreeNode * pNode = NULL;
+    stack * pStack = NULL;
+    if (ISNULL_ERROR(_pTree_))
+        return true;
+    
+    pNode = _pTree_->pRootNode;
+    if (ISNULL_ERROR(pNode))
+        return true;
+
+    pStack = createStack();
+    if (ISNULL_ERROR(pStack))
+        return true;
+    
+    push(pStack, (binTreeNode *)pNode);
+    while (pStack->nCurrentCount > 0)
+    {
+        pNode = (binTreeNode *)pop(pStack);
+        printf("%c ", pNode->cData);
+        if (pNode->pRightChild != NULL)
+            push(pStack, (binTreeNode *)pNode->pRightChild);
+        if (pNode->pLeftChild != NULL)
+            push(pStack, (binTreeNode *)pNode->pLeftChild);
+    }
+    printf("\n");
+    deleteStack(pStack);
+    return false;
+}
+
+// In-Order Traversal Func
+// bool traversalInorder(binTree *_pTree_)
+// {
+//     if (ISNULL_ERROR(_pTree_))
+//         return true;
+//     traversalInorderBinTreeNode(_pTree_->pRootNode);
+//     printf("\n");
+//     return false;
+// }
+
+// // Post-Order Traversal Func
+// bool traversalPostorder(binTree *_pTree_)
+// {
+//     if (ISNULL_ERROR(_pTree_))
+//         return true;
+//     traversalPostorderBinTreeNode(_pTree_->pRootNode);
+//     printf("\n");
+//     return false;
+// }
+
+// TODO: Implementing breadth-first search (level traversal)
