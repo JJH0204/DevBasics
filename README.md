@@ -63,7 +63,7 @@
 | Queue                             |   📌   | [Kor](markdown/DataStructure/queue.md)                                                         | [mainArrayQueue.c](source/DSNA/Linear/mainArrayQueue.c) , [mainQueue.c](source/DSNA/Linear/mainQueue.c) , [mainDeque.c](source/DSNA/Linear/mainDeque.c) |
 | Recursion                         |       | [Kor](markdown/DataStructure/recursion.md)                                                     | [mainFibonacci.c](source/DSNA/Linear/mainFibonacci.c) , [mainHanoi.c](source/DSNA/Linear/mainHanoi.c)                                                   |
 | Tree                              |   📌   | [Kor](markdown/DataStructure/Tree.md)                                                          | [mainBinaryTree.c](source/DSNA/non-Linear/mainBinaryTree.c)                                                                                             | [includeBinTree.c](source/DSNA/non-Linear/includeBinTree.c), [includeBinTree.h](include/includeBinTree.h), [includeGenericStructure.c](source/DSNA/non-Linear/includeGenericStructure.c), [includeGenericStructure.h](include/includeGenericStructure.h) |
-| 히프                              |       |
+| Heap                              |       |[kor](markdown/DataStructure/Heap.md)|[mainMaxHeap.c](source/DSNA/non-Linear/mainMaxHeap.c)|[includeHeap.c](source/DSNA/non-Linear/includeHeap.c), [includeHeap.h](include/includeHeap.h)
 | 그래프                            |       |
 | 검색                              |       |
 
