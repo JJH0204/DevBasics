@@ -152,7 +152,72 @@
 > - 노드 i 의 부모 = |i/2| (단, i > 1)   
 
 ### 5.1. 구조
+```c
+typedef struct HEAPNODE
+{
+    int nData;
+} heapNode;
+
+typedef struct ARRAYHEAP
+{
+    int nMaxCount;
+    int nCurrentCount;
+    heapNode *pArray;
+} arrayHeap;
+
+```
 ### 5.2. 생성
+```c
+arrayMaxHeap *createArrayMaxHeap(const int _nMaxCount_)
+{
+    arrayMaxHeap *pResult = NULL;
+    if (_nMaxCount_<=0)                                                         // 인자 유효성 점검
+    {
+        printf("최대 원소 개수는 0보다 커야 한다.\n");
+        return pResult;
+    }
+    pResult = (arrayMaxHeap *)malloc(sizeof(arrayMaxHeap));                     // 최대 히프 생성(메모리 할당)
+    if (pResult == NULL)
+        return pResult;
+    
+    pResult->nMaxCount = _nMaxCount_;                                           // 값 초기화
+    pResult->nCurrentCount = 0;
+    pResult->pArray = (heapNode *)malloc(sizeof(heapNode) * (_nMaxCount_ + 1)); // 인자 값 + 1 배열 생성
+    if (pResult->pArray == NULL)
+    {
+        free(pResult);
+        return NULL;
+    }
+    
+    return pResult;
+}
+```
 ### 5.3. 추가
+```c
+bool insertArrayMaxHeap(arrayMaxHeap *_pHeap_, int _nVal_)
+{
+    int i = 0;
+
+    if (_pHeap_ == NULL) // 유효성 점검, NULL 인지
+        return true;
+
+    if (_pHeap_->nCurrentCount == _pHeap_->nMaxCount) // 유효성 점검, 배열이 가득 찼는지
+    {
+        printf("error, 가득 찼습니다.[%d], insertArrayMaxHeap()\n", _pHeap_->nMaxCount);
+        return true;
+    }
+
+    _pHeap_->nCurrentCount++;
+    i = _pHeap_->nCurrentCount;                             // 배열(트리)의 데이터 수량 + 1, 배열 인덱스를 마지막 노드로 접근
+    while (i != 1 && _nVal_ > _pHeap_->pArray[i / 2].nData) // 가리키는 노드가 루트인지 확인하고, 부모 노드의 데이터가 현재 데이터보다 작은지 확인
+    {
+        _pHeap_->pArray[i] = _pHeap_->pArray[i / 2]; // 부모 노드의 데이터를 지금 가리키는 노드로 옮긴다.
+        i /= 2;                                      // 부모 노드로 이동한다.
+    }
+    _pHeap_->pArray[i].nData = _nVal_; // 가리키는 노드에 데이터 저장
+
+    return false;
+}
+```
 ### 5.4. 제거
 ### 5.5. 기타 

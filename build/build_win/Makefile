@@ -116,89 +116,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named binaryTree
+# Target rules for targets named heap
 
 # Build rule for target.
-binaryTree: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 binaryTree
-.PHONY : binaryTree
+heap: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 heap
+.PHONY : heap
 
 # fast build rule for target.
-binaryTree/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/build
-.PHONY : binaryTree/fast
+heap/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/build
+.PHONY : heap/fast
 
-source/DSNA/non-Linear/includeBinTree.obj: source/DSNA/non-Linear/includeBinTree.c.obj
-.PHONY : source/DSNA/non-Linear/includeBinTree.obj
-
-# target to build an object file
-source/DSNA/non-Linear/includeBinTree.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.obj
-.PHONY : source/DSNA/non-Linear/includeBinTree.c.obj
-
-source/DSNA/non-Linear/includeBinTree.i: source/DSNA/non-Linear/includeBinTree.c.i
-.PHONY : source/DSNA/non-Linear/includeBinTree.i
-
-# target to preprocess a source file
-source/DSNA/non-Linear/includeBinTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.i
-.PHONY : source/DSNA/non-Linear/includeBinTree.c.i
-
-source/DSNA/non-Linear/includeBinTree.s: source/DSNA/non-Linear/includeBinTree.c.s
-.PHONY : source/DSNA/non-Linear/includeBinTree.s
-
-# target to generate assembly for a file
-source/DSNA/non-Linear/includeBinTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeBinTree.c.s
-.PHONY : source/DSNA/non-Linear/includeBinTree.c.s
-
-source/DSNA/non-Linear/includeGenericStructure.obj: source/DSNA/non-Linear/includeGenericStructure.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.obj
+source/DSNA/non-Linear/includeHeap.obj: source/DSNA/non-Linear/includeHeap.c.obj
+.PHONY : source/DSNA/non-Linear/includeHeap.obj
 
 # target to build an object file
-source/DSNA/non-Linear/includeGenericStructure.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.obj
+source/DSNA/non-Linear/includeHeap.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj
+.PHONY : source/DSNA/non-Linear/includeHeap.c.obj
 
-source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
+source/DSNA/non-Linear/includeHeap.i: source/DSNA/non-Linear/includeHeap.c.i
+.PHONY : source/DSNA/non-Linear/includeHeap.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/includeGenericStructure.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
+source/DSNA/non-Linear/includeHeap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.i
+.PHONY : source/DSNA/non-Linear/includeHeap.c.i
 
-source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
+source/DSNA/non-Linear/includeHeap.s: source/DSNA/non-Linear/includeHeap.c.s
+.PHONY : source/DSNA/non-Linear/includeHeap.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/includeGenericStructure.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
+source/DSNA/non-Linear/includeHeap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.s
+.PHONY : source/DSNA/non-Linear/includeHeap.c.s
 
-source/DSNA/non-Linear/mainBinaryTree.obj: source/DSNA/non-Linear/mainBinaryTree.c.obj
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.obj
+source/DSNA/non-Linear/mainMaxHeap.obj: source/DSNA/non-Linear/mainMaxHeap.c.obj
+.PHONY : source/DSNA/non-Linear/mainMaxHeap.obj
 
 # target to build an object file
-source/DSNA/non-Linear/mainBinaryTree.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.obj
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.obj
+source/DSNA/non-Linear/mainMaxHeap.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj
+.PHONY : source/DSNA/non-Linear/mainMaxHeap.c.obj
 
-source/DSNA/non-Linear/mainBinaryTree.i: source/DSNA/non-Linear/mainBinaryTree.c.i
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.i
+source/DSNA/non-Linear/mainMaxHeap.i: source/DSNA/non-Linear/mainMaxHeap.c.i
+.PHONY : source/DSNA/non-Linear/mainMaxHeap.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainBinaryTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.i
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.i
+source/DSNA/non-Linear/mainMaxHeap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.i
+.PHONY : source/DSNA/non-Linear/mainMaxHeap.c.i
 
-source/DSNA/non-Linear/mainBinaryTree.s: source/DSNA/non-Linear/mainBinaryTree.c.s
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.s
+source/DSNA/non-Linear/mainMaxHeap.s: source/DSNA/non-Linear/mainMaxHeap.c.s
+.PHONY : source/DSNA/non-Linear/mainMaxHeap.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainBinaryTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/source/DSNA/non-Linear/mainBinaryTree.c.s
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.s
+source/DSNA/non-Linear/mainMaxHeap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.s
+.PHONY : source/DSNA/non-Linear/mainMaxHeap.c.s
 
 # Help Target
 help:
@@ -208,16 +184,13 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... binaryTree
-	@echo ... source/DSNA/non-Linear/includeBinTree.obj
-	@echo ... source/DSNA/non-Linear/includeBinTree.i
-	@echo ... source/DSNA/non-Linear/includeBinTree.s
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.obj
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.i
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.s
-	@echo ... source/DSNA/non-Linear/mainBinaryTree.obj
-	@echo ... source/DSNA/non-Linear/mainBinaryTree.i
-	@echo ... source/DSNA/non-Linear/mainBinaryTree.s
+	@echo ... heap
+	@echo ... source/DSNA/non-Linear/includeHeap.obj
+	@echo ... source/DSNA/non-Linear/includeHeap.i
+	@echo ... source/DSNA/non-Linear/includeHeap.s
+	@echo ... source/DSNA/non-Linear/mainMaxHeap.obj
+	@echo ... source/DSNA/non-Linear/mainMaxHeap.i
+	@echo ... source/DSNA/non-Linear/mainMaxHeap.s
 .PHONY : help
 
 

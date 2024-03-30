@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/binaryTree.dir/all
+all: CMakeFiles/heap.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/binaryTree.dir/clean
+clean: CMakeFiles/heap.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/binaryTree.dir
+# Target rules for target CMakeFiles/heap.dir
 
 # All Build rule for target.
-CMakeFiles/binaryTree.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3,4 "Built target binaryTree"
-.PHONY : CMakeFiles/binaryTree.dir/all
+CMakeFiles/heap.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3 "Built target heap"
+.PHONY : CMakeFiles/heap.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/binaryTree.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/binaryTree.dir/all
+CMakeFiles/heap.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/heap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/binaryTree.dir/rule
+.PHONY : CMakeFiles/heap.dir/rule
 
 # Convenience name for target.
-binaryTree: CMakeFiles/binaryTree.dir/rule
-.PHONY : binaryTree
+heap: CMakeFiles/heap.dir/rule
+.PHONY : heap
 
 # clean rule for target.
-CMakeFiles/binaryTree.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\binaryTree.dir\build.make CMakeFiles/binaryTree.dir/clean
-.PHONY : CMakeFiles/binaryTree.dir/clean
+CMakeFiles/heap.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/clean
+.PHONY : CMakeFiles/heap.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
