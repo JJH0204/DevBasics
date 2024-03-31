@@ -57,15 +57,15 @@ heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_)
 {
     heapNode *pResult = NULL;
     heapNode *pTemp = NULL;
-    int nParentIndex = 1; // 부모 노드 인덱스 : 초기에 루트 노드를 가리킨다.
-    int nChildIndex = 2;  // 자식 노드 인덱스 : 초기에 루트의 왼쪽 자식 노드를 가리킨다.
+    int nParentIndex = 0; // 부모 노드 인덱스 : 초기에 루트 노드를 가리킨다.
+    int nChildIndex = 0;  // 자식 노드 인덱스 : 초기에 루트의 왼쪽 자식 노드를 가리킨다.
 
     if (_pHeap_ == NULL && _pHeap_->nCurrentCount <= 0)
     {
         printf("Heap Access Error: removeArrayMaxHeap()\n");
         return NULL;
     }
-
+    // Step_1
     pResult = (heapNode *)malloc(sizeof(heapNode));
     if (pResult == NULL)
     {
@@ -77,8 +77,12 @@ heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_)
     pTemp = &(_pHeap_->pArray[_pHeap_->nCurrentCount]); // 가장 마지막 노드를 루트 노드로 임시 이동 한다.
     _pHeap_->nCurrentCount--;                           // 노스 수량 -1 카운트 한다.
 
+    // Step_2
+    nParentIndex = 1;
+    nChildIndex = 2;
     while (nChildIndex <= _pHeap_->nCurrentCount) // 가리키는 자식 노드가 히프의 마지막 노드의 위치보다 낮거나 같으면 반복
     {
+        // Step_3
         // | 0 | 1 | 2 | 3 | 4 |
         // | 0 | 6 | 8 | 5 | 2 |
         //           |   |
@@ -93,6 +97,7 @@ heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_)
         nParentIndex = nChildIndex;                 // 부모 자리로 옮긴 자식 데이터의 본래 위치 인덱스로 부모 인덱스 갱신
         nChildIndex *= 2;                           // 갱신한 부모 인덱스에 맞춰 가리킬 자식 인덱스 갱신 (부모 인덱스 * 2 = 왼쪽 자식)
     }
+    // Step_4
     _pHeap_->pArray[nParentIndex] = *pTemp;     // 반복 종료되면 가리키던 부모 자리에 임시 저장 중이던 데이터 저장
     return pResult;
 }
