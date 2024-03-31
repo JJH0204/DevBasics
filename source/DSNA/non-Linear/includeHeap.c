@@ -79,15 +79,21 @@ heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_)
 
     while (nChildIndex <= _pHeap_->nCurrentCount) // 가리키는 자식 노드가 히프의 마지막 노드의 위치보다 낮거나 같으면 반복
     {
+        // | 0 | 1 | 2 | 3 | 4 |
+        // | 0 | 6 | 8 | 5 | 2 |
+        //           |   |
+        // nChildIndex   nChildIndex + 1
+
+        // if ((2 < 5)&&([2]8 < [3]5)) 아래 조건문 예시
         if (nChildIndex < _pHeap_->nCurrentCount && _pHeap_->pArray[nChildIndex].nData < _pHeap_->pArray[nChildIndex + 1].nData)
             nChildIndex++;
-        if (pTemp->nData >= _pHeap_->pArray[nChildIndex].nData)
-            break;
-        _pHeap_->pArray[nParentIndex] = _pHeap_->pArray[nChildIndex];
-        nParentIndex = nChildIndex;
-        nChildIndex *= 2;
+        if (pTemp->nData >= _pHeap_->pArray[nChildIndex].nData)         // (A)"임시 이동한 노드"와 (B)"현재 가리키는 자식 노드"의 데이터 비교
+            break;                                                      // A가 B 보다 크면 반복을 종료
+        _pHeap_->pArray[nParentIndex] = _pHeap_->pArray[nChildIndex];   // A가 B 보다 작으면 반복을 종료하지 않고 부모 자리에 비교한 자식 데이터 저장
+        nParentIndex = nChildIndex;                 // 부모 자리로 옮긴 자식 데이터의 본래 위치 인덱스로 부모 인덱스 갱신
+        nChildIndex *= 2;                           // 갱신한 부모 인덱스에 맞춰 가리킬 자식 인덱스 갱신 (부모 인덱스 * 2 = 왼쪽 자식)
     }
-    _pHeap_->pArray[nParentIndex] = *pTemp;
+    _pHeap_->pArray[nParentIndex] = *pTemp;     // 반복 종료되면 가리키던 부모 자리에 임시 저장 중이던 데이터 저장
     return pResult;
 }
 
