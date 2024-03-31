@@ -14,7 +14,7 @@ typedef struct ARRAYHEAP
     heapNode *pArray;       // 배열 첫 시작
 } arrayMaxHeap, arrayMinHeap;
 
-arrayMaxHeap *createArrayMaxHeap(const int _nMaxCount_);
+arrayMaxHeap *createArrayHeap(const int _nMaxCount_);
 bool insertArrayMaxHeap(arrayMaxHeap *_pHeap_, const int _nVal_);
 heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_);
 bool deleteArrayMaxHeap(arrayMaxHeap *_pHeap_);

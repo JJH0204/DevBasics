@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include "includeHeap.h"
 
-arrayMaxHeap *createArrayMaxHeap(const int _nMaxCount_)
+arrayMaxHeap *createArrayHeap(const int _nMaxCount_)
 {
     arrayMaxHeap *pResult = NULL;
     if (_nMaxCount_ <= 0) // 인자 유효성 점검
@@ -118,3 +118,5 @@ bool displayArrayHeap(arrayMaxHeap *_pHeap_)
 
     return false;
 }
+
+// TODO: Min Heap Func

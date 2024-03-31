@@ -220,4 +220,72 @@ bool insertArrayMaxHeap(arrayMaxHeap *_pHeap_, int _nVal_)
 }
 ```
 ### 5.4. 제거
+```c
+heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_)
+{
+    heapNode *pResult = NULL;
+    heapNode *pTemp = NULL;
+    int nParentIndex = 1; // 부모 노드 인덱스 : 초기에 루트 노드를 가리킨다.
+    int nChildIndex = 2;  // 자식 노드 인덱스 : 초기에 루트의 왼쪽 자식 노드를 가리킨다.
+
+    if (_pHeap_ == NULL && _pHeap_->nCurrentCount <= 0)
+    {
+        printf("Heap Access Error: removeArrayMaxHeap()\n");
+        return NULL;
+    }
+
+    pResult = (heapNode *)malloc(sizeof(heapNode));
+    if (pResult == NULL)
+    {
+        printf("Memory Allocate Error: removeArrayMaxHeap()\n");
+        return NULL;
+    }
+
+    pResult->nData = _pHeap_->pArray[1].nData;          // 루트 노드를 뽑는다.
+    pTemp = &(_pHeap_->pArray[_pHeap_->nCurrentCount]); // 가장 마지막 노드를 루트 노드로 임시 이동 한다.
+    _pHeap_->nCurrentCount--;                           // 노스 수량 -1 카운트 한다.
+
+    while (nChildIndex <= _pHeap_->nCurrentCount) // 가리키는 자식 노드가 히프의 마지막 노드의 위치보다 낮거나 같으면 반복
+    {
+        // | 0 | 1 | 2 | 3 | 4 |
+        // | 0 | 6 | 8 | 5 | 2 |
+        //           |   |
+        // nChildIndex   nChildIndex + 1
+
+        // if ((2 < 5)&&([2]8 < [3]5)) 아래 조건문 예시
+        if (nChildIndex < _pHeap_->nCurrentCount && _pHeap_->pArray[nChildIndex].nData < _pHeap_->pArray[nChildIndex + 1].nData)
+            nChildIndex++;
+        if (pTemp->nData >= _pHeap_->pArray[nChildIndex].nData)         // (A)"임시 이동한 노드"와 (B)"현재 가리키는 자식 노드"의 데이터 비교
+            break;                                                      // A가 B 보다 크면 반복을 종료
+        _pHeap_->pArray[nParentIndex] = _pHeap_->pArray[nChildIndex];   // A가 B 보다 작으면 반복을 종료하지 않고 부모 자리에 비교한 자식 데이터 저장
+        nParentIndex = nChildIndex;                 // 부모 자리로 옮긴 자식 데이터의 본래 위치 인덱스로 부모 인덱스 갱신
+        nChildIndex *= 2;                           // 갱신한 부모 인덱스에 맞춰 가리킬 자식 인덱스 갱신 (부모 인덱스 * 2 = 왼쪽 자식)
+    }
+    _pHeap_->pArray[nParentIndex] = *pTemp;     // 반복 종료되면 가리키던 부모 자리에 임시 저장 중이던 데이터 저장
+    return pResult;
+}
+```
 ### 5.5. 기타 
+```c
+bool deleteArrayMaxHeap(arrayMaxHeap *_pHeap_)
+{
+    if (_pHeap_ != NULL)
+    {
+        if (_pHeap_->pArray != NULL)
+            free(_pHeap_->pArray);
+        free(_pHeap_);
+    }
+
+    return false;
+}
+
+bool displayArrayHeap(arrayMaxHeap *_pHeap_)
+{
+    int i = 0;
+    if (_pHeap_ != NULL)
+        for (i = 1; i <= _pHeap_->nCurrentCount; i++)
+            printf("\t[%d], %d\n", i, _pHeap_->pArray[i].nData);
+
+    return false;
+}
+```
