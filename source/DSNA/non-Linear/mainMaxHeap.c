@@ -4,16 +4,29 @@
 #include <stdbool.h>
 #include "includeHeap.h"
 
+void exMaxHeap(void);
+void exMinHeap(void);
+
 int main(int argc, char *argv[])
+{
+    printf("[EX Max Heap]\n");
+    exMaxHeap();
+    printf("\n\n");
+    printf("[EX Min Heap]\n");
+    exMinHeap();
+    return 0;
+}
+
+void exMaxHeap(void)
 {
     int nMaxHeapSize = 20;
     arrayMaxHeap *pMaxHeap = NULL;
     heapNode *pNode = NULL;
 
-    pMaxHeap = createArrayMaxHeap(nMaxHeapSize);
+    pMaxHeap = createArrayHeap(nMaxHeapSize);
     if (pMaxHeap == NULL)
-        return -1;
-    
+        return;
+
     insertArrayMaxHeap(pMaxHeap, 90);
     insertArrayMaxHeap(pMaxHeap, 85);
     insertArrayMaxHeap(pMaxHeap, 80);
@@ -46,8 +59,6 @@ int main(int argc, char *argv[])
     displayArrayHeap(pMaxHeap);
 
     deleteArrayMaxHeap(pMaxHeap);
-
-    return 0;
 }
 /*.\heap.exe
 > Max Heap:
@@ -96,3 +107,47 @@ int main(int argc, char *argv[])
         [12], 35
         [13], 30
 */
+
+void exMinHeap(void)
+{
+    int nMinHeapSize = 20;
+    arrayMinHeap *pMinHeap = NULL;
+    heapNode *pNode = NULL;
+
+    pMinHeap = createArrayHeap(nMinHeapSize);
+    if (pMinHeap == NULL)
+        return;
+
+    insertArrayMinHeap(pMinHeap, 30);
+    insertArrayMinHeap(pMinHeap, 35);
+    insertArrayMinHeap(pMinHeap, 40);
+    insertArrayMinHeap(pMinHeap, 45);
+    insertArrayMinHeap(pMinHeap, 50);
+    insertArrayMinHeap(pMinHeap, 55);
+    insertArrayMinHeap(pMinHeap, 60);
+    insertArrayMinHeap(pMinHeap, 65);
+    insertArrayMinHeap(pMinHeap, 70);
+    insertArrayMinHeap(pMinHeap, 75);
+    insertArrayMinHeap(pMinHeap, 80);
+    insertArrayMinHeap(pMinHeap, 85);
+    insertArrayMinHeap(pMinHeap, 90);
+
+    printf("> Min Heap:\n");
+    displayArrayHeap(pMinHeap);
+
+    insertArrayMinHeap(pMinHeap, 53);
+    printf("> After insertArrayMinHeap(): %d\n> Min Heap:\n", 53);
+    displayArrayHeap(pMinHeap);
+
+    pNode = removeArrayMinHeap(pMinHeap);
+    if (pNode != NULL)
+    {
+        printf("> removeArrayMinHeap(): %d\n", pNode->nData);
+        free(pNode);
+    }
+
+    printf("> Min Heap:\n");
+    displayArrayHeap(pMinHeap);
+
+    deleteArrayMaxHeap(pMinHeap);
+}

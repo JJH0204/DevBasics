@@ -124,4 +124,71 @@ bool displayArrayHeap(arrayMaxHeap *_pHeap_)
     return false;
 }
 
-// TODO: Min Heap Func
+bool insertArrayMinHeap(arrayMinHeap *_pHeap_, int _nVal_){
+    // Step 1:      트리의 가장 마지막 노드에 데이터 임시 저장
+    // Step 2:      A(임시 저장한 노드)의 B(부모 노드)와 값을 비교
+    // Step 2-1:    A < B, A 값과 B 값을 바꾼다.
+    // Step 2-2:    A > B, 값 저장 후 종료
+    // if Case :    A의 노드 위치가 Root 인 경우 반복 종료
+
+    int nParentIndex = 0;
+    int nChildIndex = 0;
+
+    if (_pHeap_ == NULL) // 유효성 점검, NULL 인지
+        return true;
+
+    if (_pHeap_->nCurrentCount == _pHeap_->nMaxCount) // 유효성 점검, 배열이 가득 찼는지
+    {
+        printf("error, 가득 찼습니다.[%d], insertArrayMaxHeap()\n", _pHeap_->nMaxCount);
+        return true;
+    }
+    _pHeap_->nCurrentCount++;
+    nChildIndex = _pHeap_->nCurrentCount;
+    nParentIndex = nChildIndex / 2;
+    while (nChildIndex >= 2 || _nVal_ < _pHeap_->pArray[nParentIndex].nData)
+    {
+        _pHeap_->pArray[nChildIndex].nData = _pHeap_->pArray[nParentIndex].nData;
+        nChildIndex = nParentIndex;
+        nParentIndex /= 2;
+    }
+    _pHeap_->pArray[nChildIndex].nData = _nVal_;
+    return false;
+}
+
+heapNode *removeArrayMinHeap(arrayMinHeap *_pHeap_)
+{
+    heapNode *pResult = NULL;
+    heapNode *pTemp = NULL;
+    int nParentIndex = 0;
+    int nChildIndex = 0;
+
+    if (_pHeap_ == NULL && _pHeap_->nCurrentCount <= 0)
+    {
+        printf("Heap Access Error: removeArrayMaxHeap()\n");
+        return NULL;
+    }
+    pResult = (heapNode *)malloc(sizeof(heapNode));
+    if (pResult == NULL)
+        return NULL;
+    
+    nParentIndex = 1;
+    nChildIndex = nParentIndex * 2;
+    pResult->nData = _pHeap_->pArray[nParentIndex].nData;
+
+    pTemp = &(_pHeap_->pArray[_pHeap_->nCurrentCount]);
+    _pHeap_->nCurrentCount--;
+
+    while (nChildIndex <= _pHeap_->nCurrentCount)
+    {
+        if ((_pHeap_->pArray[nChildIndex].nData > _pHeap_->pArray[nChildIndex + 1].nData) && nChildIndex < _pHeap_->nCurrentCount)
+            nChildIndex++;
+        if (pTemp->nData <= _pHeap_->pArray[nChildIndex].nData)
+            break;
+        
+        _pHeap_->pArray[nParentIndex] = _pHeap_->pArray[nChildIndex];
+        nParentIndex = nChildIndex;
+        nChildIndex *= 2;
+    }
+    _pHeap_->pArray[nParentIndex] = *pTemp;
+    return pResult;
+}

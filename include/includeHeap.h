@@ -19,4 +19,7 @@ bool insertArrayMaxHeap(arrayMaxHeap *_pHeap_, const int _nVal_);
 heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_);
 bool deleteArrayMaxHeap(arrayMaxHeap *_pHeap_);
 bool displayArrayHeap(arrayMaxHeap *_pHeap_);
+
+bool insertArrayMinHeap(arrayMinHeap *_pHeap_, int _nVal_);
+heapNode *removeArrayMinHeap(arrayMinHeap *_pHeap_);
 #endif
