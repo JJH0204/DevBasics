@@ -145,9 +145,9 @@ bool insertArrayMinHeap(arrayMinHeap *_pHeap_, int _nVal_){
     _pHeap_->nCurrentCount++;
     nChildIndex = _pHeap_->nCurrentCount;
     nParentIndex = nChildIndex / 2;
-    while (nChildIndex >= 2 || _nVal_ < _pHeap_->pArray[nParentIndex].nData)
+    while (nChildIndex != 1 && _nVal_ < _pHeap_->pArray[nParentIndex].nData)
     {
-        _pHeap_->pArray[nChildIndex].nData = _pHeap_->pArray[nParentIndex].nData;
+        _pHeap_->pArray[nChildIndex] = _pHeap_->pArray[nParentIndex];
         nChildIndex = nParentIndex;
         nParentIndex /= 2;
     }

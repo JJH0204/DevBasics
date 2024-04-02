@@ -19,11 +19,11 @@ int main(int argc, char *argv[])
 
 void exMaxHeap(void)
 {
-    int nMaxHeapSize = 20;
+    int nHeapSize = 20;
     arrayMaxHeap *pMaxHeap = NULL;
     heapNode *pNode = NULL;
 
-    pMaxHeap = createArrayHeap(nMaxHeapSize);
+    pMaxHeap = createArrayHeap(nHeapSize);
     if (pMaxHeap == NULL)
         return;
 
@@ -110,11 +110,11 @@ void exMaxHeap(void)
 
 void exMinHeap(void)
 {
-    int nMinHeapSize = 20;
+    int nHeapSize = 20;
     arrayMinHeap *pMinHeap = NULL;
     heapNode *pNode = NULL;
 
-    pMinHeap = createArrayHeap(nMinHeapSize);
+    pMinHeap = createArrayHeap(nHeapSize);
     if (pMinHeap == NULL)
         return;
 
@@ -135,7 +135,7 @@ void exMinHeap(void)
     printf("> Min Heap:\n");
     displayArrayHeap(pMinHeap);
 
-    insertArrayMinHeap(pMinHeap, 53);
+    insertArrayMinHeap(pMinHeap, 20);
     printf("> After insertArrayMinHeap(): %d\n> Min Heap:\n", 53);
     displayArrayHeap(pMinHeap);
 
@@ -151,3 +151,50 @@ void exMinHeap(void)
 
     deleteArrayMaxHeap(pMinHeap);
 }
+/*
+> Min Heap:
+        [1], 30
+        [2], 35
+        [3], 40
+        [4], 45
+        [5], 50
+        [6], 55
+        [7], 60
+        [8], 65
+        [9], 70
+        [10], 75
+        [11], 80
+        [12], 85
+        [13], 90
+> After insertArrayMinHeap(): 53
+> Min Heap:
+        [1], 20
+        [2], 35
+        [3], 30
+        [4], 45
+        [5], 50
+        [6], 55
+        [7], 40
+        [8], 65
+        [9], 70
+        [10], 75
+        [11], 80
+        [12], 85
+        [13], 90
+        [14], 60
+> removeArrayMinHeap(): 20
+> Min Heap:
+        [1], 30
+        [2], 35
+        [3], 40
+        [4], 45
+        [5], 50
+        [6], 55
+        [7], 60
+        [8], 65
+        [9], 70
+        [10], 75
+        [11], 80
+        [12], 85
+        [13], 90
+*/
