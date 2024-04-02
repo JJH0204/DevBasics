@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj"
   "CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj.d"
-  "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj"
-  "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj.d"
+  "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj"
+  "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj.d"
   "heap.exe"
   "heap.exe.manifest"
   "heap.pdb"

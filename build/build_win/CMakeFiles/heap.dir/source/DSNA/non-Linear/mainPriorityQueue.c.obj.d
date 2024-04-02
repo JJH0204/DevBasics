@@ -1,5 +1,5 @@
-CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj: \
- E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeHeap.c \
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj: \
+ E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainPriorityQueue.c \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/stdio.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/_mingw.h \

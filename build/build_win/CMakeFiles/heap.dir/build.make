@@ -68,20 +68,20 @@ include CMakeFiles/heap.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/heap.dir/flags.make
 
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj: CMakeFiles/heap.dir/flags.make
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj: CMakeFiles/heap.dir/includes_C.rsp
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainMaxHeap.c
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj: CMakeFiles/heap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj -MF CMakeFiles\heap.dir\source\DSNA\non-Linear\mainMaxHeap.c.obj.d -o CMakeFiles\heap.dir\source\DSNA\non-Linear\mainMaxHeap.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainMaxHeap.c
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj: CMakeFiles/heap.dir/flags.make
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj: CMakeFiles/heap.dir/includes_C.rsp
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainPriorityQueue.c
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj: CMakeFiles/heap.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj -MF CMakeFiles\heap.dir\source\DSNA\non-Linear\mainPriorityQueue.c.obj.d -o CMakeFiles\heap.dir\source\DSNA\non-Linear\mainPriorityQueue.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainPriorityQueue.c
 
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.i"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainMaxHeap.c > CMakeFiles\heap.dir\source\DSNA\non-Linear\mainMaxHeap.c.i
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainPriorityQueue.c > CMakeFiles\heap.dir\source\DSNA\non-Linear\mainPriorityQueue.c.i
 
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.s"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainMaxHeap.c -o CMakeFiles\heap.dir\source\DSNA\non-Linear\mainMaxHeap.c.s
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainPriorityQueue.c -o CMakeFiles\heap.dir\source\DSNA\non-Linear\mainPriorityQueue.c.s
 
 CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj: CMakeFiles/heap.dir/flags.make
 CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj: CMakeFiles/heap.dir/includes_C.rsp
@@ -100,13 +100,13 @@ CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.s: cmake_force
 
 # Object files for target heap
 heap_OBJECTS = \
-"CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj" \
+"CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj" \
 "CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj"
 
 # External object files for target heap
 heap_EXTERNAL_OBJECTS =
 
-heap.exe: CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj
+heap.exe: CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj
 heap.exe: CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj
 heap.exe: CMakeFiles/heap.dir/build.make
 heap.exe: CMakeFiles/heap.dir/linkLibs.rsp

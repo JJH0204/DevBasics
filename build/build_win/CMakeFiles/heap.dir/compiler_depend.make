@@ -11,20 +11,25 @@ CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj: E:/Document/GitHub
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_push.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_timeval.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/time.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   E:/Document/GitHub/DevBasics/include/includeHeap.h
 
-CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainMaxHeap.c \
+CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainPriorityQueue.c \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
@@ -34,16 +39,21 @@ CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj: E:/Document/GitHub
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_push.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_timeval.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/limits.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/malloc.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/pthread_time.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/time.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/vadefs.h \
   E:/Document/GitHub/DevBasics/include/includeHeap.h
 
@@ -62,6 +72,8 @@ C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h:
 
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/pthread_time.h:
+
 C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h:
 
 C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h:
@@ -70,11 +82,13 @@ C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_push.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h:
 
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_timeval.h:
+
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/limits.h:
 
-E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainMaxHeap.c:
-
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/malloc.h:
+
+E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainPriorityQueue.c:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h:
 
@@ -86,6 +100,8 @@ C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
 
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h:
+
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h:
 
 E:/Document/GitHub/DevBasics/include/includeHeap.h:
@@ -93,3 +109,7 @@ E:/Document/GitHub/DevBasics/include/includeHeap.h:
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl:
+
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sys/timeb.h:
+
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/time.h:

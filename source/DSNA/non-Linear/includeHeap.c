@@ -2,27 +2,42 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <time.h>
 #include "includeHeap.h"
+#define TIMEOUT_SECONDS 5       // 최대 대기 시간(초)
 
 arrayMaxHeap *createArrayHeap(const int _nMaxCount_)
 {
     arrayMaxHeap *pResult = NULL;
+    time_t start, now;              // 시간 값 저장 변수
     if (_nMaxCount_ <= 0) // 인자 유효성 점검
     {
-        printf("최대 원소 개수는 0보다 커야 한다.\n");
-        return pResult;
-    }
-    pResult = (arrayMaxHeap *)malloc(sizeof(arrayMaxHeap)); // 최대 히프 생성(메모리 할당)
-    if (pResult == NULL)
-        return pResult;
-
-    pResult->nMaxCount = _nMaxCount_; // 값 초기화
-    pResult->nCurrentCount = 0;
-    pResult->pArray = (heapNode *)malloc(sizeof(heapNode) * (_nMaxCount_ + 1)); // 인자 값 + 1 배열 생성
-    if (pResult->pArray == NULL)
-    {
-        free(pResult);
+        printf("The maximum number of elements must be greater than 0.\n");
         return NULL;
+    }
+
+    time(&start);       // 시작 시간 기록
+    while (pResult == NULL)
+    {
+        pResult = (arrayMaxHeap *)malloc(sizeof(arrayMaxHeap)); // 최대 히프 생성(메모리 할당)
+        if (pResult != NULL)
+        {
+            pResult->nMaxCount = _nMaxCount_; // 값 초기화
+            pResult->nCurrentCount = 0;
+            pResult->pArray = (heapNode *)malloc(sizeof(heapNode) * (_nMaxCount_ + 1)); // 인자 값 + 1 배열 생성
+            if (pResult->pArray == NULL)
+            {
+                free(pResult);
+                pResult = NULL;
+            }
+        }
+
+        time(&now);     // 현재 시간 기록
+        if (difftime(now, start) > TIMEOUT_SECONDS) // 시간 경과 확인
+        {
+            printf("Memory allocation timed out.\n");
+            return NULL;
+        }
     }
 
     return pResult;
@@ -102,7 +117,7 @@ heapNode *removeArrayMaxHeap(arrayMaxHeap *_pHeap_)
     return pResult;
 }
 
-bool deleteArrayMaxHeap(arrayMaxHeap *_pHeap_)
+bool deleteArrayHeap(arrayMaxHeap *_pHeap_)
 {
     if (_pHeap_ != NULL)
     {

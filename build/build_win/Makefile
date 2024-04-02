@@ -152,29 +152,29 @@ source/DSNA/non-Linear/includeHeap.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.s
 .PHONY : source/DSNA/non-Linear/includeHeap.c.s
 
-source/DSNA/non-Linear/mainMaxHeap.obj: source/DSNA/non-Linear/mainMaxHeap.c.obj
-.PHONY : source/DSNA/non-Linear/mainMaxHeap.obj
+source/DSNA/non-Linear/mainPriorityQueue.obj: source/DSNA/non-Linear/mainPriorityQueue.c.obj
+.PHONY : source/DSNA/non-Linear/mainPriorityQueue.obj
 
 # target to build an object file
-source/DSNA/non-Linear/mainMaxHeap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj
-.PHONY : source/DSNA/non-Linear/mainMaxHeap.c.obj
+source/DSNA/non-Linear/mainPriorityQueue.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj
+.PHONY : source/DSNA/non-Linear/mainPriorityQueue.c.obj
 
-source/DSNA/non-Linear/mainMaxHeap.i: source/DSNA/non-Linear/mainMaxHeap.c.i
-.PHONY : source/DSNA/non-Linear/mainMaxHeap.i
+source/DSNA/non-Linear/mainPriorityQueue.i: source/DSNA/non-Linear/mainPriorityQueue.c.i
+.PHONY : source/DSNA/non-Linear/mainPriorityQueue.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainMaxHeap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.i
-.PHONY : source/DSNA/non-Linear/mainMaxHeap.c.i
+source/DSNA/non-Linear/mainPriorityQueue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.i
+.PHONY : source/DSNA/non-Linear/mainPriorityQueue.c.i
 
-source/DSNA/non-Linear/mainMaxHeap.s: source/DSNA/non-Linear/mainMaxHeap.c.s
-.PHONY : source/DSNA/non-Linear/mainMaxHeap.s
+source/DSNA/non-Linear/mainPriorityQueue.s: source/DSNA/non-Linear/mainPriorityQueue.c.s
+.PHONY : source/DSNA/non-Linear/mainPriorityQueue.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainMaxHeap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.s
-.PHONY : source/DSNA/non-Linear/mainMaxHeap.c.s
+source/DSNA/non-Linear/mainPriorityQueue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.s
+.PHONY : source/DSNA/non-Linear/mainPriorityQueue.c.s
 
 # Help Target
 help:
@@ -188,9 +188,9 @@ help:
 	@echo ... source/DSNA/non-Linear/includeHeap.obj
 	@echo ... source/DSNA/non-Linear/includeHeap.i
 	@echo ... source/DSNA/non-Linear/includeHeap.s
-	@echo ... source/DSNA/non-Linear/mainMaxHeap.obj
-	@echo ... source/DSNA/non-Linear/mainMaxHeap.i
-	@echo ... source/DSNA/non-Linear/mainMaxHeap.s
+	@echo ... source/DSNA/non-Linear/mainPriorityQueue.obj
+	@echo ... source/DSNA/non-Linear/mainPriorityQueue.i
+	@echo ... source/DSNA/non-Linear/mainPriorityQueue.s
 .PHONY : help
 
 

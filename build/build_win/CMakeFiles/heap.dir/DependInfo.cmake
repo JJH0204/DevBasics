@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeHeap.c" "CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj" "gcc" "CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj.d"
-  "E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainMaxHeap.c" "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj" "gcc" "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainMaxHeap.c.obj.d"
+  "E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainPriorityQueue.c" "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj" "gcc" "CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
