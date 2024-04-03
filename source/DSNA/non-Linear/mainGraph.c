@@ -29,6 +29,12 @@ int main(int argc, char *argv[])
     deleteGraph(pArrayGraph);
     return 0;
 }
-/*.\arrayGraph.exe
-None Print...
+/*..\arrayGraph.exe
+> ArrayGraph: Digraph
+0 1 0 0 0 0
+0 0 1 0 0 0
+1 0 0 1 0 0
+0 0 1 0 1 0
+0 0 0 0 0 1
+0 0 0 1 0 0
 */

@@ -51,16 +51,6 @@ DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
         // 할당 성공 시 0으로 초기화: 간선정보가 없는 상태로 세팅
         memset(pResult->ppEdge[nLoopCount], 0, sizeof(int) * _nNodeCount_);
     }
-    /*
-    Function: createDirectArrayGraph, Line: 50
-    Function: createDirectArrayGraph, Line: 60
-    Function: createDirectArrayGraph, Line: 50
-    Function: createDirectArrayGraph, Line: 60
-    Function: createDirectArrayGraph, Line: 50
-    Function: createDirectArrayGraph, Line: 60
-    Function: createDirectArrayGraph, Line: 50
-    Function: createDirectArrayGraph, Line: 60
-    */
     return pResult;
 }
 
