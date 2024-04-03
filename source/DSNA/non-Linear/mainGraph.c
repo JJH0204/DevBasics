@@ -9,8 +9,9 @@
 int main(int argc, char *argv[])
 {
     int nNodeCount = 6;
+    
     DirectArrayGraph *pArrayGraph = createDirectArrayGraph(nNodeCount);
-
+    
     if (ISNULL_ERROR(pArrayGraph))
         return -1;
     

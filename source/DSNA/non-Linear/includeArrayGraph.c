@@ -29,7 +29,7 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
         printf("Memory Allocate Error: createDirectArrayGraph()\n");
         return NULL;
     }
-
+    
     // 1차원 배열을 저장할 포인터 변수를 할당 및 검증
     pResult->nNodeCount = _nNodeCount_;
     for (nLoopCount = 0; (pResult->ppEdge == NULL) && (nLoopCount < 6); nLoopCount++)
@@ -40,13 +40,14 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
         free(pResult);
         return NULL;
     }
-
+    
     // 행 별로 메모리를 할당하고 검증
     for (nLoopCount = 0; nLoopCount < _nNodeCount_; nLoopCount++)
     {
         // 메모리 할당 시도 * 5
         for (nSupLoopCount = 0; (pResult->ppEdge[nLoopCount] == NULL) && (nSupLoopCount < 6); nSupLoopCount++)
             pResult->ppEdge[nLoopCount] = (int *)malloc(sizeof(int) * _nNodeCount_);
+        PRINT_DEBUG();
         // 메모리 할당 실패
         if (pResult->ppEdge[nLoopCount] == NULL)
         {
@@ -56,9 +57,20 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
             free(pResult);
             return NULL;
         }
+        PRINT_DEBUG();
         // 할당 성공 시 0으로 초기화: 간선정보가 없는 상태로 세팅
         memset(pResult->ppEdge[nLoopCount], 0, sizeof(nLoopCount) * _nNodeCount_);
     }
+    /*
+    Function: createDirectArrayGraph, Line: 50
+    Function: createDirectArrayGraph, Line: 60
+    Function: createDirectArrayGraph, Line: 50
+    Function: createDirectArrayGraph, Line: 60
+    Function: createDirectArrayGraph, Line: 50
+    Function: createDirectArrayGraph, Line: 60
+    Function: createDirectArrayGraph, Line: 50
+    Function: createDirectArrayGraph, Line: 60
+    */
     return pResult;
 }
 
@@ -69,9 +81,9 @@ bool addEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
         return true;
 
     // 두 노드가 안전한 위치에 있는지 점검
-    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) && checkVertexValid_ERROR(_pGraph_, _nTo_))
+    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
         return true;
-
+    
     // 간선 정보 저장
     _pGraph_->ppEdge[_nFrom_][_nTo_] = 1;
     return false;
@@ -93,7 +105,7 @@ bool removeEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
         return true;
 
     // 두 노드가 안전한 위치에 있는지 점검
-    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) && checkVertexValid_ERROR(_pGraph_, _nTo_))
+    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
         return true;
 
     // 간선 정보 삭제

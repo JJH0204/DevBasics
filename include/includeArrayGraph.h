@@ -2,6 +2,7 @@
 #define _GRAPH_
 
 #define ISNULL_ERROR(ptr) isNull((ptr), __func__)
+#define PRINT_DEBUG() printf("Function: %s, Line: %d\n", __func__, __LINE__)
 
 typedef struct DirectArrayGraph
 {
