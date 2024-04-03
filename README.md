@@ -65,7 +65,7 @@
 | Tree                              |   📌   | [Kor](markdown/DataStructure/Tree.md)                                                          | [mainBinaryTree.c](source/DSNA/non-Linear/mainBinaryTree.c)                                                                                             | [includeBinTree.c](source/DSNA/non-Linear/includeBinTree.c), [includeBinTree.h](include/includeBinTree.h), [includeGenericStructure.c](source/DSNA/non-Linear/includeGenericStructure.c), [includeGenericStructure.h](include/includeGenericStructure.h) |
 | Heap                              |   📌   | [Kor](markdown/DataStructure/Heap.md)                                                          | [mainHeap.c](source/DSNA/non-Linear/mainHeap.c)                                                                                                         | [includeHeap.c](source/DSNA/non-Linear/includeHeap.c), [includeHeap.h](include/includeHeap.h)                                                                                                                                                            |
 | Priority Queue                    |   📌   | [Kor](markdown/DataStructure/PriorityQueue.md)                                                 | [mainPriorityQueue.c](source/DSNA/non-Linear/mainPriorityQueue.c)                                                                                       | [includeHeap.c](source/DSNA/non-Linear/includeHeap.c), [includeHeap.h](include/includeHeap.h)                                                                                                                                                            |
-| Graph                            |       | [Graph.md](markdown/DataStructure/Graph.md), [makeGraph.md](markdown/DataStructure/MakeGraph.md)||[includeArrayGraph.c](source/DSNA/non-Linear/includeArrayGraph.c), [includeArrayGraph.h](include/includeArrayGraph.h)
+| Graph                            |       | [Graph.md](markdown/DataStructure/Graph.md), [makeGraph.md](markdown/DataStructure/MakeGraph.md)|[mainGraph.c](source/DSNA/non-Linear/mainGraph.c)|[includeArrayGraph.c](source/DSNA/non-Linear/includeArrayGraph.c), [includeArrayGraph.h](include/includeArrayGraph.h)
 | 검색                              |       |
 
 </div>
@@ -84,3 +84,4 @@
 
 ## 참조
 * [Learn-c.org](https://www.learn-c.org/)
+* [자료구조 입문](https://www.yes24.com/Product/Goods/28194882)
