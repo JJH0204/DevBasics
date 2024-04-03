@@ -15,7 +15,7 @@ bool isNull(const void *ptr, const char *funcName)
     return false;
 }
 
-DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
+DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
 {
     int nLoopCount = 0;
     int nSupLoopCount = 0;
@@ -47,7 +47,7 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
         // 메모리 할당 시도 * 5
         for (nSupLoopCount = 0; (pResult->ppEdge[nLoopCount] == NULL) && (nSupLoopCount < 6); nSupLoopCount++)
             pResult->ppEdge[nLoopCount] = (int *)malloc(sizeof(int) * _nNodeCount_);
-        PRINT_DEBUG();
+        printf("nLoopCount: %d", nLoopCount);
         // 메모리 할당 실패
         if (pResult->ppEdge[nLoopCount] == NULL)
         {
@@ -57,9 +57,9 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
             free(pResult);
             return NULL;
         }
-        PRINT_DEBUG();
+        printf("nLoopCount: %d", nLoopCount);
         // 할당 성공 시 0으로 초기화: 간선정보가 없는 상태로 세팅
-        memset(pResult->ppEdge[nLoopCount], 0, sizeof(nLoopCount) * _nNodeCount_);
+        // memset(pResult->ppEdge[nLoopCount], 0, sizeof(nLoopCount) * _nNodeCount_);
     }
     /*
     Function: createDirectArrayGraph, Line: 50
