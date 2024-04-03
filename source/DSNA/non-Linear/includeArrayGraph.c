@@ -1,47 +1,20 @@
-이전 문서 > [그래프(Graph)](Graph.md)
+// arrayGraph.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include "includeArrayGraph.h"
 
-# 1. 그래프의 추상 자료형
-| 이름          | INPUT                           | OUTPUT | DESC                                                            |
-| :------------ | :------------------------------ | :----- | :-------------------------------------------------------------- |
-| createGraph() | 최대 노드 개수 n                | Graph  | n 개의 노드를 가지는 공백(Empty) Graph 생성                     |
-| deleteGraph() | Graph                           | N/A    | Graph의 모든 노드(V)와 모든 간선(E)를 제거하고,<br/>그래프 제거 |
-| addEdge()     | Graph, <br/>노드 A, <br/>노드 B | N/A    | 그래프에 노드 A와 B를 연결하는 새로운 간선 e를 추가             |
-| removeEdge()  | Graph, <br/>노드 A, <br/>노드 B | N/A    | 그래프의 간선 (A, B) 혹은 (B, A)를 제거                         |
-
-# 2. 인접 행렬로 구현한 그래프
-## 2.1. 인접 행렬이란?
-- 그래프 구현에 사용하는 2차원 배열을 인접 행렬(Adjacency matrix)이라 한다.
-- 두 개의 노드가 간선으로 서로 연결되어 있으면 '인접'한다고 한다.
-- 그래프에서 '인접'은 '노드의 연결'을 의미한다.
-- 인접 행렬이란 **노드들 사이의 연결 정보(간선 정보)를 저장하는 행렬(2차원 배열)** 을 의미한다.
-- 여기서 간선 정보란 '간선의 존재 여부' 또는 '가중치 값' 등을 의미한다.
-- 간선 존재 여부를 저장하는 행렬(방향 그래프)
-  - <0, 1> 간선 표현
-
-  |       |   0   |   1   |
-  | :---: | :---: | :---: |
-  |   0   |   0   |   1   |
-  |   1   |   0   |   0   |
-
-    - 노드 0에서 1을 연결하는 간선 <0, 1>이 존재하기 때문에 원소[0][1] 값은 1
-    - <1, 0>는 존재하지 않기 때문에 원소 [1][0] 값은 0
-    - 행(Row) = 시작 노드(꼬리), 열(Column) = 종료 노드(머리)
-    - 간선<i, j>가 있다면, [i][j] = 1
-    - 간선<i, j>가 없다면, [i][j] = 0
-- 노드 개수 n 개 일때 행렬 원소 개수는 n*n
-- 모든 노드가 서로 간선으로 연결되지 않는다면 낭비되는 공간이 많아진다.
-
-## 2.2. 인접 행렬 구조
-```c
-typedef struct DirectArrayGraph
+bool isNull(const void *ptr, const char *funcName)
 {
-    int nNodeCount;         // 노드 개수 정보
-    int **ppEdge;          // 노드 개수 만큼 2차원 배열 할당할 이중 포인터 변수
-} DirectArrayGraph;
-```
+    if (ptr == NULL)
+    {
+        printf("%s: Null Memory Access Error\n", funcName);
+        return true;
+    }
+    return false;
+}
 
-## 2.3. 그래프 생성: createDirectArrayGraph()
-```c
 DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
 {
     int nLoopCount = 0;
@@ -71,8 +44,10 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
     // 행 별로 메모리를 할당하고 검증
     for (nLoopCount = 0; nLoopCount < _nNodeCount_; nLoopCount++)
     {
+        // 메모리 할당 시도 * 5
         for (nSupLoopCount = 0; (pResult->ppEdge[nLoopCount] == NULL) && (nSupLoopCount < 6); nSupLoopCount++)
             pResult->ppEdge[nLoopCount] = (int *)malloc(sizeof(int) * _nNodeCount_);
+        // 메모리 할당 실패
         if (pResult->ppEdge[nLoopCount] == NULL)
         {
             printf("Memory Allocate Error: createDirectArrayGraph()\n");
@@ -81,14 +56,12 @@ DirectArrayGraph *createDirectArrayGraph(const int _nNodeCount_)
             free(pResult);
             return NULL;
         }
+        // 할당 성공 시 0으로 초기화: 간선정보가 없는 상태로 세팅
         memset(pResult->ppEdge[nLoopCount], 0, sizeof(nLoopCount) * _nNodeCount_);
-    } 
+    }
     return pResult;
 }
-```
 
-## 2.4. 간선 추가: addEdge()
-```c
 bool addEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     // 유효성 점검
@@ -104,7 +77,7 @@ bool addEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
     return false;
 }
 
-int checkVertexValid_ERROR(DirectArrayGraph *_pGraph_, int nNode)
+bool checkVertexValid_ERROR(DirectArrayGraph *_pGraph_, int nNode)
 {
     // 유효성 점검 || 노드가 노드 최대 보다 큰 위치 || 노드가 0 보다 낮은 위치
     if (ISNULL_ERROR(_pGraph_) || nNode >= _pGraph_->nNodeCount || nNode < 0)
@@ -112,11 +85,8 @@ int checkVertexValid_ERROR(DirectArrayGraph *_pGraph_, int nNode)
 
     return false;
 }
-```
 
-## 2.5. 간선 삭제: removeEdge()
-```c
-int removeEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+bool removeEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     // 유효성 점검
     if (ISNULL_ERROR(_pGraph_))
@@ -125,15 +95,12 @@ int removeEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
     // 두 노드가 안전한 위치에 있는지 점검
     if (checkVertexValid_ERROR(_pGraph_, _nFrom_) && checkVertexValid_ERROR(_pGraph_, _nTo_))
         return true;
-    
+
     // 간선 정보 삭제
     _pGraph_->ppEdge[_nFrom_][_nTo_] = 0;
     return false;
 }
-```
 
-## 2.6. 기타
-```c
 int getEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     // 유효성 점검
@@ -176,8 +143,3 @@ bool deleteGraph(DirectArrayGraph *_pGraph_)
     free(_pGraph_);
     return false;
 }
-```
-# 인접 리스트로 구현한 그래프
-
-# 무방향 그래프 구현
-

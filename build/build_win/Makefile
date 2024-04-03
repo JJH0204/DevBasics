@@ -116,65 +116,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named heap
+# Target rules for targets named arrayGraph
 
 # Build rule for target.
-heap: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 heap
-.PHONY : heap
+arrayGraph: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 arrayGraph
+.PHONY : arrayGraph
 
 # fast build rule for target.
-heap/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/build
-.PHONY : heap/fast
+arrayGraph/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/build
+.PHONY : arrayGraph/fast
 
-source/DSNA/non-Linear/includeHeap.obj: source/DSNA/non-Linear/includeHeap.c.obj
-.PHONY : source/DSNA/non-Linear/includeHeap.obj
-
-# target to build an object file
-source/DSNA/non-Linear/includeHeap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.obj
-.PHONY : source/DSNA/non-Linear/includeHeap.c.obj
-
-source/DSNA/non-Linear/includeHeap.i: source/DSNA/non-Linear/includeHeap.c.i
-.PHONY : source/DSNA/non-Linear/includeHeap.i
-
-# target to preprocess a source file
-source/DSNA/non-Linear/includeHeap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.i
-.PHONY : source/DSNA/non-Linear/includeHeap.c.i
-
-source/DSNA/non-Linear/includeHeap.s: source/DSNA/non-Linear/includeHeap.c.s
-.PHONY : source/DSNA/non-Linear/includeHeap.s
-
-# target to generate assembly for a file
-source/DSNA/non-Linear/includeHeap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/includeHeap.c.s
-.PHONY : source/DSNA/non-Linear/includeHeap.c.s
-
-source/DSNA/non-Linear/mainPriorityQueue.obj: source/DSNA/non-Linear/mainPriorityQueue.c.obj
-.PHONY : source/DSNA/non-Linear/mainPriorityQueue.obj
+source/DSNA/non-Linear/includeArrayGraph.obj: source/DSNA/non-Linear/includeArrayGraph.c.obj
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.obj
 
 # target to build an object file
-source/DSNA/non-Linear/mainPriorityQueue.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.obj
-.PHONY : source/DSNA/non-Linear/mainPriorityQueue.c.obj
+source/DSNA/non-Linear/includeArrayGraph.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.c.obj
 
-source/DSNA/non-Linear/mainPriorityQueue.i: source/DSNA/non-Linear/mainPriorityQueue.c.i
-.PHONY : source/DSNA/non-Linear/mainPriorityQueue.i
+source/DSNA/non-Linear/includeArrayGraph.i: source/DSNA/non-Linear/includeArrayGraph.c.i
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainPriorityQueue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.i
-.PHONY : source/DSNA/non-Linear/mainPriorityQueue.c.i
+source/DSNA/non-Linear/includeArrayGraph.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.i
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.c.i
 
-source/DSNA/non-Linear/mainPriorityQueue.s: source/DSNA/non-Linear/mainPriorityQueue.c.s
-.PHONY : source/DSNA/non-Linear/mainPriorityQueue.s
+source/DSNA/non-Linear/includeArrayGraph.s: source/DSNA/non-Linear/includeArrayGraph.c.s
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainPriorityQueue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\heap.dir\build.make CMakeFiles/heap.dir/source/DSNA/non-Linear/mainPriorityQueue.c.s
-.PHONY : source/DSNA/non-Linear/mainPriorityQueue.c.s
+source/DSNA/non-Linear/includeArrayGraph.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.s
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.c.s
+
+source/DSNA/non-Linear/mainGraph.obj: source/DSNA/non-Linear/mainGraph.c.obj
+.PHONY : source/DSNA/non-Linear/mainGraph.obj
+
+# target to build an object file
+source/DSNA/non-Linear/mainGraph.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj
+.PHONY : source/DSNA/non-Linear/mainGraph.c.obj
+
+source/DSNA/non-Linear/mainGraph.i: source/DSNA/non-Linear/mainGraph.c.i
+.PHONY : source/DSNA/non-Linear/mainGraph.i
+
+# target to preprocess a source file
+source/DSNA/non-Linear/mainGraph.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.i
+.PHONY : source/DSNA/non-Linear/mainGraph.c.i
+
+source/DSNA/non-Linear/mainGraph.s: source/DSNA/non-Linear/mainGraph.c.s
+.PHONY : source/DSNA/non-Linear/mainGraph.s
+
+# target to generate assembly for a file
+source/DSNA/non-Linear/mainGraph.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\arrayGraph.dir\build.make CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.s
+.PHONY : source/DSNA/non-Linear/mainGraph.c.s
 
 # Help Target
 help:
@@ -184,13 +184,13 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... heap
-	@echo ... source/DSNA/non-Linear/includeHeap.obj
-	@echo ... source/DSNA/non-Linear/includeHeap.i
-	@echo ... source/DSNA/non-Linear/includeHeap.s
-	@echo ... source/DSNA/non-Linear/mainPriorityQueue.obj
-	@echo ... source/DSNA/non-Linear/mainPriorityQueue.i
-	@echo ... source/DSNA/non-Linear/mainPriorityQueue.s
+	@echo ... arrayGraph
+	@echo ... source/DSNA/non-Linear/includeArrayGraph.obj
+	@echo ... source/DSNA/non-Linear/includeArrayGraph.i
+	@echo ... source/DSNA/non-Linear/includeArrayGraph.s
+	@echo ... source/DSNA/non-Linear/mainGraph.obj
+	@echo ... source/DSNA/non-Linear/mainGraph.i
+	@echo ... source/DSNA/non-Linear/mainGraph.s
 .PHONY : help
 
 
