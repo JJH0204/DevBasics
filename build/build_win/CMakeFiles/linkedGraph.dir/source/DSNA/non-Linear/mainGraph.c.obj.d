@@ -1,4 +1,4 @@
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: \
+CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: \
  E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainGraph.c \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/stdio.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/crtdefs.h \

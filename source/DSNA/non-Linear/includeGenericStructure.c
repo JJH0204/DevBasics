@@ -5,7 +5,6 @@
 #include <stdbool.h>
 #include "includeGenericStructure.h"
 
-
 bool isNull(const void *ptr, const char *funcName)
 {
     if (ptr == NULL)
@@ -29,6 +28,15 @@ bool isEmptyQueue(const queue *ptr, const char *funcName)
     if (ptr->nCurrentCount <= 0 && ptr->pFront == NULL)
     {
         printf("%s: Queue is Empty\n", funcName);
+        return true;
+    }
+    return false;
+}
+bool isEmptyList(const list *ptr, const char *funcName)
+{
+    if (ptr->nCurrentCount <= 0 && ptr->pHead == NULL)
+    {
+        printf("%s: Linked List is Empty\n", funcName);
         return true;
     }
     return false;
@@ -139,5 +147,105 @@ bool queue_Delete(queue *_pQueue_)
     while (_pQueue_->nCurrentCount > 0)
         queue_dequeue(_pQueue_);
     free(_pQueue_);
+    return false;
+}
+
+list *list_Create(void)
+{
+    list *pResult = (list *)malloc(sizeof(list));
+    if (ISNULL_ERROR(pResult))
+        return NULL;
+    pResult->nCurrentCount = 0;
+    pResult->pHead = NULL;
+    return pResult;
+}
+bool list_Add(list *_pList_, int _data_)
+{
+    int nLoopCount = 0;
+    int_node *pNode = NULL;
+    int_node *pPreNode = NULL;
+
+    if (ISNULL_ERROR(_pList_))
+        return true;
+
+    pNode = (int_node *)malloc(sizeof(int_node));
+    if (ISNULL_ERROR(pNode))
+        return true;
+
+    pNode->nData = _data_;
+    pNode->pNextNode = NULL;
+
+    if (_pList_->pHead == NULL)
+    {
+        _pList_->pHead = pNode;
+    }
+    else
+    {
+        pPreNode = _pList_->pHead;
+        while (pPreNode->pNextNode != NULL)
+            pPreNode = pPreNode->pNextNode;
+        pPreNode->pNextNode = pNode;
+    }
+    _pList_->nCurrentCount++;
+    return false;
+}
+int list_Get(list *_pList_, const int _nIndex_)
+{
+    int nLoopCount = 0;
+    int_node *pResult = NULL;
+
+    if (ISNULL_ERROR(_pList_) || ISEMPTY_List(_pList_))
+        return -1;
+
+    if (_nIndex_ >= _pList_->nCurrentCount || _nIndex_ < 0)
+    {
+        printf("%s: Memory access error.\n", __func__);
+        return -1;
+    }
+
+    pResult = _pList_->pHead;
+    for (; nLoopCount < _nIndex_; nLoopCount++)
+        pResult = pResult->pNextNode;
+    return pResult->nData;
+}
+bool list_Remove(list *_pList_, const int _nIndex_)
+{
+    int nLoopCount = 0;
+    int_node *pCurrentNode = NULL;
+    int_node *pPreviousNode = NULL;
+
+    if (ISNULL_ERROR(_pList_) || ISEMPTY_List(_pList_))
+        return true;
+    if (_nIndex_ >= _pList_->nCurrentCount || _nIndex_ < 0)
+    {
+        printf("%s: Memory access error.\n", __func__);
+        return true;
+    }
+
+    pPreviousNode = _pList_->pHead;
+
+    for (; nLoopCount < _nIndex_ - 1; nLoopCount++)
+        pPreviousNode = pPreviousNode->pNextNode;
+
+    pCurrentNode = pPreviousNode->pNextNode;
+    pPreviousNode->pNextNode = pCurrentNode->pNextNode;
+
+    free(pCurrentNode);
+    _pList_->nCurrentCount--;
+    return false;
+}
+bool list_Delete(list *_pList_)
+{
+    int_node *pTempNode = NULL;
+    if (ISNULL_ERROR(_pList_))
+        return true;
+
+    while (_pList_->pHead != NULL)
+    {
+        pTempNode = _pList_->pHead->pNextNode;
+        free(_pList_->pHead);
+        _pList_->pHead = pTempNode;
+    }
+    free(_pList_);
     return false;
 }

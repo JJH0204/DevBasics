@@ -177,7 +177,195 @@ bool deleteGraph(DirectArrayGraph *_pGraph_)
     return false;
 }
 ```
-# 인접 리스트로 구현한 그래프
+# 3. 인접 리스트로 구현한 그래프
+## 3.1. 인접 리스트란?
+- 인접 정보(간선의 존애 여부) 혹은 가중치 정보 등를 저장하는 리스트를 이용하는 그래프
+- 리스트를 이용하기 때문에 인접 행렬보다 메모리 활용이 더 효율적이지만 간선 정보를 확인하는 데 다소 시간을 소요한다.
+- 노드의 개수가 동적으로 정해진다면 보통 연결 리스트(linked list)로 구현한다. (연결 리스트의 1차원 배열)
+- 시작 노드를 기준으로 연결 리스트가 저장된다. (초기에 모두 내용이 없는 빈 연결 리스트다. = 간선 정보가 없기 때문)
+## 3.2. 인접 리스트와 인접 행렬의 비교
+|      -      |    인접 행렬     |   인접 리스트    |
+| :---------: | :--------------: | :--------------: |
+| 희소 그래프 | 메모리 효율 낮음 | 메모리 효율 높음 |
+| 밀집 그래프 | 메모리 효율 높음 | 메모리 효율 낮음 |
+- 인접 행렬은 실제 간선의 개수와는 상관없이 모든 간선의 정보를 2차원 배열에 저장한다.
+- 희소 그래프(sparse graph): 노드의 개수는 많은데 비해 상대적으로 간선의 개수가 적은 그래프, 인접 리스트로 구현했을 때 효율이 좋다.
+- 밀집 그래프(dense graph): 노드의 개수가 많은 노드, 인접 리스트로 구현할 경우 노드 사이의 포인터 정보 같은 것들을 추가로 저장해야 하기에 더 효율이 떨어진다.
+| 인접 행렬 | 인접 리스트 |
+| :-------: | :---------: |
+|  $O(1)$   |   $O(n)$    |
+- 인접 행렬은 배열을 통해 간선에 바로 접근할 수 있다. O(1)의 시간 복잡도
+- 인접 리스트는 간선 접근을 위해 리스트를 순회해야 하기 때문에 느리다. O(n)의 시간 복잡도
+## 3.3. 인접 리스트 구조
+```c
+typedef struct DirectLinkedGraph
+{
+    int nNodeCount;   // 노드 개수 정보
+    list **ppAdjEdge; // 노드 개수 만큼 연결 리스트의 배열을 할당할 이중 포인터
+} DirectLinkedGraph;
+```
+- ppAdjEdge: 연결 리스트를 저장하는 1차원 배열의 시작 주소를 가리키지만, 1차원 배열의 원소 타입이 포인터(list *)이기 때문에 이중 포인터 타입으로 선언
 
+## 3.4. 그래프 생성
+```c
+DirectLinkedGraph *createDirectLinkedGraph(const int _nNodeCount_)
+{
+    int nLoopCount = 0;
+    DirectLinkedGraph *pResult = NULL;
+
+    // DirectArrayGraph 메모리 할당 및 검증
+    pResult = (DirectLinkedGraph *)malloc(sizeof(DirectLinkedGraph));
+    if (ISNULL_ERROR(pResult))
+        return NULL;
+
+    if (_nNodeCount_ <= 0)
+    {
+        printf("The maximum number of nodes must be greater than 0.\n");
+        free(pResult);
+        return NULL;
+    }
+    
+
+    // 1차원 배열을 저장할 포인터 변수를 할당 및 검증
+    pResult->nNodeCount = _nNodeCount_;
+    pResult->ppAdjEdge = (list **)malloc(sizeof(list *) * _nNodeCount_);
+    if (ISNULL_ERROR(pResult->ppAdjEdge))
+    {
+        free(pResult);
+        return NULL;
+    }
+    
+    // 노드 별로 메모리를 할당하고 검증
+    for (nLoopCount = 0; nLoopCount < _nNodeCount_; nLoopCount++)
+    {
+        // 메모리 할당 시도
+        pResult->ppAdjEdge[nLoopCount] = list_Create();
+        // 메모리 할당 실패
+        if (ISNULL_ERROR(pResult->ppAdjEdge[nLoopCount]))
+        {
+            free(pResult->ppAdjEdge);
+            free(pResult);
+            return NULL;
+        }
+    }
+    return pResult;
+}
+```
+## 3.5. 간선 추가
+```c
+bool addEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    // 유효성 점검
+    if (ISNULL_ERROR(_pGraph_))
+        return true;
+
+    // 두 노드가 안전한 위치에 있는지 점검
+    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+        return true;
+    
+    // 간선 정보 저장
+    list_Add(_pGraph_->ppAdjEdge[_nFrom_], _nTo_);
+    return false;
+}
+
+bool checkVertexValid_ERROR(DirectLinkedGraph *_pGraph_, int nNode)
+{
+    // 유효성 점검 || 노드가 노드 최대 보다 큰 위치 || 노드가 0 보다 낮은 위치
+    if (ISNULL_ERROR(_pGraph_) || nNode >= _pGraph_->nNodeCount || nNode < 0)
+        return true;
+
+    return false;
+}
+```
+
+## 3.6. 간선 제거
+```c
+bool removeEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    list *pList = NULL;
+    int nCount = 0, nLoopCount = 0;
+    // 유효성 점검 // 두 노드가 안전한 위치에 있는지 점검
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+        return true;
+
+    pList = _pGraph_->ppAdjEdge[_nFrom_];
+    nCount = pList->nCurrentCount;
+
+    for (; nLoopCount < nCount; nLoopCount++)
+    {
+        if ((int *)list_Get(pList, nLoopCount) == _nTo_)
+        {
+            // 간선 정보 삭제
+            list_Remove(pList, nLoopCount);
+            break;
+        }
+    }
+
+    return false;
+}
+```
+
+## 3.7. 그 외 함수들
+```c
+int getEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    list *pList = NULL;
+    int nCount = 0, nLoopCount = 0;
+    // 유효성 점검 // 두 노드가 안전한 위치에 있는지 점검
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+        return 0;
+
+    pList = _pGraph_->ppAdjEdge[_nFrom_];
+    nCount = pList->nCurrentCount;
+
+    for (; nLoopCount < nCount; nLoopCount++)
+    {
+        if ((int *)list_Get(pList, nLoopCount) == _nTo_)
+        {
+            return 1;
+        }
+        
+    }
+    return 0;
+}
+
+void displayGraph(DirectLinkedGraph *_pGraph_)
+{
+    int nLoopCount = 0, nRow = 0, nColumn = 0;
+
+    if (ISNULL_ERROR(_pGraph_))
+        return;
+
+    nLoopCount = _pGraph_->nNodeCount;
+
+    for (nRow = 0; nRow < nLoopCount; nRow++)
+    {
+        for (nColumn = 0; nColumn < nLoopCount; nColumn++)
+        {
+            if (getEdge(_pGraph_, nRow, nColumn))
+                printf("1 ");
+            else
+                printf("0 ");
+        }
+        printf("\n");
+    }
+    return;
+}
+
+bool deleteGraph(DirectLinkedGraph *_pGraph_)
+{
+    int nLoopCount = 0;
+
+    if (ISNULL_ERROR(_pGraph_))
+        return true;
+
+    for (nLoopCount = 0; nLoopCount < _pGraph_->nNodeCount; nLoopCount++)
+        list_Delete(_pGraph_->ppAdjEdge[nLoopCount]);
+    if (_pGraph_->ppAdjEdge != NULL)
+        free(_pGraph_->ppAdjEdge);
+    free(_pGraph_);
+    return false;
+}
+```
 # 무방향 그래프 구현
 

@@ -83,36 +83,53 @@ CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.s"
 	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainGraph.c -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\mainGraph.c.s
 
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj: CMakeFiles/arrayGraph.dir/flags.make
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj: CMakeFiles/arrayGraph.dir/includes_C.rsp
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeArrayGraph.c
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj: CMakeFiles/arrayGraph.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj -MF CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeArrayGraph.c.obj.d -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeArrayGraph.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeArrayGraph.c
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj: CMakeFiles/arrayGraph.dir/flags.make
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj: CMakeFiles/arrayGraph.dir/includes_C.rsp
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeLinkedGraph.c
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj: CMakeFiles/arrayGraph.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj -MF CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeLinkedGraph.c.obj.d -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeLinkedGraph.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeLinkedGraph.c
 
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.i"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeArrayGraph.c > CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeArrayGraph.c.i
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeLinkedGraph.c > CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeLinkedGraph.c.i
 
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.s"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeArrayGraph.c -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeArrayGraph.c.s
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeLinkedGraph.c -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeLinkedGraph.c.s
+
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: CMakeFiles/arrayGraph.dir/flags.make
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: CMakeFiles/arrayGraph.dir/includes_C.rsp
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStructure.c
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj: CMakeFiles/arrayGraph.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj -MF CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeGenericStructure.c.obj.d -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeGenericStructure.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStructure.c
+
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStructure.c > CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeGenericStructure.c.i
+
+CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\includeGenericStructure.c -o CMakeFiles\arrayGraph.dir\source\DSNA\non-Linear\includeGenericStructure.c.s
 
 # Object files for target arrayGraph
 arrayGraph_OBJECTS = \
 "CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj" \
-"CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj"
+"CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj" \
+"CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj"
 
 # External object files for target arrayGraph
 arrayGraph_EXTERNAL_OBJECTS =
 
 arrayGraph.exe: CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj
-arrayGraph.exe: CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj
+arrayGraph.exe: CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj
+arrayGraph.exe: CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
 arrayGraph.exe: CMakeFiles/arrayGraph.dir/build.make
 arrayGraph.exe: CMakeFiles/arrayGraph.dir/linkLibs.rsp
 arrayGraph.exe: CMakeFiles/arrayGraph.dir/objects1.rsp
 arrayGraph.exe: CMakeFiles/arrayGraph.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable arrayGraph.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable arrayGraph.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\arrayGraph.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

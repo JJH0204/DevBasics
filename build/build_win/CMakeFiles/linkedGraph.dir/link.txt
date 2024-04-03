@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\linkedGraph.dir/objects.a
+C:\PROGRA~1\mingw64\bin\ar.exe qc CMakeFiles\linkedGraph.dir/objects.a @CMakeFiles\linkedGraph.dir\objects1.rsp
+C:\PROGRA~1\mingw64\bin\gcc.exe -Wl,--whole-archive CMakeFiles\linkedGraph.dir/objects.a -Wl,--no-whole-archive -o linkedGraph.exe -Wl,--out-implib,liblinkedGraph.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\linkedGraph.dir\linkLibs.rsp
