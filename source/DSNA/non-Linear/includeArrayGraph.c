@@ -18,25 +18,18 @@ bool isNull(const void *ptr, const char *funcName)
 DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
 {
     int nLoopCount = 0;
-    int nSupLoopCount = 0;
     DirectArrayGraph *pResult = NULL;
 
     // DirectArrayGraph 메모리 할당 및 검증
-    for (nLoopCount = 0; (pResult == NULL) && (nLoopCount < 6); nLoopCount++)
-        pResult = (DirectArrayGraph *)malloc(sizeof(DirectArrayGraph));
-    if (pResult == NULL)
-    {
-        printf("Memory Allocate Error: createDirectArrayGraph()\n");
+	pResult = (DirectArrayGraph *)malloc(sizeof(DirectArrayGraph));
+    if (ISNULL_ERROR(pResult))
         return NULL;
-    }
     
     // 1차원 배열을 저장할 포인터 변수를 할당 및 검증
     pResult->nNodeCount = _nNodeCount_;
-    for (nLoopCount = 0; (pResult->ppEdge == NULL) && (nLoopCount < 6); nLoopCount++)
-        pResult->ppEdge = (int **)malloc(sizeof(int *) * _nNodeCount_);
-    if (pResult->ppEdge == NULL)
+    pResult->ppEdge = (int **)malloc(sizeof(int *) * _nNodeCount_);
+    if (ISNULL_ERROR(pResult->ppEdge))
     {
-        printf("Memory Allocate Error: createDirectArrayGraph()\n");
         free(pResult);
         return NULL;
     }
@@ -44,22 +37,19 @@ DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
     // 행 별로 메모리를 할당하고 검증
     for (nLoopCount = 0; nLoopCount < _nNodeCount_; nLoopCount++)
     {
-        // 메모리 할당 시도 * 5
-        for (nSupLoopCount = 0; (pResult->ppEdge[nLoopCount] == NULL) && (nSupLoopCount < 6); nSupLoopCount++)
-            pResult->ppEdge[nLoopCount] = (int *)malloc(sizeof(int) * _nNodeCount_);
-        printf("nLoopCount: %d", nLoopCount);
+        // 메모리 할당 시도
+        pResult->ppEdge[nLoopCount] = (int *)malloc(sizeof(int) * _nNodeCount_);
         // 메모리 할당 실패
-        if (pResult->ppEdge[nLoopCount] == NULL)
+        if (ISNULL_ERROR(pResult->ppEdge[nLoopCount]))
         {
-            printf("Memory Allocate Error: createDirectArrayGraph()\n");
             for (nLoopCount = nLoopCount - 1; nLoopCount >= 0; nLoopCount--)
                 free(pResult->ppEdge[nLoopCount]);
             free(pResult);
             return NULL;
         }
-        printf("nLoopCount: %d", nLoopCount);
+
         // 할당 성공 시 0으로 초기화: 간선정보가 없는 상태로 세팅
-        // memset(pResult->ppEdge[nLoopCount], 0, sizeof(nLoopCount) * _nNodeCount_);
+        memset(pResult->ppEdge[nLoopCount], 0, sizeof(int) * _nNodeCount_);
     }
     /*
     Function: createDirectArrayGraph, Line: 50
