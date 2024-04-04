@@ -47,3 +47,4 @@ project(
 - [Mac os에서 CMake 사용하기](https://popcorn16.tistory.com/31)
 - https://answer-me.tistory.com/87
 - https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c
+- https://chat.openai.com/share/a9766652-c2f0-4db1-9c2e-a2dd1c61d38b
