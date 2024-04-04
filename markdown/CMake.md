@@ -1,5 +1,5 @@
 # 1. CMake?
-- VSCode에는 링커를 관리하는 기능이 따로 없다.
+- VSCode에는 프로젝트 내 소스 파일간의 연결(링크)를 관리하는 기능이 없다. -> 모듈화 할때에러
 - windows 나 Mac 을 옮겨가며 프로젝트를 진행하다 보면 하나의 세팅으로 두 운영체제에 적용이 가능해야 한다.
 - 프로젝트 빌드를 위해 빌드 프로그램을 사용해야 하는데 대표적으로 make 또는 Ninja 같은 프로그램을 사용해 빌드를 한다.
 - 대부분 make를 사용하는데 make로 빌드 할 수 있도록 프로젝트를 관리해야 하는데 이를 도와주는 프로그램이 CMake를 사용한다.
@@ -15,8 +15,8 @@
 - 터미널에 ```brew install cmake```를 실행하면 CMake를 설치할 수 있다.
 - 설치가 끝나면 ```cmake --version```를 실행해서 설치 여부 확인할 수 있다.
 
-# 3. Basic
-- CMake를 사용하는 모든 프로젝트에는 **반드시** 프로젝트 최상위 디렉토리에 [[CMakeList.txt]] 파일이 있어야 한다.
+# 3. CMakeList.txt 생성
+- CMake를 사용하는 모든 프로젝트에는 **반드시** 프로젝트 최상위 디렉토리에 CMakeList.txt 파일이 있어야 한다.
 - CMakeLists.txt > CMake > Makefile > make > 실행파일 순으로 컴파일된다.
 - 최상위 CMakeLists.txt 에는 반드시 아래 두 내용이 들어가야 된다.
 ```
@@ -38,6 +38,26 @@ project(
 - CMake에서 권장하는 빌드 파일 생성 방법으로 빌드 파일과 작업하는 디렉토리는 서로 분리한다.
   build 라는 별도의 폴더를 만들어 사용
 
+# 4. C/C++ 표준 설정
+- 프로젝트 빌드에 사용할 C/C++ 버전을 설정할 수 있다.
+```
+#c/c++ 표준 설정
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED True)
+```
+
+# 5. 소스파일 관계 설정
+- 생성할 실행 파일의 이름과 소스코드 파일의 연결 지을 수 있다.
+```
+add_executable(linkedGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeLinkedGraph.c ${SOURCE_DIR}/includeGenericStructure.c)
+```
+
+# 6. 변수?? 생성
+- 반복해서 사용하는 특정 값을 변수로 만들어 사용할 수 있다.
+```
+set(SOURCE_DIR source/DSNA/non-Linear)
+add_executable(linkedGraph ${SOURCE_DIR}/mainGraph.c) #<- 변수 사용 예시
+```
 # 참조
 - [What_CMake](https://growing-dev101.tistory.com/entry/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-CMake)
 - [sup_CMake_GIT](https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c?permalink_comment_id=2831356)
