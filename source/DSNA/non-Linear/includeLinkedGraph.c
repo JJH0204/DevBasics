@@ -6,13 +6,13 @@
 #include "includeLinkedGraph.h"
 #include "includeGenericStructure.h"
 
-DirectLinkedGraph *createDirectLinkedGraph(const int _nNodeCount_)
+LinkedGraph *createLinkedGraph(int _nGraphType_, const int _nNodeCount_)
 {
     int nLoopCount = 0;
-    DirectLinkedGraph *pResult = NULL;
+    LinkedGraph *pResult = NULL;
 
     // DirectArrayGraph 메모리 할당 및 검증
-    pResult = (DirectLinkedGraph *)malloc(sizeof(DirectLinkedGraph));
+    pResult = (LinkedGraph *)malloc(sizeof(LinkedGraph));
     if (ISNULL_ERROR(pResult))
         return NULL;
 
@@ -24,6 +24,7 @@ DirectLinkedGraph *createDirectLinkedGraph(const int _nNodeCount_)
     }
 
     // 1차원 배열을 저장할 포인터 변수를 할당 및 검증
+    pResult->nGraphType = _nGraphType_;
     pResult->nNodeCount = _nNodeCount_;
     pResult->ppAdjEdge = (list **)malloc(sizeof(list *) * _nNodeCount_);
     if (ISNULL_ERROR(pResult->ppAdjEdge))
@@ -48,22 +49,22 @@ DirectLinkedGraph *createDirectLinkedGraph(const int _nNodeCount_)
     return pResult;
 }
 
-bool addEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
+bool addEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
+    bool bResult = true;
     // 유효성 점검
-    if (ISNULL_ERROR(_pGraph_))
-        return true;
-
-    // 두 노드가 안전한 위치에 있는지 점검
-    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
-        return true;
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+        return bResult;
 
     // 간선 정보 저장
-    list_Add(_pGraph_->ppAdjEdge[_nFrom_], _nTo_);
-    return false;
+    bResult = list_Add(_pGraph_->ppAdjEdge[_nFrom_], _nTo_);
+    if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType)
+        bResult = list_Add(_pGraph_->ppAdjEdge[_nTo_], _nFrom_);
+
+    return bResult;
 }
 
-bool checkVertexValid_ERROR(DirectLinkedGraph *_pGraph_, int nNode)
+bool checkVertexValid_ERROR(LinkedGraph *_pGraph_, int nNode)
 {
     // 유효성 점검 || 노드가 노드 최대 보다 큰 위치 || 노드가 0 보다 낮은 위치
     if (ISNULL_ERROR(_pGraph_) || nNode >= _pGraph_->nNodeCount || nNode < 0)
@@ -72,9 +73,10 @@ bool checkVertexValid_ERROR(DirectLinkedGraph *_pGraph_, int nNode)
     return false;
 }
 
-bool removeEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
+bool removeEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     list *pList = NULL;
+    bool bResult = true;
     int nCount = 0, nLoopCount = 0;
     // 유효성 점검 // 두 노드가 안전한 위치에 있는지 점검
     if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
@@ -83,7 +85,7 @@ bool removeEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
     pList = _pGraph_->ppAdjEdge[_nFrom_];
     nCount = pList->nCurrentCount;
 
-    for (; nLoopCount < nCount; nLoopCount++)
+    for (nLoopCount = 0; nLoopCount < nCount; nLoopCount++)
     {
         if (list_Get(pList, nLoopCount) == _nTo_)
         {
@@ -92,11 +94,26 @@ bool removeEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
             break;
         }
     }
+    if (_pGraph_->nGraphType == UNDIRECT_TYPE)
+    {
+        pList = _pGraph_->ppAdjEdge[_nTo_];
+        nCount = pList->nCurrentCount;
+
+        for (nLoopCount = 0; nLoopCount < nCount; nLoopCount++)
+        {
+            if (list_Get(pList, nLoopCount) == _nFrom_)
+            {
+                // 간선 정보 삭제
+                list_Remove(pList, nLoopCount);
+                break;
+            }
+        }
+    }
 
     return false;
 }
 
-int getEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
+int getEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     list *pList = NULL;
     int nCount = 0, nLoopCount = 0;
@@ -113,12 +130,11 @@ int getEdge(DirectLinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
         {
             return 1;
         }
-        
     }
     return 0;
 }
 
-void displayGraph(DirectLinkedGraph *_pGraph_)
+void displayGraph(LinkedGraph *_pGraph_)
 {
     int nLoopCount = 0, nRow = 0, nColumn = 0;
 
@@ -141,7 +157,7 @@ void displayGraph(DirectLinkedGraph *_pGraph_)
     return;
 }
 
-bool deleteGraph(DirectLinkedGraph *_pGraph_)
+bool deleteGraph(LinkedGraph *_pGraph_)
 {
     int nLoopCount = 0;
 

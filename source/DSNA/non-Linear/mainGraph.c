@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define _ArrayGraph_
+// #define _ArrayGraph_
 
 #ifdef _ArrayGraph_
 
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     addEdge(pArrayGraph, 4, 5);
     addEdge(pArrayGraph, 5, 3);
 
-    printf("> ArrayGraph: non-Digraph\n");
+    printf("> ArrayGraph: UNDIRECT\n");
     displayGraph(pArrayGraph);
     deleteGraph(pArrayGraph);
     return 0;
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 {
     int nNodeCount = 6;
 
-    DirectLinkedGraph *pLinkedGraph = createDirectLinkedGraph(nNodeCount);
+    LinkedGraph *pLinkedGraph = createLinkedGraph(UNDIRECT_TYPE, nNodeCount);
 
     if (ISNULL_ERROR(pLinkedGraph))
         return -1;
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
     addEdge(pLinkedGraph, 4, 5);
     addEdge(pLinkedGraph, 5, 3);
 
-    printf("> LinkedGraph: Digraph\n");
+    printf("> LinkedGraph: UNDIRECT\n");
     displayGraph(pLinkedGraph);
     deleteGraph(pLinkedGraph);
     return 0;
@@ -90,4 +90,14 @@ int main(int argc, char *argv[])
 0 0 0 0 0 1
 0 0 0 1 0 0
 */
+/*.\LinkedGraph.exe
+> LinkedGraph: UNDIRECT
+0 1 1 0 0 0
+1 0 1 0 0 0
+1 1 0 1 0 0
+0 0 1 0 1 1
+0 0 0 1 0 1
+0 0 0 1 1 0
+*/
+
 #endif
