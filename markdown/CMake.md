@@ -37,6 +37,14 @@ project(
 - 실행 파일을 빌드하기 위해서 CMakeLists.txt 와 소스코드 파일은 같은 경로에 있어야 한다.
 - CMake에서 권장하는 빌드 파일 생성 방법으로 빌드 파일과 작업하는 디렉토리는 서로 분리한다.
   build 라는 별도의 폴더를 만들어 사용
+- 사용 예시
+```
+# CMake 최소 버전 설정
+cmake_minimum_required(VERSION 3.11)
+
+# 프로젝트 설정
+project(DEVBASICS VERSION 0.1 LANGUAGES C)
+```
 
 # 4. C/C++ 표준 설정
 - 프로젝트 빌드에 사용할 C/C++ 버전을 설정할 수 있다.
@@ -57,6 +65,24 @@ add_executable(linkedGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeLinked
 ```
 set(SOURCE_DIR source/DSNA/non-Linear)
 add_executable(linkedGraph ${SOURCE_DIR}/mainGraph.c) #<- 변수 사용 예시
+```
+
+# 7. 추가 라이브러리 설정
+- .h파일 같이 라이브러리를 한 폴더에서 관리할 경우 아래와 같이 해당 폴더를 프로젝트에 추가할 수 있다.
+```
+# 추가 라이브러리 링크 혹은 옵션 지정
+include_directories(include)
+```
+
+# 8. 빌드 환경에 따라 프로젝트 설정 바꾸는 방법
+```
+if(WIN32)
+    # windows 설정
+
+elseif(APPLE)
+    # mac 설정
+
+endif()
 ```
 # 참조
 - [What_CMake](https://growing-dev101.tistory.com/entry/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-CMake)
