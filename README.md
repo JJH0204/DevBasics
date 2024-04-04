@@ -13,6 +13,10 @@
 ## 필수 조건
 - 각 개념을 실습하며, 작은 프로젝트 또는 알고리즘을 해결하며 이론과 실제를 연결합니다.
 
+## 준비
+- [ **VSCode Setup** ](markdown/VSCode_Setup.md)
+- [ **Using Cmake** ](markdown/CMake.md)
+
 ## 학습 과정
 
 <details>
