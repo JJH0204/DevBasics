@@ -84,6 +84,33 @@ elseif(APPLE)
 
 endif()
 ```
+
+# 9. CMake를 활용한 빌드 방법
+## 9.1. windows
+```
+cd build/build_win
+cmake -G "MinGW Makefiles" ../../
+cmake --build .
+```
+- 빌드를 위한 make 파일 생성이 우선
+- make 파일을 생성할 폴더로 이동 후 make 명령어 실행
+- 이후 빌드 진행
+
+## 9.2. mac
+```
+cd build/build_mac
+cmake ../../
+make
+```
+- windows 명령어 사용과 같은 방식이지만 명령어가 조금 다르다.
+
+## 9.3. 약간의 꼼수
+- 빌드나 테스트를 위해 터미널에 명령어를 하나 하나 정성껏 입력하는 것은 매우 번거로운 일이다.
+- 실행 파일로 만들어 빌드가 필요할 때 실행시키는 것이 좋을 것 같아 실행파일을 만드었다.
+- [windows 빌드 실행 파일](/build_win.bat) , [mac 빌드 실행 파일](/build_mac.sh)
+- make 파일 생성(또는 빌드 후 실행 파일 생성)위치를 바꾸려면 위 예제를 보면서 직접 수정해야 한다.
+
+
 # 참조
 - [What_CMake](https://growing-dev101.tistory.com/entry/%EA%B0%9C%EB%B0%9C%ED%99%98%EA%B2%BD-CMake)
 - [sup_CMake_GIT](https://gist.github.com/luncliff/6e2d4eb7ca29a0afd5b592f72b80cb5c?permalink_comment_id=2831356)
