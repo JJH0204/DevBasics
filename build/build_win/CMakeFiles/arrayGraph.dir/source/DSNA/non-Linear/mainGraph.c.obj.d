@@ -1,4 +1,4 @@
-CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: \
+CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: \
  E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainGraph.c \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/stdio.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/crtdefs.h \
@@ -22,5 +22,4 @@ CMakeFiles/arrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: \
  C:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/string.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
- E:/Document/GitHub/DevBasics/include/includeLinkedGraph.h \
- E:/Document/GitHub/DevBasics/include/includeGenericStructure.h
+ E:/Document/GitHub/DevBasics/include/includeArrayGraph.h

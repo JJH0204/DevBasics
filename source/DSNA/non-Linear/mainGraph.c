@@ -5,9 +5,9 @@
 #include <stdbool.h>
 #include <string.h>
 
-// #define ArrayGraph
+#define _ArrayGraph_
 
-#ifdef ArrayGraph
+#ifdef _ArrayGraph_
 
 #include "includeArrayGraph.h"
 
@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
     int nNodeCount = 6;
 
-    DirectArrayGraph *pArrayGraph = createDirectArrayGraph(nNodeCount);
+    ArrayGraph *pArrayGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
 
     if (ISNULL_ERROR(pArrayGraph))
         return -1;
@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     addEdge(pArrayGraph, 4, 5);
     addEdge(pArrayGraph, 5, 3);
 
-    printf("> ArrayGraph: Digraph\n");
+    printf("> ArrayGraph: non-Digraph\n");
     displayGraph(pArrayGraph);
     deleteGraph(pArrayGraph);
     return 0;
@@ -43,10 +43,18 @@ int main(int argc, char *argv[])
 0 0 0 0 0 1
 0 0 0 1 0 0
 */
-
+/*.\ArrayGraph.exe
+> ArrayGraph: non-Digraph
+0 1 1 0 0 0
+1 0 1 0 0 0
+1 1 0 1 0 0
+0 0 1 0 1 1
+0 0 0 1 0 1
+0 0 0 1 1 0
+*/
 #endif
 
-#ifndef ArrayGraph
+#ifndef _ArrayGraph_
 
 #include "includeLinkedGraph.h"
 
@@ -80,6 +88,6 @@ int main(int argc, char *argv[])
 1 0 0 1 0 0
 0 0 1 0 1 0
 0 0 0 0 0 1
-0 0 0 1 0 0 
+0 0 0 1 0 0
 */
 #endif

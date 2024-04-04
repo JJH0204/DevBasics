@@ -12,7 +12,7 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 set(SOURCE_DIR source/DSNA/non-Linear)
 
 # 소스 파일 지정
-add_executable(linkedGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeLinkedGraph.c ${SOURCE_DIR}/includeGenericStructure.c)
+add_executable(ArrayGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeArrayGraph.c)
 
 # 추가 라이브러리 링크 혹은 옵션 지정
 include_directories(include)

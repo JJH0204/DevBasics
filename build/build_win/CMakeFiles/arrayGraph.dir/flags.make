@@ -4,7 +4,7 @@
 # compile C with C:/Program Files/mingw64/bin/gcc.exe
 C_DEFINES = 
 
-C_INCLUDES = @CMakeFiles/arrayGraph.dir/includes_C.rsp
+C_INCLUDES = @CMakeFiles/ArrayGraph.dir/includes_C.rsp
 
 C_FLAGS = -std=gnu99
 

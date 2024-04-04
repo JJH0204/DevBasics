@@ -367,5 +367,112 @@ bool deleteGraph(DirectLinkedGraph *_pGraph_)
     return false;
 }
 ```
-# 무방향 그래프 구현
+# 4. 무방향 그래프 구현
+- **간선의 대칭성(symmetry)** 이라는 고유 특성을 갖고 있다. (방향성이 없는 간선이기 때문)
+- 인접 행렬에서 간선을 보았을 때 대칭 위치에 간선이 배치된다.
+- 행, 열이 서로 바뀐다.
 
+※ 인접 행렬로 구현한 그래프의 소스코드 일부를 수정해서 구현한다.
+
+## 4.1. 그래프 구조
+```c
+#define DIRECT_TYPE     0
+#define UNDIRECT_TYPE   1
+
+typedef struct ArrayGraph
+{
+    int nGraphType; // 그래프 종류: 방향 / 무방향
+    int nNodeCount; // 노드 개수 정보
+    int **ppEdge;   // 노드 개수 만큼 2차원 배열 할당할 포인터 변수
+} ArrayGraph;
+```
+
+## 4.2. 그래프 생성
+```c
+ArrayGraph *createArrayGraph(const int _nGraphType_, const int _nNodeCount_)
+{
+    int nLoopCount = 0;
+    ArrayGraph *pResult = NULL;
+
+    pResult = (ArrayGraph *)malloc(sizeof(ArrayGraph));
+    if (ISNULL_ERROR(pResult))
+        return NULL;
+    
+    pResult->nGraphType = _nGraphType_;     // 추가 사항
+    pResult->nNodeCount = _nNodeCount_;
+    pResult->ppEdge = (int **)malloc(sizeof(int *) * _nNodeCount_);
+    if (ISNULL_ERROR(pResult->ppEdge))
+    {
+        free(pResult);
+        return NULL;
+    }
+    
+    for (nLoopCount = 0; nLoopCount < _nNodeCount_; nLoopCount++)
+    {
+        pResult->ppEdge[nLoopCount] = (int *)malloc(sizeof(int) * _nNodeCount_);
+
+        if (ISNULL_ERROR(pResult->ppEdge[nLoopCount]))
+        {
+            for (nLoopCount = nLoopCount - 1; nLoopCount >= 0; nLoopCount--)
+                free(pResult->ppEdge[nLoopCount]);
+            free(pResult);
+            return NULL;
+        }
+
+        memset(pResult->ppEdge[nLoopCount], 0, sizeof(int) * _nNodeCount_);
+    }
+    return pResult;
+}
+```
+## 4.3. 간선 추가
+```c
+bool addEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    bool bResult = true;
+    if (ISNULL_ERROR(_pGraph_))
+        return true;
+
+    bResult = addEdgeInternal(_pGraph_, _nFrom_, _nTo_);
+    if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType)  // 무방향 그래프 일 경우 대칭 위치에 간선 추가
+    {
+        bResult = addEdgeInternal(_pGraph_, _nTo_, _nFrom_);
+    }
+    return bResult;
+}
+
+bool addEdgeInternal(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+        return true;
+
+    _pGraph_->ppEdge[_nFrom_][_nTo_] = 1;
+    return false;
+}
+```
+
+## 4.4. 간선 삭제
+```C
+bool removeEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    bool bResult = true;
+    if (ISNULL_ERROR(_pGraph_))
+        return bResult;
+    
+    bResult = removeEdgeInternal(_pGraph_, _nFrom_, _nTo_);
+    if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType)
+        bResult = removeEdgeInternal(_pGraph_, _nTo_, _nFrom_);
+    return bResult;
+}
+
+bool removeEdgeInternal(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+        return true;
+
+    _pGraph_->ppEdge[_nFrom_][_nTo_] = 0;
+    return false;
+}
+```
+## 4.5. 정리
+> 구조체의 정의에 간선의 종류를 추가, 
+> 간선 추가/삭제 시 간선 종류에 따라 반대 방향의 간선을 추가할지 여부를 결정한다.

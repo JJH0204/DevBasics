@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/linkedGraph.dir/all
+all: CMakeFiles/ArrayGraph.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/linkedGraph.dir/clean
+clean: CMakeFiles/ArrayGraph.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/linkedGraph.dir
+# Target rules for target CMakeFiles/ArrayGraph.dir
 
 # All Build rule for target.
-CMakeFiles/linkedGraph.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3,4 "Built target linkedGraph"
-.PHONY : CMakeFiles/linkedGraph.dir/all
+CMakeFiles/ArrayGraph.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3 "Built target ArrayGraph"
+.PHONY : CMakeFiles/ArrayGraph.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/linkedGraph.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/linkedGraph.dir/all
+CMakeFiles/ArrayGraph.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/ArrayGraph.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/linkedGraph.dir/rule
+.PHONY : CMakeFiles/ArrayGraph.dir/rule
 
 # Convenience name for target.
-linkedGraph: CMakeFiles/linkedGraph.dir/rule
-.PHONY : linkedGraph
+ArrayGraph: CMakeFiles/ArrayGraph.dir/rule
+.PHONY : ArrayGraph
 
 # clean rule for target.
-CMakeFiles/linkedGraph.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/clean
-.PHONY : CMakeFiles/linkedGraph.dir/clean
+CMakeFiles/ArrayGraph.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/clean
+.PHONY : CMakeFiles/ArrayGraph.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

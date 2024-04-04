@@ -116,72 +116,48 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named linkedGraph
+# Target rules for targets named ArrayGraph
 
 # Build rule for target.
-linkedGraph: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 linkedGraph
-.PHONY : linkedGraph
+ArrayGraph: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ArrayGraph
+.PHONY : ArrayGraph
 
 # fast build rule for target.
-linkedGraph/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/build
-.PHONY : linkedGraph/fast
+ArrayGraph/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/build
+.PHONY : ArrayGraph/fast
 
-source/DSNA/non-Linear/includeGenericStructure.obj: source/DSNA/non-Linear/includeGenericStructure.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.obj
-
-# target to build an object file
-source/DSNA/non-Linear/includeGenericStructure.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.obj
-
-source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
-
-# target to preprocess a source file
-source/DSNA/non-Linear/includeGenericStructure.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
-
-source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
-
-# target to generate assembly for a file
-source/DSNA/non-Linear/includeGenericStructure.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
-
-source/DSNA/non-Linear/includeLinkedGraph.obj: source/DSNA/non-Linear/includeLinkedGraph.c.obj
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.obj
+source/DSNA/non-Linear/includeArrayGraph.obj: source/DSNA/non-Linear/includeArrayGraph.c.obj
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.obj
 
 # target to build an object file
-source/DSNA/non-Linear/includeLinkedGraph.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.c.obj
+source/DSNA/non-Linear/includeArrayGraph.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.c.obj
 
-source/DSNA/non-Linear/includeLinkedGraph.i: source/DSNA/non-Linear/includeLinkedGraph.c.i
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.i
+source/DSNA/non-Linear/includeArrayGraph.i: source/DSNA/non-Linear/includeArrayGraph.c.i
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/includeLinkedGraph.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.i
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.c.i
+source/DSNA/non-Linear/includeArrayGraph.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.i
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.c.i
 
-source/DSNA/non-Linear/includeLinkedGraph.s: source/DSNA/non-Linear/includeLinkedGraph.c.s
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.s
+source/DSNA/non-Linear/includeArrayGraph.s: source/DSNA/non-Linear/includeArrayGraph.c.s
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/includeLinkedGraph.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.s
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.c.s
+source/DSNA/non-Linear/includeArrayGraph.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.s
+.PHONY : source/DSNA/non-Linear/includeArrayGraph.c.s
 
 source/DSNA/non-Linear/mainGraph.obj: source/DSNA/non-Linear/mainGraph.c.obj
 .PHONY : source/DSNA/non-Linear/mainGraph.obj
 
 # target to build an object file
 source/DSNA/non-Linear/mainGraph.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj
 .PHONY : source/DSNA/non-Linear/mainGraph.c.obj
 
 source/DSNA/non-Linear/mainGraph.i: source/DSNA/non-Linear/mainGraph.c.i
@@ -189,7 +165,7 @@ source/DSNA/non-Linear/mainGraph.i: source/DSNA/non-Linear/mainGraph.c.i
 
 # target to preprocess a source file
 source/DSNA/non-Linear/mainGraph.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.i
 .PHONY : source/DSNA/non-Linear/mainGraph.c.i
 
 source/DSNA/non-Linear/mainGraph.s: source/DSNA/non-Linear/mainGraph.c.s
@@ -197,7 +173,7 @@ source/DSNA/non-Linear/mainGraph.s: source/DSNA/non-Linear/mainGraph.c.s
 
 # target to generate assembly for a file
 source/DSNA/non-Linear/mainGraph.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\linkedGraph.dir\build.make CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.s
 .PHONY : source/DSNA/non-Linear/mainGraph.c.s
 
 # Help Target
@@ -208,13 +184,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... linkedGraph
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.obj
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.i
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.s
-	@echo ... source/DSNA/non-Linear/includeLinkedGraph.obj
-	@echo ... source/DSNA/non-Linear/includeLinkedGraph.i
-	@echo ... source/DSNA/non-Linear/includeLinkedGraph.s
+	@echo ... ArrayGraph
+	@echo ... source/DSNA/non-Linear/includeArrayGraph.obj
+	@echo ... source/DSNA/non-Linear/includeArrayGraph.i
+	@echo ... source/DSNA/non-Linear/includeArrayGraph.s
 	@echo ... source/DSNA/non-Linear/mainGraph.obj
 	@echo ... source/DSNA/non-Linear/mainGraph.i
 	@echo ... source/DSNA/non-Linear/mainGraph.s

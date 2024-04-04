@@ -15,17 +15,18 @@ bool isNull(const void *ptr, const char *funcName)
     return false;
 }
 
-DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
+ArrayGraph *createArrayGraph(const int _nGraphType_, const int _nNodeCount_)
 {
     int nLoopCount = 0;
-    DirectArrayGraph *pResult = NULL;
+    ArrayGraph *pResult = NULL;
 
     // DirectArrayGraph 메모리 할당 및 검증
-	pResult = (DirectArrayGraph *)malloc(sizeof(DirectArrayGraph));
+    pResult = (ArrayGraph *)malloc(sizeof(ArrayGraph));
     if (ISNULL_ERROR(pResult))
         return NULL;
-    
+
     // 1차원 배열을 저장할 포인터 변수를 할당 및 검증
+    pResult->nGraphType = _nGraphType_; // 추가 사항
     pResult->nNodeCount = _nNodeCount_;
     pResult->ppEdge = (int **)malloc(sizeof(int *) * _nNodeCount_);
     if (ISNULL_ERROR(pResult->ppEdge))
@@ -33,7 +34,7 @@ DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
         free(pResult);
         return NULL;
     }
-    
+
     // 행 별로 메모리를 할당하고 검증
     for (nLoopCount = 0; nLoopCount < _nNodeCount_; nLoopCount++)
     {
@@ -54,22 +55,28 @@ DirectArrayGraph *createDirectArrayGraph(int _nNodeCount_)
     return pResult;
 }
 
-bool addEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+bool addEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
-    // 유효성 점검
+    bool bResult = true;
     if (ISNULL_ERROR(_pGraph_))
         return true;
 
-    // 두 노드가 안전한 위치에 있는지 점검
-    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
+    bResult = addEdgeInternal(_pGraph_, _nFrom_, _nTo_);
+    if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType) // 무방향 그래프 일 경우 대칭 위치에 간선 추가
+        bResult = addEdgeInternal(_pGraph_, _nTo_, _nFrom_);
+    return bResult;
+}
+
+bool addEdgeInternal(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
         return true;
-    
-    // 간선 정보 저장
+
     _pGraph_->ppEdge[_nFrom_][_nTo_] = 1;
     return false;
 }
 
-bool checkVertexValid_ERROR(DirectArrayGraph *_pGraph_, int nNode)
+bool checkVertexValid_ERROR(ArrayGraph *_pGraph_, int nNode)
 {
     // 유효성 점검 || 노드가 노드 최대 보다 큰 위치 || 노드가 0 보다 낮은 위치
     if (ISNULL_ERROR(_pGraph_) || nNode >= _pGraph_->nNodeCount || nNode < 0)
@@ -78,22 +85,28 @@ bool checkVertexValid_ERROR(DirectArrayGraph *_pGraph_, int nNode)
     return false;
 }
 
-bool removeEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+bool removeEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
-    // 유효성 점검
+    bool bResult = true;
     if (ISNULL_ERROR(_pGraph_))
+        return bResult;
+    
+    bResult = removeEdgeInternal(_pGraph_, _nFrom_, _nTo_);
+    if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType)
+        bResult = removeEdgeInternal(_pGraph_, _nTo_, _nFrom_);
+    return bResult;
+}
+
+bool removeEdgeInternal(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+{
+    if (ISNULL_ERROR(_pGraph_) || checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
         return true;
 
-    // 두 노드가 안전한 위치에 있는지 점검
-    if (checkVertexValid_ERROR(_pGraph_, _nFrom_) || checkVertexValid_ERROR(_pGraph_, _nTo_))
-        return true;
-
-    // 간선 정보 삭제
     _pGraph_->ppEdge[_nFrom_][_nTo_] = 0;
     return false;
 }
 
-int getEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
+int getEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     // 유효성 점검
     if (ISNULL_ERROR(_pGraph_))
@@ -106,7 +119,7 @@ int getEdge(DirectArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
     return _pGraph_->ppEdge[_nFrom_][_nTo_];
 }
 
-void displayGraph(DirectArrayGraph *_pGraph_)
+void displayGraph(ArrayGraph *_pGraph_)
 {
     int nRow = 0, nColumn = 0;
 
@@ -122,7 +135,7 @@ void displayGraph(DirectArrayGraph *_pGraph_)
     return;
 }
 
-bool deleteGraph(DirectArrayGraph *_pGraph_)
+bool deleteGraph(ArrayGraph *_pGraph_)
 {
     int nLoopCount = 0;
 
