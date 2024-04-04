@@ -83,5 +83,6 @@
 </details>
 
 ## 참조
+* [GPT가 추천하는 프로그래머 준비과정](markdown/Curriculum_Advised_by_Chat_GPT.md)
 * [Learn-c.org](https://www.learn-c.org/)
 * [자료구조 입문](https://www.yes24.com/Product/Goods/28194882)
