@@ -5,20 +5,19 @@
 #include <stdbool.h>
 #include <string.h>
 
-// #define _ArrayGraph_
+#define _ArrayGraph_
 
 #ifdef _ArrayGraph_
-
 #include "includeArrayGraph.h"
 
-int main(int argc, char *argv[])
+void ex_PrintGraph(void)
 {
     int nNodeCount = 6;
 
     ArrayGraph *pArrayGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
 
     if (ISNULL_ERROR(pArrayGraph))
-        return -1;
+        return;
 
     addEdge(pArrayGraph, 0, 1);
     addEdge(pArrayGraph, 1, 2);
@@ -32,33 +31,37 @@ int main(int argc, char *argv[])
     printf("> ArrayGraph: UNDIRECT\n");
     displayGraph(pArrayGraph);
     deleteGraph(pArrayGraph);
-    return 0;
 }
-/*..\arrayGraph.exe
-> ArrayGraph: Digraph
-0 1 0 0 0 0
-0 0 1 0 0 0
-1 0 0 1 0 0
-0 0 1 0 1 0
-0 0 0 0 0 1
-0 0 0 1 0 0
-*/
-/*.\ArrayGraph.exe
-> ArrayGraph: non-Digraph
-0 1 1 0 0 0
-1 0 1 0 0 0
-1 1 0 1 0 0
-0 0 1 0 1 1
-0 0 0 1 0 1
-0 0 0 1 1 0
-*/
+
+void ex_DFS(void)
+{
+    int nNodeCount = 4;
+    ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
+    int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount);     // 노드 방문여부 체크용 배열 변수
+
+    if (ISNULL_ERROR(pGraph) || ISNULL_ERROR(pVisitNodes))
+        return;
+    
+    addEdge(pGraph, 0, 1);
+    addEdge(pGraph, 0, 2);
+    addEdge(pGraph, 1, 3);
+    
+    memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
+
+    printf("pGraph's DFS\n");
+    traversalDFS(pGraph, 0, pVisitNodes);       // 시작 노드를 0으로 깊이 우선 탐색(재귀함수) 호출(실행)
+
+    deleteGraph(pGraph);
+    free(pVisitNodes);
+    return;
+}
+
 #endif
 
 #ifndef _ArrayGraph_
-
 #include "includeLinkedGraph.h"
 
-int main(int argc, char *argv[])
+void ex_PrintGraph(void)
 {
     int nNodeCount = 6;
 
@@ -79,25 +82,51 @@ int main(int argc, char *argv[])
     printf("> LinkedGraph: UNDIRECT\n");
     displayGraph(pLinkedGraph);
     deleteGraph(pLinkedGraph);
-    return 0;
 }
-/*.\linkedGraph.exe
-> LinkedGraph: Digraph
-0 1 0 0 0 0
-0 0 1 0 0 0
-1 0 0 1 0 0
-0 0 1 0 1 0
-0 0 0 0 0 1
-0 0 0 1 0 0
-*/
-/*.\LinkedGraph.exe
-> LinkedGraph: UNDIRECT
-0 1 1 0 0 0
-1 0 1 0 0 0
-1 1 0 1 0 0
-0 0 1 0 1 1
-0 0 0 1 0 1
-0 0 0 1 1 0
-*/
+
+void ex_DFS(void)
+{
+    int nNodeCount = 4;
+    ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
+    int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount);
+
+    if (ISNULL_ERROR(pGraph) || ISNULL_ERROR(pVisitNodes))
+        return;
+
+    addEdge(pGraph, 0, 1);
+    addEdge(pGraph, 0, 2);
+    addEdge(pGraph, 1, 3);
+
+    memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
+
+    printf("pGraph's DFS\n");
+    traversalDFS(pGraph, 0, pVisitNodes);
+
+    deleteGraph(pGraph);
+    free(pVisitNodes);
+    return;
+}
 
 #endif
+
+int main(int argc, char *argv[])
+{
+    ex_PrintGraph();
+    ex_DFS();
+
+    return 0;
+}
+/*
+> ArrayGraph: UNDIRECT
+0 1 1 0 0 0 
+1 0 1 0 0 0 
+1 1 0 1 0 0 
+0 0 1 0 1 1 
+0 0 0 1 0 1 
+0 0 0 1 1 0 
+pGraph's DFS
+Node - [0] (visit)
+Node - [1] (visit)
+Node - [3] (visit)
+Node - [2] (visit)
+*/

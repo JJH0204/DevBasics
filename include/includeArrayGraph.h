@@ -23,4 +23,7 @@ bool removeEdgeInternal(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_);
 int getEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_);
 bool deleteGraph(ArrayGraph *_pGraph_);
 void displayGraph(ArrayGraph *_pGraph_);
+
+bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_);
+
 #endif

@@ -90,7 +90,7 @@ bool removeEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_)
     bool bResult = true;
     if (ISNULL_ERROR(_pGraph_))
         return bResult;
-    
+
     bResult = removeEdgeInternal(_pGraph_, _nFrom_, _nTo_);
     if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType)
         bResult = removeEdgeInternal(_pGraph_, _nTo_, _nFrom_);
@@ -146,5 +146,30 @@ bool deleteGraph(ArrayGraph *_pGraph_)
         free(_pGraph_->ppEdge[nLoopCount]);
     free(_pGraph_->ppEdge);
     free(_pGraph_);
+    return false;
+}
+
+bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_)
+{
+    int nLoopCount = 0;
+    if (ISNULL_ERROR(_pGraph_) || ISNULL_ERROR(_pVisitNodes_))
+        return true;
+
+    if ((_nStartNode_ > _pGraph_->nNodeCount) || (_nStartNode_ < 0))
+        return true;
+
+    _pVisitNodes_[_nStartNode_] = 1;
+    printf("Node - [%d] (visit)\n", _nStartNode_);
+    for (; nLoopCount < _pGraph_->nNodeCount; nLoopCount++)
+    {
+        // nLoopCount != _nStartNode_ : 현재 방문 중인 노드는 검색 대상에서 제외
+        // 0 != getEdge(_pGraph_, _nStartNode_, nLoopCount) : _nStartNode_와 nLoopCount 노드가 연결되었는지 확인
+        // 0 == _pVisitNodes_[nLoopCount]) : _nStartNode_와 연결된 nLoopCount 노드가 방문한적 있는 노드인지 확인
+        // 위 조건 모두 충족할 때 탐색 함수 실행
+        if ((nLoopCount != _nStartNode_) && (0 != getEdge(_pGraph_, _nStartNode_, nLoopCount)) && (0 == _pVisitNodes_[nLoopCount]))
+        {
+            traversalDFS(_pGraph_, nLoopCount, _pVisitNodes_);
+        }
+    }
     return false;
 }
