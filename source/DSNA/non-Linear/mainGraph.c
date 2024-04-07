@@ -56,6 +56,26 @@ void ex_DFS(void)
     return;
 }
 
+void ex_BFS(void)
+{
+    int nNodeCount = 4;
+    ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
+
+    if (ISNULL_ERROR(pGraph))
+        return;
+    
+    addEdge(pGraph, 0, 1);
+    addEdge(pGraph, 0, 2);
+    addEdge(pGraph, 1, 3);
+
+    printf("pGraph: BFS\n");
+    traversalBFS(pGraph, 0);
+
+    deleteGraph(pGraph);
+
+    return;
+}
+
 #endif
 
 #ifndef _ArrayGraph_
@@ -113,20 +133,26 @@ int main(int argc, char *argv[])
 {
     ex_PrintGraph();
     ex_DFS();
+    ex_BFS();
 
     return 0;
 }
 /*
 > ArrayGraph: UNDIRECT
-0 1 1 0 0 0 
-1 0 1 0 0 0 
-1 1 0 1 0 0 
-0 0 1 0 1 1 
-0 0 0 1 0 1 
-0 0 0 1 1 0 
+0 1 1 0 0 0
+1 0 1 0 0 0
+1 1 0 1 0 0
+0 0 1 0 1 1
+0 0 0 1 0 1
+0 0 0 1 1 0
 pGraph's DFS
 Node - [0] (visit)
 Node - [1] (visit)
 Node - [3] (visit)
 Node - [2] (visit)
+pGraph: BFS
+Node - [0] (visit)
+Node - [1] (visit)
+Node - [2] (visit)
+Node - [3] (visit)
 */

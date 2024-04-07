@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "ArrayGraph.pdb"
   "CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj"
   "CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.obj.d"
+  "CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj"
+  "CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj.d"
   "CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj"
   "CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj.d"
   "libArrayGraph.dll.a"

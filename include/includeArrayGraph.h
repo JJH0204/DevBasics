@@ -1,7 +1,8 @@
 #ifndef _GRAPH_
 #define _GRAPH_
+#include "includeGenericStructure.h"
 
-#define ISNULL_ERROR(ptr) isNull((ptr), __func__)
+// #define ISNULL_ERROR(ptr) isNull((ptr), __func__)
 #define PRINT_DEBUG() printf("Function: %s, Line: %d\n", __func__, __LINE__)
 
 #define DIRECT_TYPE     0
@@ -13,7 +14,7 @@ typedef struct ArrayGraph
     int nNodeCount; // 노드 개수 정보
     int **ppEdge;   // 노드 개수 만큼 2차원 배열 할당할 포인터 변수
 } ArrayGraph;
-bool isNull(const void *ptr, const char *funcName);
+// bool isNull(const void *ptr, const char *funcName);
 ArrayGraph *createArrayGraph(const int _nGraphType_, const int _nNodeCount_);
 bool addEdge(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_);
 bool addEdgeInternal(ArrayGraph *_pGraph_, int _nFrom_, int _nTo_);
@@ -25,5 +26,9 @@ bool deleteGraph(ArrayGraph *_pGraph_);
 void displayGraph(ArrayGraph *_pGraph_);
 
 bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_);
+bool traversalBFS(ArrayGraph *_pGraph_, int _nStartNode_);
+
+// TODO: traversalDFS_Loop
+bool traversalDFS_Loop(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_);
 
 #endif

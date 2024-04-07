@@ -3,17 +3,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <stdint.h>
 #include "includeArrayGraph.h"
 
-bool isNull(const void *ptr, const char *funcName)
-{
-    if (ptr == NULL)
-    {
-        printf("%s: Null Memory Access Error\n", funcName);
-        return true;
-    }
-    return false;
-}
+// bool isNull(const void *ptr, const char *funcName)
+// {
+//     if (ptr == NULL)
+//     {
+//         printf("%s: Null Memory Access Error\n", funcName);
+//         return true;
+//     }
+//     return false;
+// }
 
 ArrayGraph *createArrayGraph(const int _nGraphType_, const int _nNodeCount_)
 {
@@ -149,6 +150,7 @@ bool deleteGraph(ArrayGraph *_pGraph_)
     return false;
 }
 
+// 깊이 우선 탐색 그래프
 bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_)
 {
     int nLoopCount = 0;
@@ -171,5 +173,61 @@ bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_)
             traversalDFS(_pGraph_, nLoopCount, _pVisitNodes_);
         }
     }
+    return false;
+}
+// TODO: 깊이 우선 탐색 알고리즘 반복문으로 구현
+bool traversalDFS_Loop(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_)
+{
+    
+}
+
+// 넓이 우선 탐색 그래프
+bool traversalBFS(ArrayGraph *_pGraph_, int _nStartNode_)
+{
+    int nLoopCount = 0;
+    intptr_t nNodeIndex = 0;
+    queue *pQueue = NULL;
+    node *pQueueNode = NULL;
+    int *pVisitNode = NULL;
+
+    if (ISNULL_ERROR(_pGraph_))     // 함수 인자가 NULL이면 함수 종료
+        return true;
+
+    pQueue = queue_Create();        // 넓이 우선 탐색을 위한 대기열 (queue) 생성
+    pVisitNode = (int *)malloc(sizeof(int) * _pGraph_->nNodeCount);     // 노드 방문 여부 저장할 int 배열 동적 할당(노드 개수만큼 배열 생성)
+
+    if (ISNULL_ERROR(pQueue) || ISNULL_ERROR(pVisitNode))               // 위 Queue 나 int 배열이 NULL (메모리 할당 실패)이면 함수 종료
+        return true;
+    memset(pVisitNode, 0, sizeof(int) * _pGraph_->nNodeCount);          // int 배열 0으로 초기화
+
+    pVisitNode[_nStartNode_] = 1;               // 시작 노드를 첫 방문 정보로 저장
+    queue_enqueue(pQueue, (void *)(intptr_t)_nStartNode_);   // 시작 노드를 대기열에 추가
+
+    while (pQueue->nCurrentCount > 0)           // 대기열에 값이 있으면 반복
+    {
+        nNodeIndex = (intptr_t)queue_dequeue(pQueue); // 대기열에서 디큐(dequeue), pQueueNode에 저장
+
+        if (nNodeIndex > -1) // nNodeIndex 값이 있으면
+        {
+            printf("Node - [%d] (visit)\n", nNodeIndex); // 노드 방문 정보 출력
+
+            for (nLoopCount = 0; nLoopCount < _pGraph_->nNodeCount; nLoopCount++)       // 그래프의 노드 전체를 순회하도록 반복 설정
+            {
+                // nLoopCount != nNodeIndex : 순회 중인 노드가 현재 노드와 다른 노드이면 "참"
+                // 0 != getEdge(_pGraph_, nNodeIndex, nLoopCount) : 순회 중인 노드와 현재 노드가 연결되어있으면 "참"
+                // 0 == pVisitNode[nLoopCount] : 순회 중인 노드가 방문한적 없다면 "참"
+                // 위 세 조건이 모두 "참"이면 조건 충족
+                if ((nLoopCount != nNodeIndex) && (0 != getEdge(_pGraph_, nNodeIndex, nLoopCount)) && (0 == pVisitNode[nLoopCount]))
+                {
+                    pVisitNode[nLoopCount] = 1;             // 순회 중인 노드 방문 확인
+                    queue_enqueue(pQueue, (void *)(intptr_t)nLoopCount); // 순회 중인 노드 대기열 추가
+                }
+            }
+            free(pQueueNode);                   // 대기열에서 디큐(dequeue)한 노드 할당 해제
+        }
+    }
+    queue_Delete(pQueue);       // 탐색 종료 후 사용 끝난 queue 할당 해제
+    free(pVisitNode);           // 동적 할당한 int 배열 할당 해제
+
     return false;
 }

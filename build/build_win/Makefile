@@ -152,6 +152,30 @@ source/DSNA/non-Linear/includeArrayGraph.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeArrayGraph.c.s
 .PHONY : source/DSNA/non-Linear/includeArrayGraph.c.s
 
+source/DSNA/non-Linear/includeGenericStructure.obj: source/DSNA/non-Linear/includeGenericStructure.c.obj
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.obj
+
+# target to build an object file
+source/DSNA/non-Linear/includeGenericStructure.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.obj
+
+source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
+
+# target to preprocess a source file
+source/DSNA/non-Linear/includeGenericStructure.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
+
+source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
+
+# target to generate assembly for a file
+source/DSNA/non-Linear/includeGenericStructure.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
+
 source/DSNA/non-Linear/mainGraph.obj: source/DSNA/non-Linear/mainGraph.c.obj
 .PHONY : source/DSNA/non-Linear/mainGraph.obj
 
@@ -188,6 +212,9 @@ help:
 	@echo ... source/DSNA/non-Linear/includeArrayGraph.obj
 	@echo ... source/DSNA/non-Linear/includeArrayGraph.i
 	@echo ... source/DSNA/non-Linear/includeArrayGraph.s
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.obj
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.i
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.s
 	@echo ... source/DSNA/non-Linear/mainGraph.obj
 	@echo ... source/DSNA/non-Linear/mainGraph.i
 	@echo ... source/DSNA/non-Linear/mainGraph.s

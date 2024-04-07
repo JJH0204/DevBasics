@@ -79,3 +79,82 @@ bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_)
 - 반면 인접 리스트로 구현된 경우 n개의 노드를 방문하는 동안 각 노드에 연결된 간선 정보만 확인하기 때문에 $O(m+n)$라고 한다.
 
 ## 3. 넓이-우선 탐색
+- 다음 방문할 노드 선택 기준이 현재 방문한 노드가 아닌 이전에 방문했던 노드와 연결된 노드를 선택하는 알고리즘
+- 선입선출(FIFO)방식의 큐(queue)를 이용해 구현할 수 있다.
+### 3.1. 큐(queue) 활용
+- 탐색 전 초기 설정
+```c
+void ex_BFS(void)
+{
+    int nNodeCount = 4;
+    ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
+
+    if (ISNULL_ERROR(pGraph))
+        return;
+    
+    addEdge(pGraph, 0, 1);
+    addEdge(pGraph, 0, 2);
+    addEdge(pGraph, 1, 3);
+
+    printf("pGraph: BFS\n");
+    traversalBFS(pGraph, 0);    // 넓이-우선 탐색 함수 호출
+
+    deleteGraph(pGraph);
+
+    return;
+}
+```
+- 넓이 우선 탐색 함수
+```c
+// 넓이 우선 탐색 그래프
+bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_)
+{
+    int nLoopCount = 0;
+    int nNodeIndex = 0;
+    queue *pQueue = NULL;
+    node *pQueueNode = NULL;
+    int *pVisitNode = NULL;
+
+    if (ISNULL_ERROR(_pGraph_))     // 함수 인자가 NULL이면 함수 종료
+        return true;
+
+    pQueue = queue_Create();        // 넓이 우선 탐색을 위한 대기열 (queue) 생성
+    pVisitNode = (int *)malloc(sizeof(int) * _pGraph_->nNodeCount);     // 노드 방문 여부 저장할 int 배열 동적 할당(노드 개수만큼 배열 생성)
+
+    if (ISNULL_ERROR(pQueue) || ISNULL_ERROR(pVisitNode))               // 위 Queue 나 int 배열이 NULL (메모리 할당 실패)이면 함수 종료
+        return;
+    memset(pVisitNode, 0, sizeof(int) * _pGraph_->nNodeCount);          // int 배열 0으로 초기화
+
+    pVisitNode[_nStartNode_] = 1;               // 시작 노드를 첫 방문 정보로 저장
+    queue_enqueue(pQueue, (int)_nStartNode_);   // 시작 노드를 대기열에 추가
+
+    while (pQueue->nCurrentCount > 0)           // 대기열에 값이 있으면 반복
+    {
+        pQueueNode = queue_dequeue(pQueue);     // 대기열에서 디큐(dequeue), pQueueNode에 저장
+
+        if (pQueueNode != NULL)                 // pQueueNode에 값이 있으면
+        {
+            nNodeIndex = (int)pQueueNode->nodeData;         // 노드 방문 정보 출력
+            printf("Node - [%d] (visit)\n", nNodeIndex);
+
+            for (nLoopCount = 0; nLoopCount < _pGraph_->nNodeCount; nLoopCount++)       // 그래프의 노드 전체를 순회하도록 반복 설정
+            {
+                // nLoopCount != nNodeIndex : 순회 중인 노드가 현재 노드와 다른 노드이면 "참"
+                // 0 != getEdge(_pGraph_, nNodeIndex, nLoopCount) : 순회 중인 노드와 현재 노드가 연결되어있으면 "참"
+                // 0 == pVisitNode[nLoopCount] : 순회 중인 노드가 방문한적 없다면 "참"
+                // 위 세 조건이 모두 "참"이면 조건 충족
+                if ((nLoopCount != nNodeIndex) && (0 != getEdge(_pGraph_, nNodeIndex, nLoopCount)) && (0 == pVisitNode[nLoopCount]))
+                {
+                    pVisitNode[nLoopCount] = 1;             // 순회 중인 노드 방문 확인
+                    queue_enqueue(pQueue, nLoopCount);      // 순회 중인 노드 대기열 추가
+                }
+            }
+            free(pQueueNode);                   // 대기열에서 디큐(dequeue)한 노드 할당 해제
+        }
+    }
+    queue_Delete(pQueue);       // 탐색 종료 후 사용 끝난 queue 할당 해제
+    free(pVisitNode);           // 동적 할당한 int 배열 할당 해제
+
+    return false;
+}
+```

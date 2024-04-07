@@ -80,12 +80,12 @@ clean: CMakeFiles/ArrayGraph.dir/clean
 CMakeFiles/ArrayGraph.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ArrayGraph.dir\build.make CMakeFiles/ArrayGraph.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3 "Built target ArrayGraph"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3,4 "Built target ArrayGraph"
 .PHONY : CMakeFiles/ArrayGraph.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ArrayGraph.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/ArrayGraph.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
 .PHONY : CMakeFiles/ArrayGraph.dir/rule
