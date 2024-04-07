@@ -1,5 +1,16 @@
 #ifndef __GENERIC_STRUCTURE__
 
+#include <stdint.h>
+/* <정수와 포인터 크기 불일치 경고 우려>
+- 32bit 운영체제에서 void * 와 int는 동일한 메모리 사이즈를 갖는다. (4byte)
+- 64bit 운영체제에서 void * 는 8 byte, int는 동일한 4 byte를 갖는다.
+- 이는 운영체제에 따라 참조하는 메모리 사이즈가 달라질 수 있다는 이야기 임으로 위험한 메모리 접근 방식이라 간주되어 컴파일러에서 막는다.
+- 포인터타입을 사용해 이를 보완할 수 있다. (stdint.h를 포함한 이유)
+- 사용 예시
+intptr_t nodeIndex = (intptr_t)pQueueNode->nodeData;
+queue_enqueue(pQueue, (void *)(intptr_t)nLoopCount);
+*/
+
 #define __GENERIC_STRUCTURE__
 #define __LINEDLIST_
 #define __STACK__

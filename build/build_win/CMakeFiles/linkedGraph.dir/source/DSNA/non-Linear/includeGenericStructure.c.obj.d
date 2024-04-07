@@ -20,4 +20,8 @@ CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj:
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
  C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/malloc.h \
  C:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
- E:/Document/GitHub/DevBasics/include/includeGenericStructure.h
+ E:/Document/GitHub/DevBasics/include/includeGenericStructure.h \
+ C:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h \
+ C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/stdint.h \
+ C:/PROGRA~1/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
+ C:/PROGRA~1/mingw64/x86_64-w64-mingw32/include/stddef.h

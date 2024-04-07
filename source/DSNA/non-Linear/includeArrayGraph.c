@@ -207,7 +207,7 @@ bool traversalBFS(ArrayGraph *_pGraph_, int _nStartNode_)
     {
         nNodeIndex = (intptr_t)queue_dequeue(pQueue); // 대기열에서 디큐(dequeue), pQueueNode에 저장
 
-        if (nNodeIndex > -1) // nNodeIndex 값이 있으면
+        if (nNodeIndex > -1) // 대기열에 가져온 값이 음수가 아니면 진행
         {
             printf("Node - [%d] (visit)\n", nNodeIndex); // 노드 방문 정보 출력
 

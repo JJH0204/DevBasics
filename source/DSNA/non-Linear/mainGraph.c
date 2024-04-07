@@ -37,19 +37,19 @@ void ex_DFS(void)
 {
     int nNodeCount = 4;
     ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
-    int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount);     // 노드 방문여부 체크용 배열 변수
+    int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount); // 노드 방문여부 체크용 배열 변수
 
     if (ISNULL_ERROR(pGraph) || ISNULL_ERROR(pVisitNodes))
         return;
-    
+
     addEdge(pGraph, 0, 1);
     addEdge(pGraph, 0, 2);
     addEdge(pGraph, 1, 3);
-    
+
     memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
 
     printf("pGraph's DFS\n");
-    traversalDFS(pGraph, 0, pVisitNodes);       // 시작 노드를 0으로 깊이 우선 탐색(재귀함수) 호출(실행)
+    traversalDFS(pGraph, 0, pVisitNodes); // 시작 노드를 0으로 깊이 우선 탐색(재귀함수) 호출(실행)
 
     deleteGraph(pGraph);
     free(pVisitNodes);
@@ -63,7 +63,7 @@ void ex_BFS(void)
 
     if (ISNULL_ERROR(pGraph))
         return;
-    
+
     addEdge(pGraph, 0, 1);
     addEdge(pGraph, 0, 2);
     addEdge(pGraph, 1, 3);
@@ -88,7 +88,7 @@ void ex_PrintGraph(void)
     LinkedGraph *pLinkedGraph = createLinkedGraph(UNDIRECT_TYPE, nNodeCount);
 
     if (ISNULL_ERROR(pLinkedGraph))
-        return -1;
+        return;
 
     addEdge(pLinkedGraph, 0, 1);
     addEdge(pLinkedGraph, 1, 2);
@@ -104,28 +104,28 @@ void ex_PrintGraph(void)
     deleteGraph(pLinkedGraph);
 }
 
-void ex_DFS(void)
-{
-    int nNodeCount = 4;
-    ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
-    int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount);
+// void ex_DFS(void)
+// {
+// int nNodeCount = 4;
+// ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
+// int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount);
 
-    if (ISNULL_ERROR(pGraph) || ISNULL_ERROR(pVisitNodes))
-        return;
+// if (ISNULL_ERROR(pGraph) || ISNULL_ERROR(pVisitNodes))
+//     return;
 
-    addEdge(pGraph, 0, 1);
-    addEdge(pGraph, 0, 2);
-    addEdge(pGraph, 1, 3);
+// addEdge(pGraph, 0, 1);
+// addEdge(pGraph, 0, 2);
+// addEdge(pGraph, 1, 3);
 
-    memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
+// memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
 
-    printf("pGraph's DFS\n");
-    traversalDFS(pGraph, 0, pVisitNodes);
+// printf("pGraph's DFS\n");
+// traversalDFS(pGraph, 0, pVisitNodes);
 
-    deleteGraph(pGraph);
-    free(pVisitNodes);
-    return;
-}
+// deleteGraph(pGraph);
+// free(pVisitNodes);
+// return;
+// }
 
 #endif
 

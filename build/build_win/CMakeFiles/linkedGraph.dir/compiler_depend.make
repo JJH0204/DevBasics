@@ -5,6 +5,8 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj:
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
+  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
+  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -18,6 +20,8 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj:
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_directx.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdint.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
@@ -28,6 +32,8 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj: E:/D
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
+  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
+  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -42,6 +48,8 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj: E:/D
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdint.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/string.h \
@@ -54,6 +62,8 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: E:/Document/G
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h \
   C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h \
+  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h \
+  C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
@@ -68,6 +78,8 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: E:/Document/G
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/string_s.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stddef.h \
+  C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdint.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdlib.h \
   C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/string.h \
@@ -79,8 +91,6 @@ CMakeFiles/linkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj: E:/Document/G
 
 E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/includeGenericStructure.c:
 
-C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h:
-
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/crtdefs.h:
@@ -89,11 +99,19 @@ C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw.h:
 
 C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/limits.h:
 
-C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h:
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stddef.h:
 
 C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed/syslimits.h:
 
 C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdbool.h:
+
+C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stddef.h:
+
+C:/Program\ Files/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/stdint.h:
+
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h:
+
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_pop.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/_mingw_print_push.h:
 
@@ -116,6 +134,8 @@ C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h:
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/string.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h:
+
+C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdint.h:
 
 C:/Program\ Files/mingw64/x86_64-w64-mingw32/include/stdio.h:
 

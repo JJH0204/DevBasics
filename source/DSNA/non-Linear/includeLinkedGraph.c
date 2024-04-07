@@ -63,9 +63,9 @@ bool addEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
         return bResult;
 
     // 간선 정보 저장
-    bResult = list_Add(_pGraph_->ppAdjEdge[_nFrom_], _nTo_);
+    bResult = list_Add(_pGraph_->ppAdjEdge[_nFrom_], (void *)(intptr_t)_nTo_);
     if (false == bResult && UNDIRECT_TYPE == _pGraph_->nGraphType)
-        bResult = list_Add(_pGraph_->ppAdjEdge[_nTo_], _nFrom_);
+        bResult = list_Add(_pGraph_->ppAdjEdge[_nTo_], (void *)(intptr_t)_nFrom_);
 
     return bResult;
 }
@@ -93,7 +93,7 @@ bool removeEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 
     for (nLoopCount = 0; nLoopCount < nCount; nLoopCount++)
     {
-        if (list_Get(pList, nLoopCount) == _nTo_)
+        if ((intptr_t)list_Get(pList, nLoopCount) == _nTo_)
         {
             // 간선 정보 삭제
             list_Remove(pList, nLoopCount);
@@ -107,7 +107,7 @@ bool removeEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 
         for (nLoopCount = 0; nLoopCount < nCount; nLoopCount++)
         {
-            if (list_Get(pList, nLoopCount) == _nFrom_)
+            if ((intptr_t)list_Get(pList, nLoopCount) == _nFrom_)
             {
                 // 간선 정보 삭제
                 list_Remove(pList, nLoopCount);
@@ -132,7 +132,7 @@ int getEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 
     for (; nLoopCount < nCount; nLoopCount++)
     {
-        if (list_Get(pList, nLoopCount) == _nTo_)
+        if ((intptr_t)list_Get(pList, nLoopCount) == _nTo_)
         {
             return 1;
         }

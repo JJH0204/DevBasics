@@ -70,12 +70,12 @@ void *list_Get(list *_pList_, const int _nIndex_)
     node *pResult = NULL;
 
     if (ISNULL_ERROR(_pList_) || ISEMPTY_List(_pList_))
-        return -1;
+        return NULL;
 
     if (_nIndex_ >= _pList_->nCurrentCount || _nIndex_ < 0)
     {
         printf("%s: Memory access error.\n", __func__);
-        return -1;
+        return NULL;
     }
 
     pResult = _pList_->pHead;
