@@ -28,7 +28,7 @@ typedef struct LinkedList
 // Func of Linked List
 list *list_Create(void);
 bool list_Add(list *_pList_, void *_data_);
-node *list_Get(list *_pList_, const int _nIndex_);
+void *list_Get(list *_pList_, const int _nIndex_);
 bool list_Remove(list *_pList_, const int _nIndex_);
 bool list_Delete(list *_pList_);
 

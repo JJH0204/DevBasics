@@ -34,20 +34,20 @@ list *list_Create(void)
     pResult->pHead = NULL;
     return pResult;
 }
-bool list_Add(list *_pList_, int _data_)
+bool list_Add(list *_pList_, void *_data_)
 {
     int nLoopCount = 0;
-    int_node *pNode = NULL;
-    int_node *pPreNode = NULL;
+    node *pNode = NULL;
+    node *pPreNode = NULL;
 
     if (ISNULL_ERROR(_pList_))
         return true;
 
-    pNode = (int_node *)malloc(sizeof(int_node));
+    pNode = (node *)malloc(sizeof(node));
     if (ISNULL_ERROR(pNode))
         return true;
 
-    pNode->nData = _data_;
+    pNode->nodeData = _data_;
     pNode->pNextNode = NULL;
 
     if (_pList_->pHead == NULL)
@@ -64,10 +64,10 @@ bool list_Add(list *_pList_, int _data_)
     _pList_->nCurrentCount++;
     return false;
 }
-int list_Get(list *_pList_, const int _nIndex_)
+void *list_Get(list *_pList_, const int _nIndex_)
 {
     int nLoopCount = 0;
-    int_node *pResult = NULL;
+    node *pResult = NULL;
 
     if (ISNULL_ERROR(_pList_) || ISEMPTY_List(_pList_))
         return -1;
@@ -81,13 +81,13 @@ int list_Get(list *_pList_, const int _nIndex_)
     pResult = _pList_->pHead;
     for (; nLoopCount < _nIndex_; nLoopCount++)
         pResult = pResult->pNextNode;
-    return pResult->nData;
+    return pResult->nodeData;
 }
 bool list_Remove(list *_pList_, const int _nIndex_)
 {
     int nLoopCount = 0;
-    int_node *pCurrentNode = NULL;
-    int_node *pPreviousNode = NULL;
+    node *pCurrentNode = NULL;
+    node *pPreviousNode = NULL;
 
     if (ISNULL_ERROR(_pList_) || ISEMPTY_List(_pList_))
         return true;
@@ -111,7 +111,7 @@ bool list_Remove(list *_pList_, const int _nIndex_)
 }
 bool list_Delete(list *_pList_)
 {
-    int_node *pTempNode = NULL;
+    node *pTempNode = NULL;
     if (ISNULL_ERROR(_pList_))
         return true;
 
