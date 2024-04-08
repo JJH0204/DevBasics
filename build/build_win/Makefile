@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SequentialSearch
+# Target rules for targets named SequentialIndexSearch
 
 # Build rule for target.
-SequentialSearch: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SequentialSearch
-.PHONY : SequentialSearch
+SequentialIndexSearch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SequentialIndexSearch
+.PHONY : SequentialIndexSearch
 
 # fast build rule for target.
-SequentialSearch/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/build
-.PHONY : SequentialSearch/fast
+SequentialIndexSearch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/build
+.PHONY : SequentialIndexSearch/fast
 
-source/DSNA/non-Linear/mainSequentialSearch.obj: source/DSNA/non-Linear/mainSequentialSearch.c.obj
-.PHONY : source/DSNA/non-Linear/mainSequentialSearch.obj
+source/DSNA/non-Linear/mainIndexSequentialSearch.obj: source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
+.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.obj
 
 # target to build an object file
-source/DSNA/non-Linear/mainSequentialSearch.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/source/DSNA/non-Linear/mainSequentialSearch.c.obj
-.PHONY : source/DSNA/non-Linear/mainSequentialSearch.c.obj
+source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
+.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
 
-source/DSNA/non-Linear/mainSequentialSearch.i: source/DSNA/non-Linear/mainSequentialSearch.c.i
-.PHONY : source/DSNA/non-Linear/mainSequentialSearch.i
+source/DSNA/non-Linear/mainIndexSequentialSearch.i: source/DSNA/non-Linear/mainIndexSequentialSearch.c.i
+.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainSequentialSearch.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/source/DSNA/non-Linear/mainSequentialSearch.c.i
-.PHONY : source/DSNA/non-Linear/mainSequentialSearch.c.i
+source/DSNA/non-Linear/mainIndexSequentialSearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.i
+.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.c.i
 
-source/DSNA/non-Linear/mainSequentialSearch.s: source/DSNA/non-Linear/mainSequentialSearch.c.s
-.PHONY : source/DSNA/non-Linear/mainSequentialSearch.s
+source/DSNA/non-Linear/mainIndexSequentialSearch.s: source/DSNA/non-Linear/mainIndexSequentialSearch.c.s
+.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainSequentialSearch.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/source/DSNA/non-Linear/mainSequentialSearch.c.s
-.PHONY : source/DSNA/non-Linear/mainSequentialSearch.c.s
+source/DSNA/non-Linear/mainIndexSequentialSearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.s
+.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... SequentialSearch
-	@echo ... source/DSNA/non-Linear/mainSequentialSearch.obj
-	@echo ... source/DSNA/non-Linear/mainSequentialSearch.i
-	@echo ... source/DSNA/non-Linear/mainSequentialSearch.s
+	@echo ... SequentialIndexSearch
+	@echo ... source/DSNA/non-Linear/mainIndexSequentialSearch.obj
+	@echo ... source/DSNA/non-Linear/mainIndexSequentialSearch.i
+	@echo ... source/DSNA/non-Linear/mainIndexSequentialSearch.s
 .PHONY : help
 
 
