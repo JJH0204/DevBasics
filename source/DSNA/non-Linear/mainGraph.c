@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <string.h>
 
-#define _ArrayGraph_
+// #define _ArrayGraph_
 
 #ifdef _ArrayGraph_
 #include "includeArrayGraph.h"
@@ -108,34 +108,41 @@ void ex_PrintGraph(void)
 
 // void ex_DFS(void)
 // {
-// int nNodeCount = 4;
-// ArrayGraph *pGraph = createArrayGraph(UNDIRECT_TYPE, nNodeCount);
-// int *pVisitNodes = (int *)malloc(sizeof(int) * nNodeCount);
-
-// if (ISNULL_ERROR(pGraph) || ISNULL_ERROR(pVisitNodes))
-//     return;
-
-// addEdge(pGraph, 0, 1);
-// addEdge(pGraph, 0, 2);
-// addEdge(pGraph, 1, 3);
-
-// memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
-
-// printf("pGraph's DFS\n");
-// traversalDFS(pGraph, 0, pVisitNodes);
-
-// deleteGraph(pGraph);
-// free(pVisitNodes);
-// return;
 // }
+
+void ex_PrintWeight(void)
+{
+    int nNodeCount = 6;
+
+    LinkedGraph *pLinkedGraph = createLinkedGraph(UNDIRECT_TYPE, nNodeCount);
+
+    if (ISNULL_ERROR(pLinkedGraph))
+        return;
+    addEdge_Weight(pLinkedGraph, 0, 1, 10);
+    addEdge_Weight(pLinkedGraph, 1, 2, 20);
+    addEdge_Weight(pLinkedGraph, 2, 0, 30);
+    addEdge_Weight(pLinkedGraph, 2, 3, 40);
+    addEdge_Weight(pLinkedGraph, 3, 2, 50);
+    addEdge_Weight(pLinkedGraph, 3, 4, 60);
+    addEdge_Weight(pLinkedGraph, 4, 5, 70);
+    addEdge_Weight(pLinkedGraph, 5, 3, 80);
+    printf("> Edge Weight: (%d, %d)\n", 3, 2);
+    printf("Result: %d\n", *getEdge_Weight(pLinkedGraph, 3, 2));
+    deleteGraph(pLinkedGraph);
+}
+/*
+> Edge Weight: (3, 2)
+Result: 40
+*/
 
 #endif
 
 int main(int argc, char *argv[])
 {
-    ex_PrintGraph();
-    ex_DFS();
-    ex_BFS();
+    // ex_PrintGraph();
+    // ex_DFS();
+    // ex_BFS();
+    ex_PrintWeight();
 
     return 0;
 }

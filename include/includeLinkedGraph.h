@@ -12,6 +12,12 @@ typedef struct LinkedGraph
     list **ppAdjEdge; // 간선 정보를 저장할 연결 리스트의 배열 이중 포인터 변수
 } LinkedGraph;
 
+typedef struct EdgeWeight
+{
+    int nEdge;
+    int nWeight;
+} Edge;
+
 LinkedGraph *createLinkedGraph(int _nGraphType_, const int _nNodeCount_);
 bool addEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_);
 bool checkVertexValid_ERROR(LinkedGraph *_pGraph_, int nNode);
