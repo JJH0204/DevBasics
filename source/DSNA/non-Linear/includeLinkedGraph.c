@@ -49,7 +49,7 @@ LinkedGraph *createLinkedGraph(int _nGraphType_, const int _nNodeCount_)
     return pResult;
 }
 
-// TODO: 간선에 가중치 추가
+// 간선에 가중치 추가
 bool addEdge_Weight(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_, int _nWeight_) 
 {
     Edge *newEdge = NULL;
@@ -158,7 +158,7 @@ int getEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
     return 0;
 }
 
-// TODO: 간선의 가중치 정보를 반환하는 함수 구현
+// 간선의 가중치 정보를 반환하는 함수 구현
 int *getEdge_Weight(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_)
 {
     list *pList = NULL;

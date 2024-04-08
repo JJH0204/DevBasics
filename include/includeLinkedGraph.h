@@ -26,8 +26,8 @@ int getEdge(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_);
 bool deleteGraph(LinkedGraph *_pGraph_);
 void displayGraph(LinkedGraph *_pGraph_);
 
-// TODO: 간선의 가중치 정보를 반환하는 함수 구현
+// 간선의 가중치 정보를 반환하는 함수 구현
 int *getEdge_Weight(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_);
-// TODO: 간선에 가중치 추가
+// 간선에 가중치 추가
 bool addEdge_Weight(LinkedGraph *_pGraph_, int _nFrom_, int _nTo_, int _nWeight_);
 #endif
