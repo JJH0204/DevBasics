@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/LinkedGraph.dir/all
+all: CMakeFiles/SequentialSearch.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/LinkedGraph.dir/clean
+clean: CMakeFiles/SequentialSearch.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/LinkedGraph.dir
+# Target rules for target CMakeFiles/SequentialSearch.dir
 
 # All Build rule for target.
-CMakeFiles/LinkedGraph.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3,4 "Built target LinkedGraph"
-.PHONY : CMakeFiles/LinkedGraph.dir/all
+CMakeFiles/SequentialSearch.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target SequentialSearch"
+.PHONY : CMakeFiles/SequentialSearch.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/LinkedGraph.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/LinkedGraph.dir/all
+CMakeFiles/SequentialSearch.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/SequentialSearch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/LinkedGraph.dir/rule
+.PHONY : CMakeFiles/SequentialSearch.dir/rule
 
 # Convenience name for target.
-LinkedGraph: CMakeFiles/LinkedGraph.dir/rule
-.PHONY : LinkedGraph
+SequentialSearch: CMakeFiles/SequentialSearch.dir/rule
+.PHONY : SequentialSearch
 
 # clean rule for target.
-CMakeFiles/LinkedGraph.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/clean
-.PHONY : CMakeFiles/LinkedGraph.dir/clean
+CMakeFiles/SequentialSearch.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/clean
+.PHONY : CMakeFiles/SequentialSearch.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

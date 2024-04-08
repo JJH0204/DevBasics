@@ -116,89 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named LinkedGraph
+# Target rules for targets named SequentialSearch
 
 # Build rule for target.
-LinkedGraph: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 LinkedGraph
-.PHONY : LinkedGraph
+SequentialSearch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SequentialSearch
+.PHONY : SequentialSearch
 
 # fast build rule for target.
-LinkedGraph/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/build
-.PHONY : LinkedGraph/fast
+SequentialSearch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/build
+.PHONY : SequentialSearch/fast
 
-source/DSNA/non-Linear/includeGenericStructure.obj: source/DSNA/non-Linear/includeGenericStructure.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.obj
-
-# target to build an object file
-source/DSNA/non-Linear/includeGenericStructure.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.obj
-
-source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
-
-# target to preprocess a source file
-source/DSNA/non-Linear/includeGenericStructure.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
-
-source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
-
-# target to generate assembly for a file
-source/DSNA/non-Linear/includeGenericStructure.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
-
-source/DSNA/non-Linear/includeLinkedGraph.obj: source/DSNA/non-Linear/includeLinkedGraph.c.obj
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.obj
+source/DSNA/non-Linear/mainSequentialSearch.obj: source/DSNA/non-Linear/mainSequentialSearch.c.obj
+.PHONY : source/DSNA/non-Linear/mainSequentialSearch.obj
 
 # target to build an object file
-source/DSNA/non-Linear/includeLinkedGraph.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.obj
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.c.obj
+source/DSNA/non-Linear/mainSequentialSearch.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/source/DSNA/non-Linear/mainSequentialSearch.c.obj
+.PHONY : source/DSNA/non-Linear/mainSequentialSearch.c.obj
 
-source/DSNA/non-Linear/includeLinkedGraph.i: source/DSNA/non-Linear/includeLinkedGraph.c.i
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.i
-
-# target to preprocess a source file
-source/DSNA/non-Linear/includeLinkedGraph.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.i
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.c.i
-
-source/DSNA/non-Linear/includeLinkedGraph.s: source/DSNA/non-Linear/includeLinkedGraph.c.s
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.s
-
-# target to generate assembly for a file
-source/DSNA/non-Linear/includeLinkedGraph.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/includeLinkedGraph.c.s
-.PHONY : source/DSNA/non-Linear/includeLinkedGraph.c.s
-
-source/DSNA/non-Linear/mainGraph.obj: source/DSNA/non-Linear/mainGraph.c.obj
-.PHONY : source/DSNA/non-Linear/mainGraph.obj
-
-# target to build an object file
-source/DSNA/non-Linear/mainGraph.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.obj
-.PHONY : source/DSNA/non-Linear/mainGraph.c.obj
-
-source/DSNA/non-Linear/mainGraph.i: source/DSNA/non-Linear/mainGraph.c.i
-.PHONY : source/DSNA/non-Linear/mainGraph.i
+source/DSNA/non-Linear/mainSequentialSearch.i: source/DSNA/non-Linear/mainSequentialSearch.c.i
+.PHONY : source/DSNA/non-Linear/mainSequentialSearch.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainGraph.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.i
-.PHONY : source/DSNA/non-Linear/mainGraph.c.i
+source/DSNA/non-Linear/mainSequentialSearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/source/DSNA/non-Linear/mainSequentialSearch.c.i
+.PHONY : source/DSNA/non-Linear/mainSequentialSearch.c.i
 
-source/DSNA/non-Linear/mainGraph.s: source/DSNA/non-Linear/mainGraph.c.s
-.PHONY : source/DSNA/non-Linear/mainGraph.s
+source/DSNA/non-Linear/mainSequentialSearch.s: source/DSNA/non-Linear/mainSequentialSearch.c.s
+.PHONY : source/DSNA/non-Linear/mainSequentialSearch.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainGraph.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\LinkedGraph.dir\build.make CMakeFiles/LinkedGraph.dir/source/DSNA/non-Linear/mainGraph.c.s
-.PHONY : source/DSNA/non-Linear/mainGraph.c.s
+source/DSNA/non-Linear/mainSequentialSearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialSearch.dir\build.make CMakeFiles/SequentialSearch.dir/source/DSNA/non-Linear/mainSequentialSearch.c.s
+.PHONY : source/DSNA/non-Linear/mainSequentialSearch.c.s
 
 # Help Target
 help:
@@ -208,16 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... LinkedGraph
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.obj
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.i
-	@echo ... source/DSNA/non-Linear/includeGenericStructure.s
-	@echo ... source/DSNA/non-Linear/includeLinkedGraph.obj
-	@echo ... source/DSNA/non-Linear/includeLinkedGraph.i
-	@echo ... source/DSNA/non-Linear/includeLinkedGraph.s
-	@echo ... source/DSNA/non-Linear/mainGraph.obj
-	@echo ... source/DSNA/non-Linear/mainGraph.i
-	@echo ... source/DSNA/non-Linear/mainGraph.s
+	@echo ... SequentialSearch
+	@echo ... source/DSNA/non-Linear/mainSequentialSearch.obj
+	@echo ... source/DSNA/non-Linear/mainSequentialSearch.i
+	@echo ... source/DSNA/non-Linear/mainSequentialSearch.s
 .PHONY : help
 
 
