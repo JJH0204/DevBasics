@@ -49,7 +49,9 @@ void ex_DFS(void)
     memset(pVisitNodes, 0, sizeof(int) * nNodeCount);
 
     printf("pGraph's DFS\n");
-    traversalDFS(pGraph, 0, pVisitNodes); // 시작 노드를 0으로 깊이 우선 탐색(재귀함수) 호출(실행)
+    traversalDFS(pGraph, 0, pVisitNodes);   // 시작 노드를 0으로 깊이 우선 탐색(재귀함수) 호출(실행)
+    printf("pGraph's DFS_LOOP\n");
+    traversalDFS_Loop(pGraph, 0);           // 시작 노드를 0으로 깊이 우선 탐색(Loop) 호출(실행)
 
     deleteGraph(pGraph);
     free(pVisitNodes);

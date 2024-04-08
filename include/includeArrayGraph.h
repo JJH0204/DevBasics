@@ -27,8 +27,6 @@ void displayGraph(ArrayGraph *_pGraph_);
 
 bool traversalDFS(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_);
 bool traversalBFS(ArrayGraph *_pGraph_, int _nStartNode_);
-
-// TODO: traversalDFS_Loop
-bool traversalDFS_Loop(ArrayGraph *_pGraph_, int _nStartNode_, int *_pVisitNodes_);
+bool traversalDFS_Loop(ArrayGraph *_pGraph_, int _nStartNode_);
 
 #endif
