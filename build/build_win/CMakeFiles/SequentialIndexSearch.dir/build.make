@@ -68,29 +68,29 @@ include CMakeFiles/SequentialIndexSearch.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/SequentialIndexSearch.dir/flags.make
 
-CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj: CMakeFiles/SequentialIndexSearch.dir/flags.make
-CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj: CMakeFiles/SequentialIndexSearch.dir/includes_C.rsp
-CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainIndexSequentialSearch.c
-CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj: CMakeFiles/SequentialIndexSearch.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj -MF CMakeFiles\SequentialIndexSearch.dir\source\DSNA\non-Linear\mainIndexSequentialSearch.c.obj.d -o CMakeFiles\SequentialIndexSearch.dir\source\DSNA\non-Linear\mainIndexSequentialSearch.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainIndexSequentialSearch.c
+CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj: CMakeFiles/SequentialIndexSearch.dir/flags.make
+CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj: CMakeFiles/SequentialIndexSearch.dir/includes_C.rsp
+CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/Search/mainBinarySearch.c
+CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj: CMakeFiles/SequentialIndexSearch.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj -MF CMakeFiles\SequentialIndexSearch.dir\source\DSNA\Search\mainBinarySearch.c.obj.d -o CMakeFiles\SequentialIndexSearch.dir\source\DSNA\Search\mainBinarySearch.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\Search\mainBinarySearch.c
 
-CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.i"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainIndexSequentialSearch.c > CMakeFiles\SequentialIndexSearch.dir\source\DSNA\non-Linear\mainIndexSequentialSearch.c.i
+CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\Search\mainBinarySearch.c > CMakeFiles\SequentialIndexSearch.dir\source\DSNA\Search\mainBinarySearch.c.i
 
-CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.s"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\non-Linear\mainIndexSequentialSearch.c -o CMakeFiles\SequentialIndexSearch.dir\source\DSNA\non-Linear\mainIndexSequentialSearch.c.s
+CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\Search\mainBinarySearch.c -o CMakeFiles\SequentialIndexSearch.dir\source\DSNA\Search\mainBinarySearch.c.s
 
 # Object files for target SequentialIndexSearch
 SequentialIndexSearch_OBJECTS = \
-"CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj"
+"CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj"
 
 # External object files for target SequentialIndexSearch
 SequentialIndexSearch_EXTERNAL_OBJECTS =
 
-SequentialIndexSearch.exe: CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
+SequentialIndexSearch.exe: CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj
 SequentialIndexSearch.exe: CMakeFiles/SequentialIndexSearch.dir/build.make
 SequentialIndexSearch.exe: CMakeFiles/SequentialIndexSearch.dir/linkLibs.rsp
 SequentialIndexSearch.exe: CMakeFiles/SequentialIndexSearch.dir/objects1.rsp

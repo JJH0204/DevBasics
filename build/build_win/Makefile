@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SequentialIndexSearch
+# Target rules for targets named BinarySearch
 
 # Build rule for target.
-SequentialIndexSearch: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SequentialIndexSearch
-.PHONY : SequentialIndexSearch
+BinarySearch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 BinarySearch
+.PHONY : BinarySearch
 
 # fast build rule for target.
-SequentialIndexSearch/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/build
-.PHONY : SequentialIndexSearch/fast
+BinarySearch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/build
+.PHONY : BinarySearch/fast
 
-source/DSNA/non-Linear/mainIndexSequentialSearch.obj: source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
-.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.obj
+source/DSNA/Search/mainBinarySearch.obj: source/DSNA/Search/mainBinarySearch.c.obj
+.PHONY : source/DSNA/Search/mainBinarySearch.obj
 
 # target to build an object file
-source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
-.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj
+source/DSNA/Search/mainBinarySearch.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/source/DSNA/Search/mainBinarySearch.c.obj
+.PHONY : source/DSNA/Search/mainBinarySearch.c.obj
 
-source/DSNA/non-Linear/mainIndexSequentialSearch.i: source/DSNA/non-Linear/mainIndexSequentialSearch.c.i
-.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.i
+source/DSNA/Search/mainBinarySearch.i: source/DSNA/Search/mainBinarySearch.c.i
+.PHONY : source/DSNA/Search/mainBinarySearch.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainIndexSequentialSearch.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.i
-.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.c.i
+source/DSNA/Search/mainBinarySearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/source/DSNA/Search/mainBinarySearch.c.i
+.PHONY : source/DSNA/Search/mainBinarySearch.c.i
 
-source/DSNA/non-Linear/mainIndexSequentialSearch.s: source/DSNA/non-Linear/mainIndexSequentialSearch.c.s
-.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.s
+source/DSNA/Search/mainBinarySearch.s: source/DSNA/Search/mainBinarySearch.c.s
+.PHONY : source/DSNA/Search/mainBinarySearch.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainIndexSequentialSearch.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SequentialIndexSearch.dir\build.make CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.s
-.PHONY : source/DSNA/non-Linear/mainIndexSequentialSearch.c.s
+source/DSNA/Search/mainBinarySearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/source/DSNA/Search/mainBinarySearch.c.s
+.PHONY : source/DSNA/Search/mainBinarySearch.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... SequentialIndexSearch
-	@echo ... source/DSNA/non-Linear/mainIndexSequentialSearch.obj
-	@echo ... source/DSNA/non-Linear/mainIndexSequentialSearch.i
-	@echo ... source/DSNA/non-Linear/mainIndexSequentialSearch.s
+	@echo ... BinarySearch
+	@echo ... source/DSNA/Search/mainBinarySearch.obj
+	@echo ... source/DSNA/Search/mainBinarySearch.i
+	@echo ... source/DSNA/Search/mainBinarySearch.s
 .PHONY : help
 
 

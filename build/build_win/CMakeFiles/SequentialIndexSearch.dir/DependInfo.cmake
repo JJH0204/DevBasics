@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "E:/Document/GitHub/DevBasics/source/DSNA/non-Linear/mainIndexSequentialSearch.c" "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj" "gcc" "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj.d"
+  "E:/Document/GitHub/DevBasics/source/DSNA/Search/mainBinarySearch.c" "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj" "gcc" "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

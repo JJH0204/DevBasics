@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj"
-  "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/non-Linear/mainIndexSequentialSearch.c.obj.d"
+  "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj"
+  "CMakeFiles/SequentialIndexSearch.dir/source/DSNA/Search/mainBinarySearch.c.obj.d"
   "SequentialIndexSearch.exe"
   "SequentialIndexSearch.exe.manifest"
   "SequentialIndexSearch.pdb"
