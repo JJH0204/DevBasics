@@ -206,3 +206,5 @@ Key-65 (Search Fail)
 |  대상  | 정렬된 배열 |   이진 트리    |
 | 공통점 |    검색     |      검색      |
 - 효율적인 데이터 검색을 위해 기존 이진 트리에 몇 가지 제약 사항을 추가했다.
+
+### 4.1. [이진 검색 트리란?](/markdown/DataStructure/BinarySearchTree.md)
