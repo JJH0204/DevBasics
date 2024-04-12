@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named BinarySearch
+# Target rules for targets named BinarySearchTree
 
 # Build rule for target.
-BinarySearch: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 BinarySearch
-.PHONY : BinarySearch
+BinarySearchTree: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 BinarySearchTree
+.PHONY : BinarySearchTree
 
 # fast build rule for target.
-BinarySearch/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/build
-.PHONY : BinarySearch/fast
+BinarySearchTree/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/build
+.PHONY : BinarySearchTree/fast
 
-source/DSNA/Search/mainBinarySearch.obj: source/DSNA/Search/mainBinarySearch.c.obj
-.PHONY : source/DSNA/Search/mainBinarySearch.obj
+source/DSNA/Search/mainBinSearchTree.obj: source/DSNA/Search/mainBinSearchTree.c.obj
+.PHONY : source/DSNA/Search/mainBinSearchTree.obj
 
 # target to build an object file
-source/DSNA/Search/mainBinarySearch.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/source/DSNA/Search/mainBinarySearch.c.obj
-.PHONY : source/DSNA/Search/mainBinarySearch.c.obj
+source/DSNA/Search/mainBinSearchTree.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/source/DSNA/Search/mainBinSearchTree.c.obj
+.PHONY : source/DSNA/Search/mainBinSearchTree.c.obj
 
-source/DSNA/Search/mainBinarySearch.i: source/DSNA/Search/mainBinarySearch.c.i
-.PHONY : source/DSNA/Search/mainBinarySearch.i
+source/DSNA/Search/mainBinSearchTree.i: source/DSNA/Search/mainBinSearchTree.c.i
+.PHONY : source/DSNA/Search/mainBinSearchTree.i
 
 # target to preprocess a source file
-source/DSNA/Search/mainBinarySearch.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/source/DSNA/Search/mainBinarySearch.c.i
-.PHONY : source/DSNA/Search/mainBinarySearch.c.i
+source/DSNA/Search/mainBinSearchTree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/source/DSNA/Search/mainBinSearchTree.c.i
+.PHONY : source/DSNA/Search/mainBinSearchTree.c.i
 
-source/DSNA/Search/mainBinarySearch.s: source/DSNA/Search/mainBinarySearch.c.s
-.PHONY : source/DSNA/Search/mainBinarySearch.s
+source/DSNA/Search/mainBinSearchTree.s: source/DSNA/Search/mainBinSearchTree.c.s
+.PHONY : source/DSNA/Search/mainBinSearchTree.s
 
 # target to generate assembly for a file
-source/DSNA/Search/mainBinarySearch.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearch.dir\build.make CMakeFiles/BinarySearch.dir/source/DSNA/Search/mainBinarySearch.c.s
-.PHONY : source/DSNA/Search/mainBinarySearch.c.s
+source/DSNA/Search/mainBinSearchTree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/source/DSNA/Search/mainBinSearchTree.c.s
+.PHONY : source/DSNA/Search/mainBinSearchTree.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... BinarySearch
-	@echo ... source/DSNA/Search/mainBinarySearch.obj
-	@echo ... source/DSNA/Search/mainBinarySearch.i
-	@echo ... source/DSNA/Search/mainBinarySearch.s
+	@echo ... BinarySearchTree
+	@echo ... source/DSNA/Search/mainBinSearchTree.obj
+	@echo ... source/DSNA/Search/mainBinSearchTree.i
+	@echo ... source/DSNA/Search/mainBinSearchTree.s
 .PHONY : help
 
 
