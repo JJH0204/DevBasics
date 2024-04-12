@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define RECURSIVE
+// #define RECURSIVE
 
 #ifdef RECURSIVE
 int binarySearch(int * _pVal_, int _nStart_, int _nEnd_, int _nKey_)
@@ -23,8 +23,19 @@ int binarySearch(int * _pVal_, int _nStart_, int _nEnd_, int _nKey_)
 #ifndef RECURSIVE
 int binarySearch(int *_pVal_, int _nStart_, int _nEnd_, int _nKey_)
 {
-    // TODO: 반복문으로 이진 탐색 구현
-    
+    int nMiddleIndex = 0;
+    while (_nStart_ <= _nEnd_)
+    {
+        nMiddleIndex = (_nStart_ + _nEnd_) / 2;
+
+        if (_nKey_ == _pVal_[nMiddleIndex])
+            return nMiddleIndex;
+        else if (_nKey_ < _pVal_[nMiddleIndex])
+            _nEnd_ = nMiddleIndex - 1;
+        else
+            _nStart_ = nMiddleIndex + 1;
+    }
+    return -1;
 }
 #endif
 int main(int argc, char * argv[])

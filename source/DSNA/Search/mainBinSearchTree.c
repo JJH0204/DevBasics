@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define DEBUG() printf("func: %s, line: %d\n", __func__, __LINE__)
 // 이진 트리 노드
 typedef struct NODE
 {
@@ -57,12 +58,11 @@ bool deleteBinSearchTreeNode(node *pNode);
 // 메인함수
 int main(int argc, char *argv[])
 {
-    // TODO: 무한루프 해결...
     binSearchTree *pTree = NULL;
     node *pSearchNode = NULL;
 
     int nKey = 0;
-    pTree = createBinSearchTree();
+    pTree = createBinSearchTree(); // 메모리를 할당한 후에는 꼭 저장하는 값을 초기화 해주자... 이거 때문에 insertData()가 제대로 작동하지 않음...
     if (pTree == NULL)
         return -1;
     
@@ -107,6 +107,7 @@ binSearchTree *createBinSearchTree()
     binSearchTree *pResult = (binSearchTree *)malloc(sizeof(binSearchTree));
     if (pResult == NULL)
         return NULL;
+    pResult->pROOT = NULL;
     return pResult;
 }
 
@@ -136,14 +137,14 @@ bool insertData(binSearchTree *_pTree_, int _nKey_, char _cVal_)
 
     if (_pTree_ == NULL) // 유효성 점검
         return true;
-
     // 새 노드 생성
     pNewNode = (node *)malloc(sizeof(node));
     if (pNewNode == NULL)
         return true;
     pNewNode->cVal = _cVal_;
     pNewNode->nKey = _nKey_;
-    pNewNode->pLeftChild = pNewNode->pRightChild = NULL;
+    pNewNode->pLeftChild = NULL;
+    pNewNode->pRightChild = NULL;
 
     // 새 노드를 추가할 부모 노드를 찾고 노드 추가
     pParentNode = getParentNode(_pTree_->pROOT, _nKey_);
@@ -153,7 +154,6 @@ bool insertData(binSearchTree *_pTree_, int _nKey_, char _cVal_)
         pParentNode->pLeftChild = pNewNode;
     else
         pParentNode->pRightChild = pNewNode;
-
     // 노드 추가하고 함수 종료
     return false;
 }
@@ -161,7 +161,6 @@ bool insertData(binSearchTree *_pTree_, int _nKey_, char _cVal_)
 node *getParentNode(node *_pCurrentNode_, int _nKey_)
 {
     node *pParentNode = NULL;
-
     while (_pCurrentNode_ != NULL)
     {
         if (_nKey_ == _pCurrentNode_->nKey)
