@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named BinarySearchTree
+# Target rules for targets named finding_val
 
 # Build rule for target.
-BinarySearchTree: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 BinarySearchTree
-.PHONY : BinarySearchTree
+finding_val: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 finding_val
+.PHONY : finding_val
 
 # fast build rule for target.
-BinarySearchTree/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/build
-.PHONY : BinarySearchTree/fast
+finding_val/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/build
+.PHONY : finding_val/fast
 
-source/DSNA/Search/mainBinSearchTree.obj: source/DSNA/Search/mainBinSearchTree.c.obj
-.PHONY : source/DSNA/Search/mainBinSearchTree.obj
+source/DSNA/Algorithm_Practice/Practice_1.obj: source/DSNA/Algorithm_Practice/Practice_1.c.obj
+.PHONY : source/DSNA/Algorithm_Practice/Practice_1.obj
 
 # target to build an object file
-source/DSNA/Search/mainBinSearchTree.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/source/DSNA/Search/mainBinSearchTree.c.obj
-.PHONY : source/DSNA/Search/mainBinSearchTree.c.obj
+source/DSNA/Algorithm_Practice/Practice_1.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/source/DSNA/Algorithm_Practice/Practice_1.c.obj
+.PHONY : source/DSNA/Algorithm_Practice/Practice_1.c.obj
 
-source/DSNA/Search/mainBinSearchTree.i: source/DSNA/Search/mainBinSearchTree.c.i
-.PHONY : source/DSNA/Search/mainBinSearchTree.i
+source/DSNA/Algorithm_Practice/Practice_1.i: source/DSNA/Algorithm_Practice/Practice_1.c.i
+.PHONY : source/DSNA/Algorithm_Practice/Practice_1.i
 
 # target to preprocess a source file
-source/DSNA/Search/mainBinSearchTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/source/DSNA/Search/mainBinSearchTree.c.i
-.PHONY : source/DSNA/Search/mainBinSearchTree.c.i
+source/DSNA/Algorithm_Practice/Practice_1.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/source/DSNA/Algorithm_Practice/Practice_1.c.i
+.PHONY : source/DSNA/Algorithm_Practice/Practice_1.c.i
 
-source/DSNA/Search/mainBinSearchTree.s: source/DSNA/Search/mainBinSearchTree.c.s
-.PHONY : source/DSNA/Search/mainBinSearchTree.s
+source/DSNA/Algorithm_Practice/Practice_1.s: source/DSNA/Algorithm_Practice/Practice_1.c.s
+.PHONY : source/DSNA/Algorithm_Practice/Practice_1.s
 
 # target to generate assembly for a file
-source/DSNA/Search/mainBinSearchTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/source/DSNA/Search/mainBinSearchTree.c.s
-.PHONY : source/DSNA/Search/mainBinSearchTree.c.s
+source/DSNA/Algorithm_Practice/Practice_1.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/source/DSNA/Algorithm_Practice/Practice_1.c.s
+.PHONY : source/DSNA/Algorithm_Practice/Practice_1.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... BinarySearchTree
-	@echo ... source/DSNA/Search/mainBinSearchTree.obj
-	@echo ... source/DSNA/Search/mainBinSearchTree.i
-	@echo ... source/DSNA/Search/mainBinSearchTree.s
+	@echo ... finding_val
+	@echo ... source/DSNA/Algorithm_Practice/Practice_1.obj
+	@echo ... source/DSNA/Algorithm_Practice/Practice_1.i
+	@echo ... source/DSNA/Algorithm_Practice/Practice_1.s
 .PHONY : help
 
 

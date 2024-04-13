@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/BinarySearchTree.dir/all
+all: CMakeFiles/finding_val.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/BinarySearchTree.dir/clean
+clean: CMakeFiles/finding_val.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/BinarySearchTree.dir
+# Target rules for target CMakeFiles/finding_val.dir
 
 # All Build rule for target.
-CMakeFiles/BinarySearchTree.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target BinarySearchTree"
-.PHONY : CMakeFiles/BinarySearchTree.dir/all
+CMakeFiles/finding_val.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target finding_val"
+.PHONY : CMakeFiles/finding_val.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/BinarySearchTree.dir/rule: cmake_check_build_system
+CMakeFiles/finding_val.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/BinarySearchTree.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/finding_val.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/BinarySearchTree.dir/rule
+.PHONY : CMakeFiles/finding_val.dir/rule
 
 # Convenience name for target.
-BinarySearchTree: CMakeFiles/BinarySearchTree.dir/rule
-.PHONY : BinarySearchTree
+finding_val: CMakeFiles/finding_val.dir/rule
+.PHONY : finding_val
 
 # clean rule for target.
-CMakeFiles/BinarySearchTree.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BinarySearchTree.dir\build.make CMakeFiles/BinarySearchTree.dir/clean
-.PHONY : CMakeFiles/BinarySearchTree.dir/clean
+CMakeFiles/finding_val.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/clean
+.PHONY : CMakeFiles/finding_val.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

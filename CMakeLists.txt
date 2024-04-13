@@ -9,14 +9,24 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 # 소스 파일의 경로를 변수에 설정
-# set(SOURCE_DIR source/DSNA/non-Linear)
-set(SOURCE_DIR source/DSNA/Search)
+set(SOURCE_DIR  # 소스코드 경로
+    source/DSNA/non-Linear
+    source/DSNA/Search
+    source/DSNA/Algorithm
+)
 
 # 소스 파일 지정
-# add_executable(ArrayGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeArrayGraph.c ${SOURCE_DIR}/includeGenericStructure.c)
+# add_executable(ArrayGraph
+#     ${SOURCE_DIR}/mainGraph.c
+#     ${SOURCE_DIR}/includeArrayGraph.c
+#     ${SOURCE_DIR}/includeGenericStructure.c
+# )
 # add_executable(LinkedGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeLinkedGraph.c ${SOURCE_DIR}/includeGenericStructure.c)
 # add_executable(SequentialSearch ${SOURCE_DIR}/mainSequentialSearch.c)
-add_executable(BinarySearchTree ${SOURCE_DIR}/mainBinSearchTree.c)
+# add_executable(BinarySearchTree ${SOURCE_DIR}/mainBinSearchTree.c)
+add_executable(finding_val
+    ${SOURCE_DIR}/Practice_1.c
+)
 
 # 추가 라이브러리 링크 혹은 옵션 지정
 include_directories(include)
