@@ -1,7 +1,7 @@
 # 1. 알고리즘 기초
 ## 1.1. 소스코드
 - [(링크)](../../source/DSNA/Algorithm_Practice/mainBasics.c)
-## 1.2. 필기
+## 1.2. 용어 필기
 - 위에서 아래로 코드(프로세스)가 순서대로 실행되는 구조를 '순자적(concatenation)구조'라고 한다.
 - 괄호'()'안의 식의 평가 결과에 따라 프로그램의 실행 흐름이 변경되는 if문을  '선택(selection)구조'라고 한다.
 - 3개의 피연산자를 갖는 3항 연산자 ? : 를 조건 연산자(conditional operator)라고 한다. $min = a < b ? a : b;$
