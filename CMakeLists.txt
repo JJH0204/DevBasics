@@ -21,11 +21,8 @@ set(SOURCE_DIR  # 소스코드 경로
 #     ${SOURCE_DIR}/includeArrayGraph.c
 #     ${SOURCE_DIR}/includeGenericStructure.c
 # )
-# add_executable(LinkedGraph ${SOURCE_DIR}/mainGraph.c ${SOURCE_DIR}/includeLinkedGraph.c ${SOURCE_DIR}/includeGenericStructure.c)
-# add_executable(SequentialSearch ${SOURCE_DIR}/mainSequentialSearch.c)
-# add_executable(BinarySearchTree ${SOURCE_DIR}/mainBinSearchTree.c)
-add_executable(finding_val
-    ${SOURCE_DIR}/Practice_1.c
+add_executable(algorithmTest
+    ${SOURCE_DIR}/mainBasics_2.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정

@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/finding_val.dir/all
+all: CMakeFiles/algorithmTest.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/finding_val.dir/clean
+clean: CMakeFiles/algorithmTest.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/finding_val.dir
+# Target rules for target CMakeFiles/algorithmTest.dir
 
 # All Build rule for target.
-CMakeFiles/finding_val.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target finding_val"
-.PHONY : CMakeFiles/finding_val.dir/all
+CMakeFiles/algorithmTest.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2 "Built target algorithmTest"
+.PHONY : CMakeFiles/algorithmTest.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/finding_val.dir/rule: cmake_check_build_system
+CMakeFiles/algorithmTest.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/finding_val.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/algorithmTest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/finding_val.dir/rule
+.PHONY : CMakeFiles/algorithmTest.dir/rule
 
 # Convenience name for target.
-finding_val: CMakeFiles/finding_val.dir/rule
-.PHONY : finding_val
+algorithmTest: CMakeFiles/algorithmTest.dir/rule
+.PHONY : algorithmTest
 
 # clean rule for target.
-CMakeFiles/finding_val.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/clean
-.PHONY : CMakeFiles/finding_val.dir/clean
+CMakeFiles/algorithmTest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/clean
+.PHONY : CMakeFiles/algorithmTest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

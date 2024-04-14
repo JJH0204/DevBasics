@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named finding_val
+# Target rules for targets named algorithmTest
 
 # Build rule for target.
-finding_val: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 finding_val
-.PHONY : finding_val
+algorithmTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 algorithmTest
+.PHONY : algorithmTest
 
 # fast build rule for target.
-finding_val/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/build
-.PHONY : finding_val/fast
+algorithmTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/build
+.PHONY : algorithmTest/fast
 
-source/DSNA/Algorithm_Practice/Practice_1.obj: source/DSNA/Algorithm_Practice/Practice_1.c.obj
-.PHONY : source/DSNA/Algorithm_Practice/Practice_1.obj
+source/DSNA/Algorithm/mainBasics_2.obj: source/DSNA/Algorithm/mainBasics_2.c.obj
+.PHONY : source/DSNA/Algorithm/mainBasics_2.obj
 
 # target to build an object file
-source/DSNA/Algorithm_Practice/Practice_1.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/source/DSNA/Algorithm_Practice/Practice_1.c.obj
-.PHONY : source/DSNA/Algorithm_Practice/Practice_1.c.obj
+source/DSNA/Algorithm/mainBasics_2.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj
+.PHONY : source/DSNA/Algorithm/mainBasics_2.c.obj
 
-source/DSNA/Algorithm_Practice/Practice_1.i: source/DSNA/Algorithm_Practice/Practice_1.c.i
-.PHONY : source/DSNA/Algorithm_Practice/Practice_1.i
+source/DSNA/Algorithm/mainBasics_2.i: source/DSNA/Algorithm/mainBasics_2.c.i
+.PHONY : source/DSNA/Algorithm/mainBasics_2.i
 
 # target to preprocess a source file
-source/DSNA/Algorithm_Practice/Practice_1.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/source/DSNA/Algorithm_Practice/Practice_1.c.i
-.PHONY : source/DSNA/Algorithm_Practice/Practice_1.c.i
+source/DSNA/Algorithm/mainBasics_2.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.i
+.PHONY : source/DSNA/Algorithm/mainBasics_2.c.i
 
-source/DSNA/Algorithm_Practice/Practice_1.s: source/DSNA/Algorithm_Practice/Practice_1.c.s
-.PHONY : source/DSNA/Algorithm_Practice/Practice_1.s
+source/DSNA/Algorithm/mainBasics_2.s: source/DSNA/Algorithm/mainBasics_2.c.s
+.PHONY : source/DSNA/Algorithm/mainBasics_2.s
 
 # target to generate assembly for a file
-source/DSNA/Algorithm_Practice/Practice_1.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\finding_val.dir\build.make CMakeFiles/finding_val.dir/source/DSNA/Algorithm_Practice/Practice_1.c.s
-.PHONY : source/DSNA/Algorithm_Practice/Practice_1.c.s
+source/DSNA/Algorithm/mainBasics_2.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.s
+.PHONY : source/DSNA/Algorithm/mainBasics_2.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... finding_val
-	@echo ... source/DSNA/Algorithm_Practice/Practice_1.obj
-	@echo ... source/DSNA/Algorithm_Practice/Practice_1.i
-	@echo ... source/DSNA/Algorithm_Practice/Practice_1.s
+	@echo ... algorithmTest
+	@echo ... source/DSNA/Algorithm/mainBasics_2.obj
+	@echo ... source/DSNA/Algorithm/mainBasics_2.i
+	@echo ... source/DSNA/Algorithm/mainBasics_2.s
 .PHONY : help
 
 
