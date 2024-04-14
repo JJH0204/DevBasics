@@ -183,6 +183,50 @@ sizeof(*pArray): 4
 sizeof(&pArray): 8
 */
 
+// 기수 변환의 예시
+void Conversion(int nTarget, int nWay)
+{
+    int nLoopCount = 0;
+    int nFormation = 0;
+
+    int *pArray = NULL;
+
+    pArray = (int *)calloc(sizeof(int) * 8, sizeof(int));
+    if (pArray == NULL)
+        return;
+    
+    for (nLoopCount = 0; nTarget >= 1; nLoopCount++)
+    {
+        pArray[nLoopCount] = nTarget % nWay;
+        nTarget /= nWay;
+    }
+
+    printf("Result: ");
+    for (nLoopCount -= 1; nLoopCount >= 0; nLoopCount--)
+    {
+        if (pArray[nLoopCount] > 9)
+        {
+            nFormation = pArray[nLoopCount] - 9;
+            if (nFormation == 1)
+                printf("%c", 'A');
+            else if (nFormation == 2)
+                printf("%c", 'B');
+            else if (nFormation == 3)
+                printf("%c", 'C');
+            else if (nFormation == 4)
+                printf("%c", 'D');
+            else if (nFormation == 5)
+                printf("%c", 'E');
+            else
+                printf("%c", 'F');
+        }
+        else
+            printf("%d", pArray[nLoopCount]);
+    }
+    printf("\n");
+    return;
+}
+
 int main(int argc, char *argv[])
 {
     // randomTest_1();
@@ -191,6 +235,14 @@ int main(int argc, char *argv[])
     // randomTest_4();
     // arrayTest_1();
     // arrayTest_2();
+
+    // 59를 2, 8, 16 진법으로 변환
+    printf("59 > Binary:");
+    Conversion(59, 2);
+    printf("59 > Octal:");
+    Conversion(59, 8);
+    printf("59 > Hexadecimal:");
+    Conversion(59, 16);
     
     return 0;
 }
