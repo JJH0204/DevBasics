@@ -194,7 +194,7 @@ void Conversion(int nTarget, int nWay)
     pArray = (int *)calloc(sizeof(int) * 8, sizeof(int));
     if (pArray == NULL)
         return;
-    
+
     for (nLoopCount = 0; nTarget >= 1; nLoopCount++)
     {
         pArray[nLoopCount] = nTarget % nWay;
@@ -227,6 +227,166 @@ void Conversion(int nTarget, int nWay)
     return;
 }
 
+// 배열 복사
+int *copyArray(int pArray[], int nArraySize)
+{
+    int *pResult = NULL;
+    int nLoopCount = 0;
+    if (pArray == NULL || nArraySize < 1)
+        return NULL;
+
+    pResult = (int *)calloc(nArraySize, sizeof(int));
+
+    if (pResult == NULL)
+        return NULL;
+
+    for (nLoopCount = 0; nLoopCount < nArraySize; nLoopCount++)
+        pResult[nLoopCount] = pArray[nLoopCount];
+
+    return pResult;
+}
+
+// 중복 검사
+int checkDuplicate(int pArray[], int nArraySize, int nKey)
+{
+    int nLoopCount = 0;
+
+    if (pArray == NULL || nArraySize < 1)
+        return 0;
+    
+    for (nLoopCount = 0; nLoopCount < nArraySize; nLoopCount++)
+        if (pArray[nLoopCount] == nKey)
+            return 1;
+    return 0;
+}
+
+// 배열pArray의 모든 요소의 순서를 뒤섞는 함수
+void shuffleArray(int pArray[], int nArraySize)
+{
+    int nLoopCount = 0;
+    int nRandomIndex = 0;
+    int nDuplicateCheck = 0; 
+    int *pCopyArray = NULL;
+    int *pDuplicateCheck = NULL;
+
+    if (pArray == NULL || nArraySize < 1)
+        return;
+    
+    srand(time(NULL));
+
+    pCopyArray = copyArray(pArray, nArraySize);
+    if (pCopyArray == NULL)
+        return;
+
+    pDuplicateCheck = (int *)calloc(nArraySize, sizeof(int));
+    if (pDuplicateCheck == NULL)
+        return;
+    
+    for (nLoopCount = 0; nLoopCount < nArraySize; nLoopCount++)
+    {
+        do
+        {
+            nRandomIndex = rand() % nArraySize;
+            nDuplicateCheck = checkDuplicate(pDuplicateCheck, nLoopCount, nRandomIndex);
+        } while (nDuplicateCheck > 0);
+
+        pDuplicateCheck[nLoopCount] = nRandomIndex;
+
+        pArray[nRandomIndex] = pCopyArray[nLoopCount];
+    }
+
+    free(pCopyArray);
+    free(pDuplicateCheck);
+    return;
+}
+
+// 날짜 데이터 구조체
+typedef struct {
+    int nYear;
+    int nMonth;
+    int nDay;
+} date;
+
+// 구조체 초기화
+date dateOf(int nYear, int nMonth, int nDay)
+{
+    date result = {.nYear = nYear, .nMonth = nMonth, .nDay = nDay};
+    return result;
+}
+
+// 윤년 계산기
+int isLeap(int nYear)
+{
+    // 4배수 년도 중 100의 배수 년도를 제외하고 400의 배수 년도를 포함한 조건의 년도가 윤년에 해당한다.
+    return nYear % 4 == 0 && nYear % 100 != 0 || nYear % 400 == 0;
+}
+
+// n일 후 date
+date afterDate(date x, int n)
+{
+    int ppMonthData[][12] = {
+        {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}, 
+        {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+    };
+
+    x.nDay += n;
+    while (x.nDay > ppMonthData[isLeap(x.nYear)][x.nMonth])
+    {
+        x.nDay -= ppMonthData[isLeap(x.nYear)][x.nMonth];
+        x.nMonth++;
+
+        if (x.nMonth > 12)
+        {
+            x.nMonth = 1;
+            x.nYear++;
+        }
+    }
+    
+    return x;
+}
+
+// n일 전 date
+date beforeDate(date x, int n)
+{
+    int ppMonthData[][12] = {
+        {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+        {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+
+    while (n > 0)
+    {
+        if (n >= x.nDay)
+        {
+            n -= x.nDay;
+            x.nMonth--;
+            if (x.nMonth < 1)
+            {
+                x.nMonth = 12;
+                x.nYear--;
+            }
+            x.nDay = ppMonthData[isLeap(x.nYear)][x.nMonth];
+        }
+        else
+        {
+            x.nDay -= n;
+            n = 0;
+        }
+    }
+
+    return x;
+}
+
+void printExDate(void)
+{
+    date dateData = dateOf(2024, 4, 15);
+    int nDay = 100;
+
+    date afterDay = afterDate(dateData, nDay);
+    date beforeDay = beforeDate(dateData, nDay);
+    printf("%d년 / %02d월 / %02d일\n", dateData.nYear, dateData.nMonth, dateData.nDay);
+    printf("%d년 / %02d월 / %02d일 + %d일 = %d년 / %02d월 / %02d일\n", dateData.nYear, dateData.nMonth, dateData.nDay, nDay, afterDay.nYear, afterDay.nMonth, afterDay.nDay);
+    printf("%d년 / %02d월 / %02d일 - %d일 = %d년 / %02d월 / %02d일\n", dateData.nYear, dateData.nMonth, dateData.nDay, nDay, beforeDay.nYear, beforeDay.nMonth, beforeDay.nDay);
+}
+
 int main(int argc, char *argv[])
 {
     // randomTest_1();
@@ -236,13 +396,26 @@ int main(int argc, char *argv[])
     // arrayTest_1();
     // arrayTest_2();
 
-    // 59를 2, 8, 16 진법으로 변환
-    printf("59 > Binary:");
-    Conversion(59, 2);
-    printf("59 > Octal:");
-    Conversion(59, 8);
-    printf("59 > Hexadecimal:");
-    Conversion(59, 16);
-    
+    // // 59를 2, 8, 16 진법으로 변환
+    // printf("59 > Binary:");
+    // Conversion(59, 2);
+    // printf("59 > Octal:");
+    // Conversion(59, 8);
+    // printf("59 > Hexadecimal:");
+    // Conversion(59, 16);
+
+    // // 배열 무작위 섞기
+    // int nSize = 10;
+    // int pArray[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    // printf("> Before: \n");
+    // scanArray(pArray, nSize);
+
+    // shuffleArray(pArray, nSize);
+    // printf("> After: \n");
+    // scanArray(pArray, nSize);
+
+    //날짜 표시 예제
+    printExDate();
+
     return 0;
 }
