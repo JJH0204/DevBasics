@@ -9,12 +9,10 @@ int searchSequential_NotSort(int _nList_[], int _nSize_, int _nKey_)
     int nLoopCount = 0;
 
     // 배열 전체를 순회하며 _nList_[nLoopCount] 값이 찾는 데이터(_nKey_) 와 같으면 반복을 종료
-    while ((nLoopCount < _nSize_) && (_nList_[nLoopCount] != _nKey_))
-        nLoopCount++;
-
-    if (nLoopCount < _nSize_)
-        return nLoopCount; // 찾은 데이터의 배열 인덱스 값을 반환
-    return -1;             // 못 찾았기 때문에 -1 반환
+    for (nLoopCount = 0; nLoopCount < _nSize_; nLoopCount++)
+        if (_nList_[nLoopCount] == _nKey_)
+            return nLoopCount; // 찾은 데이터의 배열 인덱스 값을 반환
+    return -1;                 // 못 찾았기 때문에 -1 반환
 }
 
 // 배열의 시작 주소, 배열의 크기, 찾는 값을 인자로 찾는 값이 저장된 배열의 인덱스 값 반환
