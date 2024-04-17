@@ -304,6 +304,4 @@ TSWLatexianTemp*
 /.obsidian
 /.trash
 /.vscode
-/CMakeFiles
-/Makefile
-*.cmake
+*.dir
