@@ -22,7 +22,8 @@ set(SOURCE_DIR  # 소스코드 경로
 #     ${SOURCE_DIR}/includeGenericStructure.c
 # )
 add_executable(algorithmTest
-    ${SOURCE_DIR}/mainBasics_2.c
+    # ${SOURCE_DIR}/mainBasics_2.c
+    ${SOURCE_DIR}/mainSentinelMethod.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정

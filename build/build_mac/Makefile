@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Tree
+# Target rules for targets named algorithmTest
 
 # Build rule for target.
-Tree: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Tree
-.PHONY : Tree
+algorithmTest: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 algorithmTest
+.PHONY : algorithmTest
 
 # fast build rule for target.
-Tree/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/build
-.PHONY : Tree/fast
+algorithmTest/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/build
+.PHONY : algorithmTest/fast
 
-source/DSNA/non-Linear/mainBinaryTree.o: source/DSNA/non-Linear/mainBinaryTree.c.o
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.o
+source/DSNA/Algorithm/mainSentinelMethod.o: source/DSNA/Algorithm/mainSentinelMethod.c.o
+.PHONY : source/DSNA/Algorithm/mainSentinelMethod.o
 
 # target to build an object file
-source/DSNA/non-Linear/mainBinaryTree.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/source/DSNA/non-Linear/mainBinaryTree.c.o
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.o
+source/DSNA/Algorithm/mainSentinelMethod.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainSentinelMethod.c.o
+.PHONY : source/DSNA/Algorithm/mainSentinelMethod.c.o
 
-source/DSNA/non-Linear/mainBinaryTree.i: source/DSNA/non-Linear/mainBinaryTree.c.i
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.i
+source/DSNA/Algorithm/mainSentinelMethod.i: source/DSNA/Algorithm/mainSentinelMethod.c.i
+.PHONY : source/DSNA/Algorithm/mainSentinelMethod.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/mainBinaryTree.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/source/DSNA/non-Linear/mainBinaryTree.c.i
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.i
+source/DSNA/Algorithm/mainSentinelMethod.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainSentinelMethod.c.i
+.PHONY : source/DSNA/Algorithm/mainSentinelMethod.c.i
 
-source/DSNA/non-Linear/mainBinaryTree.s: source/DSNA/non-Linear/mainBinaryTree.c.s
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.s
+source/DSNA/Algorithm/mainSentinelMethod.s: source/DSNA/Algorithm/mainSentinelMethod.c.s
+.PHONY : source/DSNA/Algorithm/mainSentinelMethod.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/mainBinaryTree.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Tree.dir/build.make CMakeFiles/Tree.dir/source/DSNA/non-Linear/mainBinaryTree.c.s
-.PHONY : source/DSNA/non-Linear/mainBinaryTree.c.s
+source/DSNA/Algorithm/mainSentinelMethod.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainSentinelMethod.c.s
+.PHONY : source/DSNA/Algorithm/mainSentinelMethod.c.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Tree"
-	@echo "... source/DSNA/non-Linear/mainBinaryTree.o"
-	@echo "... source/DSNA/non-Linear/mainBinaryTree.i"
-	@echo "... source/DSNA/non-Linear/mainBinaryTree.s"
+	@echo "... algorithmTest"
+	@echo "... source/DSNA/Algorithm/mainSentinelMethod.o"
+	@echo "... source/DSNA/Algorithm/mainSentinelMethod.i"
+	@echo "... source/DSNA/Algorithm/mainSentinelMethod.s"
 .PHONY : help
 
 
