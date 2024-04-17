@@ -129,29 +129,29 @@ algorithmTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/build
 .PHONY : algorithmTest/fast
 
-source/DSNA/Algorithm/mainSentinelMethod.o: source/DSNA/Algorithm/mainSentinelMethod.c.o
-.PHONY : source/DSNA/Algorithm/mainSentinelMethod.o
+source/DSNA/Search/mainBinarySearch.o: source/DSNA/Search/mainBinarySearch.c.o
+.PHONY : source/DSNA/Search/mainBinarySearch.o
 
 # target to build an object file
-source/DSNA/Algorithm/mainSentinelMethod.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainSentinelMethod.c.o
-.PHONY : source/DSNA/Algorithm/mainSentinelMethod.c.o
+source/DSNA/Search/mainBinarySearch.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Search/mainBinarySearch.c.o
+.PHONY : source/DSNA/Search/mainBinarySearch.c.o
 
-source/DSNA/Algorithm/mainSentinelMethod.i: source/DSNA/Algorithm/mainSentinelMethod.c.i
-.PHONY : source/DSNA/Algorithm/mainSentinelMethod.i
+source/DSNA/Search/mainBinarySearch.i: source/DSNA/Search/mainBinarySearch.c.i
+.PHONY : source/DSNA/Search/mainBinarySearch.i
 
 # target to preprocess a source file
-source/DSNA/Algorithm/mainSentinelMethod.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainSentinelMethod.c.i
-.PHONY : source/DSNA/Algorithm/mainSentinelMethod.c.i
+source/DSNA/Search/mainBinarySearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Search/mainBinarySearch.c.i
+.PHONY : source/DSNA/Search/mainBinarySearch.c.i
 
-source/DSNA/Algorithm/mainSentinelMethod.s: source/DSNA/Algorithm/mainSentinelMethod.c.s
-.PHONY : source/DSNA/Algorithm/mainSentinelMethod.s
+source/DSNA/Search/mainBinarySearch.s: source/DSNA/Search/mainBinarySearch.c.s
+.PHONY : source/DSNA/Search/mainBinarySearch.s
 
 # target to generate assembly for a file
-source/DSNA/Algorithm/mainSentinelMethod.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainSentinelMethod.c.s
-.PHONY : source/DSNA/Algorithm/mainSentinelMethod.c.s
+source/DSNA/Search/mainBinarySearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Search/mainBinarySearch.c.s
+.PHONY : source/DSNA/Search/mainBinarySearch.c.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... algorithmTest"
-	@echo "... source/DSNA/Algorithm/mainSentinelMethod.o"
-	@echo "... source/DSNA/Algorithm/mainSentinelMethod.i"
-	@echo "... source/DSNA/Algorithm/mainSentinelMethod.s"
+	@echo "... source/DSNA/Search/mainBinarySearch.o"
+	@echo "... source/DSNA/Search/mainBinarySearch.i"
+	@echo "... source/DSNA/Search/mainBinarySearch.s"
 .PHONY : help
 
 

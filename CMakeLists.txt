@@ -12,7 +12,7 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 set(SOURCE_DIR  # 소스코드 경로
     source/DSNA/non-Linear
     source/DSNA/Search
-    source/DSNA/Algorithm
+    # source/DSNA/Algorithm
 )
 
 # 소스 파일 지정
@@ -23,7 +23,8 @@ set(SOURCE_DIR  # 소스코드 경로
 # )
 add_executable(algorithmTest
     # ${SOURCE_DIR}/mainBasics_2.c
-    ${SOURCE_DIR}/mainSentinelMethod.c
+    # ${SOURCE_DIR}/mainSentinelMethod.c
+    ${SOURCE_DIR}/mainBinarySearch.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정
