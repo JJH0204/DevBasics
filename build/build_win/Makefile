@@ -128,29 +128,29 @@ algorithmTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/build
 .PHONY : algorithmTest/fast
 
-source/DSNA/Algorithm/mainBasics_2.obj: source/DSNA/Algorithm/mainBasics_2.c.obj
-.PHONY : source/DSNA/Algorithm/mainBasics_2.obj
+source/DSNA/Algorithm/mainBsearch.obj: source/DSNA/Algorithm/mainBsearch.c.obj
+.PHONY : source/DSNA/Algorithm/mainBsearch.obj
 
 # target to build an object file
-source/DSNA/Algorithm/mainBasics_2.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj
-.PHONY : source/DSNA/Algorithm/mainBasics_2.c.obj
+source/DSNA/Algorithm/mainBsearch.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj
+.PHONY : source/DSNA/Algorithm/mainBsearch.c.obj
 
-source/DSNA/Algorithm/mainBasics_2.i: source/DSNA/Algorithm/mainBasics_2.c.i
-.PHONY : source/DSNA/Algorithm/mainBasics_2.i
+source/DSNA/Algorithm/mainBsearch.i: source/DSNA/Algorithm/mainBsearch.c.i
+.PHONY : source/DSNA/Algorithm/mainBsearch.i
 
 # target to preprocess a source file
-source/DSNA/Algorithm/mainBasics_2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.i
-.PHONY : source/DSNA/Algorithm/mainBasics_2.c.i
+source/DSNA/Algorithm/mainBsearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.i
+.PHONY : source/DSNA/Algorithm/mainBsearch.c.i
 
-source/DSNA/Algorithm/mainBasics_2.s: source/DSNA/Algorithm/mainBasics_2.c.s
-.PHONY : source/DSNA/Algorithm/mainBasics_2.s
+source/DSNA/Algorithm/mainBsearch.s: source/DSNA/Algorithm/mainBsearch.c.s
+.PHONY : source/DSNA/Algorithm/mainBsearch.s
 
 # target to generate assembly for a file
-source/DSNA/Algorithm/mainBasics_2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.s
-.PHONY : source/DSNA/Algorithm/mainBasics_2.c.s
+source/DSNA/Algorithm/mainBsearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.s
+.PHONY : source/DSNA/Algorithm/mainBsearch.c.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... algorithmTest
-	@echo ... source/DSNA/Algorithm/mainBasics_2.obj
-	@echo ... source/DSNA/Algorithm/mainBasics_2.i
-	@echo ... source/DSNA/Algorithm/mainBasics_2.s
+	@echo ... source/DSNA/Algorithm/mainBsearch.obj
+	@echo ... source/DSNA/Algorithm/mainBsearch.i
+	@echo ... source/DSNA/Algorithm/mainBsearch.s
 .PHONY : help
 
 

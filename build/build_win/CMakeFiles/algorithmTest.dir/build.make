@@ -68,29 +68,29 @@ include CMakeFiles/algorithmTest.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/algorithmTest.dir/flags.make
 
-CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj: CMakeFiles/algorithmTest.dir/flags.make
-CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj: CMakeFiles/algorithmTest.dir/includes_C.rsp
-CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/Algorithm/mainBasics_2.c
-CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj: CMakeFiles/algorithmTest.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj -MF CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBasics_2.c.obj.d -o CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBasics_2.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\Algorithm\mainBasics_2.c
+CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj: CMakeFiles/algorithmTest.dir/flags.make
+CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj: CMakeFiles/algorithmTest.dir/includes_C.rsp
+CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj: E:/Document/GitHub/DevBasics/source/DSNA/Algorithm/mainBsearch.c
+CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj: CMakeFiles/algorithmTest.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj -MF CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBsearch.c.obj.d -o CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBsearch.c.obj -c E:\Document\GitHub\DevBasics\source\DSNA\Algorithm\mainBsearch.c
 
-CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.i"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\Algorithm\mainBasics_2.c > CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBasics_2.c.i
+CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.i"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E E:\Document\GitHub\DevBasics\source\DSNA\Algorithm\mainBsearch.c > CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBsearch.c.i
 
-CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.s"
-	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\Algorithm\mainBasics_2.c -o CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBasics_2.c.s
+CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.s"
+	C:\PROGRA~1\mingw64\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S E:\Document\GitHub\DevBasics\source\DSNA\Algorithm\mainBsearch.c -o CMakeFiles\algorithmTest.dir\source\DSNA\Algorithm\mainBsearch.c.s
 
 # Object files for target algorithmTest
 algorithmTest_OBJECTS = \
-"CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj"
+"CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj"
 
 # External object files for target algorithmTest
 algorithmTest_EXTERNAL_OBJECTS =
 
-algorithmTest.exe: CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBasics_2.c.obj
+algorithmTest.exe: CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch.c.obj
 algorithmTest.exe: CMakeFiles/algorithmTest.dir/build.make
 algorithmTest.exe: CMakeFiles/algorithmTest.dir/linkLibs.rsp
 algorithmTest.exe: CMakeFiles/algorithmTest.dir/objects1.rsp
