@@ -305,3 +305,7 @@ TSWLatexianTemp*
 /.trash
 /.vscode
 *.dir
+*.make
+*.internal
+*.a
+*.rsp
