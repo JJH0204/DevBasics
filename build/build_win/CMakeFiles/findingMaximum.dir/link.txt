@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\findingMaximum.dir/objects.a
-C:\PROGRA~1\mingw64\bin\ar.exe qc CMakeFiles\findingMaximum.dir/objects.a @CMakeFiles\findingMaximum.dir\objects1.rsp
-C:\PROGRA~1\mingw64\bin\gcc.exe -Wl,--whole-archive CMakeFiles\findingMaximum.dir/objects.a -Wl,--no-whole-archive -o findingMaximum.exe -Wl,--out-implib,libfindingMaximum.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\findingMaximum.dir\linkLibs.rsp
