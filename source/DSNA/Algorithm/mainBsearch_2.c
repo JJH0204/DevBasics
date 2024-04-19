@@ -89,27 +89,29 @@ int searchWithScanKey(Person *pArray, int nArraySize)
 
     if (pArray == NULL || nArraySize < 1)
         return -1;
-    
+
     printf("Please select your search criteria.\n(Name = 1, Height = 2, Weight = 3), After selecting, press enter\n> ");
     do
     {
         scanf("%d", &nCriteria);
-        scanf("%c");
         if (nCriteria < 1 || nCriteria > 3)
             printf("Please select one of the options above.\n");
     } while (nCriteria < 1 || nCriteria > 3);
-    
+
     if (nCriteria == 1)
     {
         printf("Please enter the name you are looking for.\n> ");
-        scanf("%s", PersonKey.cName);
-        pResult = bsearch (&PersonKey, pArray, nArraySize, sizeof(Person),
-            (int (*)(const void *, const void *)) npcmp);
+        scanf("%s", &(PersonKey.cName));
+        printf("%s", PersonKey.cName); /* 출력 안됨 */
+        pResult = bsearch(&PersonKey, pArray, nArraySize, sizeof(Person),
+                          (int (*)(const void *, const void *))npcmp);
+        // TODO: 왜? 결과 값이 제대로 출력되지 않는지 확인하기
+        printf("%s", pResult->cName);
         if (pResult == NULL)
             printf("No value found.\n");
         else
-            printf("Index[%d]: %s, %dcm, %dkg\n", 
-            (int)(pResult - pArray), pResult->cName, pResult->nHeight, pResult->nWeight);
+            printf("Index[%d]: %s, %dcm, %dkg\n",
+                   (int)(pResult - pArray), pResult->cName, pResult->nHeight, pResult->nWeight);
     }
     /* TODO: 이하 / 이상 / 초과 / 미만 / 범위 다섯 종류의 검색 방식을 구현해보자*/
     else if (nCriteria == 2)
