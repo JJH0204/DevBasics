@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\finding_val.dir/objects.a
-C:\PROGRA~1\mingw64\bin\ar.exe qc CMakeFiles\finding_val.dir/objects.a @CMakeFiles\finding_val.dir\objects1.rsp
-C:\PROGRA~1\mingw64\bin\gcc.exe -Wl,--whole-archive CMakeFiles\finding_val.dir/objects.a -Wl,--no-whole-archive -o finding_val.exe -Wl,--out-implib,libfinding_val.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\finding_val.dir\linkLibs.rsp
