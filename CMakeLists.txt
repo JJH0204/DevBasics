@@ -25,7 +25,7 @@ add_executable(algorithmTest
     # ${SOURCE_DIR}/mainBasics_2.c
     # ${SOURCE_DIR}/mainSentinelMethod.c
     # ${SOURCE_DIR}/mainBinarySearch.c
-    ${SOURCE_DIR}/mainBsearch.c
+    ${SOURCE_DIR}/mainBsearch_2.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정

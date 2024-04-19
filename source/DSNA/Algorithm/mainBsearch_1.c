@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// 비교 함수
+// 비교 함수(오름차순)
 int int_cmp(const int *pA, const int *pB)
 {
     if (*pA < *pB)
@@ -12,12 +12,24 @@ int int_cmp(const int *pA, const int *pB)
         return 0;
 }
 
+// 비교 함수(내림차순)
+int int_cmpr(const int *pA, const int *pB)
+{
+    if (*pA < *pB)
+        return 1;
+    else if (*pA > *pB)
+        return -1;
+    else
+        return 0;
+}
+
 int main(int argc, char *argv[])
 {
     int nArraySize = 10;
-    int pArray[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int ascArray[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+    int descArray[] = {100, 90, 80, 70, 60, 50, 40, 30, 20, 10};
     int nKey = 10;
-    int *pResult = bsearch(&nKey, pArray, nArraySize, sizeof(int), (int(*)(const void*, const void*)) int_cmp);
+    int *pResult = bsearch(&nKey, ascArray, nArraySize, sizeof(int), (int (*)(const void *, const void *))int_cmp);
     /*
     함수 원형 void *__cdecl bsearch(
         const void *_Key,                                               찾는 키 데이터
@@ -31,7 +43,14 @@ int main(int argc, char *argv[])
     if (pResult == NULL)
         printf("Not Found\n");
     else
-        printf("[%02d] - %d\n", (int)(pResult - pArray), nKey);
+        printf("[%02d] - %d\n", (int)(pResult - ascArray), nKey);
+
+    pResult = bsearch(&nKey, descArray, nArraySize, sizeof(int), (int (*)(const void *, const void *))int_cmpr);
+
+    if (pResult == NULL)
+        printf("Not Found\n");
+    else
+        printf("[%02d] - %d\n", (int)(pResult - descArray), nKey);
     free(pResult);
     return 0;
 }
