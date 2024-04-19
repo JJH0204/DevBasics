@@ -74,6 +74,7 @@
 | Search                              |   📌   | [Search.md](markdown/DataStructure/Search.md)<br/>[BinarySearchTree.md](markdown/DataStructure/BinarySearchTree.md) | [mainSequentialSearch.c](source/DSNA/Search/mainSequentialSearch.c) <br/>[mainIndexSequentialSearch.c](source/DSNA/Search/mainIndexSequentialSearch.c) <br/>[mainBinarySearch.c](source/DSNA/Search/mainBinarySearch.c) <br/>[mainBinarySearchTree.c](source/DSNA/Search/mainBinSearchTree.c) |
 | Algorithm Basics                    |   📌   | [Algorithm_Basics.md](markdown/Algorithm/Algorithm_Basics.md)                                                       | [mainBasics_1.c](source/DSNA/Algorithm/mainBasics_1.c) <br/>[mainBasics_2.c](source/DSNA/Algorithm/mainBasics_2.c)                                                                                                                                                                                                                                      |
 Sentinel_Method||[Sentinel_Method.md](markdown/Algorithm/Sentinel_Method.md)|[mainSentinelMethod.c](source/DSNA/Algorithm/mainSentinelMethod.c)|
+bsearch func||[bsearch.md](markdown/Algorithm/bsearch.md)|[mainBsearch_1.c](source/DSNA/Algorithm/mainBsearch_1.c)<br/>[mainBsearch_2.c](source/DSNA/Algorithm/mainBsearch_2.c)
 
 </div>
 </details>
