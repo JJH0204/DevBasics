@@ -8,6 +8,12 @@ project(DEVBASICS VERSION 0.1 LANGUAGES C)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
+# UTF-8 인코딩을 위한 컴파일러 옵션 설정
+add_compile_options(
+    $<$<CXX_COMPILER_ID:GNU>:-finput-charset=UTF-8>
+    $<$<CXX_COMPILER_ID:Clang>:-finput-charset=UTF-8>
+)
+
 # 소스 파일의 경로를 변수에 설정
 set(SOURCE_DIR  # 소스코드 경로
     source/DSNA/non-Linear

@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
+#include <locale.h>
+
 typedef struct
 {
     char cName[10];
@@ -8,10 +11,35 @@ typedef struct
     int nWeight;
 } Person;
 
-/* Person형의 비교 함수(오름차순 이름 정렬) */
-int npcmp(const Person *pPersonA, const Person *pPersonB)
+/* 문자열 공백 제거 */
+void trimWhitespace(char *str)
 {
+    char *end;
+
+    // 앞쪽 공백 제거
+    while (isspace((unsigned char)*str))
+        str++;
+
+    if (*str == 0) // 모든 공백인 경우
+        return;
+
+    // 뒤쪽 공백 제거
+    end = str + strlen(str) - 1;
+    while (end > str && isspace((unsigned char)*end))
+        end--;
+
+    // 문자열 끝 처리
+    *(end + 1) = 0;
+}
+
+/* Person형의 비교 함수(오름차순 이름 정렬) */
+int npcmp(const void *pA, const void *pB)
+{
+    const Person *pPersonA = (const Person *)pA;
+    const Person *pPersonB = (const Person *)pB;
     return strcmp(pPersonA->cName, pPersonB->cName);
+    /* strcmp(A, B): 두 문자열이 같을 때 0, A가 B보다 사전 순서가 앞일 때 -1, 뒤에 있으면 1 반환*/
+    /* -1 이외 다른 음수 값을 반환 할 수 있다.*/
 }
 
 /* 테스트용 배열 초기화 함수, 배열 인자 개수 반환*/
@@ -58,7 +86,7 @@ int checkAscending_Name(Person *pArray, int nArraySize)
     for (nLoopCount = 0; nLoopCount < nArraySize - 1; nLoopCount++)
     {
         nCondition = strcmp((pArray + nLoopCount)->cName, (pArray + nLoopCount + 1)->cName);
-        if (nCondition == -1)
+        if (nCondition < 0)
         {
             printf("%s < %s\n", (pArray + nLoopCount)->cName, (pArray + nLoopCount + 1)->cName);
             nCount++;
@@ -84,16 +112,21 @@ int checkAscending_Name(Person *pArray, int nArraySize)
 /* 입력 받는 값을 검색 */
 int searchWithScanKey(Person *pArray, int nArraySize)
 {
-    Person PersonKey, *pResult;
+    Person PersonKey = {0};
+    Person *pResult;
     int nCriteria = 0;
 
     if (pArray == NULL || nArraySize < 1)
         return -1;
 
+    /* 배열 정렬 */
+    qsort(pArray, nArraySize, sizeof(Person), npcmp);
+
     printf("Please select your search criteria.\n(Name = 1, Height = 2, Weight = 3), After selecting, press enter\n> ");
     do
     {
         scanf("%d", &nCriteria);
+        getchar(); // 개행 문자 제거
         if (nCriteria < 1 || nCriteria > 3)
             printf("Please select one of the options above.\n");
     } while (nCriteria < 1 || nCriteria > 3);
@@ -101,17 +134,18 @@ int searchWithScanKey(Person *pArray, int nArraySize)
     if (nCriteria == 1)
     {
         printf("Please enter the name you are looking for.\n> ");
-        scanf("%s", &(PersonKey.cName));
-        printf("%s", PersonKey.cName); /* 출력 안됨 */
-        pResult = bsearch(&PersonKey, pArray, nArraySize, sizeof(Person),
-                          (int (*)(const void *, const void *))npcmp);
+        fgets(PersonKey.cName, sizeof(PersonKey.cName), stdin);
+        /* 입력받은 문자공백 제거 */
+        trimWhitespace(PersonKey.cName);
+        // scanf("%9s", PersonKey.cName);
+        // printf("%s", PersonKey.cName);
+        pResult = bsearch(&PersonKey, pArray, nArraySize, sizeof(Person), npcmp);
         // TODO: 왜? 결과 값이 제대로 출력되지 않는지 확인하기
-        printf("%s", pResult->cName);
+        // printf("%s", pResult->cName); // 000(null)
         if (pResult == NULL)
             printf("No value found.\n");
         else
-            printf("Index[%d]: %s, %dcm, %dkg\n",
-                   (int)(pResult - pArray), pResult->cName, pResult->nHeight, pResult->nWeight);
+            printf("Index[%d]: %s, %dcm, %dkg\n", (int)(pResult - pArray), pResult->cName, pResult->nHeight, pResult->nWeight);
     }
     /* TODO: 이하 / 이상 / 초과 / 미만 / 범위 다섯 종류의 검색 방식을 구현해보자*/
     else if (nCriteria == 2)
@@ -130,9 +164,28 @@ int main(int argc, char *argv[])
     int nArraySize = 11;
     Person *pPersonList = initArray(nArraySize);
     Person *pSearchResult = NULL;
-    printArray(pPersonList, nArraySize);
-    // checkAscending_Name(pPersonList, nArraySize);
-    searchWithScanKey(pPersonList, nArraySize);
+    // printArray(pPersonList, nArraySize);
+    // // checkAscending_Name(pPersonList, nArraySize);
+    // searchWithScanKey(pPersonList, nArraySize);
+    Person PersonKey;
+    setlocale(LC_ALL, "EUC-KR");
+
+    printf("직접입력: ");
+    fgets(PersonKey.cName, sizeof(PersonKey.cName), stdin);
+    /* 입력받은 문자공백 제거 */
+    trimWhitespace(PersonKey.cName);
+    printf("직접 입력 후 비교: %d\n", npcmp(pPersonList[6].cName, PersonKey.cName));
+    printf("\"정재호\"를 저장한 변수와 비교: %d\n", npcmp(pPersonList[6].cName, "정재호"));
+
+    printf("Processed input: '%s'\n", PersonKey.cName);
+    printf("Comparison target: '%s'\n", pPersonList[6].cName);
+
+    for (int i = 0; i < strlen(PersonKey.cName); i++)
+    {
+        printf("%x ", (unsigned char)PersonKey.cName[i]);
+    }
+    printf("\n");
+
     free(pPersonList);
     return 0;
 }
