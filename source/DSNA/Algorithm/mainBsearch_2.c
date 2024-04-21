@@ -33,7 +33,7 @@ void trimWhitespace(char *str)
 }
 
 /* Person형의 비교 함수(오름차순 이름 정렬) */
-int npcmp(const void *pA, const void *pB)
+int personName_cmp(const void *pA, const void *pB)
 {
     const Person *pPersonA = (const Person *)pA;
     const Person *pPersonB = (const Person *)pB;
@@ -65,8 +65,8 @@ Person *initArray(int nArraySize)
     return pResult;
 }
 
-/* 리스트 출력 */
-void printArray(Person *pArray, int nArraySize)
+/* 표 형식 배열 출력 */
+void printTableFormat(Person *pArray, int nArraySize)
 {
     int nLoopCount = 0;
     if (pArray == NULL)
@@ -83,109 +83,114 @@ int checkAscending_Name(Person *pArray, int nArraySize)
     int nLoopCount = 0;
     int nCondition = 0;
     int nCount = 0;
+
+    if (pArray == NULL || nArraySize < 1)
+        return -1;
+
     for (nLoopCount = 0; nLoopCount < nArraySize - 1; nLoopCount++)
     {
-        nCondition = strcmp((pArray + nLoopCount)->cName, (pArray + nLoopCount + 1)->cName);
+        nCondition = npcmp(pArray + nLoopCount, pArray + nLoopCount + 1);
         if (nCondition < 0)
         {
             printf("%s < %s\n", (pArray + nLoopCount)->cName, (pArray + nLoopCount + 1)->cName);
             nCount++;
         }
         else
-        {
             printf("%d >= %d\n", (pArray + nLoopCount)->cName, (pArray + nLoopCount + 1)->cName);
-        }
     }
 
     if (nCount == nArraySize - 1)
-    {
-        printf("Is Ascending\n");
         return 0;
-    }
     else
-    {
-        printf("Is Descending\n");
-        return 0;
-    }
+        return 1;
 }
 
 /* 입력 받는 값을 검색 */
-int searchWithScanKey(Person *pArray, int nArraySize)
-{
-    Person PersonKey = {0};
-    Person *pResult;
-    int nCriteria = 0;
-
-    if (pArray == NULL || nArraySize < 1)
-        return -1;
-
-    /* 배열 정렬 */
-    qsort(pArray, nArraySize, sizeof(Person), npcmp);
-
-    printf("Please select your search criteria.\n(Name = 1, Height = 2, Weight = 3), After selecting, press enter\n> ");
-    do
-    {
-        scanf("%d", &nCriteria);
-        getchar(); // 개행 문자 제거
-        if (nCriteria < 1 || nCriteria > 3)
-            printf("Please select one of the options above.\n");
-    } while (nCriteria < 1 || nCriteria > 3);
-
-    if (nCriteria == 1)
-    {
-        printf("Please enter the name you are looking for.\n> ");
-        fgets(PersonKey.cName, sizeof(PersonKey.cName), stdin);
-        /* 입력받은 문자공백 제거 */
-        trimWhitespace(PersonKey.cName);
-        // scanf("%9s", PersonKey.cName);
-        // printf("%s", PersonKey.cName);
-        pResult = bsearch(&PersonKey, pArray, nArraySize, sizeof(Person), npcmp);
-        // TODO: 왜? 결과 값이 제대로 출력되지 않는지 확인하기
-        // printf("%s", pResult->cName); // 000(null)
-        if (pResult == NULL)
-            printf("No value found.\n");
-        else
-            printf("Index[%d]: %s, %dcm, %dkg\n", (int)(pResult - pArray), pResult->cName, pResult->nHeight, pResult->nWeight);
-    }
-    /* TODO: 이하 / 이상 / 초과 / 미만 / 범위 다섯 종류의 검색 방식을 구현해보자*/
-    else if (nCriteria == 2)
-    {
-        printf("Please enter the name you are looking for.\n> ");
-    }
-    else
-    {
-        printf("Please enter the name you are looking for.\n> ");
-    }
-    return 0;
-}
+// int searchWithScanKey(Person *pArray, int nArraySize)
+// {
+//     Person PersonKey = {0};
+//     Person *pResult;
+//     int nCriteria = 0;
+//     if (pArray == NULL || nArraySize < 1)
+//         return -1;
+//     /* 배열 정렬 */
+//     qsort(pArray, nArraySize, sizeof(Person), npcmp);
+//     printf("Please select your search criteria.\n(Name = 1, Height = 2, Weight = 3), After selecting, press enter\n> ");
+//     do
+//     {
+//         scanf("%d", &nCriteria);
+//         getchar(); // 개행 문자 제거
+//         if (nCriteria < 1 || nCriteria > 3)
+//             printf("Please select one of the options above.\n");
+//     } while (nCriteria < 1 || nCriteria > 3);
+//     if (nCriteria == 1)
+//     {
+//         printf("Please enter the name you are looking for.\n> ");
+//         fgets(PersonKey.cName, sizeof(PersonKey.cName), stdin);
+//         /* 입력받은 문자공백 제거 */
+//         trimWhitespace(PersonKey.cName);
+//         // scanf("%9s", PersonKey.cName);
+//         // printf("%s", PersonKey.cName);
+//         pResult = bsearch(&PersonKey, pArray, nArraySize, sizeof(Person), npcmp);
+//         // 왜? 결과 값이 제대로 출력되지 않는지 확인하기
+//         // printf("%s", pResult->cName); // 000(null)
+//         if (pResult == NULL)
+//             printf("No value found.\n");
+//         else
+//             printf("Index[%d]: %s, %dcm, %dkg\n", (int)(pResult - pArray), pResult->cName, pResult->nHeight, pResult->nWeight);
+//     }
+//     /* 이하 / 이상 / 초과 / 미만 / 범위 다섯 종류의 검색 방식을 구현해보자*/
+//     else if (nCriteria == 2)
+//     {
+//         printf("Please enter the name you are looking for.\n> ");
+//     }
+//     else
+//     {
+//         printf("Please enter the name you are looking for.\n> ");
+//     }
+//     return 0;
+// }
+/* code review
+1. cmd, powershell 에서 한글을 입력 받으려 하지말자
+2. 인코딩 문제로 입력한 값과 입력 결과가 달라진다.
+3. 인코딩을 이리저리 만져봐도 문제는 지속됨으로 이것에 시간을 쓸바에 알고리즘 공부를 더 하는게 맞다고 생각한다.
+ */
 
 int main(int argc, char *argv[])
 {
     int nArraySize = 11;
     Person *pPersonList = initArray(nArraySize);
     Person *pSearchResult = NULL;
-    // printArray(pPersonList, nArraySize);
-    // // checkAscending_Name(pPersonList, nArraySize);
-    // searchWithScanKey(pPersonList, nArraySize);
-    Person PersonKey;
-    setlocale(LC_ALL, "EUC-KR");
+    Person personKey = {"정재호", 176, 84};
 
-    printf("직접입력: ");
-    fgets(PersonKey.cName, sizeof(PersonKey.cName), stdin);
-    /* 입력받은 문자공백 제거 */
-    trimWhitespace(PersonKey.cName);
-    printf("직접 입력 후 비교: %d\n", npcmp(pPersonList[6].cName, PersonKey.cName));
-    printf("\"정재호\"를 저장한 변수와 비교: %d\n", npcmp(pPersonList[6].cName, "정재호"));
-
-    printf("Processed input: '%s'\n", PersonKey.cName);
-    printf("Comparison target: '%s'\n", pPersonList[6].cName);
-
-    for (int i = 0; i < strlen(PersonKey.cName); i++)
+    printArray(pPersonList, nArraySize);
+    if (checkAscending_Name(pPersonList, nArraySize) == 0)
     {
-        printf("%x ", (unsigned char)PersonKey.cName[i]);
+        searchWithKey(pPersonList, nArraySize, personKey);
     }
-    printf("\n");
+    else
+    {
+        /* 배열 정렬 (이름 오름차순) */
+        qsort(pPersonList, nArraySize, sizeof(Person), npcmp);
+        searchWithKey(pPersonList, nArraySize, personKey);
+    }
+    // Person PersonKey;
+    // setlocale(LC_ALL, "EUC-KR");
+    // printf("직접입력: ");
+    // fgets(PersonKey.cName, sizeof(PersonKey.cName), stdin);
+    // /* 입력받은 문자공백 제거 */
+    // trimWhitespace(PersonKey.cName);
+    // printf("직접 입력 후 비교: %d\n", npcmp(pPersonList[6].cName, PersonKey.cName));
+    // printf("\"정재호\"를 저장한 변수와 비교: %d\n", npcmp(pPersonList[6].cName, "정재호"));
+    // printf("Processed input: '%s'\n", PersonKey.cName);
+    // printf("Comparison target: '%s'\n", pPersonList[6].cName);
+    // for (int i = 0; i < strlen(PersonKey.cName); i++)
+    // {
+    //     printf("%x ", (unsigned char)PersonKey.cName[i]);
+    // }
+    // printf("\n");
 
     free(pPersonList);
     return 0;
 }
+// TODO: 정렬 기준 함수 (키, 몸무게) 구현하고 사용하는 예제 작성 _ qsort()를 사용하는 함수형 포인터 예제
