@@ -15,6 +15,8 @@ void *seqsearch(const void *key, const void *base, size_t nmemb, size_t size, in
 /* 선형 검색 알고리즘 조건 함수 */
 int lincmp(const void *A, const void *B);
 
+/* 실행 예제 3*/
+void Ex_Func_3(void);
 /* TODO: 이진 검색 알고리즘으로 값을 찾는 함수 */
 void *binsearch(const void *key, const void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
 
@@ -24,8 +26,8 @@ void *bsearchx(const void *key, const void *base, size_t nmemb, size_t size, int
 int main(int argc, char *argv[])
 {
     Ex_Func_1();
-    
     Ex_Func_2();
+    Ex_Func_3();
     return 0;
 }
 
@@ -135,4 +137,9 @@ int lincmp(const void *A, const void *B)
         return 0;
     else
         return -1;
+}
+
+void Ex_Func_3(void)
+{
+    return;
 }
