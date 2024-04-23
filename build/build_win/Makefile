@@ -128,29 +128,29 @@ algorithmTest/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/build
 .PHONY : algorithmTest/fast
 
-source/DSNA/Algorithm/mainBsearch_2.obj: source/DSNA/Algorithm/mainBsearch_2.c.obj
-.PHONY : source/DSNA/Algorithm/mainBsearch_2.obj
+source/DSNA/Algorithm/mainFunctionPointers.obj: source/DSNA/Algorithm/mainFunctionPointers.c.obj
+.PHONY : source/DSNA/Algorithm/mainFunctionPointers.obj
 
 # target to build an object file
-source/DSNA/Algorithm/mainBsearch_2.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch_2.c.obj
-.PHONY : source/DSNA/Algorithm/mainBsearch_2.c.obj
+source/DSNA/Algorithm/mainFunctionPointers.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainFunctionPointers.c.obj
+.PHONY : source/DSNA/Algorithm/mainFunctionPointers.c.obj
 
-source/DSNA/Algorithm/mainBsearch_2.i: source/DSNA/Algorithm/mainBsearch_2.c.i
-.PHONY : source/DSNA/Algorithm/mainBsearch_2.i
+source/DSNA/Algorithm/mainFunctionPointers.i: source/DSNA/Algorithm/mainFunctionPointers.c.i
+.PHONY : source/DSNA/Algorithm/mainFunctionPointers.i
 
 # target to preprocess a source file
-source/DSNA/Algorithm/mainBsearch_2.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch_2.c.i
-.PHONY : source/DSNA/Algorithm/mainBsearch_2.c.i
+source/DSNA/Algorithm/mainFunctionPointers.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainFunctionPointers.c.i
+.PHONY : source/DSNA/Algorithm/mainFunctionPointers.c.i
 
-source/DSNA/Algorithm/mainBsearch_2.s: source/DSNA/Algorithm/mainBsearch_2.c.s
-.PHONY : source/DSNA/Algorithm/mainBsearch_2.s
+source/DSNA/Algorithm/mainFunctionPointers.s: source/DSNA/Algorithm/mainFunctionPointers.c.s
+.PHONY : source/DSNA/Algorithm/mainFunctionPointers.s
 
 # target to generate assembly for a file
-source/DSNA/Algorithm/mainBsearch_2.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainBsearch_2.c.s
-.PHONY : source/DSNA/Algorithm/mainBsearch_2.c.s
+source/DSNA/Algorithm/mainFunctionPointers.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainFunctionPointers.c.s
+.PHONY : source/DSNA/Algorithm/mainFunctionPointers.c.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... algorithmTest
-	@echo ... source/DSNA/Algorithm/mainBsearch_2.obj
-	@echo ... source/DSNA/Algorithm/mainBsearch_2.i
-	@echo ... source/DSNA/Algorithm/mainBsearch_2.s
+	@echo ... source/DSNA/Algorithm/mainFunctionPointers.obj
+	@echo ... source/DSNA/Algorithm/mainFunctionPointers.i
+	@echo ... source/DSNA/Algorithm/mainFunctionPointers.s
 .PHONY : help
 
 

@@ -47,7 +47,7 @@ int personHeight_cmp(const void *pA, const void *pB)
 {
     const Person *pPersonA = (const Person *)pA;
     const Person *pPersonB = (const Person *)pB;
-    
+
     if (pPersonA->nHeight == pPersonB->nHeight)
         return 0;
     else if (pPersonA->nHeight < pPersonB->nHeight)
@@ -61,7 +61,7 @@ int personWeight_cmp(const void *pA, const void *pB)
 {
     const Person *pPersonA = (const Person *)pA;
     const Person *pPersonB = (const Person *)pB;
-    
+
     if (pPersonA->nWeight == pPersonB->nWeight)
         return 0;
     else if (pPersonA->nWeight < pPersonB->nWeight)
@@ -78,7 +78,7 @@ Person *initArray(int nArraySize)
 
     if (pResult == NULL)
         return NULL;
-    
+
     /* 값 초기화 */
     pResult[0] = (Person){"김영준", 179, 79};
     pResult[1] = (Person){"김현진", 175, 81};
@@ -94,7 +94,7 @@ Person *initArray(int nArraySize)
 
     /* 배열 정렬(이름 오름차순) */
     qsort(pResult, nArraySize, sizeof(Person), personName_cmp);
-    
+
     return pResult;
 }
 
@@ -111,7 +111,7 @@ void printTableFormat(Person *pArray, int nArraySize)
 }
 
 /* 오름차순 정렬 검사(함수형 포인터 인자 활용) */
-int checkAscending(Person *pArray, int nArraySize, int(*compare)(const void *key, const void *element))
+int checkAscending(Person *pArray, int nArraySize, int (*compare)(const void *key, const void *element))
 {
     int nLoopCount = 0;
     int nCondition = 0;
@@ -122,10 +122,11 @@ int checkAscending(Person *pArray, int nArraySize, int(*compare)(const void *key
 
     for (nLoopCount = 0; nLoopCount < nArraySize - 1; nLoopCount++)
     {
-        /* 함수 포인터 이렇게 쓰는게 맞나? */
+        /* 함수 포인터 실행 결과로 오름차순 정렬 여부 확인 */
         nCondition = compare(pArray + nLoopCount, pArray + nLoopCount + 1);
-        if (nCondition < 0)
+        if (nCondition <= 0)
             nCount++;
+        // printf("nLoopCount: %d, nCondition: %d, nCount: %d\n", nLoopCount, nCondition, nCount);
     }
 
     if (nCount == nArraySize - 1)
@@ -137,30 +138,57 @@ int checkAscending(Person *pArray, int nArraySize, int(*compare)(const void *key
 int main(int argc, char *argv[])
 {
     int nArraySize = 11;
-    
+
     Person *pPersonList = initArray(nArraySize);
     Person *pSearchResult = NULL, *pResult = NULL;
     Person personKey = {"정재호", 176, 84};
 
-    printArray(pPersonList, nArraySize);
+    printf("[이름 오름차순 정렬]\n");
+    printTableFormat(pPersonList, nArraySize);
+    printf("\n 탐색결과: \n");
+    /* case_1: "정재호"라는 이름을 가진 사람의 정보 찾기*/
     /* 이름 기준 오름차순 정렬인지 확인*/
     if (checkAscending(pPersonList, nArraySize, personName_cmp) == 0)
     {
-        pResult = bsearch(&PersonKey, pPersonList, nArraySize, sizeof(Person), personName_cmp);
+        pResult = bsearch(&personKey, pPersonList, nArraySize, sizeof(Person), personName_cmp);
         if (pResult != NULL)
-            printf("[%d] - %s\t|%d\t|%d\t|\n", pResult - pPersonList, pResult->cName, pResult->);
+            printf("|%s\t|%d\t|%d\t| > [%d]\n", pResult->cName, pResult->nHeight, pResult->nWeight, pResult - pPersonList);
         else
             printf("데이터를 찾지 못했습니다.\n");
     }
-    else
-    {
-        /* 배열 정렬 (이름 오름차순) */
-        qsort(pPersonList, nArraySize, sizeof(Person), personName_cmp);
-        searchWithKey(pPersonList, nArraySize, personKey);
-    }
+    printf("\n\n");
 
+    /* case_2: 키 176cm인 사람의 정보 찾기*/
+    /* 키 기준 오름차순으로 배열 정렬*/
+    qsort(pPersonList, nArraySize, sizeof(Person), personHeight_cmp);
+    printf("[키 오름차순 정렬]\n");
+    printTableFormat(pPersonList, nArraySize);
+    printf("\n 탐색결과: \n");
+    if (checkAscending(pPersonList, nArraySize, personHeight_cmp) == 0)
+    {
+        pResult = bsearch(&personKey, pPersonList, nArraySize, sizeof(Person), personHeight_cmp);
+        if (pResult != NULL)
+            printf("|%s\t|%d\t|%d\t| > [%d]\n", pResult->cName, pResult->nHeight, pResult->nWeight, pResult - pPersonList);
+        else
+            printf("데이터를 찾지 못했습니다.\n");
+    }
+    printf("\n\n");
+
+    /* case_3: 몸무게 84kg 인 사람의 정보 찾기*/
+    /* 몸무게 기준 오름차순으로 배열 정렬*/
+    qsort(pPersonList, nArraySize, sizeof(Person), personWeight_cmp);
+    printf("[몸무게 오름차순 정렬]\n");
+    printTableFormat(pPersonList, nArraySize);
+    printf("\n 탐색결과: \n");
+    if (checkAscending(pPersonList, nArraySize, personWeight_cmp) == 0)
+    {
+        pResult = bsearch(&personKey, pPersonList, nArraySize, sizeof(Person), personWeight_cmp);
+        if (pResult != NULL)
+            printf("|%s\t|%d\t|%d\t| > [%d]\n", pResult->cName, pResult->nHeight, pResult->nWeight, pResult - pPersonList);
+        else
+            printf("데이터를 찾지 못했습니다.\n");
+    }
 
     free(pPersonList);
     return 0;
 }
-// TODO: 정렬 기준 함수 (키, 몸무게) 구현하고 사용하는 예제 작성 _ qsort()를 사용하는 함수형 포인터 예제
