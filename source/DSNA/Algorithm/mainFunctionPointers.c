@@ -24,7 +24,7 @@ int ascmp(const void *A, const void *B);
 
 /* 실행 예제 4*/
 void Ex_Func_4(void);
-// TODO: 이진 검색 알고리즘으로 값을 찾되 찾은 값의 중복된 값들 중 가장 앞 순서의 포인터를 반환하는 함수
+// 이진 검색 알고리즘으로 값을 찾되 찾은 값의 중복된 값들 중 가장 앞 순서의 포인터를 반환하는 함수
 void *bsearchx(const void *key, const void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
 
 int main(int argc, char *argv[])
