@@ -131,3 +131,4 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
 |알고리즘(설명링크)|소스 링크|
 |:--|:--|
 |버블 정렬([링크](/markdown/Algorithm/Sorting/BubbleSort.md))|소스코드 라인 링크
+|단순 선택 정렬([링크](/markdown/Algorithm/Sorting/StraightSelectionSort.md))|소스코드 라인 링크
