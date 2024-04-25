@@ -9,3 +9,24 @@
 - 모든 정렬이 끝나려면 n - 1 회 패스가 진행되어야 한다. (n - 1개 요소의 정렬이 끝나면 마지막 요소는 이미 끝에 놓이기 때문)
 
 # 소스 코드
+```c
+/* 버블 내부 교환 매크로 함수*/
+#define swapBubble(type, x, y) \
+    do                   \
+    {                    \
+        type t = x;      \
+        x = y;           \
+        y = t;           \
+    } while (0)
+
+/* 버블 정렬 */
+void bubble(int *a, int n)
+{
+    int i, j;
+    for (i = 0; i < n - 1; i++)
+        for (j = n - 1; j > i; j--) /* 배열 끝 부터 패스 */
+            if (a[j - 1] > a[j])
+                swapBubble(int, a[j - 1], a[j]);
+}
+```
+> TIP. 여러 줄에 걸쳐 매크로를 작성하고자 할 때는 \ (역슬래시)를 사용    

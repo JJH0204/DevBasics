@@ -79,7 +79,7 @@
 | Sentinel_Method                   |       | [Sentinel_Method.md](markdown/Algorithm/Sentinel_Method.md)                                                         | [mainSentinelMethod.c](source/DSNA/Algorithm/mainSentinelMethod.c)                                                                                                                                                                                                                            |
 | bsearch func                      |       | [bsearch.md](markdown/Algorithm/bsearch.md)                                                                         | [mainBsearch_1.c](source/DSNA/Algorithm/mainBsearch_1.c)<br/>[mainBsearch_2.c](source/DSNA/Algorithm/mainBsearch_2.c)                                                                                                                                                                         |
 | function pointer                  |       |                                                                                                                     | [mainFunctionPointers.c](source/DSNA/Algorithm/mainFunctionPointers.c)                                                                                                                                                                                                                        |
-| Sorting||[Sorting.md](markdown/Algorithm/Sorting.md)
+| Sorting||[Sorting.md](markdown/Algorithm/Sorting.md)<br/>[About sort algorithms.div](markdown/Algorithm/Sorting)|[mainSortingArray.c](/source/DSNA/Sorting/mainSortingArray.c)|[includeSorting.h](/include/includeSorting.h)<br/>[includeSorting.c](/source/DSNA/Sorting/includeSorting.c)
 
 </div>
 </details>
