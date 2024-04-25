@@ -29,7 +29,8 @@ set(SOURCE_DIR  # 소스코드 경로
 #     ${SOURCE_DIR}/includeGenericStructure.c
 # )
 add_executable(SortingAlgorithm
-    ${SOURCE_DIR}/mainBubbleSort.c
+    ${SOURCE_DIR}/mainSortingArray.c
+    ${SOURCE_DIR}/includeSorting.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정

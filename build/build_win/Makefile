@@ -128,29 +128,53 @@ SortingAlgorithm/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/build
 .PHONY : SortingAlgorithm/fast
 
-source/DSNA/Sorting/mainBubbleSort.obj: source/DSNA/Sorting/mainBubbleSort.c.obj
-.PHONY : source/DSNA/Sorting/mainBubbleSort.obj
+source/DSNA/Sorting/includeSorting.obj: source/DSNA/Sorting/includeSorting.c.obj
+.PHONY : source/DSNA/Sorting/includeSorting.obj
 
 # target to build an object file
-source/DSNA/Sorting/mainBubbleSort.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainBubbleSort.c.obj
-.PHONY : source/DSNA/Sorting/mainBubbleSort.c.obj
+source/DSNA/Sorting/includeSorting.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.obj
+.PHONY : source/DSNA/Sorting/includeSorting.c.obj
 
-source/DSNA/Sorting/mainBubbleSort.i: source/DSNA/Sorting/mainBubbleSort.c.i
-.PHONY : source/DSNA/Sorting/mainBubbleSort.i
+source/DSNA/Sorting/includeSorting.i: source/DSNA/Sorting/includeSorting.c.i
+.PHONY : source/DSNA/Sorting/includeSorting.i
 
 # target to preprocess a source file
-source/DSNA/Sorting/mainBubbleSort.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainBubbleSort.c.i
-.PHONY : source/DSNA/Sorting/mainBubbleSort.c.i
+source/DSNA/Sorting/includeSorting.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.i
+.PHONY : source/DSNA/Sorting/includeSorting.c.i
 
-source/DSNA/Sorting/mainBubbleSort.s: source/DSNA/Sorting/mainBubbleSort.c.s
-.PHONY : source/DSNA/Sorting/mainBubbleSort.s
+source/DSNA/Sorting/includeSorting.s: source/DSNA/Sorting/includeSorting.c.s
+.PHONY : source/DSNA/Sorting/includeSorting.s
 
 # target to generate assembly for a file
-source/DSNA/Sorting/mainBubbleSort.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainBubbleSort.c.s
-.PHONY : source/DSNA/Sorting/mainBubbleSort.c.s
+source/DSNA/Sorting/includeSorting.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.s
+.PHONY : source/DSNA/Sorting/includeSorting.c.s
+
+source/DSNA/Sorting/mainSortingArray.obj: source/DSNA/Sorting/mainSortingArray.c.obj
+.PHONY : source/DSNA/Sorting/mainSortingArray.obj
+
+# target to build an object file
+source/DSNA/Sorting/mainSortingArray.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.obj
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.obj
+
+source/DSNA/Sorting/mainSortingArray.i: source/DSNA/Sorting/mainSortingArray.c.i
+.PHONY : source/DSNA/Sorting/mainSortingArray.i
+
+# target to preprocess a source file
+source/DSNA/Sorting/mainSortingArray.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.i
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.i
+
+source/DSNA/Sorting/mainSortingArray.s: source/DSNA/Sorting/mainSortingArray.c.s
+.PHONY : source/DSNA/Sorting/mainSortingArray.s
+
+# target to generate assembly for a file
+source/DSNA/Sorting/mainSortingArray.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.s
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.s
 
 # Help Target
 help:
@@ -161,9 +185,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... SortingAlgorithm
-	@echo ... source/DSNA/Sorting/mainBubbleSort.obj
-	@echo ... source/DSNA/Sorting/mainBubbleSort.i
-	@echo ... source/DSNA/Sorting/mainBubbleSort.s
+	@echo ... source/DSNA/Sorting/includeSorting.obj
+	@echo ... source/DSNA/Sorting/includeSorting.i
+	@echo ... source/DSNA/Sorting/includeSorting.s
+	@echo ... source/DSNA/Sorting/mainSortingArray.obj
+	@echo ... source/DSNA/Sorting/mainSortingArray.i
+	@echo ... source/DSNA/Sorting/mainSortingArray.s
 .PHONY : help
 
 
