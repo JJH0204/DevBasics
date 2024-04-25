@@ -16,4 +16,9 @@ void bubble(int *a, int n);
 void COBubble(int *a, int n);
 /* 배열 출력 함수 */
 void printArrayA2B(int *a, int *b);
+/* 배열 정렬 여부 확인*/
+int is_sorted(const int *a, int n);
+/* 양뱡향 버블 정렬*/
+void cocktail(int *a, int n);
+
 #endif
