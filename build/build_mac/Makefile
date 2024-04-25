@@ -117,41 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named algorithmTest
+# Target rules for targets named SortingAlgorithm
 
 # Build rule for target.
-algorithmTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 algorithmTest
-.PHONY : algorithmTest
+SortingAlgorithm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SortingAlgorithm
+.PHONY : SortingAlgorithm
 
 # fast build rule for target.
-algorithmTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/build
-.PHONY : algorithmTest/fast
+SortingAlgorithm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/build
+.PHONY : SortingAlgorithm/fast
 
-source/DSNA/Search/mainBinarySearch.o: source/DSNA/Search/mainBinarySearch.c.o
-.PHONY : source/DSNA/Search/mainBinarySearch.o
+source/DSNA/Sorting/includeSorting.o: source/DSNA/Sorting/includeSorting.c.o
+.PHONY : source/DSNA/Sorting/includeSorting.o
 
 # target to build an object file
-source/DSNA/Search/mainBinarySearch.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Search/mainBinarySearch.c.o
-.PHONY : source/DSNA/Search/mainBinarySearch.c.o
+source/DSNA/Sorting/includeSorting.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.o
+.PHONY : source/DSNA/Sorting/includeSorting.c.o
 
-source/DSNA/Search/mainBinarySearch.i: source/DSNA/Search/mainBinarySearch.c.i
-.PHONY : source/DSNA/Search/mainBinarySearch.i
+source/DSNA/Sorting/includeSorting.i: source/DSNA/Sorting/includeSorting.c.i
+.PHONY : source/DSNA/Sorting/includeSorting.i
 
 # target to preprocess a source file
-source/DSNA/Search/mainBinarySearch.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Search/mainBinarySearch.c.i
-.PHONY : source/DSNA/Search/mainBinarySearch.c.i
+source/DSNA/Sorting/includeSorting.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.i
+.PHONY : source/DSNA/Sorting/includeSorting.c.i
 
-source/DSNA/Search/mainBinarySearch.s: source/DSNA/Search/mainBinarySearch.c.s
-.PHONY : source/DSNA/Search/mainBinarySearch.s
+source/DSNA/Sorting/includeSorting.s: source/DSNA/Sorting/includeSorting.c.s
+.PHONY : source/DSNA/Sorting/includeSorting.s
 
 # target to generate assembly for a file
-source/DSNA/Search/mainBinarySearch.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/algorithmTest.dir/build.make CMakeFiles/algorithmTest.dir/source/DSNA/Search/mainBinarySearch.c.s
-.PHONY : source/DSNA/Search/mainBinarySearch.c.s
+source/DSNA/Sorting/includeSorting.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.s
+.PHONY : source/DSNA/Sorting/includeSorting.c.s
+
+source/DSNA/Sorting/mainSortingArray.o: source/DSNA/Sorting/mainSortingArray.c.o
+.PHONY : source/DSNA/Sorting/mainSortingArray.o
+
+# target to build an object file
+source/DSNA/Sorting/mainSortingArray.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.o
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.o
+
+source/DSNA/Sorting/mainSortingArray.i: source/DSNA/Sorting/mainSortingArray.c.i
+.PHONY : source/DSNA/Sorting/mainSortingArray.i
+
+# target to preprocess a source file
+source/DSNA/Sorting/mainSortingArray.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.i
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.i
+
+source/DSNA/Sorting/mainSortingArray.s: source/DSNA/Sorting/mainSortingArray.c.s
+.PHONY : source/DSNA/Sorting/mainSortingArray.s
+
+# target to generate assembly for a file
+source/DSNA/Sorting/mainSortingArray.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.s
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.s
 
 # Help Target
 help:
@@ -161,10 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... algorithmTest"
-	@echo "... source/DSNA/Search/mainBinarySearch.o"
-	@echo "... source/DSNA/Search/mainBinarySearch.i"
-	@echo "... source/DSNA/Search/mainBinarySearch.s"
+	@echo "... SortingAlgorithm"
+	@echo "... source/DSNA/Sorting/includeSorting.o"
+	@echo "... source/DSNA/Sorting/includeSorting.i"
+	@echo "... source/DSNA/Sorting/includeSorting.s"
+	@echo "... source/DSNA/Sorting/mainSortingArray.o"
+	@echo "... source/DSNA/Sorting/mainSortingArray.i"
+	@echo "... source/DSNA/Sorting/mainSortingArray.s"
 .PHONY : help
 
 
