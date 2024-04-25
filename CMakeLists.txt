@@ -16,9 +16,10 @@ add_compile_options(
 
 # 소스 파일의 경로를 변수에 설정
 set(SOURCE_DIR  # 소스코드 경로
-    source/DSNA/non-Linear
-    source/DSNA/Search
-    source/DSNA/Algorithm
+    # source/DSNA/non-Linear
+    # source/DSNA/Search
+    # source/DSNA/Algorithm
+    source/DSNA/Sorting
 )
 
 # 소스 파일 지정
@@ -27,12 +28,8 @@ set(SOURCE_DIR  # 소스코드 경로
 #     ${SOURCE_DIR}/includeArrayGraph.c
 #     ${SOURCE_DIR}/includeGenericStructure.c
 # )
-add_executable(algorithmTest
-    # ${SOURCE_DIR}/mainBasics_2.c
-    # ${SOURCE_DIR}/mainSentinelMethod.c
-    # ${SOURCE_DIR}/mainBinarySearch.c
-    # ${SOURCE_DIR}/mainBsearch_2.c
-    ${SOURCE_DIR}/mainFunctionPointers.c
+add_executable(SortingAlgorithm
+    ${SOURCE_DIR}/mainBubbleSort.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정

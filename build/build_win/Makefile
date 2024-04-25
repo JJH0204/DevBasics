@@ -116,41 +116,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named algorithmTest
+# Target rules for targets named SortingAlgorithm
 
 # Build rule for target.
-algorithmTest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 algorithmTest
-.PHONY : algorithmTest
+SortingAlgorithm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SortingAlgorithm
+.PHONY : SortingAlgorithm
 
 # fast build rule for target.
-algorithmTest/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/build
-.PHONY : algorithmTest/fast
+SortingAlgorithm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/build
+.PHONY : SortingAlgorithm/fast
 
-source/DSNA/Algorithm/mainFunctionPointers.obj: source/DSNA/Algorithm/mainFunctionPointers.c.obj
-.PHONY : source/DSNA/Algorithm/mainFunctionPointers.obj
+source/DSNA/Sorting/mainBubbleSort.obj: source/DSNA/Sorting/mainBubbleSort.c.obj
+.PHONY : source/DSNA/Sorting/mainBubbleSort.obj
 
 # target to build an object file
-source/DSNA/Algorithm/mainFunctionPointers.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainFunctionPointers.c.obj
-.PHONY : source/DSNA/Algorithm/mainFunctionPointers.c.obj
+source/DSNA/Sorting/mainBubbleSort.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainBubbleSort.c.obj
+.PHONY : source/DSNA/Sorting/mainBubbleSort.c.obj
 
-source/DSNA/Algorithm/mainFunctionPointers.i: source/DSNA/Algorithm/mainFunctionPointers.c.i
-.PHONY : source/DSNA/Algorithm/mainFunctionPointers.i
+source/DSNA/Sorting/mainBubbleSort.i: source/DSNA/Sorting/mainBubbleSort.c.i
+.PHONY : source/DSNA/Sorting/mainBubbleSort.i
 
 # target to preprocess a source file
-source/DSNA/Algorithm/mainFunctionPointers.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainFunctionPointers.c.i
-.PHONY : source/DSNA/Algorithm/mainFunctionPointers.c.i
+source/DSNA/Sorting/mainBubbleSort.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainBubbleSort.c.i
+.PHONY : source/DSNA/Sorting/mainBubbleSort.c.i
 
-source/DSNA/Algorithm/mainFunctionPointers.s: source/DSNA/Algorithm/mainFunctionPointers.c.s
-.PHONY : source/DSNA/Algorithm/mainFunctionPointers.s
+source/DSNA/Sorting/mainBubbleSort.s: source/DSNA/Sorting/mainBubbleSort.c.s
+.PHONY : source/DSNA/Sorting/mainBubbleSort.s
 
 # target to generate assembly for a file
-source/DSNA/Algorithm/mainFunctionPointers.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\algorithmTest.dir\build.make CMakeFiles/algorithmTest.dir/source/DSNA/Algorithm/mainFunctionPointers.c.s
-.PHONY : source/DSNA/Algorithm/mainFunctionPointers.c.s
+source/DSNA/Sorting/mainBubbleSort.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainBubbleSort.c.s
+.PHONY : source/DSNA/Sorting/mainBubbleSort.c.s
 
 # Help Target
 help:
@@ -160,10 +160,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... algorithmTest
-	@echo ... source/DSNA/Algorithm/mainFunctionPointers.obj
-	@echo ... source/DSNA/Algorithm/mainFunctionPointers.i
-	@echo ... source/DSNA/Algorithm/mainFunctionPointers.s
+	@echo ... SortingAlgorithm
+	@echo ... source/DSNA/Sorting/mainBubbleSort.obj
+	@echo ... source/DSNA/Sorting/mainBubbleSort.i
+	@echo ... source/DSNA/Sorting/mainBubbleSort.s
 .PHONY : help
 
 
