@@ -12,5 +12,8 @@
 
 /* 버블 정렬 */
 void bubble(int *a, int n);
-
+/* 버블 정렬 과정 출력 */
+void COBubble(int *a, int n);
+/* 배열 출력 함수 */
+void printArrayA2B(int *a, int *b);
 #endif
