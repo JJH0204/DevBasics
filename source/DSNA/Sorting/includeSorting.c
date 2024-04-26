@@ -14,7 +14,7 @@ void bubble(int *a, int n)
         for (j = 0; j < k; j++) /* 패스 종료 지점 k까지 패스 진행*/
             if (a[j] > a[j + 1])
             {
-                swapBubble(int, a[j], a[j + 1]);
+                swap(int, a[j], a[j + 1]);
                 nExchange++; /* 교환 후 체크 */
                 last = j;    /* 가장 최근에 교환이 이뤄진 인덱스 위치를 기억 */
             }
@@ -25,7 +25,7 @@ void bubble(int *a, int n)
 
     // for (j = n - 1; j > i; j--) /* 배열 끝부터 패스 */
     //     if (a[j - 1] > a[j])
-    //         swapBubble(int, a[j - 1], a[j]);
+    //         swap(int, a[j - 1], a[j]);
 }
 
 void COBubble(int *a, int n)
@@ -47,7 +47,7 @@ void COBubble(int *a, int n)
                 condition++;
                 exchange++;
                 printf("+  %02d     ", a[j + 1]);
-                swapBubble(int, a[j], a[j + 1]);
+                swap(int, a[j], a[j + 1]);
             }
             else
                 printf("-  %02d     ", a[j + 1]);
@@ -167,7 +167,7 @@ void cocktail(int *a, int n)
             {
                 if (a[nLoopCount - 1] > a[nLoopCount])
                 {
-                    swapBubble(int, a[nLoopCount - 1], a[nLoopCount]);
+                    swap(int, a[nLoopCount - 1], a[nLoopCount]);
                     nLast = nLoopCount;
                     nExchange++;
                 }
@@ -181,7 +181,7 @@ void cocktail(int *a, int n)
             {
                 if (a[nLoopCount] > a[nLoopCount + 1])
                 {
-                    swapBubble(int, a[nLoopCount], a[nLoopCount + 1]);
+                    swap(int, a[nLoopCount], a[nLoopCount + 1]);
                     nLast = nLoopCount;
                     nExchange++;
                 }
@@ -192,4 +192,36 @@ void cocktail(int *a, int n)
             break;
     }
     return;
+}
+
+void selection(int *a, int n)
+{
+    int nLoop, nInLoop, nMin;
+    if (a == NULL || n < 1)
+        return;
+
+    for (nLoop = 0; nLoop < n - 1; nLoop++)
+    {
+        nMin = nLoop;
+        for (nInLoop = nLoop + 1; nInLoop < n; nInLoop++)
+            if (a[nInLoop] < a[nMin])
+                nMin = nInLoop;
+        if (nLoop != nMin)
+            swap(int, a[nLoop], a[nMin]);
+    }
+}
+
+void insertion(int *a, int n)
+{
+    int nLoop, nInLoop, nTemp;
+    for (nLoop = 0; nLoop < n; nLoop++)
+    {
+        /* 정렬할 값 선택 */
+        nTemp = a[nLoop];
+
+        /* 정렬할 위치 찾기(배열 시작 ~ 선택한 값 사이에서) */
+        for (nInLoop = nLoop; nInLoop > 0 && a[nInLoop - 1] > nTemp; nInLoop--)
+            a[nInLoop] = a[nInLoop - 1];
+        a[nInLoop] = nTemp;
+    }
 }

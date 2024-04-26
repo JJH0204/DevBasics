@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, cocktail);
+    sortArray(pArray, nElements, insertion);
     printArray(pArray, nElements);
 
     free(pArray);

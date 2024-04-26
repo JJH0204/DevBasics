@@ -126,9 +126,15 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
 ```
 - main()에서 실행할 정렬 함수의 이름만 바꿔서 즉시 테스트가 가능하도록 함수 포인터로 구현
 
-## 5. 정렬 알고리즘([소스코드](../../source/DSNA/Sorting/includeSorting.c))
+## 5. 단순 정렬 알고리즘([소스코드](../../source/DSNA/Sorting/includeSorting.c))
 
 |알고리즘(설명링크)|소스 링크|
 |:--|:--|
 |버블 정렬([링크](/markdown/Algorithm/Sorting/BubbleSort.md))|소스코드 라인 링크
 |단순 선택 정렬([링크](/markdown/Algorithm/Sorting/StraightSelectionSort.md))|소스코드 라인 링크
+|단순 삽입 정렬([링크](/markdown/Algorithm/Sorting/StraightInsertionSort.md))|소스코드 라인 링크
+
+
+## 6. 단순 정렬의 시간 복잡도
+- 세가지 정렬(버블 정렬, 단순 선택 정렬, 단순 삽입 정렬)은 시간 복잡도가 $O(n^2)$로 효율이 좋지 않다.
+- 
