@@ -135,6 +135,6 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
 |단순 삽입 정렬([링크](/markdown/Algorithm/Sorting/StraightInsertionSort.md))|소스코드 라인 링크
 
 
-## 6. 단순 정렬의 시간 복잡도
+### 5.1. 단순 정렬의 시간 복잡도
 - 세가지 정렬(버블 정렬, 단순 선택 정렬, 단순 삽입 정렬)은 시간 복잡도가 $O(n^2)$로 효율이 좋지 않다.
 - 

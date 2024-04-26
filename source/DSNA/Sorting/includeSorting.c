@@ -1,5 +1,6 @@
 #include "includeSorting.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 void bubble(int *a, int n)
 {
@@ -214,7 +215,7 @@ void selection(int *a, int n)
 void insertion(int *a, int n)
 {
     int nLoop, nInLoop, nTemp;
-    for (nLoop = 0; nLoop < n; nLoop++)
+    for (nLoop = 1; nLoop < n; nLoop++)
     {
         /* 정렬할 값 선택 */
         nTemp = a[nLoop];
@@ -224,4 +225,167 @@ void insertion(int *a, int n)
             a[nInLoop] = a[nInLoop - 1];
         a[nInLoop] = nTemp;
     }
+}
+
+void COselection(int *a, int n)
+{
+    /* 단순 선택 정렬 과정을 출력하며 정렬을 수행하는 함수*/
+    int nLoop, nInLoop, nMin;
+
+    int nCOLoopCount = 0;
+    /* 유효성 검사 */
+    if (a == NULL || n < 1)
+        return;
+
+    /* 정렬 순회 루프 */
+    for (nLoop = 0; nLoop < n - 1; nLoop++)
+    {
+        /* 가장 작은 값을 찾기 위해 순회 시작 인덱스를 시작으로 설정*/
+        nMin = nLoop;
+
+        for (nInLoop = nLoop + 1; nInLoop < n; nInLoop++)
+            if (a[nInLoop] < a[nMin])
+                nMin = nInLoop;
+
+        /* 패스 과정 출력 */
+        for (nCOLoopCount = 0; nCOLoopCount < n; nCOLoopCount++)
+        {
+            if (nLoop == nCOLoopCount)
+                printf("*");
+            else if (nMin == nCOLoopCount)
+                printf("+");
+            printf("\t");
+        }
+        printf("\n");
+        for (nCOLoopCount = 0; nCOLoopCount < n; nCOLoopCount++)
+            printf("%02d\t", a[nCOLoopCount]);
+        printf("\n");
+
+        /* 선택한 정렬되지 않은 배열의 가장 작은 값과 정렬되지 않은 배열의 가장 앞과 교환. 단, 서로 다른 인덱스일 때만*/
+        if (nLoop != nMin)
+            swap(int, a[nLoop], a[nMin]);
+    }
+}
+
+void COinsertion(int *a, int n)
+{
+    int nLoop, nInLoop, nTemp;
+    int nArrayPrint = 0;
+
+    for (nLoop = 1; nLoop < n; nLoop++)
+    {
+        /* 배열 출력 */
+        for (nArrayPrint = 0; nArrayPrint < n; nArrayPrint++)
+            printf("%02d\t", a[nArrayPrint]);
+        printf("\n");
+
+        /* 정렬할 값 선택 */
+        nTemp = a[nLoop];
+
+        /* 정렬할 위치 찾기(배열 시작 ~ 선택한 값 사이에서) */
+        for (nInLoop = nLoop; nInLoop > 0 && a[nInLoop - 1] > nTemp; nInLoop--)
+            a[nInLoop] = a[nInLoop - 1];
+
+        if (nInLoop != nLoop)
+            a[nInLoop] = nTemp;
+
+        /* 과정 출력 */
+        for (nArrayPrint = 0; nArrayPrint < n; nArrayPrint++)
+        {
+            if (nArrayPrint == nLoop)
+                printf("+\t");
+            else if (nArrayPrint == nInLoop)
+                printf("^-------");
+            else if (nArrayPrint < nLoop && nArrayPrint > nInLoop)
+                printf("--------");
+            else
+                printf("\t");
+        }
+        printf("\n");
+    }
+}
+
+int copy(int *pFrom, int *pTo, int nSize)
+{
+    int nLoop = 0;
+    if (pFrom == NULL || pTo == NULL || nSize < 0)
+        return -1;
+
+    for (; nLoop < nSize; nLoop++)
+        pTo[nLoop] = pFrom[nLoop];
+
+    return 0;
+}
+
+void insertion_V2(int *a, int n)
+{
+    int nLoop, nInLoop, nTemp;
+    /* 보초 법을 위한 배열 복사 */
+    int *pCapArray = NULL;
+
+    if (a == NULL || n < 0)
+        return;
+    pCapArray = (int *)calloc(n + 1, sizeof(int));
+
+    if (copy(a, pCapArray + 1, n) != 0)
+        return;
+
+    for (nLoop = 1; nLoop < n + 1; nLoop++)
+    {
+        /* 정렬할 값 선택 */
+        nTemp = pCapArray[nLoop];
+        pCapArray[0] = nTemp;
+
+        /* 정렬할 위치 찾기(배열 시작 ~ 선택한 값 사이에서) */
+        for (nInLoop = nLoop; pCapArray[nInLoop - 1] > nTemp; nInLoop--)
+            pCapArray[nInLoop] = pCapArray[nInLoop - 1];
+
+        if (nInLoop != nLoop)
+            pCapArray[nInLoop] = nTemp;
+    }
+
+    copy(pCapArray + 1, a, n);
+    free(pCapArray);
+    return;
+}
+/*  정석은 대치법을 사용하기 위한 메모리 할당을 미리 끝낸 상태에서 위 함수를 호출하는 것이지,
+    함수 내부에서 대치법을 위한 새로운 배열 할당을 실행하는 것은 알고리즘 성능을 저해한다.*/
+
+/* TODO: 이진 삽입 정렬 */
+void binInsertion(int *a, int n)
+{
+    int nLoop, nInLoop, nTemp;
+    int nStart = 0, nEnd = 0, nMiddle = 0;
+    for (nLoop = 1; nLoop < n; nLoop++)
+    {
+        /* 정렬할 값 선택 */
+        nTemp = a[nLoop];
+
+        /* 이진 탐색 준비 */
+        nStart = 0;
+        nEnd = nLoop - 1;
+
+        /* TODO: 이진 탐색 과정에서 무한 루프에 빠졌다. */
+        for (nMiddle = ((nEnd - nStart) / 2); nStart <= nEnd; nMiddle = ((nEnd - nStart) / 2))
+        {
+            if (a[nMiddle] < nTemp)
+            {
+                if (a[nMiddle + 1] > nTemp)
+                {
+                    nMiddle++;
+                    break;
+                }
+                else
+                    nStart = nMiddle;
+            }
+            else
+                nEnd = nMiddle;
+        }
+
+        /* 정렬할 위치 찾기(배열 시작 ~ 선택한 값 사이에서) */
+        for (nInLoop = nLoop; nMiddle < nInLoop; nInLoop--)
+            a[nInLoop] = a[nInLoop - 1];
+        a[nInLoop] = nTemp;
+    }
+    return;
 }

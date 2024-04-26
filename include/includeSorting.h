@@ -25,4 +25,15 @@ void cocktail(int *a, int n);
 void selection(int *a, int n);
 /* 단순 삽입 정렬 */
 void insertion(int *a, int n);
+/* 단순 선택 정렬 과정 출력 */
+void COselection(int *a, int n);
+/* 단순 삽입 정렬 과정 출력 */
+void COinsertion(int *a, int n);
+
+/* 배열 복사 함수*/
+int copy(int *nFrom, int *nTo, int nSize);
+/* 단순 삽입 정렬 */
+void insertion_V2(int *a, int n);
+/* 이진 삽입 정렬: 이진 탐색을 활용한 삽입 정렬*/
+void binInsertion(int *a, int n);
 #endif
