@@ -354,38 +354,12 @@ void insertion_V2(int *a, int n)
 /* TODO: 이진 삽입 정렬 */
 void binInsertion(int *a, int n)
 {
-    int nLoop, nInLoop, nTemp;
-    int nStart = 0, nEnd = 0, nMiddle = 0;
-    for (nLoop = 1; nLoop < n; nLoop++)
-    {
-        /* 정렬할 값 선택 */
-        nTemp = a[nLoop];
-
-        /* 이진 탐색 준비 */
-        nStart = 0;
-        nEnd = nLoop - 1;
-
-        /* TODO: 이진 탐색 과정에서 무한 루프에 빠졌다. */
-        for (nMiddle = ((nEnd - nStart) / 2); nStart <= nEnd; nMiddle = ((nEnd - nStart) / 2))
-        {
-            if (a[nMiddle] < nTemp)
-            {
-                if (a[nMiddle + 1] > nTemp)
-                {
-                    nMiddle++;
-                    break;
-                }
-                else
-                    nStart = nMiddle;
-            }
-            else
-                nEnd = nMiddle;
-        }
-
-        /* 정렬할 위치 찾기(배열 시작 ~ 선택한 값 사이에서) */
-        for (nInLoop = nLoop; nMiddle < nInLoop; nInLoop--)
-            a[nInLoop] = a[nInLoop - 1];
-        a[nInLoop] = nTemp;
-    }
+    /* code */
     return;
+}
+
+int binSearch(const int *a, const int n, const int nVal)
+{
+    /* code */
+    return 0;
 }

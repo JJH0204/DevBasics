@@ -36,4 +36,6 @@ int copy(int *nFrom, int *nTo, int nSize);
 void insertion_V2(int *a, int n);
 /* 이진 삽입 정렬: 이진 탐색을 활용한 삽입 정렬*/
 void binInsertion(int *a, int n);
+/* 이진 탐색 알고리즘 */
+int binSearch(const int *a, const int n, const int nVal);
 #endif
