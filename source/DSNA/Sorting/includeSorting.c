@@ -363,3 +363,6 @@ int binSearch(const int *a, const int n, const int nVal)
     /* code */
     return 0;
 }
+/*<Before>
+Index:  00      01      02      03      04      05      06      07      08      09
+Array:  02      07      01      04      03      05      08      09      10      06*/
