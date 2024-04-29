@@ -351,18 +351,46 @@ void insertion_V2(int *a, int n)
 /*  정석은 대치법을 사용하기 위한 메모리 할당을 미리 끝낸 상태에서 위 함수를 호출하는 것이지,
     함수 내부에서 대치법을 위한 새로운 배열 할당을 실행하는 것은 알고리즘 성능을 저해한다.*/
 
-/* TODO: 이진 삽입 정렬 */
+/* 이진 삽입 정렬 */
 void binInsertion(int *a, int n)
 {
-    /* code */
+    int nTarget, nTemp, nSwapLoop, nBinSearchResult;
+    if (a == NULL || n < 1)
+        return;
+
+    for (nTarget = 1; nTarget < n; nTarget++)
+    {
+        nTemp = a[nTarget];
+        nBinSearchResult = binSearch(a, nTarget, nTemp);
+
+        for (nSwapLoop = nTarget; nSwapLoop > 0 && nSwapLoop > nBinSearchResult; nSwapLoop--)
+            a[nSwapLoop] = a[nSwapLoop - 1];
+        a[nSwapLoop] = nTemp;
+    }
     return;
 }
 
 int binSearch(const int *a, const int n, const int nVal)
 {
-    /* code */
-    return 0;
+    int nMiddle = 0, nStart = 0, nEnd = n;
+    while (nStart <= nEnd)
+    {
+        nMiddle = (nStart + nEnd + 1) / 2;
+
+        if (a[nMiddle] >= nVal && a[nMiddle - 1] < nVal)
+            return nMiddle;
+        else if (a[nMiddle] > nVal)
+            nEnd = nMiddle - 1;
+        else
+            nStart = nMiddle + 1;
+    }
+    return -1;
 }
-/*<Before>
+/*
+<Before> 
 Index:  00      01      02      03      04      05      06      07      08      09
-Array:  02      07      01      04      03      05      08      09      10      06*/
+Array:  03      06      05      08      09      04      07      10      01      02
+<After> 
+Index:  00      01      02      03      04      05      06      07      08      09
+Array:  01      02      03      04      05      06      07      08      09      10
+*/
