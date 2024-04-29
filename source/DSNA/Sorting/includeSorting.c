@@ -1,6 +1,7 @@
 #include "includeSorting.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void bubble(int *a, int n)
 {
@@ -363,9 +364,15 @@ void binInsertion(int *a, int n)
         nTemp = a[nTarget];
         nBinSearchResult = binSearch(a, nTarget, nTemp);
 
-        for (nSwapLoop = nTarget; nSwapLoop > 0 && nSwapLoop > nBinSearchResult; nSwapLoop--)
-            a[nSwapLoop] = a[nSwapLoop - 1];
-        a[nSwapLoop] = nTemp;
+        // for (nSwapLoop = nTarget; nSwapLoop > 0 && nSwapLoop > nBinSearchResult; nSwapLoop--)
+        //     a[nSwapLoop] = a[nSwapLoop - 1];
+
+        /* 재정렬의 효율성 증가를 위해 표준 라이브러리 함수 memmove()사용 */
+        if (nTarget > nBinSearchResult && nBinSearchResult >= 0)
+        {
+            memmove(a + nBinSearchResult + 1, a + nBinSearchResult, (nTarget - nBinSearchResult) * sizeof(int));
+            a[nBinSearchResult] = nTemp;
+        }
     }
     return;
 }
@@ -377,7 +384,7 @@ int binSearch(const int *a, const int n, const int nVal)
     {
         nMiddle = (nStart + nEnd + 1) / 2;
 
-        if (a[nMiddle] >= nVal && a[nMiddle - 1] < nVal)
+        if (a[nMiddle] >= nVal && (a[nMiddle - 1] < nVal || nMiddle - 1 < 0))
             return nMiddle;
         else if (a[nMiddle] > nVal)
             nEnd = nMiddle - 1;
@@ -387,10 +394,10 @@ int binSearch(const int *a, const int n, const int nVal)
     return -1;
 }
 /*
-<Before> 
+<Before>
 Index:  00      01      02      03      04      05      06      07      08      09
 Array:  03      06      05      08      09      04      07      10      01      02
-<After> 
+<After>
 Index:  00      01      02      03      04      05      06      07      08      09
 Array:  01      02      03      04      05      06      07      08      09      10
 */
