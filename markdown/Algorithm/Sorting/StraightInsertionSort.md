@@ -134,3 +134,13 @@ void binInsertion(int *a, int n)
 }
 
 ```
+
+# 실행 결과
+```shell
+<Before>
+Index:  00      01      02      03      04      05      06      07      08      09
+Array:  03      06      05      08      09      04      07      10      01      02
+<After>
+Index:  00      01      02      03      04      05      06      07      08      09
+Array:  01      02      03      04      05      06      07      08      09      10
+```

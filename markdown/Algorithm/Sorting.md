@@ -126,15 +126,25 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
 ```
 - main()에서 실행할 정렬 함수의 이름만 바꿔서 즉시 테스트가 가능하도록 함수 포인터로 구현
 
-## 5. 단순 정렬 알고리즘([소스코드](../../source/DSNA/Sorting/includeSorting.c))
+## 5. 단순 정렬 알고리즘([소스코드](../../source/DSNA/Sorting/includeSorting.c#L6))
 
 |알고리즘(설명링크)|소스 링크|
 |:--|:--|
-|버블 정렬([링크](/markdown/Algorithm/Sorting/BubbleSort.md))|소스코드 라인 링크
-|단순 선택 정렬([링크](/markdown/Algorithm/Sorting/StraightSelectionSort.md))|소스코드 라인 링크
-|단순 삽입 정렬([링크](/markdown/Algorithm/Sorting/StraightInsertionSort.md))|소스코드 라인 링크
+|버블 정렬([링크](/markdown/Algorithm/Sorting/BubbleSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L6)
+|단순 선택 정렬([링크](/markdown/Algorithm/Sorting/StraightSelectionSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L134)
+|단순 삽입 정렬([링크](/markdown/Algorithm/Sorting/StraightInsertionSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L191)
 
 
 ### 5.1. 단순 정렬의 시간 복잡도
 - 세가지 정렬(버블 정렬, 단순 선택 정렬, 단순 삽입 정렬)은 시간 복잡도가 $O(n^2)$로 효율이 좋지 않다.
-- 
+- 아래 알고리즘은 위 세 정렬 알고리즘의 단점을 개선한 새로운 알고리즘을 서술한다.
+
+## 6. 개선된 정렬 알고리즘([소스코드](../../source/DSNA/Sorting/includeSorting.c#L334))
+
+|알고리즘(설명링크)|소스 링크|
+|:--|:--|
+|셸 정렬([링크](/markdown/Algorithm/Sorting/ShellSort.md))|소스코드 라인 링크
+|퀵 정렬([링크](/markdown/Algorithm/Sorting/QuickSort.md))|소스코드 라인 링크
+|병합 정렬([링크](/markdown/Algorithm/Sorting/MergeSort.md))|소스코드 라인 링크
+|힙 정렬([링크](/markdown/Algorithm/Sorting/HeapSort.md))|소스코드 라인 링크
+|도수 정렬([링크](/markdown/Algorithm/Sorting/FSort.md))|소스코드 라인 링크
