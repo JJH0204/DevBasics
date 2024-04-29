@@ -332,3 +332,23 @@ int binSearch(const int *a, const int n, const int nVal)
 }
 
 /* ----- 개선 정렬 알고리즘 ----- */
+/* 쉘 정렬 */
+void shell(int *a, int n)
+{
+    int i, j, h, nTemp;
+
+    /* 배열의 요소를 나눠 정렬*/
+    for (h = n / 2; h > 0; h /= 2)
+    {
+        for (i = h; i < n; i++)
+        {
+            nTemp = a[i];
+
+            /* 단순 삽입 정렬 수행, 선택한 요소와 비교하는 요소가 서로 이웃하지 않고 h만큼 떨어져 있다.*/
+            for (j = i - h; j >= 0 && a[j] > nTemp; j -= h)
+                a[j + h] = a[j];
+            a[j + h] = nTemp;
+        }
+    }
+    return;
+}
