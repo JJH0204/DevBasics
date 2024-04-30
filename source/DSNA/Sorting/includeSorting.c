@@ -9,7 +9,7 @@ void bubble(int *a, int n)
 {
     int i, j, k, last;
     int nExchange = 0;
-
+    FUNC();
     k = n - 1; /* 패스 종료 지점 초기화 */
     /* 배열 시작부터 패스 */
     for (i = 0; i < n - 1; i++)
@@ -37,6 +37,8 @@ void COBubble(int *a, int n)
     int i, j;
     int exchange = 0, comparison = 0;
     int condition = 0;
+    FUNC();
+
     for (i = 0; i < n - 1; i++)
     {
         printf("PASE_%02d\n", i + 1);
@@ -95,6 +97,7 @@ void cocktail(int *a, int n)
 {
     int nPase = 0, nStart = 0, nEnd = n - 1, nLoopCount = 0, nLast = 0, nExchange = 0;
 
+    FUNC();
     for (nPase = 0; nPase < n - 1; nPase++)
     {
         nExchange = 0;
@@ -139,6 +142,8 @@ void selection(int *a, int n)
     if (a == NULL || n < 1)
         return;
 
+    FUNC();
+
     for (nLoop = 0; nLoop < n - 1; nLoop++)
     {
         nMin = nLoop;
@@ -156,6 +161,8 @@ void COselection(int *a, int n)
     int nLoop, nInLoop, nMin;
 
     int nCOLoopCount = 0;
+
+    FUNC();
     /* 유효성 검사 */
     if (a == NULL || n < 1)
         return;
@@ -193,6 +200,8 @@ void COselection(int *a, int n)
 void insertion(int *a, int n)
 {
     int nLoop, nInLoop, nTemp;
+
+    FUNC();
     for (nLoop = 1; nLoop < n; nLoop++)
     {
         /* 정렬할 값 선택 */
@@ -210,6 +219,7 @@ void COinsertion(int *a, int n)
     int nLoop, nInLoop, nTemp;
     int nArrayPrint = 0;
 
+    FUNC();
     for (nLoop = 1; nLoop < n; nLoop++)
     {
         /* 배열 출력 */
@@ -258,6 +268,7 @@ int copy(int *pFrom, int *pTo, int nSize)
 void insertion_V2(int *a, int n)
 {
     int nLoop, nInLoop, nTemp;
+    FUNC();
     /* 보초 법을 위한 배열 복사 */
     int *pCapArray = NULL;
 
@@ -295,7 +306,7 @@ void binInsertion(int *a, int n)
     int nTarget, nTemp, nSwapLoop, nBinSearchResult;
     if (a == NULL || n < 1)
         return;
-
+    FUNC();
     for (nTarget = 1; nTarget < n; nTarget++)
     {
         nTemp = a[nTarget];
@@ -337,8 +348,14 @@ void shell(int *a, int n)
 {
     int i, j, h, nTemp;
 
+    FUNC();
+
+    /* 증분값(h)이 서로 배수가 되지 않도록 초기값을 계산 */
+    for (h = 1; h < n / 9; h = h * 3 + 1)
+        ;
+
     /* 배열의 요소를 나눠 정렬*/
-    for (h = n / 2; h > 0; h /= 2)
+    for (; h > 0; h /= 3)
     {
         for (i = h; i < n; i++)
         {
@@ -352,3 +369,4 @@ void shell(int *a, int n)
     }
     return;
 }
+

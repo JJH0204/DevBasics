@@ -1,6 +1,8 @@
 #ifndef __INCLUDESORTING__
 #define __INCLUDESORTING__
 
+#define FUNC() printf("run \"%s\"\n", __func__)
+
 /* 교환 매크로 함수 */
 #define swap(type, x, y) \
     do                   \
