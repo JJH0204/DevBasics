@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <stdbool.h>
 #include "includeSorting.h"
 
 /* 배열 중복 없는 랜덤 정수값으로 초기화 */

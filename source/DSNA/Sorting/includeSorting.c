@@ -1,10 +1,6 @@
 #include "includeSorting.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 /* ----- 단순 정렬 알고리즘 ----- */
-
 void bubble(int *a, int n)
 {
     int i, j, k, last;
@@ -428,14 +424,14 @@ void quick_RE_Po(int *a, int left, int right)
     int pl = left;
     int pr = right;
     int x = a[(pl + pr) / 2];
-    
+
     /* 분할 과정 출력 */
     int i;
     printf("a[%02d]~a[%02d]: {", left, right);
     for (i = left; i < right; i++)
         printf("%02d, ", a[i]);
     printf("%02d}\n", a[right]);
-    
+
     while (pl <= pr)
     {
         while (a[pl] < x)
@@ -462,8 +458,49 @@ void quickSort(int *a, int n)
     /* 재귀 함수로 문제 해결 */
     // quick_RE(a, 0, n - 1);
     /* 분할 과정 출력 버전 */
-    quick_RE_Po(a, 0, n - 1);
+    // quick_RE_Po(a, 0, n - 1);
 
-    /* TODO: 퀵 정렬: 반복문 */
-    /* code */
+    /* 퀵 정렬: 반복문 */
+    int pl = 0, pr = 0;
+    int left = 0, right = 0, pivot = 0;
+    stack *pStack = stack_Create();
+    if (pStack == NULL)
+        return;
+
+    stack_Push(pStack, (void *)(intptr_t)0);
+    stack_Push(pStack, (void *)(intptr_t)(n - 1));
+
+    while (pStack->nCurrentCount > 0)
+    {
+        pr = right = (intptr_t)stack_Pop(pStack);
+        pl = left = (intptr_t)stack_Pop(pStack);
+        pivot = a[(left + right) / 2];
+
+        while (pl <= pr)
+        {
+            while (a[pl] < pivot)
+                pl++;
+            while (a[pr] > pivot)
+                pr--;
+
+            if (pl <= pr)
+            {
+                swap(int, a[pl], a[pr]);
+                pl++;
+                pr--;
+            }
+        }
+        if (left < pr)
+        {
+            stack_Push(pStack, (void *)(intptr_t)left);
+            stack_Push(pStack, (void *)(intptr_t)pr);
+        }
+        if (right > pl)
+        {
+            stack_Push(pStack, (void *)(intptr_t)pl);
+            stack_Push(pStack, (void *)(intptr_t)right);
+        }
+    }
+    stack_Delete(pStack);
+    return;
 }

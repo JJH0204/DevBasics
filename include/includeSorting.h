@@ -1,6 +1,10 @@
 #ifndef __INCLUDESORTING__
 #define __INCLUDESORTING__
 
+#include "includeGenericStructure.h"
+#include <time.h>
+#include <string.h>
+
 #define FUNC() printf("run \"%s\"\n", __func__)
 
 /* 교환 매크로 함수 */
@@ -47,9 +51,9 @@ void shell(int *a, int n);
 void partition(int *a, int n);
 /* 퀵 정렬: 재귀 함수*/
 void quick_RE(int *a, int left, int right);
-/* 퀵 정렬: 반복문 */
-void quickSort(int *a, int n);
-
+/* 퀵 정렬: 재귀 함수, 과정 출력*/
 void quick_RE_Po(int *a, int left, int right);
+/* 퀵 정렬 */
+void quickSort(int *a, int n);
 
 #endif
