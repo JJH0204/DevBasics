@@ -43,4 +43,11 @@ int binSearch(const int *a, const int n, const int nVal);
 
 /* 쉘 정렬 */
 void shell(int *a, int n);
+/* Quick 정렬 알고리즘: 배열 나누기 */
+void partition(int *a, int n);
+/* 퀵 정렬: 재귀 함수*/
+void quick_RE(int *a, int left, int right);
+/* 퀵 정렬: 반복문 */
+void quick(int *a, int n);
+
 #endif

@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, shell);
+    sortArray(pArray, nElements, quick);
     printArray(pArray, nElements);
 
     free(pArray);
@@ -98,5 +98,6 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
     if (_pArray_ == NULL || _nElements_ < 1)
         return;
     Sorting(_pArray_, _nElements_);
+    // quick_RE(_pArray_, 0, _nElements_ - 1); /* 퀵 정렬 테스트를 위한 임시 코드 */
     return;
 }
