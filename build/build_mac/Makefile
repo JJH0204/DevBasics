@@ -177,6 +177,30 @@ source/DSNA/Sorting/mainSortingArray.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.s
 .PHONY : source/DSNA/Sorting/mainSortingArray.c.s
 
+source/DSNA/non-Linear/includeGenericStructure.o: source/DSNA/non-Linear/includeGenericStructure.c.o
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.o
+
+# target to build an object file
+source/DSNA/non-Linear/includeGenericStructure.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.o
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.o
+
+source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
+
+# target to preprocess a source file
+source/DSNA/non-Linear/includeGenericStructure.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
+
+source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
+
+# target to generate assembly for a file
+source/DSNA/non-Linear/includeGenericStructure.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... source/DSNA/Sorting/mainSortingArray.o"
 	@echo "... source/DSNA/Sorting/mainSortingArray.i"
 	@echo "... source/DSNA/Sorting/mainSortingArray.s"
+	@echo "... source/DSNA/non-Linear/includeGenericStructure.o"
+	@echo "... source/DSNA/non-Linear/includeGenericStructure.i"
+	@echo "... source/DSNA/non-Linear/includeGenericStructure.s"
 .PHONY : help
 
 
