@@ -384,10 +384,10 @@ void partition(int *a, int n)
             pl++; /* 피벗 기준 왼쪽에 피벗 값 보다 큰 요소을 찾는다. */
         while (a[pr] > x)
             pr--; /* 피벗 기준 오른쪽에 피벗 값 보다 작은 요소을 찾는다. */
-        
-        if (pl <= pr)   /* 위 두 조건을 각각 충족하는 두 값을 찾았을 때 */
+
+        if (pl <= pr) /* 위 두 조건을 각각 충족하는 두 값을 찾았을 때 */
         {
-            swap(int, a[pl], a[pr]);    /* 두 요소를 교환한다. */
+            swap(int, a[pl], a[pr]); /* 두 요소를 교환한다. */
             pl++;
             pr--;
         }
@@ -408,7 +408,7 @@ void quick_RE(int *a, int left, int right)
             pl++;
         while (a[pr] > x)
             pr--;
-        
+
         if (pl <= pr)
         {
             swap(int, a[pl], a[pr]);
@@ -422,8 +422,48 @@ void quick_RE(int *a, int left, int right)
         quick_RE(a, pl, right);
 }
 
-/* TODO: 퀵 정렬: 반복문 */
-void quick(int *a, int n)
+/* 퀵 정렬: 재귀 함수, 분할 과정 출력 */
+void quick_RE_Po(int *a, int left, int right)
 {
+    int pl = left;
+    int pr = right;
+    int x = a[(pl + pr) / 2];
+    
+    /* 분할 과정 출력 */
+    int i;
+    printf("a[%02d]~a[%02d]: {", left, right);
+    for (i = left; i < right; i++)
+        printf("%02d, ", a[i]);
+    printf("%02d}\n", a[right]);
+    
+    while (pl <= pr)
+    {
+        while (a[pl] < x)
+            pl++;
+        while (a[pr] > x)
+            pr--;
 
+        if (pl <= pr)
+        {
+            swap(int, a[pl], a[pr]);
+            pl++;
+            pr--;
+        }
+    }
+    if (left < pr)
+        quick_RE_Po(a, left, pr);
+    if (right > pl)
+        quick_RE_Po(a, pl, right);
+}
+
+/* 퀵 정렬 */
+void quickSort(int *a, int n)
+{
+    /* 재귀 함수로 문제 해결 */
+    // quick_RE(a, 0, n - 1);
+    /* 분할 과정 출력 버전 */
+    quick_RE_Po(a, 0, n - 1);
+
+    /* TODO: 퀵 정렬: 반복문 */
+    /* code */
 }

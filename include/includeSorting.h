@@ -48,6 +48,8 @@ void partition(int *a, int n);
 /* 퀵 정렬: 재귀 함수*/
 void quick_RE(int *a, int left, int right);
 /* 퀵 정렬: 반복문 */
-void quick(int *a, int n);
+void quickSort(int *a, int n);
+
+void quick_RE_Po(int *a, int left, int right);
 
 #endif
