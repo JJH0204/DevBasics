@@ -1,8 +1,6 @@
 // include Generic Stack.c
 // 제네릭 프로그래밍 기법을 활용한 스택 구현
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+
 #include "includeGenericStructure.h"
 
 bool isNull(const void *ptr, const char *funcName)

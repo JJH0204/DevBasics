@@ -1,6 +1,9 @@
 #ifndef __GENERIC_STRUCTURE__
 
 #include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 /* <정수와 포인터 크기 불일치 경고 우려>
 - 32bit 운영체제에서 void * 와 int는 동일한 메모리 사이즈를 갖는다. (4byte)
 - 64bit 운영체제에서 void * 는 8 byte, int는 동일한 4 byte를 갖는다.
