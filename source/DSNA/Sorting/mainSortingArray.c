@@ -13,14 +13,14 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
 int main(int argc, char *argv[])
 {
     int *pArray = NULL;
-    int nElements = 10;
+    int nElements = 20; /* 배열 요소 개수 */
 
     printf("<Before> \n");
     pArray = initRanArray(nElements);
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, quickSort);
+    sortArray(pArray, nElements, EX_qsort);   /* 정렬 함수 실행 */
     printArray(pArray, nElements);
 
     free(pArray);

@@ -463,15 +463,23 @@ void quickSort(int *a, int n)
     /* 퀵 정렬: 반복문 */
     int pl = 0, pr = 0;
     int left = 0, right = 0, pivot = 0;
-    stack *pStack = stack_Create();
+    stack *pStack = NULL;
+
+    if (a == NULL || n < 1)
+        return;
+    /* 연결 리스트로 구현한 스택으로 최대 사이즈를 전달할 필요 없다. */
+    pStack = stack_Create();
     if (pStack == NULL)
         return;
 
+    /* 스택 생성 후 왼 > 오 순으로 저장*/
     stack_Push(pStack, (void *)(intptr_t)0);
     stack_Push(pStack, (void *)(intptr_t)(n - 1));
 
+    /* 스택의 요소가 없어질 때까지 반복 */
     while (pStack->nCurrentCount > 0)
     {
+        /* 스택에 저장된 데이터를 오 > 왼 순으로 팝 */
         pr = right = (intptr_t)stack_Pop(pStack);
         pl = left = (intptr_t)stack_Pop(pStack);
         pivot = a[(left + right) / 2];
@@ -501,6 +509,281 @@ void quickSort(int *a, int n)
             stack_Push(pStack, (void *)(intptr_t)right);
         }
     }
+    /* 스택 사용이 끝나면(정렬을 마치면) 할당된 스택 해제 */
     stack_Delete(pStack);
     return;
+}
+
+/* 하이브리드 정렬: 적은 요소에서 "단순 삽입 정렬", 요소가 많으면 "퀵 정렬"*/
+void hybrid(int *a, int n)
+{
+    /* 퀵 정렬을 위한 변수 */
+    int pl = 0, pr = 0, pivot = 0;
+    /* 배열 요소 분리를 위한 변수 */
+    int left = 0, right = 0;
+    /* 단순 정렬을 위한 변수 */
+    int nLoop, nInLoop, nTemp;
+    /* 퀵 정렬을 위한 스택 자료형*/
+    stack *pStack = NULL;
+
+    if (a == NULL || n < 1)
+        return;
+    pStack = stack_Create();
+    if (pStack == NULL)
+        return;
+
+    stack_Push(pStack, (void *)(intptr_t)0);
+    stack_Push(pStack, (void *)(intptr_t)(n - 1));
+
+    while (pStack->nCurrentCount > 0)
+    {
+        right = (intptr_t)stack_Pop(pStack);
+        left = (intptr_t)stack_Pop(pStack);
+
+        /* 분리한 그룹의 요소 개수가 9 이상이면 퀵 정렬 */
+        if (right - left + 1 > 8)
+        {
+            printf("DO QUICK\n");
+            pr = right;
+            pl = left;
+
+            pivot = a[(left + right) / 2];
+
+            while (pl <= pr)
+            {
+                while (a[pl] < pivot)
+                    pl++;
+                while (a[pr] > pivot)
+                    pr--;
+
+                if (pl <= pr)
+                {
+                    swap(int, a[pl], a[pr]);
+                    pl++;
+                    pr--;
+                }
+            }
+            if (left < pr)
+            {
+                stack_Push(pStack, (void *)(intptr_t)left);
+                stack_Push(pStack, (void *)(intptr_t)pr);
+            }
+            if (right > pl)
+            {
+                stack_Push(pStack, (void *)(intptr_t)pl);
+                stack_Push(pStack, (void *)(intptr_t)right);
+            }
+        }
+        /* 그렇지 않으면 단순 삽입 정렬 */
+        else
+        {
+            printf("DO INSERTION\n");
+            for (nLoop = left + 1; nLoop <= right; nLoop++)
+            {
+                nTemp = a[nLoop];
+
+                for (nInLoop = nLoop; nInLoop > 0 && a[nInLoop - 1] > nTemp; nInLoop--)
+                    a[nInLoop] = a[nInLoop - 1];
+                a[nInLoop] = nTemp;
+            }
+        }
+    }
+    stack_Delete(pStack);
+    return;
+}
+
+void hybrid_2(int *a, int n)
+{
+    /* 퀵 정렬을 위한 변수 */
+    int pl = 0, pr = 0, pivot = 0;
+    /* 배열 요소 분리를 위한 변수 */
+    int left = 0, right = 0;
+    /* 단순 정렬을 위한 변수 */
+    int nLoop, nInLoop, nTemp;
+    /* 퀵 정렬을 위한 스택 자료형*/
+    stack *pStack = NULL;
+
+    if (a == NULL || n < 1)
+        return;
+    pStack = stack_Create();
+    if (pStack == NULL)
+        return;
+
+    stack_Push(pStack, (void *)(intptr_t)0);
+    stack_Push(pStack, (void *)(intptr_t)(n - 1));
+
+    while (pStack->nCurrentCount > 0)
+    {
+        right = (intptr_t)stack_Pop(pStack);
+        left = (intptr_t)stack_Pop(pStack);
+
+        if (right - left + 1 > 8)
+        {
+            printf("DO QUICK\n");
+            if (a[(left + right) / 2] < a[left])
+                swap(int, a[left], a[(left + right) / 2]);
+            if (a[right] < a[left])
+                swap(int, a[right], a[left]);
+            if (a[right] < a[(left + right) / 2])
+                swap(int, a[right], a[(left + right) / 2]);
+
+            pr = right - 1;
+            pl = left + 1;
+            pivot = a[(left + right) / 2];
+
+            while (pl <= pr)
+            {
+                while (a[pl] < pivot)
+                    pl++;
+                while (a[pr] > pivot)
+                    pr--;
+
+                if (pl <= pr)
+                {
+                    swap(int, a[pl], a[pr]);
+                    pl++;
+                    pr--;
+                }
+            }
+            if (left < pr)
+            {
+                stack_Push(pStack, (void *)(intptr_t)left);
+                stack_Push(pStack, (void *)(intptr_t)pr);
+            }
+            if (right > pl)
+            {
+                stack_Push(pStack, (void *)(intptr_t)pl);
+                stack_Push(pStack, (void *)(intptr_t)right);
+            }
+        }
+        else
+        {
+            printf("DO INSERTION\n");
+            for (nLoop = left + 1; nLoop <= right; nLoop++)
+            {
+                nTemp = a[nLoop];
+
+                for (nInLoop = nLoop; nInLoop > 0 && a[nInLoop - 1] > nTemp; nInLoop--)
+                    a[nInLoop] = a[nInLoop - 1];
+                a[nInLoop] = nTemp;
+            }
+        }
+    }
+    stack_Delete(pStack);
+    return;
+}
+
+void hybrid_3(int *a, int n)
+{
+    /* 퀵 정렬을 위한 변수 */
+    int pl = 0, pr = 0, pivot = 0;
+    /* 배열 요소 분리를 위한 변수 */
+    int left = 0, right = 0;
+    /* 단순 정렬을 위한 변수 */
+    int nLoop, nInLoop, nTemp;
+    /* 퀵 정렬을 위한 스택 자료형*/
+    stack *pStack = NULL;
+
+    if (a == NULL || n < 1)
+        return;
+    pStack = stack_Create();
+    if (pStack == NULL)
+        return;
+
+    stack_Push(pStack, (void *)(intptr_t)0);
+    stack_Push(pStack, (void *)(intptr_t)(n - 1));
+
+    while (pStack->nCurrentCount > 0)
+    {
+        right = (intptr_t)stack_Pop(pStack);
+        left = (intptr_t)stack_Pop(pStack);
+
+        if (right - left + 1 > 8)
+        {
+            printf("DO QUICK\n");
+            if (a[(left + right) / 2] < a[left])
+                swap(int, a[left], a[(left + right) / 2]);
+            if (a[right] < a[left])
+                swap(int, a[right], a[left]);
+            if (a[right] < a[(left + right) / 2])
+                swap(int, a[right], a[(left + right) / 2]);
+            
+            swap(int, a[(left + right) / 2], a[right - 1]);
+
+            pr = right - 2;
+            pl = left + 1;
+            pivot = a[right - 1];
+
+            while (pl <= pr)
+            {
+                while (a[pl] < pivot)
+                    pl++;
+                while (a[pr] > pivot)
+                    pr--;
+
+                if (pl <= pr)
+                {
+                    swap(int, a[pl], a[pr]);
+                    pl++;
+                    pr--;
+                }
+            }
+            if (left < pr)
+            {
+                stack_Push(pStack, (void *)(intptr_t)left);
+                stack_Push(pStack, (void *)(intptr_t)pr);
+            }
+            if (right > pl)
+            {
+                stack_Push(pStack, (void *)(intptr_t)pl);
+                stack_Push(pStack, (void *)(intptr_t)right);
+            }
+        }
+        else
+        {
+            printf("DO INSERTION\n");
+            for (nLoop = left + 1; nLoop <= right; nLoop++)
+            {
+                nTemp = a[nLoop];
+
+                for (nInLoop = nLoop; nInLoop > 0 && a[nInLoop - 1] > nTemp; nInLoop--)
+                    a[nInLoop] = a[nInLoop - 1];
+                a[nInLoop] = nTemp;
+            }
+        }
+    }
+    stack_Delete(pStack);
+    return;
+}
+/* int 형 비교 함수: 오름차순 */
+int int_cmp(const int *a, const int *b)
+{
+    if (*a < *b)
+        return -1;
+    else if (*a > *b)
+        return 1;
+    else
+        return 0;
+}
+/* int 형 비교 함수: 내림차순 */
+int int_cmpr(const int *a, const int *b)
+{
+    if (*a < *b)
+        return 1;
+    else if (*a > *b)
+        return -1;
+    else
+        return 0;
+}
+/* qsort() 사용 예제 */
+void EX_qsort(int *a, int n)
+{
+    qsort(a, n, sizeof(int), (int(*)(const void *, const void *))int_cmp);
+}
+
+/* 직접 만든 qsort() */
+void q_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, const void*))
+{
+    /* TODO: 퀵 정렬 알고리즘을 사용하여 qsort 함수와 같은 형식으로 호출할 수 있는 q_sort 함수 구현 */
+    
 }

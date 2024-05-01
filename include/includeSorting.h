@@ -55,5 +55,18 @@ void quick_RE(int *a, int left, int right);
 void quick_RE_Po(int *a, int left, int right);
 /* 퀵 정렬 */
 void quickSort(int *a, int n);
-
+/* 하이브리드 정렬*/
+void hybrid(int *a, int n);
+/* 하이브리드 정렬 개선 2*/
+void hybrid_2(int *a, int n);
+/* 하이브리드 정렬 개선 3*/
+void hybrid_3(int *a, int n);
+/* int 형 비교 함수: 오름차순 */
+int int_cmp(const int *a, const int *b);
+/* int 형 비교 함수: 내림차순 */
+int int_cmpr(const int *a, const int *b);
+/* qsort() 사용 예제 */
+void EX_qsort(int *a, int n);
+/* 직접 만든 qsort() */
+void q_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, const void*));
 #endif
