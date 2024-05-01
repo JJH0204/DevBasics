@@ -707,7 +707,7 @@ void hybrid_3(int *a, int n)
                 swap(int, a[right], a[left]);
             if (a[right] < a[(left + right) / 2])
                 swap(int, a[right], a[(left + right) / 2]);
-            
+
             swap(int, a[(left + right) / 2], a[right - 1]);
 
             pr = right - 2;
@@ -778,12 +778,115 @@ int int_cmpr(const int *a, const int *b)
 /* qsort() 사용 예제 */
 void EX_qsort(int *a, int n)
 {
-    qsort(a, n, sizeof(int), (int(*)(const void *, const void *))int_cmp);
+    q_sort(a, n, sizeof(int), (int (*)(const void *, const void *))int_cmp);
+    // qsort(a, n, sizeof(int), (int (*)(const void *, const void *))int_cmp);
 }
 
 /* 직접 만든 qsort() */
-void q_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, const void*))
+void q_sort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))
 {
     /* TODO: 퀵 정렬 알고리즘을 사용하여 qsort 함수와 같은 형식으로 호출할 수 있는 q_sort 함수 구현 */
+
+    int pl = 0, pr = 0, pivot = 0;
+    int left = 0, right = 0;
+    int nLoop, nInLoop, nTemp;
+    int nCondition = 0;
+    stack *pStack = NULL;
+
+    if (base == NULL || nmemb < 1)
+        return;
+    pStack = stack_Create();
+    if (pStack == NULL)
+        return;
+
+    stack_Push(pStack, (void *)base);
+    stack_Push(pStack, (void *)(base + (nmemb * size)));
+
+    while (pStack->nCurrentCount > 0)
+    {
+        right = (stack_Pop(pStack) - base) * size;
+        left = (stack_Pop(pStack) - base) * size;
+
+        if (right - left + 1 > 8)
+        {
+            printf("DO QUICK\n");
+
+            nCondition = compar(base + (((left + right) / 2) * size), base + (left * size));
+            /* a[(left + right) / 2] < a[left] */
+            if (nCondition == -1)
+                SWAP(sizeof(int), base + (left * size), base + (((left + right) / 2) * size));
+
+            nCondition = compar(base + (right * size), base + (left * size));
+            /* a[right] < a[left] */
+            if (nCondition == -1)
+                SWAP(sizeof(int), base + (right * size), base + (left * size));
+            
+            nCondition = compar(base + (right * size), base + (((left + right) / 2) * size));
+            /* a[right] < a[(left + right) / 2] */
+            if (nCondition == -1)
+                SWAP(sizeof(int), base + (right * size), base + (((left + right) / 2) * size));
+
+            SWAP(sizeof(int), base + (((left + right) / 2) * size), base + ((right - 1) * size));
+
+            // pr = right - 2;
+            // pl = left + 1;
+            // pivot = a[right - 1];
+
+            // while (pl <= pr)
+            // {
+            //     while (a[pl] < pivot)
+            //         pl++;
+            //     while (a[pr] > pivot)
+            //         pr--;
+
+            //     if (pl <= pr)
+            //     {
+            //         swap(int, a[pl], a[pr]);
+            //         pl++;
+            //         pr--;
+            //     }
+            // }
+            // if (left < pr)
+            // {
+            //     stack_Push(pStack, (void *)(intptr_t)left);
+            //     stack_Push(pStack, (void *)(intptr_t)pr);
+            // }
+            // if (right > pl)
+            // {
+            //     stack_Push(pStack, (void *)(intptr_t)pl);
+            //     stack_Push(pStack, (void *)(intptr_t)right);
+            // }
+        }
+        // else
+        // {
+        //     printf("DO INSERTION\n");
+        //     for (nLoop = left + 1; nLoop <= right; nLoop++)
+        //     {
+        //         nTemp = a[nLoop];
+
+        //         for (nInLoop = nLoop; nInLoop > 0 && a[nInLoop - 1] > nTemp; nInLoop--)
+        //             a[nInLoop] = a[nInLoop - 1];
+        //         a[nInLoop] = nTemp;
+        //     }
+        // }
+    }
+    stack_Delete(pStack);
+    return;
+}
+
+/* 바이트 단위 교환 함수 */
+void SWAP(size_t size, char *a, char *b)
+{
+    char temp;
+    int Loop;
+    if (a == NULL || b == NULL || size < 1)
+        return;
     
+    for (Loop = 0; Loop < size; Loop++)
+    {
+        temp = a[Loop];
+        a[Loop] = b[Loop];
+        b[Loop] = temp;
+    }
+    return;
 }

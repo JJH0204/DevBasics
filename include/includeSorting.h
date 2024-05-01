@@ -69,4 +69,6 @@ int int_cmpr(const int *a, const int *b);
 void EX_qsort(int *a, int n);
 /* 직접 만든 qsort() */
 void q_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, const void*));
+/* 바이트 단위 교환 함수 */
+void SWAP(size_t size, char *a, char *b);
 #endif
