@@ -859,6 +859,7 @@ void q_sort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, c
                     MCOPY(size, base + nInLoop * size, base + (nInLoop - 1) * size);
                 MCOPY(size, base + nInLoop * size, temp);
             }
+            free(temp);
         }
     }
     stack_Delete(pStack);
