@@ -936,7 +936,6 @@ void mergeSort(int *a, int n)
 
 static void __MergeSort(int *a, int left, int right)
 {
-
     /* 유효성 점검 */
     if (a == NULL || left > right)
         return;
@@ -1002,7 +1001,7 @@ static void __MergeSort(int *a, int left, int right)
         {
             int center = (left + right) / 2;
             int p = 0;
-            int i;
+            int i; 
             int j = 0;
             int k = left;
             __MergeSort(a, left, center);
