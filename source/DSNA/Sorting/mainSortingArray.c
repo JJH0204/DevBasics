@@ -9,21 +9,18 @@ bool printArray(const int *_pArray_, const int _nElements_);
 /* 정렬 함수 */
 void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArray_, int _nElements_));
 
+/* 정렬 함수 예제 */
+void EX_main_Sorting();
+
+/* 병합 정렬 예제 */
+void EX_main_MargeSort();
+
+
 /* 정렬 예제 */
 int main(int argc, char *argv[])
 {
-    int *pArray = NULL;
-    int nElements = 20; /* 배열 요소 개수 */
-
-    printf("<Before> \n");
-    pArray = initRanArray(nElements);
-    printArray(pArray, nElements);
-
-    printf("<After> \n");
-    sortArray(pArray, nElements, EX_qsort);   /* 정렬 함수 실행 */
-    printArray(pArray, nElements);
-
-    free(pArray);
+    // EX_main_Sorting();
+    EX_main_MargeSort();
     return 0;
 }
 
@@ -95,5 +92,48 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
         return;
     Sorting(_pArray_, _nElements_);
     // quick_RE(_pArray_, 0, _nElements_ - 1); /* 퀵 정렬 테스트를 위한 임시 코드 */
+    return;
+}
+
+/* 정렬 함수 예제 */
+void EX_main_Sorting()
+{
+    int *pArray = NULL;
+    int nElements = 20; /* 배열 요소 개수 */
+
+    printf("<Before> \n");
+    pArray = initRanArray(nElements);
+    printArray(pArray, nElements);
+
+    printf("<After> \n");
+    sortArray(pArray, nElements, EX_qsort);   /* 정렬 함수 실행 */
+    printArray(pArray, nElements);
+
+    free(pArray);
+}
+
+/* 병합 정렬 예제 */
+void EX_main_MargeSort()
+{
+    int *pArrayA = NULL, *pArrayB = NULL, *pArrayC = NULL;
+    int nmembA = 10, nmembB = 5;
+
+    printf("Array A:\n");
+    pArrayA = initRanArray(nmembA);
+    sortArray(pArrayA, nmembA, EX_qsort);
+    printArray(pArrayA, nmembA);
+
+    printf("Array B:\n");
+    pArrayB = initRanArray(nmembB);
+    sortArray(pArrayB, nmembB, EX_qsort);
+    printArray(pArrayB, nmembB);
+
+    printf("After Merge:\n");
+    pArrayC = merge(pArrayA, nmembA, pArrayB, nmembB);
+    printArray(pArrayC, nmembA + nmembB);
+
+    free(pArrayA);
+    free(pArrayB);
+    free(pArrayC);
     return;
 }

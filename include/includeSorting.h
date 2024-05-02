@@ -74,4 +74,6 @@ void MSWAP(size_t size, char *a, char *b);
 /* 바이트 단위 복사 */
 void MCOPY(size_t size, char *a, char *b);
 
+/* 배열 병합 정렬 함수 */
+int *merge(int *arrayA, int nmembA, int *arrayB, int nmembB);
 #endif

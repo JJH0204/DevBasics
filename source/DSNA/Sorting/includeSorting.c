@@ -890,9 +890,34 @@ void MCOPY(size_t size, char *a, char *b)
     int Loop;
     if (a == NULL || b == NULL || size < 1)
         return;
-    
+
     for (Loop = 0; Loop < size; Loop++)
         a[Loop] = b[Loop];
-    
+
     return;
+}
+
+int *merge(int *arrayA, int nmembA, int *arrayB, int nmembB)
+{
+    int pA = 0, pB = 0, pC = 0; /* 배열의 정렬 지점을 가리킬 커서 */
+    int *arrayC = NULL;         /* 배열 A 와 B를 병합해 저장할 배열 C */
+    /* 유효성 점검 */
+    if (arrayA == NULL || arrayB == NULL || nmembA + nmembB < 1)
+        return NULL;
+    /* 배열 A 와 B 사이즈를 더한 배열 C 동적 할당*/
+    arrayC = (int *)calloc(nmembA + nmembB, sizeof(int));
+    if (arrayC == NULL)
+        return NULL;
+
+    while (pC < nmembA + nmembB)
+    {
+        /* (pA < nmembA && pB >= nmembB) || (pA < nmembA && arrayA[pA] <= arrayB[pB]) */
+        while (pA < nmembA && (pB >= nmembB || arrayA[pA] <= arrayB[pB]))
+            arrayC[pC++] = arrayA[pA++];
+        /* (pB < nmembB && pA >= nmembA) || (pB < nmembB && arrayB[pB] <= arrayA[pA]) */
+        while (pB < nmembB && (pA >= nmembA || arrayB[pB] < arrayA[pA]))
+            arrayC[pC++] = arrayA[pB++];
+    }
+
+    return arrayC;
 }
