@@ -8,7 +8,7 @@
 
 # 2. 배열을 두 그룹으로 나누기
 
-## 2.1. [소스 코드](../../../source/DSNA/Sorting/includeSorting.c#L373)
+## 2.1. [소스 코드](../../../source/DSNA/Sorting/includeSorting.c#L369)
 
 ## 2.2. 코드 리뷰
 
