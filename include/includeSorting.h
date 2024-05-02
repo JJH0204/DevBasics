@@ -74,6 +74,13 @@ void MSWAP(size_t size, char *a, char *b);
 /* 바이트 단위 복사 */
 void MCOPY(size_t size, char *a, char *b);
 
-/* 배열 병합 정렬 함수 */
-int *merge(int *arrayA, int nmembA, int *arrayB, int nmembB);
+/* 배열 병합 함수 */
+int *mergeArray(int *arrayA, int nmembA, int *arrayB, int nmembB);
+/* 병합 정렬 함수 */
+void mergeSort(int *a, int n);
+/* 병합 정렬 함수(재귀)*/
+static void __MergeSort(int *a, int left, int right);
+/* 작업용 배열 */
+static int *buff = NULL;
+
 #endif

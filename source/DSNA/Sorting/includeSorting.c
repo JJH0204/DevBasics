@@ -897,7 +897,7 @@ void MCOPY(size_t size, char *a, char *b)
     return;
 }
 
-int *merge(int *arrayA, int nmembA, int *arrayB, int nmembB)
+int *mergeArray(int *arrayA, int nmembA, int *arrayB, int nmembB)
 {
     int pA = 0, pB = 0, pC = 0; /* 배열의 정렬 지점을 가리킬 커서 */
     int *arrayC = NULL;         /* 배열 A 와 B를 병합해 저장할 배열 C */
@@ -909,6 +909,7 @@ int *merge(int *arrayA, int nmembA, int *arrayB, int nmembB)
     if (arrayC == NULL)
         return NULL;
 
+    /* case1: 전달받은 두 배열이 이미 정렬된 상태인 경우 두 배열의 요소 값을 교차 검증하여 하나의 배열에 옮겨 저장한다.*/
     while (pC < nmembA + nmembB)
     {
         /* (pA < nmembA && pB >= nmembB) || (pA < nmembA && arrayA[pA] <= arrayB[pB]) */
@@ -920,4 +921,102 @@ int *merge(int *arrayA, int nmembA, int *arrayB, int nmembB)
     }
 
     return arrayC;
+}
+
+void mergeSort(int *a, int n)
+{
+
+    if (a == NULL || (buff = (int *)calloc(n, sizeof(int))) == NULL)
+        return;
+
+    __MergeSort(a, 0, n - 1);
+    free(buff);
+    return;
+}
+
+static void __MergeSort(int *a, int left, int right)
+{
+
+    /* 유효성 점검 */
+    if (a == NULL || left > right)
+        return;
+
+    { /* by my self */
+        // int *pArrayC = NULL, *pArrayB = NULL, *pArrayA = NULL;
+        // int pA, pB, pC, nmembA, nmembB, nmembC;
+        // __MergeSort(a, left, (left + right) / 2);
+        // __MergeSort(a, (left + right) / 2, right);
+        // /* 변수 초기화 */
+        // pArrayC = a + left;
+        // pArrayB = a + (left + right) / 2;
+        // pArrayA = (int *)calloc((left + right) / 2, sizeof(int));
+        // pA = pB = pC = 0;
+        // nmembC = right;
+        // nmembA = (left + right) / 2;
+        // nmembB = nmembC - nmembA;
+        // /* 기존 배열의 앞 부분 예비 배열로 복사 */
+        // for (; pA < nmembA; pA++)
+        //     pArrayA[pA] = pArrayC[pA];
+        // pA = 0;
+        // /* 비교 정렬 진행 */
+        // while (pC < nmembC)
+        // {
+        //     while (pA < nmembA && (pB >= nmembB || pArrayA[pA] <= pArrayB[pB]))
+        //         pArrayC[pC++] = pArrayA[pA++];
+        //     while (pB < nmembB && (pA >= nmembA || pArrayB[pB] < pArrayA[pA]))
+        //         pArrayC[pC++] = pArrayB[pB++];
+        // }
+        // free(pArrayA);
+    }
+
+    { /* by GPT */
+        // int center = (left + right) / 2;
+        // int p = 0;
+        // int i = left;
+        // int j = 0;
+        // int k = left;
+
+        // __MergeSort(a, left, center);
+        // __MergeSort(a, center + 1, right);
+
+        // while (i <= center && j <= right)
+        // {
+        //     if (a[i] <= a[j])
+        //         buff[p++] = a[i++];
+        //     else
+        //         buff[p++] = a[j++];
+        // }
+
+        // while (i <= center)
+        //     buff[p++] = a[i++];
+
+        // while (j <= right)
+        //     buff[p++] = a[j++];
+
+        // for (i = left; i <= right; i++)
+        //     a[i] = buff[i - left];
+    }
+
+    { /* by book */
+        if (left < right)
+        {
+            int center = (left + right) / 2;
+            int p = 0;
+            int i;
+            int j = 0;
+            int k = left;
+            __MergeSort(a, left, center);
+            __MergeSort(a, center + 1, right);
+            for (i = left; i <= center; i++)
+                buff[p++] = a[i];
+            while (i <= right && j < p)
+                a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
+            while (j < p)
+                a[k++] = buff[j++];
+        }
+        /*
+        ?? 분명 세그멘테이션 에러가 발생해야 하는데 정상적으로 동작한다...
+        TODO: 이유를 분석해보자
+        */
+    }
 }

@@ -19,8 +19,8 @@ void EX_main_MargeSort();
 /* 정렬 예제 */
 int main(int argc, char *argv[])
 {
-    // EX_main_Sorting();
-    EX_main_MargeSort();
+    EX_main_Sorting();
+    // EX_main_MargeSort();
     return 0;
 }
 
@@ -106,7 +106,7 @@ void EX_main_Sorting()
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, EX_qsort);   /* 정렬 함수 실행 */
+    sortArray(pArray, nElements, mergeSort);   /* 정렬 함수 실행 */
     printArray(pArray, nElements);
 
     free(pArray);
@@ -129,7 +129,7 @@ void EX_main_MargeSort()
     printArray(pArrayB, nmembB);
 
     printf("After Merge:\n");
-    pArrayC = merge(pArrayA, nmembA, pArrayB, nmembB);
+    pArrayC = mergeArray(pArrayA, nmembA, pArrayB, nmembB);
     printArray(pArrayC, nmembA + nmembB);
 
     free(pArrayA);
