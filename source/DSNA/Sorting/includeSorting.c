@@ -934,88 +934,49 @@ void mergeSort(int *a, int n)
     return;
 }
 
-static void __MergeSort(int *a, int left, int right)
+static void EX__MergeSort(int *a, int left, int right)
 {
+    int center = (left + right) / 2;
+    int p = 0;
+    int i;
+    int j = 0;
+    int k = left;
     /* 유효성 점검 */
     if (a == NULL || left > right)
         return;
+    /* by book */
+    /* TODO: 세그멘테이션 에러가 발생해야 하는데 정상적으로 동작한다. 이유를 분석해보자 */
+    if (left < right)
+    {
+        /* 재귀 호출 */
+        EX__MergeSort(a, left, center);
+        EX__MergeSort(a, center + 1, right);
 
-    { /* by my self */
-        // int *pArrayC = NULL, *pArrayB = NULL, *pArrayA = NULL;
-        // int pA, pB, pC, nmembA, nmembB, nmembC;
-        // __MergeSort(a, left, (left + right) / 2);
-        // __MergeSort(a, (left + right) / 2, right);
-        // /* 변수 초기화 */
-        // pArrayC = a + left;
-        // pArrayB = a + (left + right) / 2;
-        // pArrayA = (int *)calloc((left + right) / 2, sizeof(int));
-        // pA = pB = pC = 0;
-        // nmembC = right;
-        // nmembA = (left + right) / 2;
-        // nmembB = nmembC - nmembA;
-        // /* 기존 배열의 앞 부분 예비 배열로 복사 */
-        // for (; pA < nmembA; pA++)
-        //     pArrayA[pA] = pArrayC[pA];
-        // pA = 0;
-        // /* 비교 정렬 진행 */
-        // while (pC < nmembC)
-        // {
-        //     while (pA < nmembA && (pB >= nmembB || pArrayA[pA] <= pArrayB[pB]))
-        //         pArrayC[pC++] = pArrayA[pA++];
-        //     while (pB < nmembB && (pA >= nmembA || pArrayB[pB] < pArrayA[pA]))
-        //         pArrayC[pC++] = pArrayB[pB++];
-        // }
-        // free(pArrayA);
-    }
-
-    { /* by GPT */
-        // int center = (left + right) / 2;
-        // int p = 0;
-        // int i = left;
-        // int j = 0;
-        // int k = left;
-
-        // __MergeSort(a, left, center);
-        // __MergeSort(a, center + 1, right);
-
-        // while (i <= center && j <= right)
-        // {
-        //     if (a[i] <= a[j])
-        //         buff[p++] = a[i++];
-        //     else
-        //         buff[p++] = a[j++];
-        // }
-
-        // while (i <= center)
-        //     buff[p++] = a[i++];
-
-        // while (j <= right)
-        //     buff[p++] = a[j++];
-
-        // for (i = left; i <= right; i++)
-        //     a[i] = buff[i - left];
-    }
-
-    { /* by book */
-        if (left < right)
+        /* 재귀 호출 종료 후 배열 처리 코드 */
+        /* 배열 시작 부터 샌터 요소를 포함한 배열 요소까지 버퍼 배열에 복사 */
+        for (i = left; i <= center; i++)
+            buff[p++] = a[i];
+        /* 버퍼에 복사한 값 */
+        while (i <= right && j < p)
         {
-            int center = (left + right) / 2;
-            int p = 0;
-            int i; 
-            int j = 0;
-            int k = left;
-            __MergeSort(a, left, center);
-            __MergeSort(a, center + 1, right);
-            for (i = left; i <= center; i++)
-                buff[p++] = a[i];
-            while (i <= right && j < p)
-                a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
-            while (j < p)
+            if (buff[j] <= a[i])
                 a[k++] = buff[j++];
+            else
+                a[k++] = a[i++];
         }
-        /*
-        ?? 분명 세그멘테이션 에러가 발생해야 하는데 정상적으로 동작한다...
-        TODO: 이유를 분석해보자
-        */
+        // a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
+        while (j < p)
+            a[k++] = buff[j++];
     }
+}
+
+static void __MergeSort(int *a, int left, int right)
+{
+    /* local variable */
+
+    /* Validation check */
+    if (a == NULL || left > right)
+        return;
+
+    /* code */
 }
