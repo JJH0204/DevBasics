@@ -929,7 +929,8 @@ void mergeSort(int *a, int n)
     if (a == NULL || (buff = (int *)calloc(n, sizeof(int))) == NULL)
         return;
 
-    __MergeSort(a, 0, n - 1);
+    __MergeSort(a, n);
+    // EX__MergeSort(a, 0, n - 1);
     free(buff);
     return;
 }
@@ -970,13 +971,55 @@ static void EX__MergeSort(int *a, int left, int right)
     }
 }
 
-static void __MergeSort(int *a, int left, int right)
+static void __MergeSort(int *a, int n)
 {
     /* local variable */
-
+    stack *loopStack = NULL;
+    int left, right, center;
+    int i, k, j, p;
     /* Validation check */
-    if (a == NULL || left > right)
+    if (a == NULL || n < 1)
         return;
 
-    /* code */
+    loopStack = stack_Create();
+
+    stack_Push(loopStack, (void *)(intptr_t)0);
+    stack_Push(loopStack, (void *)(intptr_t)n - 1);
+
+    while (loopStack->nCurrentCount > 0)
+    {
+        right = (intptr_t)stack_Pop(loopStack);
+        left = (intptr_t)stack_Pop(loopStack);
+        center = (left + right) / 2;
+
+        if (left < right)
+        {
+            stack_Push(loopStack, (void *)(intptr_t)left);
+            stack_Push(loopStack, (void *)(intptr_t)center);
+            stack_Push(loopStack, (void *)(intptr_t)center + 1);
+            stack_Push(loopStack, (void *)(intptr_t)right);
+        }
+        else
+        {
+            right = (intptr_t)stack_Pop(loopStack);
+            left = (intptr_t)stack_Pop(loopStack);
+            center = (left + right) / 2;
+
+            p = 0, j = 0, k = left;
+
+            for (i = left; i <= center; i++)
+                buff[p++] = a[i];
+            /* 버퍼에 복사한 값 */
+            while (i <= right && j < p)
+            {
+                if (buff[j] <= a[i])
+                    a[k++] = buff[j++];
+                else
+                    a[k++] = a[i++];
+            }
+            // a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
+            while (j < p)
+                a[k++] = buff[j++];
+        }
+    }
 }

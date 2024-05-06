@@ -68,7 +68,7 @@ int int_cmpr(const int *a, const int *b);
 /* qsort() 사용 예제 */
 void EX_qsort(int *a, int n);
 /* 직접 만든 qsort() */
-void q_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void*, const void*));
+void q_sort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
 /* 바이트 단위 교환 함수 */
 void MSWAP(size_t size, char *a, char *b);
 /* 바이트 단위 복사 */
@@ -79,7 +79,8 @@ int *mergeArray(int *arrayA, int nmembA, int *arrayB, int nmembB);
 /* 병합 정렬 함수 */
 void mergeSort(int *a, int n);
 /* 병합 정렬 함수(재귀)*/
-static void __MergeSort(int *a, int left, int right);
+static void EX__MergeSort(int *a, int left, int right);
+static void __MergeSort(int *a, int n);
 /* 작업용 배열 */
 static int *buff = NULL;
 
