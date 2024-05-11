@@ -58,7 +58,7 @@ void exMaxHeap(void)
     printf("> Max Heap:\n");
     displayArrayHeap(pMaxHeap);
 
-    deleteArrayMaxHeap(pMaxHeap);
+    deleteArrayHeap(pMaxHeap);
 }
 /*.\heap.exe
 > Max Heap:
@@ -149,7 +149,7 @@ void exMinHeap(void)
     printf("> Min Heap:\n");
     displayArrayHeap(pMinHeap);
 
-    deleteArrayMaxHeap(pMinHeap);
+    deleteArrayHeap(pMinHeap);
 }
 /*
 > Min Heap:

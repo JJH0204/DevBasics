@@ -28,12 +28,16 @@ set(SOURCE_DIR  # 소스코드 경로
 #     ${SOURCE_DIR}/includeArrayGraph.c
 #     ${SOURCE_DIR}/includeGenericStructure.c
 # )
-add_executable(SortingAlgorithm
-    ${SOURCE_DIR}/mainSortingArray.c
-    ${SOURCE_DIR}/includeSorting.c
-    ${SOURCE_DIR}/../non-Linear/includeGenericStructure.c
-)
+# add_executable(SortingAlgorithm
+#     ${SOURCE_DIR}/mainSortingArray.c
+#     ${SOURCE_DIR}/includeSorting.c
+#     ${SOURCE_DIR}/../non-Linear/includeGenericStructure.c
+# )
 
+add_executable(Heap
+    ${SOURCE_DIR}/../non-Linear/mainHeap.c
+    ${SOURCE_DIR}/../non-Linear/includeHeap.c
+)
 # 추가 라이브러리 링크 혹은 옵션 지정
 include_directories(include)
 
