@@ -1042,12 +1042,17 @@ void fsort(int *ptr, int nmemb, int max)
 
     if (ptr == NULL || nmemb < 1 || max < 1)
         return;
-    // step1. 도수분포표 만들기
+
     buff = (int *)calloc(max, sizeof(int));
-
-    if (buff == NULL)
+    copyPtr = (int *)calloc(nmemb, sizeof(int));
+    
+    if (buff == NULL || copyPtr == NULL)
+    {
+        free(buff);
         return;
+    }
 
+    // step1. 도수분포표 만들기
     for (i = 0; i < nmemb; i++)
         buff[ptr[i]]++;
 
@@ -1056,21 +1061,13 @@ void fsort(int *ptr, int nmemb, int max)
         buff[i] += buff[i - 1];
 
     // step3. 목적 배열 만들기
-    copyPtr = (int *)calloc(nmemb, sizeof(int));
-
-    if (copyPtr == NULL)
-    {
-        free(buff);
-        return;
-    }
-
     for (i = nmemb - 1; i >= 0; i--)
         copyPtr[--buff[ptr[i]]] = ptr[i];
 
     // step4. 배열 복사
     for (i = 0; i < nmemb; i++)
         ptr[i] = copyPtr[i];
-    
+
     free(buff);
     free(copyPtr);
     return;

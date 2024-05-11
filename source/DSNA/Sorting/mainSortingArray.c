@@ -15,12 +15,15 @@ void EX_main_Sorting();
 /* 병합 정렬 예제 */
 void EX_main_MargeSort();
 
+/* 도수 정렬 예제 */
+void EX_main_fsort();
 
 /* 정렬 예제 */
 int main(int argc, char *argv[])
 {
-    EX_main_Sorting();
+    // EX_main_Sorting();
     // EX_main_MargeSort();
+    EX_main_fsort();
     return 0;
 }
 
@@ -95,13 +98,6 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
     return;
 }
 
-/* 도수 정렬 예제 */
-void EX_main_fsort(int *a, int n)
-{
-    int nElements = 20;
-    fsort(a, n, nElements);
-}
-
 /* 정렬 함수 예제 */
 void EX_main_Sorting()
 {
@@ -113,7 +109,7 @@ void EX_main_Sorting()
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, EX_main_fsort); /* 정렬 함수 실행 */
+    sortArray(pArray, nElements, _heapSort); /* 정렬 함수 실행 */
     printArray(pArray, nElements);
 
     free(pArray);
@@ -142,5 +138,25 @@ void EX_main_MargeSort()
     free(pArrayA);
     free(pArrayB);
     free(pArrayC);
+    return;
+}
+
+/* 도수 정렬 예제 */
+void EX_main_fsort()
+{
+    /* 시나리오: 학생수가 20명인 반에 0 ~ 100까지 받을 수 있는 시험 성적을 도수 정렬을 사용해 오름차순으로 정렬한다. */
+    int nStudents = 20;
+    int nLoop = 0;
+    int *pScore = (int *)calloc(nStudents, sizeof(int));
+
+    srand(time(NULL));
+    for (nLoop = 0; nLoop < nStudents; nLoop++)
+        pScore[nLoop] = rand() % 101;
+    printf("<Before>\n");
+    printArray(pScore, nStudents);
+    printf("<After>\n");
+    fsort(pScore, nStudents, 100);
+    printArray(pScore, nStudents);
+    free(pScore);
     return;
 }
