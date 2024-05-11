@@ -147,4 +147,4 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
 |퀵 정렬([링크](/markdown/Algorithm/Sorting/QuickSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L395)
 |병합 정렬([링크](/markdown/Algorithm/Sorting/MergeSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L926)
 |힙 정렬([링크](/markdown/Algorithm/Sorting/HeapSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L342)
-|도수 정렬([링크](/markdown/Algorithm/Sorting/FSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L342)
+|도수 정렬([링크](/markdown/Algorithm/Sorting/FSort.md))|[소스코드 링크](../../source/DSNA/Sorting/includeSorting.c#L1038)
