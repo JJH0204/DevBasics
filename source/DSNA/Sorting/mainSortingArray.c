@@ -95,6 +95,13 @@ void sortArray(int *_pArray_, const int _nElements_, void (*Sorting)(int *_pArra
     return;
 }
 
+/* 도수 정렬 예제 */
+void EX_main_fsort(int *a, int n)
+{
+    int nElements = 20;
+    fsort(a, n, nElements);
+}
+
 /* 정렬 함수 예제 */
 void EX_main_Sorting()
 {
@@ -106,7 +113,7 @@ void EX_main_Sorting()
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, _heapSort); /* 정렬 함수 실행 */
+    sortArray(pArray, nElements, EX_main_fsort); /* 정렬 함수 실행 */
     printArray(pArray, nElements);
 
     free(pArray);

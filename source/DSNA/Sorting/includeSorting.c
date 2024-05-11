@@ -973,9 +973,8 @@ static void MergeSortByIndex(int *a, int left, int right)
     }
 }
 // TODO: qsort() 형식으로 호출하는 mergesort 구현하기
-void m_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void *, const void *))
+void m_sort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *))
 {
-    
 }
 
 void heapSort(int *a, int n)
@@ -985,16 +984,16 @@ void heapSort(int *a, int n)
 
     if (a == NULL || n < 1)
         return;
-    
+
     buff = createArrayHeap(n);
     if (buff == NULL)
         return;
     for (nArrayPtr = 0; nArrayPtr < n; nArrayPtr++)
         insertArrayMaxHeap(buff, a[nArrayPtr]);
-    
+
     for (nArrayPtr = n - 1; nArrayPtr >= 0; nArrayPtr--)
         a[nArrayPtr] = removeArrayMaxHeap(buff)->nData;
-    
+
     deleteArrayHeap(buff);
 }
 
@@ -1005,15 +1004,15 @@ static void maxHeap(int *array, int left, int right)
 
     if (array == NULL)
         return;
-    
+
     temp = array[left];
 
     for (parent = left; parent < (right + 1) / 2; parent = child)
     {
         leftC = parent * 2 + 1; /* 왼쪽 자식 */
-        rightC = leftC + 1; /* 오른쪽 자식 */
+        rightC = leftC + 1;     /* 오른쪽 자식 */
 
-        child = (rightC <= right && array[rightC] > array[leftC]) ? rightC : leftC ; /* 두 자식 중 큰 값을 선택 */
+        child = (rightC <= right && array[rightC] > array[leftC]) ? rightC : leftC; /* 두 자식 중 큰 값을 선택 */
 
         if (temp >= array[child])
             break;
@@ -1022,7 +1021,7 @@ static void maxHeap(int *array, int left, int right)
     array[parent] = temp;
 }
 
-void _heapSort(int * a, int n)
+void _heapSort(int *a, int n)
 {
     int i;
     /* 배열을 힙으로 만든다. */
@@ -1032,6 +1031,47 @@ void _heapSort(int * a, int n)
     for (i = n - 1; i > 0; i--)
     {
         swap(int, a[0], a[i]); /* 루트 값과 배열의 정렬되지 않은 끝 요소와 교환 */
-        maxHeap(a, 0, i - 1); /* 배열의 시작부터 정렬되지 않은 끝 요소까지 다시 힙으로 만든다. */
+        maxHeap(a, 0, i - 1);  /* 배열의 시작부터 정렬되지 않은 끝 요소까지 다시 힙으로 만든다. */
     }
+}
+
+void fsort(int *ptr, int nmemb, int max)
+{
+    int *buff = NULL, *copyPtr = NULL;
+    int i = 0;
+
+    if (ptr == NULL || nmemb < 1 || max < 1)
+        return;
+    // step1. 도수분포표 만들기
+    buff = (int *)calloc(max, sizeof(int));
+
+    if (buff == NULL)
+        return;
+
+    for (i = 0; i < nmemb; i++)
+        buff[ptr[i]]++;
+
+    // step2. 누적도수분포표 만들기
+    for (i = 1; i <= max; i++)
+        buff[i] += buff[i - 1];
+
+    // step3. 목적 배열 만들기
+    copyPtr = (int *)calloc(nmemb, sizeof(int));
+
+    if (copyPtr == NULL)
+    {
+        free(buff);
+        return;
+    }
+
+    for (i = nmemb - 1; i >= 0; i--)
+        copyPtr[--buff[ptr[i]]] = ptr[i];
+
+    // step4. 배열 복사
+    for (i = 0; i < nmemb; i++)
+        ptr[i] = copyPtr[i];
+    
+    free(buff);
+    free(copyPtr);
+    return;
 }

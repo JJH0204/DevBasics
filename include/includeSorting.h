@@ -93,5 +93,7 @@ static void maxHeap (int * array, int left, int right);
 void _heapSort(int *a, int n);
 // TODO: qsort() 형식으로 호출하는 mergesort 구현하기
 void m_sort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
+/* 도수 정렬 */
+void fsort(int *ptr, int nmemb, int max);
 
 #endif
