@@ -972,3 +972,61 @@ static void MergeSortByIndex(int *a, int left, int right)
             a[arrayIndex++] = buff[buffIndex++];
     }
 }
+
+void heapSort(int *a, int n)
+{
+    arrayMaxHeap *buff;
+    int nArrayPtr;
+
+    if (a == NULL || n < 1)
+        return;
+    
+    buff = createArrayHeap(n);
+    if (buff == NULL)
+        return;
+    for (nArrayPtr = 0; nArrayPtr < n; nArrayPtr++)
+        insertArrayMaxHeap(buff, a[nArrayPtr]);
+    
+    for (nArrayPtr = n - 1; nArrayPtr >= 0; nArrayPtr--)
+        a[nArrayPtr] = removeArrayMaxHeap(buff)->nData;
+    
+    deleteArrayHeap(buff);
+}
+
+/* array[left] ~ array[right] 를 최대 힙으로 만드는 함수 */
+static void maxHeap(int *array, int left, int right)
+{
+    int temp, child, parent, leftC, rightC;
+
+    if (array == NULL)
+        return;
+    
+    temp = array[left];
+
+    for (parent = left; parent < (right + 1) / 2; parent = child)
+    {
+        leftC = parent * 2 + 1; /* 왼쪽 자식 */
+        rightC = leftC + 1; /* 오른쪽 자식 */
+
+        child = (rightC <= right && array[rightC] > array[leftC]) ? rightC : leftC ; /* 두 자식 중 큰 값을 선택 */
+
+        if (temp >= array[child])
+            break;
+        array[parent] = array[child];
+    }
+    array[parent] = temp;
+}
+
+void _heapSort(int * a, int n)
+{
+    int i;
+    /* 배열을 힙으로 만든다. */
+    for (i = (n - 1) / 2; i >= 0; i--)
+        maxHeap(a, i, n - 1);
+    /* 정렬 로직 수행 */
+    for (i = n - 1; i > 0; i--)
+    {
+        swap(int, a[0], a[i]); /* 루트 값과 배열의 정렬되지 않은 끝 요소와 교환 */
+        maxHeap(a, 0, i - 1); /* 배열의 시작부터 정렬되지 않은 끝 요소까지 다시 힙으로 만든다. */
+    }
+}

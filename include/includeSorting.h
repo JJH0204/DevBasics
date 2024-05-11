@@ -2,6 +2,7 @@
 #define __INCLUDESORTING__
 
 #include "includeGenericStructure.h"
+#include "includeHeap.h"
 #include <time.h>
 #include <string.h>
 
@@ -82,5 +83,14 @@ void mergeSort(int *a, int n);
 static void MergeSortByIndex(int *a, int left, int right);
 
 static int *buff = NULL; /* 병합 정렬용 배열 */
+
+/* 힙 정렬 */
+void heapSort(int *a, int n);
+
+/* array[left] ~ array[right] 를 최대 힙으로 만드는 함수 */
+static void maxHeap (int * array, int left, int right);
+/* 배열 자체를 힙으로 만드는 함수 응용 */
+void _heapSort(int *a, int n);
+
 
 #endif

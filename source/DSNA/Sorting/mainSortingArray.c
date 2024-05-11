@@ -106,7 +106,7 @@ void EX_main_Sorting()
     printArray(pArray, nElements);
 
     printf("<After> \n");
-    sortArray(pArray, nElements, mergeSort);   /* 정렬 함수 실행 */
+    sortArray(pArray, nElements, _heapSort); /* 정렬 함수 실행 */
     printArray(pArray, nElements);
 
     free(pArray);
