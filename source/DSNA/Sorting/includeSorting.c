@@ -925,101 +925,50 @@ int *mergeArray(int *arrayA, int nmembA, int *arrayB, int nmembB)
 
 void mergeSort(int *a, int n)
 {
-
     if (a == NULL || (buff = (int *)calloc(n, sizeof(int))) == NULL)
         return;
-
-    __MergeSort(a, n);
-    // EX__MergeSort(a, 0, n - 1);
+    MergeSortByIndex(a, 0, n - 1);
     free(buff);
     return;
 }
 
-static void EX__MergeSort(int *a, int left, int right)
+static void MergeSortByIndex(int *a, int left, int right)
 {
-    int center = (left + right) / 2;
-    int p = 0;
-    int i;
-    int j = 0;
-    int k = left;
+    int center;        // 배열의 좌측(left)과 우측(right) 범위에서 중앙을 가리킨다.
+    int LoopCount;     // 병합 정렬 함수의 배열 참조 횟수를 제어
+    int buffSize = 0;  // 버퍼에 복사한 요소의 수량 저장
+    int buffIndex = 0; // 참조 중인 버퍼의 요소 위치
+    int arrayIndex = left;
     /* 유효성 점검 */
     if (a == NULL || left > right)
         return;
-    /* by book */
-    /* TODO: 세그멘테이션 에러가 발생해야 하는데 정상적으로 동작한다. 이유를 분석해보자 */
+
     if (left < right)
     {
-        /* 재귀 호출 */
-        EX__MergeSort(a, left, center);
-        EX__MergeSort(a, center + 1, right);
-
-        /* 재귀 호출 종료 후 배열 처리 코드 */
-        /* 배열 시작 부터 샌터 요소를 포함한 배열 요소까지 버퍼 배열에 복사 */
-        for (i = left; i <= center; i++)
-            buff[p++] = a[i];
-        /* 버퍼에 복사한 값 */
-        while (i <= right && j < p)
-        {
-            if (buff[j] <= a[i])
-                a[k++] = buff[j++];
-            else
-                a[k++] = a[i++];
-        }
-        // a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
-        while (j < p)
-            a[k++] = buff[j++];
-    }
-}
-
-static void __MergeSort(int *a, int n)
-{
-    /* local variable */
-    stack *loopStack = NULL;
-    int left, right, center;
-    int i, k, j, p;
-    /* Validation check */
-    if (a == NULL || n < 1)
-        return;
-
-    loopStack = stack_Create();
-
-    stack_Push(loopStack, (void *)(intptr_t)0);
-    stack_Push(loopStack, (void *)(intptr_t)n - 1);
-
-    while (loopStack->nCurrentCount > 0)
-    {
-        right = (intptr_t)stack_Pop(loopStack);
-        left = (intptr_t)stack_Pop(loopStack);
+        /* 변수 초기화 */
         center = (left + right) / 2;
+        LoopCount = left;
 
-        if (left < right)
-        {
-            stack_Push(loopStack, (void *)(intptr_t)left);
-            stack_Push(loopStack, (void *)(intptr_t)center);
-            stack_Push(loopStack, (void *)(intptr_t)center + 1);
-            stack_Push(loopStack, (void *)(intptr_t)right);
-        }
-        else
-        {
-            right = (intptr_t)stack_Pop(loopStack);
-            left = (intptr_t)stack_Pop(loopStack);
-            center = (left + right) / 2;
+        /* 재귀 호출 */
+        MergeSortByIndex(a, left, center);
+        MergeSortByIndex(a, center + 1, right);
 
-            p = 0, j = 0, k = left;
+        /* 센터를 포함한 센터 기준 좌측 배열의 요소를 버퍼에 복사 */
+        while (LoopCount <= center)
+            buff[buffSize++] = a[LoopCount++];
 
-            for (i = left; i <= center; i++)
-                buff[p++] = a[i];
-            /* 버퍼에 복사한 값 */
-            while (i <= right && j < p)
-            {
-                if (buff[j] <= a[i])
-                    a[k++] = buff[j++];
-                else
-                    a[k++] = a[i++];
-            }
-            // a[k++] = (buff[j] <= a[i]) ? buff[j++] : a[i++];
-            while (j < p)
-                a[k++] = buff[j++];
-        }
+        /* 버퍼에 복사한 배열 요소와 센터 기준 우측 배열 요소를 차례로 비교하여 기존 배열에 저장 */
+        while (LoopCount <= right && buffIndex < buffSize)
+            // {
+            //     if (buff[j] <= a[i])
+            //         a[k++] = buff[j++];
+            //     else
+            //         a[k++] = a[i++];
+            // }
+            a[arrayIndex++] = (buff[buffIndex] <= a[LoopCount]) ? buff[buffIndex++] : a[LoopCount++];
+
+        /* 버퍼에 데이터가 남은 경우 기존 배열에 모두 옮겨 저장한다. */
+        while (buffIndex < buffSize)
+            a[arrayIndex++] = buff[buffIndex++];
     }
 }

@@ -79,9 +79,8 @@ int *mergeArray(int *arrayA, int nmembA, int *arrayB, int nmembB);
 /* 병합 정렬 함수 */
 void mergeSort(int *a, int n);
 /* 병합 정렬 함수(재귀)*/
-static void EX__MergeSort(int *a, int left, int right);
-static void __MergeSort(int *a, int n);
-/* 작업용 배열 */
-static int *buff = NULL;
+static void MergeSortByIndex(int *a, int left, int right);
+
+static int *buff = NULL; /* 병합 정렬용 배열 */
 
 #endif
