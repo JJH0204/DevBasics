@@ -972,6 +972,11 @@ static void MergeSortByIndex(int *a, int left, int right)
             a[arrayIndex++] = buff[buffIndex++];
     }
 }
+// TODO: qsort() 형식으로 호출하는 mergesort 구현하기
+void m_sort(void *base, size_t nmemb, size_t size, int(*compar)(const void *, const void *))
+{
+    
+}
 
 void heapSort(int *a, int n)
 {

@@ -91,6 +91,7 @@ void heapSort(int *a, int n);
 static void maxHeap (int * array, int left, int right);
 /* 배열 자체를 힙으로 만드는 함수 응용 */
 void _heapSort(int *a, int n);
-
+// TODO: qsort() 형식으로 호출하는 mergesort 구현하기
+void m_sort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));
 
 #endif
