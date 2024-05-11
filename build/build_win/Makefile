@@ -116,24 +116,96 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Heap
+# Target rules for targets named SortingAlgorithm
 
 # Build rule for target.
-Heap: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Heap
-.PHONY : Heap
+SortingAlgorithm: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 SortingAlgorithm
+.PHONY : SortingAlgorithm
 
 # fast build rule for target.
-Heap/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/build
-.PHONY : Heap/fast
+SortingAlgorithm/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/build
+.PHONY : SortingAlgorithm/fast
+
+source/DSNA/Sorting/includeSorting.obj: source/DSNA/Sorting/includeSorting.c.obj
+.PHONY : source/DSNA/Sorting/includeSorting.obj
+
+# target to build an object file
+source/DSNA/Sorting/includeSorting.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.obj
+.PHONY : source/DSNA/Sorting/includeSorting.c.obj
+
+source/DSNA/Sorting/includeSorting.i: source/DSNA/Sorting/includeSorting.c.i
+.PHONY : source/DSNA/Sorting/includeSorting.i
+
+# target to preprocess a source file
+source/DSNA/Sorting/includeSorting.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.i
+.PHONY : source/DSNA/Sorting/includeSorting.c.i
+
+source/DSNA/Sorting/includeSorting.s: source/DSNA/Sorting/includeSorting.c.s
+.PHONY : source/DSNA/Sorting/includeSorting.s
+
+# target to generate assembly for a file
+source/DSNA/Sorting/includeSorting.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.s
+.PHONY : source/DSNA/Sorting/includeSorting.c.s
+
+source/DSNA/Sorting/mainSortingArray.obj: source/DSNA/Sorting/mainSortingArray.c.obj
+.PHONY : source/DSNA/Sorting/mainSortingArray.obj
+
+# target to build an object file
+source/DSNA/Sorting/mainSortingArray.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.obj
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.obj
+
+source/DSNA/Sorting/mainSortingArray.i: source/DSNA/Sorting/mainSortingArray.c.i
+.PHONY : source/DSNA/Sorting/mainSortingArray.i
+
+# target to preprocess a source file
+source/DSNA/Sorting/mainSortingArray.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.i
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.i
+
+source/DSNA/Sorting/mainSortingArray.s: source/DSNA/Sorting/mainSortingArray.c.s
+.PHONY : source/DSNA/Sorting/mainSortingArray.s
+
+# target to generate assembly for a file
+source/DSNA/Sorting/mainSortingArray.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.s
+.PHONY : source/DSNA/Sorting/mainSortingArray.c.s
+
+source/DSNA/non-Linear/includeGenericStructure.obj: source/DSNA/non-Linear/includeGenericStructure.c.obj
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.obj
+
+# target to build an object file
+source/DSNA/non-Linear/includeGenericStructure.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.obj
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.obj
+
+source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
+
+# target to preprocess a source file
+source/DSNA/non-Linear/includeGenericStructure.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
+
+source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
+
+# target to generate assembly for a file
+source/DSNA/non-Linear/includeGenericStructure.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
+.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
 
 source/DSNA/non-Linear/includeHeap.obj: source/DSNA/non-Linear/includeHeap.c.obj
 .PHONY : source/DSNA/non-Linear/includeHeap.obj
 
 # target to build an object file
 source/DSNA/non-Linear/includeHeap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/source/DSNA/non-Linear/includeHeap.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeHeap.c.obj
 .PHONY : source/DSNA/non-Linear/includeHeap.c.obj
 
 source/DSNA/non-Linear/includeHeap.i: source/DSNA/non-Linear/includeHeap.c.i
@@ -141,7 +213,7 @@ source/DSNA/non-Linear/includeHeap.i: source/DSNA/non-Linear/includeHeap.c.i
 
 # target to preprocess a source file
 source/DSNA/non-Linear/includeHeap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/source/DSNA/non-Linear/includeHeap.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeHeap.c.i
 .PHONY : source/DSNA/non-Linear/includeHeap.c.i
 
 source/DSNA/non-Linear/includeHeap.s: source/DSNA/non-Linear/includeHeap.c.s
@@ -149,32 +221,8 @@ source/DSNA/non-Linear/includeHeap.s: source/DSNA/non-Linear/includeHeap.c.s
 
 # target to generate assembly for a file
 source/DSNA/non-Linear/includeHeap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/source/DSNA/non-Linear/includeHeap.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeHeap.c.s
 .PHONY : source/DSNA/non-Linear/includeHeap.c.s
-
-source/DSNA/non-Linear/mainHeap.obj: source/DSNA/non-Linear/mainHeap.c.obj
-.PHONY : source/DSNA/non-Linear/mainHeap.obj
-
-# target to build an object file
-source/DSNA/non-Linear/mainHeap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/source/DSNA/non-Linear/mainHeap.c.obj
-.PHONY : source/DSNA/non-Linear/mainHeap.c.obj
-
-source/DSNA/non-Linear/mainHeap.i: source/DSNA/non-Linear/mainHeap.c.i
-.PHONY : source/DSNA/non-Linear/mainHeap.i
-
-# target to preprocess a source file
-source/DSNA/non-Linear/mainHeap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/source/DSNA/non-Linear/mainHeap.c.i
-.PHONY : source/DSNA/non-Linear/mainHeap.c.i
-
-source/DSNA/non-Linear/mainHeap.s: source/DSNA/non-Linear/mainHeap.c.s
-.PHONY : source/DSNA/non-Linear/mainHeap.s
-
-# target to generate assembly for a file
-source/DSNA/non-Linear/mainHeap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Heap.dir\build.make CMakeFiles/Heap.dir/source/DSNA/non-Linear/mainHeap.c.s
-.PHONY : source/DSNA/non-Linear/mainHeap.c.s
 
 # Help Target
 help:
@@ -184,13 +232,19 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Heap
+	@echo ... SortingAlgorithm
+	@echo ... source/DSNA/Sorting/includeSorting.obj
+	@echo ... source/DSNA/Sorting/includeSorting.i
+	@echo ... source/DSNA/Sorting/includeSorting.s
+	@echo ... source/DSNA/Sorting/mainSortingArray.obj
+	@echo ... source/DSNA/Sorting/mainSortingArray.i
+	@echo ... source/DSNA/Sorting/mainSortingArray.s
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.obj
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.i
+	@echo ... source/DSNA/non-Linear/includeGenericStructure.s
 	@echo ... source/DSNA/non-Linear/includeHeap.obj
 	@echo ... source/DSNA/non-Linear/includeHeap.i
 	@echo ... source/DSNA/non-Linear/includeHeap.s
-	@echo ... source/DSNA/non-Linear/mainHeap.obj
-	@echo ... source/DSNA/non-Linear/mainHeap.i
-	@echo ... source/DSNA/non-Linear/mainHeap.s
 .PHONY : help
 
 
