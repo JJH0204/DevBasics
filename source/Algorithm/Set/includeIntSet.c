@@ -82,10 +82,31 @@ IntSet *Intersection(IntSet *s1, const IntSet *s2, const IntSet *s3);
 IntSet *Difference(IntSet *s1, const IntSet *s2, const IntSet *s3);
 
 /* 집합 s의 모든 원소 출력 */
-void Print(const IntSet *s);
+void Print(const IntSet *s)
+{
+    int nLoop;
+    if (s == NULL)
+        return;
+    
+    printf("{ ");
+    for (nLoop = 0; nLoop < s->nCount; nLoop++)
+        printf("%d ", s->pSet[nLoop]);
+    printf("}");
+}
 
 /* 집합 s의 모든 원소 출력(줄 바꿈 문자 포함) */
-void PrintLn(const IntSet *s);
+void PrintLn(const IntSet *s)
+{
+    Print(s);
+    putchar('\n');
+}
 
 /* 집합 삭제 */
-void Terminate(IntSet *s);
+void Terminate(IntSet *s)
+{
+    if (s->pSet != NULL)
+    {
+        free(s->pSet);
+        s->nMaxSize = s->nCount = 0;
+    }
+}
