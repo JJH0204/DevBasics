@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/SortingAlgorithm.dir/all
+all: CMakeFiles/INTSET.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/SortingAlgorithm.dir/clean
+clean: CMakeFiles/INTSET.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/SortingAlgorithm.dir
+# Target rules for target CMakeFiles/INTSET.dir
 
 # All Build rule for target.
-CMakeFiles/SortingAlgorithm.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3,4,5 "Built target SortingAlgorithm"
-.PHONY : CMakeFiles/SortingAlgorithm.dir/all
+CMakeFiles/INTSET.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3 "Built target INTSET"
+.PHONY : CMakeFiles/INTSET.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/SortingAlgorithm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/SortingAlgorithm.dir/all
+CMakeFiles/INTSET.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/INTSET.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/SortingAlgorithm.dir/rule
+.PHONY : CMakeFiles/INTSET.dir/rule
 
 # Convenience name for target.
-SortingAlgorithm: CMakeFiles/SortingAlgorithm.dir/rule
-.PHONY : SortingAlgorithm
+INTSET: CMakeFiles/INTSET.dir/rule
+.PHONY : INTSET
 
 # clean rule for target.
-CMakeFiles/SortingAlgorithm.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\SortingAlgorithm.dir\build.make CMakeFiles/SortingAlgorithm.dir/clean
-.PHONY : CMakeFiles/SortingAlgorithm.dir/clean
+CMakeFiles/INTSET.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/clean
+.PHONY : CMakeFiles/INTSET.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
