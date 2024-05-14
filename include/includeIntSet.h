@@ -55,7 +55,6 @@ void PrintLn(const IntSet *s);
 /* 집합 삭제 */
 void Terminate(IntSet *s);
 
-// TODO: 함수 구현
 /* 집합이 가득 찼다면 1. 아니면 0을 반환 */
 int IsFull(const IntSet *s);
 
@@ -80,12 +79,4 @@ int IsSubset(const IntSet *s1, const IntSet *s2);
 /* 집합 s1이 s2의 진부분집합이면 1, 아니면 0을 반환 */
 int IsProperSubset(const IntSet *s1, const IntSet *s2);
 
-/* TODO:
-배열안의원소가항상오름차순을유지하는집합프로그램을작성하세요.
-원소의검색은 이진 검색 알고리즘을 사용합니다(추가, 삭제도 마찬가지입니다). 
-또 오름차순을 유지한다는 특 징을이용해다른배열과같은지확인하는작업도좀더효율적으로진행해보세요.
-이때집합을 관리하는구조체의이름은SortedIntSet으로하세요.
-c 이렇게 프로그램을 만들면 다른 배열과 같은지 확인하는 작업도 효율적으로 할 수 있습니다. 
-하지만 원소를 삽입, 삭제하는 작업의 효율은 떨어집니다.
-*/
 #endif
