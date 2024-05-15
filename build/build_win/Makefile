@@ -116,89 +116,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named INTSET
+# Target rules for targets named BITSET
 
 # Build rule for target.
-INTSET: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 INTSET
-.PHONY : INTSET
+BITSET: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 BITSET
+.PHONY : BITSET
 
 # fast build rule for target.
-INTSET/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/build
-.PHONY : INTSET/fast
+BITSET/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/build
+.PHONY : BITSET/fast
 
-source/Algorithm/Set/includeIntSet.obj: source/Algorithm/Set/includeIntSet.c.obj
-.PHONY : source/Algorithm/Set/includeIntSet.obj
-
-# target to build an object file
-source/Algorithm/Set/includeIntSet.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeIntSet.c.obj
-.PHONY : source/Algorithm/Set/includeIntSet.c.obj
-
-source/Algorithm/Set/includeIntSet.i: source/Algorithm/Set/includeIntSet.c.i
-.PHONY : source/Algorithm/Set/includeIntSet.i
-
-# target to preprocess a source file
-source/Algorithm/Set/includeIntSet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeIntSet.c.i
-.PHONY : source/Algorithm/Set/includeIntSet.c.i
-
-source/Algorithm/Set/includeIntSet.s: source/Algorithm/Set/includeIntSet.c.s
-.PHONY : source/Algorithm/Set/includeIntSet.s
-
-# target to generate assembly for a file
-source/Algorithm/Set/includeIntSet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeIntSet.c.s
-.PHONY : source/Algorithm/Set/includeIntSet.c.s
-
-source/Algorithm/Set/includeSortedIntSet.obj: source/Algorithm/Set/includeSortedIntSet.c.obj
-.PHONY : source/Algorithm/Set/includeSortedIntSet.obj
+source/Algorithm/Set/includeBitSet.obj: source/Algorithm/Set/includeBitSet.c.obj
+.PHONY : source/Algorithm/Set/includeBitSet.obj
 
 # target to build an object file
-source/Algorithm/Set/includeSortedIntSet.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeSortedIntSet.c.obj
-.PHONY : source/Algorithm/Set/includeSortedIntSet.c.obj
+source/Algorithm/Set/includeBitSet.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/includeBitSet.c.obj
+.PHONY : source/Algorithm/Set/includeBitSet.c.obj
 
-source/Algorithm/Set/includeSortedIntSet.i: source/Algorithm/Set/includeSortedIntSet.c.i
-.PHONY : source/Algorithm/Set/includeSortedIntSet.i
+source/Algorithm/Set/includeBitSet.i: source/Algorithm/Set/includeBitSet.c.i
+.PHONY : source/Algorithm/Set/includeBitSet.i
 
 # target to preprocess a source file
-source/Algorithm/Set/includeSortedIntSet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeSortedIntSet.c.i
-.PHONY : source/Algorithm/Set/includeSortedIntSet.c.i
+source/Algorithm/Set/includeBitSet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/includeBitSet.c.i
+.PHONY : source/Algorithm/Set/includeBitSet.c.i
 
-source/Algorithm/Set/includeSortedIntSet.s: source/Algorithm/Set/includeSortedIntSet.c.s
-.PHONY : source/Algorithm/Set/includeSortedIntSet.s
+source/Algorithm/Set/includeBitSet.s: source/Algorithm/Set/includeBitSet.c.s
+.PHONY : source/Algorithm/Set/includeBitSet.s
 
 # target to generate assembly for a file
-source/Algorithm/Set/includeSortedIntSet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeSortedIntSet.c.s
-.PHONY : source/Algorithm/Set/includeSortedIntSet.c.s
+source/Algorithm/Set/includeBitSet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/includeBitSet.c.s
+.PHONY : source/Algorithm/Set/includeBitSet.c.s
 
-source/Algorithm/Set/mainSet.obj: source/Algorithm/Set/mainSet.c.obj
-.PHONY : source/Algorithm/Set/mainSet.obj
+source/Algorithm/Set/mainBitSet.obj: source/Algorithm/Set/mainBitSet.c.obj
+.PHONY : source/Algorithm/Set/mainBitSet.obj
 
 # target to build an object file
-source/Algorithm/Set/mainSet.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/mainSet.c.obj
-.PHONY : source/Algorithm/Set/mainSet.c.obj
+source/Algorithm/Set/mainBitSet.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/mainBitSet.c.obj
+.PHONY : source/Algorithm/Set/mainBitSet.c.obj
 
-source/Algorithm/Set/mainSet.i: source/Algorithm/Set/mainSet.c.i
-.PHONY : source/Algorithm/Set/mainSet.i
+source/Algorithm/Set/mainBitSet.i: source/Algorithm/Set/mainBitSet.c.i
+.PHONY : source/Algorithm/Set/mainBitSet.i
 
 # target to preprocess a source file
-source/Algorithm/Set/mainSet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/mainSet.c.i
-.PHONY : source/Algorithm/Set/mainSet.c.i
+source/Algorithm/Set/mainBitSet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/mainBitSet.c.i
+.PHONY : source/Algorithm/Set/mainBitSet.c.i
 
-source/Algorithm/Set/mainSet.s: source/Algorithm/Set/mainSet.c.s
-.PHONY : source/Algorithm/Set/mainSet.s
+source/Algorithm/Set/mainBitSet.s: source/Algorithm/Set/mainBitSet.c.s
+.PHONY : source/Algorithm/Set/mainBitSet.s
 
 # target to generate assembly for a file
-source/Algorithm/Set/mainSet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/mainSet.c.s
-.PHONY : source/Algorithm/Set/mainSet.c.s
+source/Algorithm/Set/mainBitSet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/mainBitSet.c.s
+.PHONY : source/Algorithm/Set/mainBitSet.c.s
 
 # Help Target
 help:
@@ -208,16 +184,13 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... INTSET
-	@echo ... source/Algorithm/Set/includeIntSet.obj
-	@echo ... source/Algorithm/Set/includeIntSet.i
-	@echo ... source/Algorithm/Set/includeIntSet.s
-	@echo ... source/Algorithm/Set/includeSortedIntSet.obj
-	@echo ... source/Algorithm/Set/includeSortedIntSet.i
-	@echo ... source/Algorithm/Set/includeSortedIntSet.s
-	@echo ... source/Algorithm/Set/mainSet.obj
-	@echo ... source/Algorithm/Set/mainSet.i
-	@echo ... source/Algorithm/Set/mainSet.s
+	@echo ... BITSET
+	@echo ... source/Algorithm/Set/includeBitSet.obj
+	@echo ... source/Algorithm/Set/includeBitSet.i
+	@echo ... source/Algorithm/Set/includeBitSet.s
+	@echo ... source/Algorithm/Set/mainBitSet.obj
+	@echo ... source/Algorithm/Set/mainBitSet.i
+	@echo ... source/Algorithm/Set/mainBitSet.s
 .PHONY : help
 
 
