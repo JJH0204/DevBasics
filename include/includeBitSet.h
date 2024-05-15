@@ -6,8 +6,8 @@
 
 typedef unsigned long BitSet;
 
-#define BitSetNull  (BitSet)0;
-#define BitSetBits 32;
+#define BitSetNull  (BitSet)0
+#define BitSetBits 32
 #define SetOf(no) ((BitSet)1 << (no))
 
 /* 집합 s에 n의 포함 여부 확인 */
@@ -20,11 +20,11 @@ void BitSet_Add(BitSet *s, int n);
 void BitSet_Remove(BitSet *s, int n);
 
 /* 집합 s의 원소 개수 */
-int BitSet_Size(BitSet *s);
+int BitSet_Size(BitSet s);
 
 /* 집합 s의 모든 원소 출력 */
-void BitSet_Print(BitSet *s);
+void BitSet_Print(BitSet s);
 
 /* 집합 s의 모든 원소 출력(줄 바꿈 문자 포함) */
-void BitSet_PrintLn(BitSet *s);
+void BitSet_PrintLn(BitSet s);
 #endif

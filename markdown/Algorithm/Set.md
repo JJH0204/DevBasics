@@ -57,7 +57,7 @@ $$
 -> 이러한 상태를 표현할 데이터가 필요
 - 배열의 정보(집합의 최대 크기, 집합의 원소 개수)를 저장할 구조체를 정의하여 관리한다.
 - 집합의 특징을 고려해서 소스코드를 작성한다면 쉽게 구현이 가능하다.
-## 4.1. [main.c](../../source/Algorithm/Set/mainSet.c)
+## 4.1. [main.c](../../source/Algorithm/Set/mainIntSet.c)
 ## 4.2. [includeIntSet.c](../../source/Algorithm/Set/includeIntSet.c)
 ## 4.3. [includeIntSet.h](../../include/includeIntSet.h)
 ## 4.4. [includeSortedIntSet.c](../../source/Algorithm/Set/includeSortedIntSet.c)
