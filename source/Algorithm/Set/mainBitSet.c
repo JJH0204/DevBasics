@@ -68,7 +68,8 @@ int main(int argc, char *argv[])
             BitSet_PrintLn(s1 | s2);
             printf("s1 - s2 = ");
             BitSet_PrintLn(s1 & ~s2);
-            // TODO: 대칭 차집합을 구하여 출력
+            printf("Symmetric difference between s1 and s2: ");
+            BitSet_PrintLn(BitSet_SyDifference(s1, s2));
             break;
         case 6:
             x = scan_data(ADD);

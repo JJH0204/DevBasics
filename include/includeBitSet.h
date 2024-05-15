@@ -27,4 +27,7 @@ void BitSet_Print(BitSet s);
 
 /* 집합 s의 모든 원소 출력(줄 바꿈 문자 포함) */
 void BitSet_PrintLn(BitSet s);
+
+/* s1와 s2의 대칭차를 구하는 함수 */
+BitSet BitSet_SyDifference(BitSet s1, BitSet s2);
 #endif

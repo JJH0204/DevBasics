@@ -45,3 +45,12 @@ void BitSet_PrintLn(BitSet s)
     BitSet_Print(s);
     putchar('\n');
 }
+
+/* s1와 s2의 대칭차를 구하는 함수 */
+BitSet BitSet_SyDifference(BitSet s1, BitSet s2)
+{
+    BitSet temp1 = s1 & ~s2;
+    BitSet temp2 = s2 & ~s1;
+
+    return temp1 | temp2;
+}
