@@ -56,3 +56,12 @@ $$
 - 배열을 사용해 집합을 표현하려면 집합의 원소 개수와 배열의 요소 개수는 항상 같아야 한다.   
 -> 이러한 상태를 표현할 데이터가 필요
 - 배열의 정보(집합의 최대 크기, 집합의 원소 개수)를 저장할 구조체를 정의하여 관리한다.
+- 집합의 특징을 고려해서 소스코드를 작성한다면 쉽게 구현이 가능하다.
+## 4.1. [main.c](../../source/Algorithm/Set/mainSet.c)
+## 4.2. [includeIntSet.c](../../source/Algorithm/Set/includeIntSet.c)
+## 4.3. [includeIntSet.h](../../include/includeIntSet.h)
+## 4.4. [includeSortedIntSet.c](../../source/Algorithm/Set/includeSortedIntSet.c)
+## 4.5. [includeSortedIntSet.h](../../include/includeSortedIntSet.h)
+# 5. 비트 벡터로 집합 구현
+- 집합의 요소 개수(Max)가 작은 값일 때 집합을 하나의 정수에 저장할 수 있다.
+- 이때 정수를 구성하는 비트의 나열을 비트 벡터(bit vector)라고 한다.
