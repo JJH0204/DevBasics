@@ -152,6 +152,30 @@ source/Algorithm/Set/includeIntSet.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeIntSet.c.s
 .PHONY : source/Algorithm/Set/includeIntSet.c.s
 
+source/Algorithm/Set/includeSortedIntSet.obj: source/Algorithm/Set/includeSortedIntSet.c.obj
+.PHONY : source/Algorithm/Set/includeSortedIntSet.obj
+
+# target to build an object file
+source/Algorithm/Set/includeSortedIntSet.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeSortedIntSet.c.obj
+.PHONY : source/Algorithm/Set/includeSortedIntSet.c.obj
+
+source/Algorithm/Set/includeSortedIntSet.i: source/Algorithm/Set/includeSortedIntSet.c.i
+.PHONY : source/Algorithm/Set/includeSortedIntSet.i
+
+# target to preprocess a source file
+source/Algorithm/Set/includeSortedIntSet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeSortedIntSet.c.i
+.PHONY : source/Algorithm/Set/includeSortedIntSet.c.i
+
+source/Algorithm/Set/includeSortedIntSet.s: source/Algorithm/Set/includeSortedIntSet.c.s
+.PHONY : source/Algorithm/Set/includeSortedIntSet.s
+
+# target to generate assembly for a file
+source/Algorithm/Set/includeSortedIntSet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\INTSET.dir\build.make CMakeFiles/INTSET.dir/source/Algorithm/Set/includeSortedIntSet.c.s
+.PHONY : source/Algorithm/Set/includeSortedIntSet.c.s
+
 source/Algorithm/Set/mainSet.obj: source/Algorithm/Set/mainSet.c.obj
 .PHONY : source/Algorithm/Set/mainSet.obj
 
@@ -188,6 +212,9 @@ help:
 	@echo ... source/Algorithm/Set/includeIntSet.obj
 	@echo ... source/Algorithm/Set/includeIntSet.i
 	@echo ... source/Algorithm/Set/includeIntSet.s
+	@echo ... source/Algorithm/Set/includeSortedIntSet.obj
+	@echo ... source/Algorithm/Set/includeSortedIntSet.i
+	@echo ... source/Algorithm/Set/includeSortedIntSet.s
 	@echo ... source/Algorithm/Set/mainSet.obj
 	@echo ... source/Algorithm/Set/mainSet.i
 	@echo ... source/Algorithm/Set/mainSet.s

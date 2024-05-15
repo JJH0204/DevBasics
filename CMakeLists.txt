@@ -32,6 +32,7 @@ set(SOURCE_DIR  # 소스코드 경로
 add_executable(INTSET
     ${SOURCE_DIR}Set/mainSet.c
     ${SOURCE_DIR}Set/includeIntSet.c
+    ${SOURCE_DIR}Set/includeSortedIntSet.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정
