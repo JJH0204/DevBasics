@@ -169,6 +169,7 @@ int scan_data(int sw)
     scanf("%d", &data);
     return data;
 }
+
 void ExampleSet1(void)
 {
     SortedIntSet s1, s2, s3;
