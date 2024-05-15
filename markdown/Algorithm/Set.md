@@ -65,3 +65,6 @@ $$
 # 5. 비트 벡터로 집합 구현
 - 집합의 요소 개수(Max)가 작은 값일 때 집합을 하나의 정수에 저장할 수 있다.
 - 이때 정수를 구성하는 비트의 나열을 비트 벡터(bit vector)라고 한다.
+## 5.1. [main.c](../../source/Algorithm/Set/mainBitSet.c)
+## 5.2. [includeBitSet.c](../../source/Algorithm/Set/includeBitSet.c)
+## 5.3. [includeBitSet.h](../../include/includeBitSet.h)
