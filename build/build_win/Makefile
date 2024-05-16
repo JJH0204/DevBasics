@@ -116,65 +116,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named BITSET
+# Target rules for targets named TextSearch
 
 # Build rule for target.
-BITSET: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 BITSET
-.PHONY : BITSET
+TextSearch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 TextSearch
+.PHONY : TextSearch
 
 # fast build rule for target.
-BITSET/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/build
-.PHONY : BITSET/fast
+TextSearch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/build
+.PHONY : TextSearch/fast
 
-source/Algorithm/Set/includeBitSet.obj: source/Algorithm/Set/includeBitSet.c.obj
-.PHONY : source/Algorithm/Set/includeBitSet.obj
-
-# target to build an object file
-source/Algorithm/Set/includeBitSet.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/includeBitSet.c.obj
-.PHONY : source/Algorithm/Set/includeBitSet.c.obj
-
-source/Algorithm/Set/includeBitSet.i: source/Algorithm/Set/includeBitSet.c.i
-.PHONY : source/Algorithm/Set/includeBitSet.i
-
-# target to preprocess a source file
-source/Algorithm/Set/includeBitSet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/includeBitSet.c.i
-.PHONY : source/Algorithm/Set/includeBitSet.c.i
-
-source/Algorithm/Set/includeBitSet.s: source/Algorithm/Set/includeBitSet.c.s
-.PHONY : source/Algorithm/Set/includeBitSet.s
-
-# target to generate assembly for a file
-source/Algorithm/Set/includeBitSet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/includeBitSet.c.s
-.PHONY : source/Algorithm/Set/includeBitSet.c.s
-
-source/Algorithm/Set/mainBitSet.obj: source/Algorithm/Set/mainBitSet.c.obj
-.PHONY : source/Algorithm/Set/mainBitSet.obj
+source/Algorithm/TextSearch/includeTextSearch.obj: source/Algorithm/TextSearch/includeTextSearch.c.obj
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.obj
 
 # target to build an object file
-source/Algorithm/Set/mainBitSet.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/mainBitSet.c.obj
-.PHONY : source/Algorithm/Set/mainBitSet.c.obj
+source/Algorithm/TextSearch/includeTextSearch.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.obj
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.obj
 
-source/Algorithm/Set/mainBitSet.i: source/Algorithm/Set/mainBitSet.c.i
-.PHONY : source/Algorithm/Set/mainBitSet.i
+source/Algorithm/TextSearch/includeTextSearch.i: source/Algorithm/TextSearch/includeTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.i
 
 # target to preprocess a source file
-source/Algorithm/Set/mainBitSet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/mainBitSet.c.i
-.PHONY : source/Algorithm/Set/mainBitSet.c.i
+source/Algorithm/TextSearch/includeTextSearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.i
 
-source/Algorithm/Set/mainBitSet.s: source/Algorithm/Set/mainBitSet.c.s
-.PHONY : source/Algorithm/Set/mainBitSet.s
+source/Algorithm/TextSearch/includeTextSearch.s: source/Algorithm/TextSearch/includeTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.s
 
 # target to generate assembly for a file
-source/Algorithm/Set/mainBitSet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/source/Algorithm/Set/mainBitSet.c.s
-.PHONY : source/Algorithm/Set/mainBitSet.c.s
+source/Algorithm/TextSearch/includeTextSearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.s
+
+source/Algorithm/TextSearch/mainTextSearch.obj: source/Algorithm/TextSearch/mainTextSearch.c.obj
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.obj
+
+# target to build an object file
+source/Algorithm/TextSearch/mainTextSearch.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.obj
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.obj
+
+source/Algorithm/TextSearch/mainTextSearch.i: source/Algorithm/TextSearch/mainTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.i
+
+# target to preprocess a source file
+source/Algorithm/TextSearch/mainTextSearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.i
+
+source/Algorithm/TextSearch/mainTextSearch.s: source/Algorithm/TextSearch/mainTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.s
+
+# target to generate assembly for a file
+source/Algorithm/TextSearch/mainTextSearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.s
 
 # Help Target
 help:
@@ -184,13 +184,13 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... BITSET
-	@echo ... source/Algorithm/Set/includeBitSet.obj
-	@echo ... source/Algorithm/Set/includeBitSet.i
-	@echo ... source/Algorithm/Set/includeBitSet.s
-	@echo ... source/Algorithm/Set/mainBitSet.obj
-	@echo ... source/Algorithm/Set/mainBitSet.i
-	@echo ... source/Algorithm/Set/mainBitSet.s
+	@echo ... TextSearch
+	@echo ... source/Algorithm/TextSearch/includeTextSearch.obj
+	@echo ... source/Algorithm/TextSearch/includeTextSearch.i
+	@echo ... source/Algorithm/TextSearch/includeTextSearch.s
+	@echo ... source/Algorithm/TextSearch/mainTextSearch.obj
+	@echo ... source/Algorithm/TextSearch/mainTextSearch.i
+	@echo ... source/Algorithm/TextSearch/mainTextSearch.s
 .PHONY : help
 
 

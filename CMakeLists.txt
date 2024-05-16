@@ -16,16 +16,13 @@ add_compile_options(
 
 # 소스 파일의 경로를 변수에 설정
 set(SOURCE_DIR  # 소스코드 경로
-    # source/DSNA/non-Linear
-    # source/DSNA/Search
-    # source/DSNA/Algorithm
     source/Algorithm/
 )
 
 # 소스 파일 지정
-add_executable(BITSET
-    ${SOURCE_DIR}Set/mainBitSet.c
-    ${SOURCE_DIR}Set/includeBitSet.c
+add_executable(TextSearch
+    ${SOURCE_DIR}TextSearch/mainTextSearch.c
+    ${SOURCE_DIR}TextSearch/includeTextSearch.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정

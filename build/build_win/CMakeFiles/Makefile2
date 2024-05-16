@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = E:\Document\GitHub\DevBasics\build\build_win
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/BITSET.dir/all
+all: CMakeFiles/TextSearch.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -70,34 +70,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/BITSET.dir/clean
+clean: CMakeFiles/TextSearch.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/BITSET.dir
+# Target rules for target CMakeFiles/TextSearch.dir
 
 # All Build rule for target.
-CMakeFiles/BITSET.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3 "Built target BITSET"
-.PHONY : CMakeFiles/BITSET.dir/all
+CMakeFiles/TextSearch.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles --progress-num=1,2,3 "Built target TextSearch"
+.PHONY : CMakeFiles/TextSearch.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/BITSET.dir/rule: cmake_check_build_system
+CMakeFiles/TextSearch.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/BITSET.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/TextSearch.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start E:\Document\GitHub\DevBasics\build\build_win\CMakeFiles 0
-.PHONY : CMakeFiles/BITSET.dir/rule
+.PHONY : CMakeFiles/TextSearch.dir/rule
 
 # Convenience name for target.
-BITSET: CMakeFiles/BITSET.dir/rule
-.PHONY : BITSET
+TextSearch: CMakeFiles/TextSearch.dir/rule
+.PHONY : TextSearch
 
 # clean rule for target.
-CMakeFiles/BITSET.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\BITSET.dir\build.make CMakeFiles/BITSET.dir/clean
-.PHONY : CMakeFiles/BITSET.dir/clean
+CMakeFiles/TextSearch.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\TextSearch.dir\build.make CMakeFiles/TextSearch.dir/clean
+.PHONY : CMakeFiles/TextSearch.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
