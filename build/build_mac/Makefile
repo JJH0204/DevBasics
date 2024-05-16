@@ -117,89 +117,65 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SortingAlgorithm
+# Target rules for targets named TextSearch
 
 # Build rule for target.
-SortingAlgorithm: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SortingAlgorithm
-.PHONY : SortingAlgorithm
+TextSearch: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TextSearch
+.PHONY : TextSearch
 
 # fast build rule for target.
-SortingAlgorithm/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/build
-.PHONY : SortingAlgorithm/fast
+TextSearch/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/build
+.PHONY : TextSearch/fast
 
-source/DSNA/Sorting/includeSorting.o: source/DSNA/Sorting/includeSorting.c.o
-.PHONY : source/DSNA/Sorting/includeSorting.o
-
-# target to build an object file
-source/DSNA/Sorting/includeSorting.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.o
-.PHONY : source/DSNA/Sorting/includeSorting.c.o
-
-source/DSNA/Sorting/includeSorting.i: source/DSNA/Sorting/includeSorting.c.i
-.PHONY : source/DSNA/Sorting/includeSorting.i
-
-# target to preprocess a source file
-source/DSNA/Sorting/includeSorting.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.i
-.PHONY : source/DSNA/Sorting/includeSorting.c.i
-
-source/DSNA/Sorting/includeSorting.s: source/DSNA/Sorting/includeSorting.c.s
-.PHONY : source/DSNA/Sorting/includeSorting.s
-
-# target to generate assembly for a file
-source/DSNA/Sorting/includeSorting.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/includeSorting.c.s
-.PHONY : source/DSNA/Sorting/includeSorting.c.s
-
-source/DSNA/Sorting/mainSortingArray.o: source/DSNA/Sorting/mainSortingArray.c.o
-.PHONY : source/DSNA/Sorting/mainSortingArray.o
+source/Algorithm/TextSearch/includeTextSearch.o: source/Algorithm/TextSearch/includeTextSearch.c.o
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.o
 
 # target to build an object file
-source/DSNA/Sorting/mainSortingArray.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.o
-.PHONY : source/DSNA/Sorting/mainSortingArray.c.o
+source/Algorithm/TextSearch/includeTextSearch.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.o
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.o
 
-source/DSNA/Sorting/mainSortingArray.i: source/DSNA/Sorting/mainSortingArray.c.i
-.PHONY : source/DSNA/Sorting/mainSortingArray.i
+source/Algorithm/TextSearch/includeTextSearch.i: source/Algorithm/TextSearch/includeTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.i
 
 # target to preprocess a source file
-source/DSNA/Sorting/mainSortingArray.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.i
-.PHONY : source/DSNA/Sorting/mainSortingArray.c.i
+source/Algorithm/TextSearch/includeTextSearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.i
 
-source/DSNA/Sorting/mainSortingArray.s: source/DSNA/Sorting/mainSortingArray.c.s
-.PHONY : source/DSNA/Sorting/mainSortingArray.s
+source/Algorithm/TextSearch/includeTextSearch.s: source/Algorithm/TextSearch/includeTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.s
 
 # target to generate assembly for a file
-source/DSNA/Sorting/mainSortingArray.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/Sorting/mainSortingArray.c.s
-.PHONY : source/DSNA/Sorting/mainSortingArray.c.s
+source/Algorithm/TextSearch/includeTextSearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.s
 
-source/DSNA/non-Linear/includeGenericStructure.o: source/DSNA/non-Linear/includeGenericStructure.c.o
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.o
+source/Algorithm/TextSearch/mainTextSearch.o: source/Algorithm/TextSearch/mainTextSearch.c.o
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.o
 
 # target to build an object file
-source/DSNA/non-Linear/includeGenericStructure.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.o
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.o
+source/Algorithm/TextSearch/mainTextSearch.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.o
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.o
 
-source/DSNA/non-Linear/includeGenericStructure.i: source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.i
+source/Algorithm/TextSearch/mainTextSearch.i: source/Algorithm/TextSearch/mainTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.i
 
 # target to preprocess a source file
-source/DSNA/non-Linear/includeGenericStructure.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.i
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.i
+source/Algorithm/TextSearch/mainTextSearch.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.i
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.i
 
-source/DSNA/non-Linear/includeGenericStructure.s: source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.s
+source/Algorithm/TextSearch/mainTextSearch.s: source/Algorithm/TextSearch/mainTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.s
 
 # target to generate assembly for a file
-source/DSNA/non-Linear/includeGenericStructure.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingAlgorithm.dir/build.make CMakeFiles/SortingAlgorithm.dir/source/DSNA/non-Linear/includeGenericStructure.c.s
-.PHONY : source/DSNA/non-Linear/includeGenericStructure.c.s
+source/Algorithm/TextSearch/mainTextSearch.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.s
+.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.s
 
 # Help Target
 help:
@@ -209,16 +185,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... SortingAlgorithm"
-	@echo "... source/DSNA/Sorting/includeSorting.o"
-	@echo "... source/DSNA/Sorting/includeSorting.i"
-	@echo "... source/DSNA/Sorting/includeSorting.s"
-	@echo "... source/DSNA/Sorting/mainSortingArray.o"
-	@echo "... source/DSNA/Sorting/mainSortingArray.i"
-	@echo "... source/DSNA/Sorting/mainSortingArray.s"
-	@echo "... source/DSNA/non-Linear/includeGenericStructure.o"
-	@echo "... source/DSNA/non-Linear/includeGenericStructure.i"
-	@echo "... source/DSNA/non-Linear/includeGenericStructure.s"
+	@echo "... TextSearch"
+	@echo "... source/Algorithm/TextSearch/includeTextSearch.o"
+	@echo "... source/Algorithm/TextSearch/includeTextSearch.i"
+	@echo "... source/Algorithm/TextSearch/includeTextSearch.s"
+	@echo "... source/Algorithm/TextSearch/mainTextSearch.o"
+	@echo "... source/Algorithm/TextSearch/mainTextSearch.i"
+	@echo "... source/Algorithm/TextSearch/mainTextSearch.s"
 .PHONY : help
 
 

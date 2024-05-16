@@ -42,5 +42,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/SortingAlgorithm.dir/DependInfo.cmake"
+  "CMakeFiles/TextSearch.dir/DependInfo.cmake"
   )
