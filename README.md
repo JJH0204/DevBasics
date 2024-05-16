@@ -91,9 +91,7 @@
 <summary>객체지향 (with. C++)</summary>
 <div markdown="1">
 
-| 주제 | check | .md | .main | .include |
-| ---- | :---- | :-- | :---- | :------- |
-|      |
+- [About Cpp](https://github.com/JJH0204/CPPBasics)
 
 </div>
 </details>
