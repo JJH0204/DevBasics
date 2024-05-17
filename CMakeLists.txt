@@ -24,6 +24,7 @@ add_executable(ChainHashing
     ${SOURCE_DIR}/main.c
     ${SOURCE_DIR}/includeMember.c
     ${SOURCE_DIR}/includeChainHash.c
+    ${SOURCE_DIR}/includeClosedHash.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정
