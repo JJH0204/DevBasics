@@ -117,65 +117,89 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TextSearch
+# Target rules for targets named ChainHashing
 
 # Build rule for target.
-TextSearch: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TextSearch
-.PHONY : TextSearch
+ChainHashing: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ChainHashing
+.PHONY : ChainHashing
 
 # fast build rule for target.
-TextSearch/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/build
-.PHONY : TextSearch/fast
+ChainHashing/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/build
+.PHONY : ChainHashing/fast
 
-source/Algorithm/TextSearch/includeTextSearch.o: source/Algorithm/TextSearch/includeTextSearch.c.o
-.PHONY : source/Algorithm/TextSearch/includeTextSearch.o
-
-# target to build an object file
-source/Algorithm/TextSearch/includeTextSearch.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.o
-.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.o
-
-source/Algorithm/TextSearch/includeTextSearch.i: source/Algorithm/TextSearch/includeTextSearch.c.i
-.PHONY : source/Algorithm/TextSearch/includeTextSearch.i
-
-# target to preprocess a source file
-source/Algorithm/TextSearch/includeTextSearch.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.i
-.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.i
-
-source/Algorithm/TextSearch/includeTextSearch.s: source/Algorithm/TextSearch/includeTextSearch.c.s
-.PHONY : source/Algorithm/TextSearch/includeTextSearch.s
-
-# target to generate assembly for a file
-source/Algorithm/TextSearch/includeTextSearch.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/includeTextSearch.c.s
-.PHONY : source/Algorithm/TextSearch/includeTextSearch.c.s
-
-source/Algorithm/TextSearch/mainTextSearch.o: source/Algorithm/TextSearch/mainTextSearch.c.o
-.PHONY : source/Algorithm/TextSearch/mainTextSearch.o
+source/Algorithm/Hashing/includeChainHash.o: source/Algorithm/Hashing/includeChainHash.c.o
+.PHONY : source/Algorithm/Hashing/includeChainHash.o
 
 # target to build an object file
-source/Algorithm/TextSearch/mainTextSearch.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.o
-.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.o
+source/Algorithm/Hashing/includeChainHash.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeChainHash.c.o
+.PHONY : source/Algorithm/Hashing/includeChainHash.c.o
 
-source/Algorithm/TextSearch/mainTextSearch.i: source/Algorithm/TextSearch/mainTextSearch.c.i
-.PHONY : source/Algorithm/TextSearch/mainTextSearch.i
+source/Algorithm/Hashing/includeChainHash.i: source/Algorithm/Hashing/includeChainHash.c.i
+.PHONY : source/Algorithm/Hashing/includeChainHash.i
 
 # target to preprocess a source file
-source/Algorithm/TextSearch/mainTextSearch.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.i
-.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.i
+source/Algorithm/Hashing/includeChainHash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeChainHash.c.i
+.PHONY : source/Algorithm/Hashing/includeChainHash.c.i
 
-source/Algorithm/TextSearch/mainTextSearch.s: source/Algorithm/TextSearch/mainTextSearch.c.s
-.PHONY : source/Algorithm/TextSearch/mainTextSearch.s
+source/Algorithm/Hashing/includeChainHash.s: source/Algorithm/Hashing/includeChainHash.c.s
+.PHONY : source/Algorithm/Hashing/includeChainHash.s
 
 # target to generate assembly for a file
-source/Algorithm/TextSearch/mainTextSearch.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TextSearch.dir/build.make CMakeFiles/TextSearch.dir/source/Algorithm/TextSearch/mainTextSearch.c.s
-.PHONY : source/Algorithm/TextSearch/mainTextSearch.c.s
+source/Algorithm/Hashing/includeChainHash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeChainHash.c.s
+.PHONY : source/Algorithm/Hashing/includeChainHash.c.s
+
+source/Algorithm/Hashing/includeMember.o: source/Algorithm/Hashing/includeMember.c.o
+.PHONY : source/Algorithm/Hashing/includeMember.o
+
+# target to build an object file
+source/Algorithm/Hashing/includeMember.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeMember.c.o
+.PHONY : source/Algorithm/Hashing/includeMember.c.o
+
+source/Algorithm/Hashing/includeMember.i: source/Algorithm/Hashing/includeMember.c.i
+.PHONY : source/Algorithm/Hashing/includeMember.i
+
+# target to preprocess a source file
+source/Algorithm/Hashing/includeMember.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeMember.c.i
+.PHONY : source/Algorithm/Hashing/includeMember.c.i
+
+source/Algorithm/Hashing/includeMember.s: source/Algorithm/Hashing/includeMember.c.s
+.PHONY : source/Algorithm/Hashing/includeMember.s
+
+# target to generate assembly for a file
+source/Algorithm/Hashing/includeMember.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeMember.c.s
+.PHONY : source/Algorithm/Hashing/includeMember.c.s
+
+source/Algorithm/Hashing/main.o: source/Algorithm/Hashing/main.c.o
+.PHONY : source/Algorithm/Hashing/main.o
+
+# target to build an object file
+source/Algorithm/Hashing/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/main.c.o
+.PHONY : source/Algorithm/Hashing/main.c.o
+
+source/Algorithm/Hashing/main.i: source/Algorithm/Hashing/main.c.i
+.PHONY : source/Algorithm/Hashing/main.i
+
+# target to preprocess a source file
+source/Algorithm/Hashing/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/main.c.i
+.PHONY : source/Algorithm/Hashing/main.c.i
+
+source/Algorithm/Hashing/main.s: source/Algorithm/Hashing/main.c.s
+.PHONY : source/Algorithm/Hashing/main.s
+
+# target to generate assembly for a file
+source/Algorithm/Hashing/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/main.c.s
+.PHONY : source/Algorithm/Hashing/main.c.s
 
 # Help Target
 help:
@@ -185,13 +209,16 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... TextSearch"
-	@echo "... source/Algorithm/TextSearch/includeTextSearch.o"
-	@echo "... source/Algorithm/TextSearch/includeTextSearch.i"
-	@echo "... source/Algorithm/TextSearch/includeTextSearch.s"
-	@echo "... source/Algorithm/TextSearch/mainTextSearch.o"
-	@echo "... source/Algorithm/TextSearch/mainTextSearch.i"
-	@echo "... source/Algorithm/TextSearch/mainTextSearch.s"
+	@echo "... ChainHashing"
+	@echo "... source/Algorithm/Hashing/includeChainHash.o"
+	@echo "... source/Algorithm/Hashing/includeChainHash.i"
+	@echo "... source/Algorithm/Hashing/includeChainHash.s"
+	@echo "... source/Algorithm/Hashing/includeMember.o"
+	@echo "... source/Algorithm/Hashing/includeMember.i"
+	@echo "... source/Algorithm/Hashing/includeMember.s"
+	@echo "... source/Algorithm/Hashing/main.o"
+	@echo "... source/Algorithm/Hashing/main.i"
+	@echo "... source/Algorithm/Hashing/main.s"
 .PHONY : help
 
 

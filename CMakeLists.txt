@@ -16,13 +16,14 @@ add_compile_options(
 
 # 소스 파일의 경로를 변수에 설정
 set(SOURCE_DIR  # 소스코드 경로
-    source/Algorithm/
+    source/Algorithm/Hashing
 )
 
 # 소스 파일 지정
-add_executable(TextSearch
-    ${SOURCE_DIR}TextSearch/mainTextSearch.c
-    ${SOURCE_DIR}TextSearch/includeTextSearch.c
+add_executable(ChainHashing
+    ${SOURCE_DIR}/main.c
+    ${SOURCE_DIR}/includeMember.c
+    ${SOURCE_DIR}/includeChainHash.c
 )
 
 # 추가 라이브러리 링크 혹은 옵션 지정
