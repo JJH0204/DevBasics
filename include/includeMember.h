@@ -1,6 +1,7 @@
 #ifndef __HAEHING__
 #define __HAEHING__
 
+/* --- 회원 정보 --- */
 typedef struct
 {
     int no;
