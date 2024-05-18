@@ -20,7 +20,7 @@ set(SOURCE_DIR  # 소스코드 경로
 )
 
 # 소스 파일 지정
-add_executable(ChainHashing
+add_executable(Hashing
     ${SOURCE_DIR}/main.c
     ${SOURCE_DIR}/includeMember.c
     ${SOURCE_DIR}/includeChainHash.c

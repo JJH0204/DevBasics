@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /Users/admin/Documents/GitHub/DevBasics/build/build_mac
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/ChainHashing.dir/all
+all: CMakeFiles/Hashing.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/ChainHashing.dir/clean
+clean: CMakeFiles/Hashing.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/ChainHashing.dir
+# Target rules for target CMakeFiles/Hashing.dir
 
 # All Build rule for target.
-CMakeFiles/ChainHashing.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles --progress-num=1,2,3,4 "Built target ChainHashing"
-.PHONY : CMakeFiles/ChainHashing.dir/all
+CMakeFiles/Hashing.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles --progress-num=1,2,3,4,5 "Built target Hashing"
+.PHONY : CMakeFiles/Hashing.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ChainHashing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ChainHashing.dir/all
+CMakeFiles/Hashing.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Hashing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/admin/Documents/GitHub/DevBasics/build/build_mac/CMakeFiles 0
-.PHONY : CMakeFiles/ChainHashing.dir/rule
+.PHONY : CMakeFiles/Hashing.dir/rule
 
 # Convenience name for target.
-ChainHashing: CMakeFiles/ChainHashing.dir/rule
-.PHONY : ChainHashing
+Hashing: CMakeFiles/Hashing.dir/rule
+.PHONY : Hashing
 
 # clean rule for target.
-CMakeFiles/ChainHashing.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/clean
-.PHONY : CMakeFiles/ChainHashing.dir/clean
+CMakeFiles/Hashing.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/clean
+.PHONY : CMakeFiles/Hashing.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

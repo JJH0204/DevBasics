@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ChainHashing
+# Target rules for targets named Hashing
 
 # Build rule for target.
-ChainHashing: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ChainHashing
-.PHONY : ChainHashing
+Hashing: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Hashing
+.PHONY : Hashing
 
 # fast build rule for target.
-ChainHashing/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/build
-.PHONY : ChainHashing/fast
+Hashing/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/build
+.PHONY : Hashing/fast
 
 source/Algorithm/Hashing/includeChainHash.o: source/Algorithm/Hashing/includeChainHash.c.o
 .PHONY : source/Algorithm/Hashing/includeChainHash.o
 
 # target to build an object file
 source/Algorithm/Hashing/includeChainHash.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeChainHash.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeChainHash.c.o
 .PHONY : source/Algorithm/Hashing/includeChainHash.c.o
 
 source/Algorithm/Hashing/includeChainHash.i: source/Algorithm/Hashing/includeChainHash.c.i
@@ -142,7 +142,7 @@ source/Algorithm/Hashing/includeChainHash.i: source/Algorithm/Hashing/includeCha
 
 # target to preprocess a source file
 source/Algorithm/Hashing/includeChainHash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeChainHash.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeChainHash.c.i
 .PHONY : source/Algorithm/Hashing/includeChainHash.c.i
 
 source/Algorithm/Hashing/includeChainHash.s: source/Algorithm/Hashing/includeChainHash.c.s
@@ -150,15 +150,39 @@ source/Algorithm/Hashing/includeChainHash.s: source/Algorithm/Hashing/includeCha
 
 # target to generate assembly for a file
 source/Algorithm/Hashing/includeChainHash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeChainHash.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeChainHash.c.s
 .PHONY : source/Algorithm/Hashing/includeChainHash.c.s
+
+source/Algorithm/Hashing/includeClosedHash.o: source/Algorithm/Hashing/includeClosedHash.c.o
+.PHONY : source/Algorithm/Hashing/includeClosedHash.o
+
+# target to build an object file
+source/Algorithm/Hashing/includeClosedHash.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeClosedHash.c.o
+.PHONY : source/Algorithm/Hashing/includeClosedHash.c.o
+
+source/Algorithm/Hashing/includeClosedHash.i: source/Algorithm/Hashing/includeClosedHash.c.i
+.PHONY : source/Algorithm/Hashing/includeClosedHash.i
+
+# target to preprocess a source file
+source/Algorithm/Hashing/includeClosedHash.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeClosedHash.c.i
+.PHONY : source/Algorithm/Hashing/includeClosedHash.c.i
+
+source/Algorithm/Hashing/includeClosedHash.s: source/Algorithm/Hashing/includeClosedHash.c.s
+.PHONY : source/Algorithm/Hashing/includeClosedHash.s
+
+# target to generate assembly for a file
+source/Algorithm/Hashing/includeClosedHash.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeClosedHash.c.s
+.PHONY : source/Algorithm/Hashing/includeClosedHash.c.s
 
 source/Algorithm/Hashing/includeMember.o: source/Algorithm/Hashing/includeMember.c.o
 .PHONY : source/Algorithm/Hashing/includeMember.o
 
 # target to build an object file
 source/Algorithm/Hashing/includeMember.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeMember.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeMember.c.o
 .PHONY : source/Algorithm/Hashing/includeMember.c.o
 
 source/Algorithm/Hashing/includeMember.i: source/Algorithm/Hashing/includeMember.c.i
@@ -166,7 +190,7 @@ source/Algorithm/Hashing/includeMember.i: source/Algorithm/Hashing/includeMember
 
 # target to preprocess a source file
 source/Algorithm/Hashing/includeMember.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeMember.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeMember.c.i
 .PHONY : source/Algorithm/Hashing/includeMember.c.i
 
 source/Algorithm/Hashing/includeMember.s: source/Algorithm/Hashing/includeMember.c.s
@@ -174,7 +198,7 @@ source/Algorithm/Hashing/includeMember.s: source/Algorithm/Hashing/includeMember
 
 # target to generate assembly for a file
 source/Algorithm/Hashing/includeMember.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/includeMember.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/includeMember.c.s
 .PHONY : source/Algorithm/Hashing/includeMember.c.s
 
 source/Algorithm/Hashing/main.o: source/Algorithm/Hashing/main.c.o
@@ -182,7 +206,7 @@ source/Algorithm/Hashing/main.o: source/Algorithm/Hashing/main.c.o
 
 # target to build an object file
 source/Algorithm/Hashing/main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/main.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/main.c.o
 .PHONY : source/Algorithm/Hashing/main.c.o
 
 source/Algorithm/Hashing/main.i: source/Algorithm/Hashing/main.c.i
@@ -190,7 +214,7 @@ source/Algorithm/Hashing/main.i: source/Algorithm/Hashing/main.c.i
 
 # target to preprocess a source file
 source/Algorithm/Hashing/main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/main.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/main.c.i
 .PHONY : source/Algorithm/Hashing/main.c.i
 
 source/Algorithm/Hashing/main.s: source/Algorithm/Hashing/main.c.s
@@ -198,7 +222,7 @@ source/Algorithm/Hashing/main.s: source/Algorithm/Hashing/main.c.s
 
 # target to generate assembly for a file
 source/Algorithm/Hashing/main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ChainHashing.dir/build.make CMakeFiles/ChainHashing.dir/source/Algorithm/Hashing/main.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Hashing.dir/build.make CMakeFiles/Hashing.dir/source/Algorithm/Hashing/main.c.s
 .PHONY : source/Algorithm/Hashing/main.c.s
 
 # Help Target
@@ -209,10 +233,13 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... ChainHashing"
+	@echo "... Hashing"
 	@echo "... source/Algorithm/Hashing/includeChainHash.o"
 	@echo "... source/Algorithm/Hashing/includeChainHash.i"
 	@echo "... source/Algorithm/Hashing/includeChainHash.s"
+	@echo "... source/Algorithm/Hashing/includeClosedHash.o"
+	@echo "... source/Algorithm/Hashing/includeClosedHash.i"
+	@echo "... source/Algorithm/Hashing/includeClosedHash.s"
 	@echo "... source/Algorithm/Hashing/includeMember.o"
 	@echo "... source/Algorithm/Hashing/includeMember.i"
 	@echo "... source/Algorithm/Hashing/includeMember.s"
