@@ -69,7 +69,7 @@ int ClosedHash_Add(ClosedHash *h, const Member *x)
     int key = hash(x->no, h->size); /* 추가할 데이터의 해시 값 */
     Bucket *p = &h->table[key];     /* 현재 선택한 노드 */
 
-    if (ClosedHash_Search(h, x) == NULL) /* 이미 데이터를 저장한 경우 */
+    if (ClosedHash_Search(h, x)) /* 이미 데이터를 저장한 경우 */
         return 1;
 
     /* 해시 테이블을 순회 */
@@ -125,6 +125,20 @@ void ClosedHash_Dump(const ClosedHash *h)
     }
 }
 /* --- 모든 데이터 삭제 --- */
-void ClosedHash_Clear(ClosedHash *h);
+void ClosedHash_Clear(ClosedHash *h)
+{
+    int i;
+
+    for (i = 0; i < h->size; i++)   /* 모든 버킷을 순회 */
+        h->table[i].stat = Empty;   /* 공백으로 만든다. */
+}
+
 /* --- 해시 테이블 종료 --- */
-void ClosedHash_Terminate(ClosedHash *h);
+void ClosedHash_Terminate(ClosedHash *h)
+{
+    ClosedHash_Clear(h);       /* 모든 데이터를 삭제 */
+    free(h->table); /* 해시 테이블 배열의 메모리 해제 */
+    h->size = 0;    /* 해시 테이블 크기를 초기화 */
+}
+
+// TODO: 이름을 키 값으로 하는 프로그램 작성
